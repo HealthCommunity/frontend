@@ -1,5 +1,12 @@
+import Title from "../funcskills/title";
+
 function Sign(){
-    return <h1>안녕하세요 Sign 입니다</h1>
+    return (
+        <>
+            <Title name="Sign"/>
+            <h1>안녕하세요 Sign입니다</h1>
+        </>
+    )
 }
 
 export default Sign;

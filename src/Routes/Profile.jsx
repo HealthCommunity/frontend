@@ -1,5 +1,12 @@
+import Title from "../funcskills/title";
+
 function Profile(){
-    return <h1>안녕하세요 Profile 입니다</h1>
+    return (
+        <>
+            <Title name="Profile"/>
+            <h1>안녕하세요 Profile입니다</h1>
+        </>
+    )
 }
 
 export default Profile;

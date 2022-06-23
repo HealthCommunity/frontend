@@ -6,17 +6,23 @@ import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Profile from "./Routes/Profile";
 import Sign from "./Routes/Sign";
+import BoardPost from "./Routes/BoardPost"
+import FreePost from "./Routes/FreePost"
+import ExersisePost from "./Routes/ExersisePost"
 function Router(){
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/" element={<Login/>}/>
-                <Route path="/" element={<Sign/>}/>
-                <Route path="/" element={<Profile/>}/>
-                <Route path="/" element={<Freeboard/>}/>
-                <Route path="/" element={<Board/>}/>
-                <Route path="/" element={<Exersise/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/sign" element={<Sign/>}/>
+                <Route path="/profile" element={<Profile/>}/>
+                <Route path="/freeboard" element={<Freeboard/>}/>
+                <Route path="/freeboard/:id" element={<FreePost />} />
+                <Route path="/board" element={<Board/>}/>
+                <Route path="/board/:id" element={<BoardPost />} />
+                <Route path="/exersise" element={<Exersise/>}/>
+                <Route path="/exersise/:id" element={<ExersisePost />} />
             </Routes>
         </BrowserRouter>
         
