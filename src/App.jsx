@@ -1,6 +1,6 @@
-import Router from "./Router";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "./theme"
+import Router from "./Router";
+import { lightTheme } from "./theme";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
