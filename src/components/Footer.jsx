@@ -6,7 +6,7 @@ const FootDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${(props)=>props.theme.footBgColor};
+    background-color: ${(props) => props.theme.footBgColor};
 `
 
 const FootItem = styled.div`
@@ -19,7 +19,7 @@ const FootItem = styled.div`
     border-radius: 50%;
 `
 
-function Footer(){
+function Footer() {
     return (
         <FootDiv>
             <FootItem>

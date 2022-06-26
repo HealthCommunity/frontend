@@ -1,13 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
-const NavDiv =styled.div`
+const NavDiv = styled.div`
     width:100%;
     height:150px;
     position: fixed;
     display: flex;
     justify-content: space-between;
-    background-color: ${(props)=>props.theme.navBgColor};
+    background-color: ${(props) => props.theme.navBgColor};
 `
 
 const NavLogo = styled.div`
@@ -15,7 +16,6 @@ const NavLogo = styled.div`
     width:30%;
     justify-content: center;
     align-items: center;
-    
 `
 
 const NavItemDiv = styled.div`
@@ -29,31 +29,38 @@ const NavItem = styled.div`
     margin: 0px 10px;
 `
 
-function Nav(){
-    const [login , setLogin] = useState(true);
+const NavViewMode = styled.button`
+    margin: 0px 10px;
+    width: 100px;
+    height: 40px;
+`
+
+function Nav() {
+    const [login, setLogin] = useState(true);
     return (
         <NavDiv>
             <NavLogo>로고</NavLogo>
             <NavItemDiv>
                 <NavItem>
-                    3대력 게시판
+                    <Link to="/board">3대력 게시판</Link>
                 </NavItem>
                 <NavItem>
-                    운동 게시판
+                    <Link to="/exersise">운동 게시판</Link>
                 </NavItem>
                 <NavItem>
-                    자유 게시판
+                    <Link to="/freeboard">자유 게시판</Link>
                 </NavItem>
+                <NavViewMode>다크/라이트</NavViewMode>
                 {login ? (
                     <>
                         <NavItem>
-                            로그인
+                            <Link to="/login">로그인</Link>
                         </NavItem>
                         <NavItem>
-                            회원가입
+                            <Link to="/sign">회원가입</Link>
                         </NavItem>
                     </>
-                ):(
+                ) : (
                     <>
                         <NavItem>
                             로그아웃
