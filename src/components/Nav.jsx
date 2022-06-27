@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atom";
+import { BsFillSunFill,BsMoonFill } from "react-icons/bs";
+
 
 const NavDiv = styled.div`
     width:100%;
@@ -30,13 +34,20 @@ const NavItem = styled.div`
 `
 
 const NavViewMode = styled.button`
-    margin: 0px 10px;
-    width: 100px;
-    height: 40px;
+    border: none;
+    border-radius: 50%;
+    padding:10px;
+    width: 50px;
+    height: 50px;
 `
 
 function Nav() {
     const [login, setLogin] = useState(true);
+    const setAtom = useSetRecoilState(isDarkAtom);
+    const useAtom = useRecoilValue(isDarkAtom)
+    const isModeChange= ()=>{
+        setAtom((prev)=>!prev)
+    }
     return (
         <NavDiv>
             <NavLogo>로고</NavLogo>
@@ -50,7 +61,7 @@ function Nav() {
                 <NavItem>
                     <Link to="/freeboard">자유 게시판</Link>
                 </NavItem>
-                <NavViewMode>다크/라이트</NavViewMode>
+                <NavViewMode onClick={isModeChange}>{useAtom ? <BsMoonFill/> :<BsFillSunFill/>}</NavViewMode>
                 {login ? (
                     <>
                         <NavItem>
