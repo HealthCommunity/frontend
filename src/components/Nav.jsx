@@ -8,7 +8,7 @@ import { BsFillSunFill,BsMoonFill } from "react-icons/bs";
 
 const NavDiv = styled.div`
     width:100%;
-    height:150px;
+    height:100px;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -27,18 +27,25 @@ const NavItemDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0px 30px;
 `
 
 const NavItem = styled.div`
     margin: 0px 10px;
+    padding:10px;
+    :hover{
+        border-bottom: 1px solid ${(props)=>props.theme.bgColor};
+        transform: scale(1.05);
+    }
 `
 
-const NavViewMode = styled.button`
-    border: none;
+const NavToggle =styled(NavItem)`
+    background-color: ${(props)=>props.theme.bgColor};
     border-radius: 50%;
-    padding:10px;
-    width: 50px;
-    height: 50px;
+    width:30px;
+    height:30px;
+    cursor: pointer;
+    display: flex;
 `
 
 function Nav() {
@@ -61,7 +68,6 @@ function Nav() {
                 <NavItem>
                     <Link to="/freeboard">자유 게시판</Link>
                 </NavItem>
-                <NavViewMode onClick={isModeChange}>{useAtom ? <BsMoonFill/> :<BsFillSunFill/>}</NavViewMode>
                 {login ? (
                     <>
                         <NavItem>
@@ -82,6 +88,7 @@ function Nav() {
                     </>
                 )
                 }
+                <NavToggle onClick={isModeChange}>{useAtom ? <BsMoonFill/> :<BsFillSunFill/>}</NavToggle>
             </NavItemDiv>
         </NavDiv>
     )

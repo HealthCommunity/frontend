@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Title from "../funcskills/title";
 
 const HomeDiv = styled.div`
-    padding-top: 150px;
+    padding-top: 100px;
     width:100%;
     display: flex;
     grid-template-columns: 1fr;
