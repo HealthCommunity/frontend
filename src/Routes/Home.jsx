@@ -3,8 +3,11 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import Title from "../funcskills/title";
 import { ex } from "../FakeD/exersise";
+import { threepower } from "../FakeD/power";
+import { free } from "../FakeD/free";
 import { Link } from "react-router-dom";
 import { CgChevronRight ,CgEye} from "react-icons/cg";
+
 
 const HomeDiv = styled.div`
     padding-top: 100px;
@@ -24,10 +27,11 @@ const LeftDiv =styled.div`
 
 const RightDiv =styled.div`
     width:50%;
-    height:100%;
-    display: flex;
-    justify-content: center;
+    height: 100%;
+    border-bottom: 1px solid black;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
 `
 
 const ExersiseDiv =styled.div`
@@ -39,11 +43,11 @@ const ExersiseDiv =styled.div`
 `
 
 const ThreePowerDiv= styled.div`
-    height: 50%;
-    display: flex;
-    justify-content: center;
+   height: 50%;
+    border-bottom: 1px solid black;
     align-items: center;
-    width:100%;   
+    overflow-x: hidden;
+    overflow-y: scroll; 
 `
 const EDiv =styled.div`
     width:90%;
@@ -59,7 +63,7 @@ const EDiv =styled.div`
 `
 
 const ExersiseTitle =styled.div`
-    width:60%;   
+    width:50%;   
     display: flex;
     margin-left:10px;
 `
@@ -68,15 +72,15 @@ const ExersizeBigTitle=styled.div`
 `
 
 const ExersiseDate =styled.div`
-    width:17%; 
+    width:15%;
     font-size: 14px;
 `
 const ExersiseWrite =styled.div`
-    width:14%; 
+    width:19%; 
     font-size: 14px;
 `
 const ExersiseView =styled.div`
-    width:9%;
+    width:14%;
     font-size: 12px;
     display: flex;
     align-items: center;
@@ -121,14 +125,52 @@ function Home(){
                                     <ExersiseWrite>{x.userId}</ExersiseWrite>
                                     <ExersiseView><CgEye style={{margin:"0px 3px 0px 5px"}}/>{x.views}</ExersiseView>
                                 </EDiv>
-                            </Link>
-                           
-                                             
+                            </Link>             
                         ))}
                     </ExersiseDiv>
-                    <ThreePowerDiv>3대력 게시판</ThreePowerDiv>
+                    <ThreePowerDiv>
+                        <Link to={"/board"}>
+                                <Exersise>3대력 게시판 <CgChevronRight /></Exersise>
+                            </Link>
+                            <EDiv style={{backgroundColor:"#9e9a9a"}}>
+                                <ExersizeBigTitle>제목</ExersizeBigTitle>
+                                <ExersiseDate>작성날짜</ExersiseDate>
+                                <ExersiseWrite>작성자</ExersiseWrite>
+                                <ExersiseView>조회수</ExersiseView>   
+                            </EDiv>
+                            {threepower.map((x)=>(
+                                <Link to={`/board/${x.id}`}  key={x.id}>
+                                    <EDiv>                    
+                                        <ExersiseTitle>{x.title}</ExersiseTitle>
+                                        <ExersiseDate>{x.writeDay}</ExersiseDate>
+                                        <ExersiseWrite>{x.userId}</ExersiseWrite>
+                                        <ExersiseView><CgEye style={{margin:"0px 3px 0px 5px"}}/>{x.views}</ExersiseView>
+                                    </EDiv>
+                                </Link>             
+                            ))}
+                    </ThreePowerDiv>
                 </LeftDiv>
-                <RightDiv>자유게시판</RightDiv>
+                <RightDiv>
+                    <Link to={"/freeboard"}>
+                                    <Exersise>자유 게시판<CgChevronRight /></Exersise>
+                                </Link>
+                                <EDiv style={{backgroundColor:"#9e9a9a"}}>
+                                    <ExersizeBigTitle>제목</ExersizeBigTitle>
+                                    <ExersiseDate>작성날짜</ExersiseDate>
+                                    <ExersiseWrite>작성자</ExersiseWrite>
+                                    <ExersiseView>조회수</ExersiseView>   
+                                </EDiv>
+                                {free.map((x)=>(
+                                    <Link to={`/freeboard/${x.id}`}  key={x.id}>
+                                        <EDiv>                    
+                                            <ExersiseTitle>{x.title}</ExersiseTitle>
+                                            <ExersiseDate>{x.writeDay}</ExersiseDate>
+                                            <ExersiseWrite>{x.userId}</ExersiseWrite>
+                                            <ExersiseView><CgEye style={{margin:"0px 3px 0px 5px"}}/>{x.views}</ExersiseView>
+                                        </EDiv>
+                                    </Link>             
+                            ))}
+                </RightDiv>
             </HomeDiv>
             <Footer/>
         </>
