@@ -20,6 +20,10 @@ const NavLogo = styled.div`
     width:30%;
     justify-content: center;
     align-items: center;
+    :hover{
+        transform: scale(1.05);
+        color:white;
+    }
 `
 
 const NavItemDiv = styled.div`
@@ -57,7 +61,9 @@ function Nav() {
     }
     return (
         <NavDiv>
-            <NavLogo>로고</NavLogo>
+            <NavLogo>
+                <Link to={"/"}>로고</Link>
+            </NavLogo>
             <NavItemDiv>
                 <NavItem>
                     <Link to="/board">3대력 게시판</Link>

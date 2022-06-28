@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import { CgEye} from "react-icons/cg";
 import { Link } from "react-router-dom";
+export const SeeDiv = styled.div`
+    padding: 100px 30px;
+`
+
 const BoardDiv =styled.div`
     width:90%;
     display: flex;
