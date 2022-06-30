@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom'
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../atom";
-import { BsFillSunFill,BsMoonFill } from "react-icons/bs";
+import { BsFillSunFill, BsMoonFill } from "react-icons/bs";
 
 
 const NavDiv = styled.div`
@@ -34,13 +34,13 @@ const NavItem = styled.div`
     margin: 0px 10px;
     padding:10px;
     :hover{
-        border-bottom: 1px solid ${(props)=>props.theme.bgColor};
+        border-bottom: 1px solid ${(props) => props.theme.bgColor};
         transform: scale(1.05);
     }
 `
 
-const NavToggle =styled(NavItem)`
-    background-color: ${(props)=>props.theme.bgColor};
+const NavToggle = styled(NavItem)`
+    background-color: ${(props) => props.theme.bgColor};
     border-radius: 50%;
     width:30px;
     height:30px;
@@ -52,8 +52,8 @@ function Nav() {
     const [login, setLogin] = useState(true);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom)
-    const isModeChange= ()=>{
-        setAtom((prev)=>!prev)
+    const isModeChange = () => {
+        setAtom((prev) => !prev)
     }
     return (
         <NavDiv>
@@ -88,7 +88,7 @@ function Nav() {
                     </>
                 )
                 }
-                <NavToggle onClick={isModeChange}>{useAtom ? <BsMoonFill/> :<BsFillSunFill/>}</NavToggle>
+                <NavToggle onClick={isModeChange}>{useAtom ? <BsMoonFill /> : <BsFillSunFill />}</NavToggle>
             </NavItemDiv>
         </NavDiv>
     )
