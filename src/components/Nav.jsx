@@ -41,6 +41,13 @@ const NavItem = styled.div`
         border-bottom: 1px solid ${(props) => props.theme.bgColor};
         transform: scale(1.05);
     }
+    @media all and (min-width:480px) and (max-width:767px) {
+        font-size: 10px;
+
+    } 
+    @media all and (max-width:479px) {
+        font-size: 10px;
+    }
 `
 
 const NavToggle = styled(NavItem)`
