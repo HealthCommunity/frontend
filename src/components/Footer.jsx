@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 const FootDiv = styled.div`
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => props.theme.footBgColor};
+    background-color: ${(props) => props.theme.navBgColor};
 `
 
 const FootItem = styled.div`
