@@ -6,11 +6,11 @@ import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Profile from "./Routes/Profile";
 import Sign from "./Routes/Sign";
-import BoardPost from "./Routes/BoardPost"
-import FreePost from "./Routes/FreePost"
-import ExersisePost from "./Routes/ExersisePost"
-import FindId from "./Routes/FindId"
-import FindPw from "./Routes/FindPw"
+import BoardPost from "./Routes/BoardPost";
+import FreePost from "./Routes/FreePost";
+import ExersisePost from "./Routes/ExersisePost";
+import FindId from "./Routes/FindId";
+import FindPw from "./Routes/FindPw";
 
 function Router() {
     return (
@@ -30,7 +30,7 @@ function Router() {
                 <Route path="/exersise/:id" element={<ExersisePost />} />
             </Routes>
         </BrowserRouter>
-
-    )
+    );
 }
+
 export default Router;

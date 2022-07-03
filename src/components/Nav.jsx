@@ -53,7 +53,7 @@ const NavToggle = styled(NavItem)`
 `
 
 function Nav() {
-    const [login, setLogin] = useState(true);
+    const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom)
     const isModeChange = () => {
@@ -89,7 +89,7 @@ function Nav() {
                             로그아웃
                         </NavItem>
                         <NavItem>
-                            프로필
+                            <Link to="/profile">마이페이지</Link>
                         </NavItem>
                     </>
                 )
