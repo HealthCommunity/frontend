@@ -2,23 +2,61 @@ import styled from "styled-components"
 const SummaryDiv= styled.div`
     width:90%;
     display: flex;
+    margin: 0px 20px;
     align-items: center;
     text-align: center;
     height: 30px;
-    margin:0% 5%;
+    justify-content: center;
+    
 `
 
-const SummaryTitle = styled.div`
-    width:50%;
+const SummaryFontDiv = styled.div`
+    @media all and (min-width:480px) and (max-width:767px) {
+        font-size: 10px;
+    } 
+    @media all and (max-width:479px) {
+        font-size: 10px;
+    }
 `
-const SummaryDate = styled.div`
-    width:20%;
+
+const SummaryTitle = styled(SummaryFontDiv)`
+    width:52%;  
+    @media all and (min-width:480px) and (max-width:767px) {
+        width:65%;
+    } 
+    @media all and (max-width:479px) {
+        width:65%;
+    }
+      
 `
-const SummaryWrite = styled.div`
-    width:14%; 
+const SummaryDate = styled(SummaryFontDiv)`
+    width:15%;
+    @media all and (min-width:480px) and (max-width:767px) {
+        width:30%;
+    } 
+    @media all and (max-width:479px) {
+        width:30%;
+    }
 `
-const SummaryView = styled.div`
-    width:13%;
+const SummaryWrite = styled(SummaryFontDiv)`
+    width:19%; 
+    @media all and (min-width:480px) and (max-width:767px) {
+        width:14%;
+    } 
+    @media all and (max-width:479px) {
+        
+        width:14%;
+    }
+`
+const SummaryView = styled(SummaryFontDiv)`
+    width:14%;
+    @media all and (min-width:480px) and (max-width:767px) {
+        width: 20%;
+    } 
+    @media all and (max-width:479px) {
+        
+        width: 20%;
+    }
 `
 
 function Summary(){

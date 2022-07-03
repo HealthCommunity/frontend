@@ -13,6 +13,13 @@ const HomeCategoryTitle = styled.div`
     :hover{
         transform: scale(1.05);
     }
+    @media all and (min-width:480px) and (max-width:767px) {
+        padding: 0;
+
+    } 
+    @media all and (max-width:479px) {
+        padding: 0;
+    }
 `
 
 function HomeStyle({homeitem , homevalue}){
