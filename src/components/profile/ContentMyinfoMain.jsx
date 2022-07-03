@@ -34,7 +34,7 @@ const Info = styled.div`
     }
 `;
 
-export default function MyinfoInner({ data, children }) {
+export default function ContentMyinfoMain({ data, children }) {
     return (
         <MyInfo>
             <MyInfoTitle>내 프로필</MyInfoTitle>

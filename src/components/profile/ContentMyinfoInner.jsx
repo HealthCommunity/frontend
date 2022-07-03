@@ -65,7 +65,7 @@ const DescChangeBtn = styled.button`
     font-weight: 700;
 `;
 
-export default function ContentMyinfo({ nickname, desc, imgUrl }) {
+export default function ContentMyinfoInner({ nickname, desc, imgUrl }) {
     return (
         <Setting>
             <RoundCornerImg src={imgUrl} alt="" />

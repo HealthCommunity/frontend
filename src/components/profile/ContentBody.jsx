@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import ProfileNav from "./ProfileNav";
-import ContentMyinfo from "./ContentMyinfo";
-import MyinfoInner from "./MyinfoInner";
+import ContentMyinfoInner from "./ContentMyinfoInner";
+import ContentMyinfoMain from "./ContentMyinfoMain";
 
 const MyPage = styled.div`
     position: relative;
@@ -26,9 +26,9 @@ export default function ContentBody({ userData = {} }) {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
-                    <MyinfoInner data={scoreData}>
-                        <ContentMyinfo desc={desc} imgUrl={imgUrl} />
-                    </MyinfoInner>
+                    <ContentMyinfoMain data={scoreData}>
+                        <ContentMyinfoInner desc={desc} imgUrl={imgUrl} />
+                    </ContentMyinfoMain>
                 </GroupItem>
                 <GroupItem name="profileModify">
                     <p>회원정보 변경</p>
