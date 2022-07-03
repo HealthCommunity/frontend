@@ -39,7 +39,12 @@ export const RightDiv =styled.div`
     align-items: center;
     overflow-x: hidden;
     overflow-y: scroll;
-   
+    @media all and (min-width:480px) and (max-width:767px) {
+       display: none;
+    }
+    @media all and (max-width:479px) {
+        displanoney
+    }
 `
 
 export const ExersiseDiv =styled.div`
