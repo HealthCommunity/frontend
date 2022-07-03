@@ -43,7 +43,7 @@ export const RightDiv =styled.div`
        display: none;
     }
     @media all and (max-width:479px) {
-        displanoney
+        display: none;
     }
 `
 

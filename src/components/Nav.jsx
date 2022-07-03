@@ -123,7 +123,7 @@ const ToggleMenu = styled.div`
     display:flex;
 `
 
-function Nav({}) {
+function Nav() {
     const [login, setLogin] = useState(true);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
