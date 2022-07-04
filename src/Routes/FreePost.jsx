@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import Title from "../funcskills/title";
+import Title from "../components/Title";
 
 function FreePost(){
     const {id} = useParams();

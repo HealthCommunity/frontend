@@ -1,9 +1,9 @@
-import Title from "../funcskills/title";
+import Title from "../components/Title";
 import Nav from '../components/Navgation/Nav'
 import { ExersiseDiv } from "../components/home/HomeSeparate";
 import HomeStyle from "../components/home/HomeStyle";
-import Summary from "../components/home/SummaryStyle";
-import BoardStyle, { SeeDiv } from "../components/home/BoardStyle";
+import Summary from "../components/Board/BoardTitleStyle";
+import BoardStyle, { SeeDiv } from "../components/Board/BoardStyle";
 import { ex } from "../FakeD/exersise";
 
 function Exersise(){

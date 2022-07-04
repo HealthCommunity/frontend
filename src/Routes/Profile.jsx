@@ -1,7 +1,7 @@
-import Title from "../funcskills/title";
+import Title from "../components/Title";
 import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navgation/Nav";
-import { ContentDiv, ContentHeader } from "../components/menu/menuStyle";
+import { ContentDiv, ContentHeader } from "../components/Menu/menuStyle";
 import ContentBody from "../components/profile/ContentBody";
 
 function Profile() {

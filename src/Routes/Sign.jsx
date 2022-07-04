@@ -1,4 +1,4 @@
-import Title from "../funcskills/title";
+import Title from "../components/Title";
 import Nav from "../components/Navgation/Nav";
 import Footer from "../components/Footer/Footer";
 import UserForm from "../components/form/UserForm";
@@ -8,7 +8,7 @@ import {
     ContentHeader,
     ContentContainer,
     ContainerTitle,
-} from "../components/menu/menuStyle";
+} from "../components/Menu/menuStyle";
 
 function Sign() {
     return (
