@@ -1,4 +1,4 @@
-import Title from "../funcskills/title";
+import Title from "../components/Title";
 
 function FindPw() {
     return (

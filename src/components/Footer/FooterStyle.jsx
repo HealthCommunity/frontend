@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FootDiv = styled.div`
+export const FootDiv = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@ const FootDiv = styled.div`
     background-color: ${(props) => props.theme.navBgColor};
 `
 
-const FootItem = styled.div`
+export const FootItem = styled.div`
     width: 80px;
     height:80px;
     display: flex;
@@ -17,18 +17,3 @@ const FootItem = styled.div`
     margin: 0px 10px;
     border-radius: 50%;
 `
-
-function Footer() {
-    return (
-        <FootDiv>
-            <FootItem>
-                노션링크
-            </FootItem>
-            <FootItem>
-                깃링크
-            </FootItem>
-        </FootDiv>
-    )
-}
-
-export default Footer;

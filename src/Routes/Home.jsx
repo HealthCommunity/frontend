@@ -1,12 +1,12 @@
 
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
-import Title from "../funcskills/title";
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Navgation/Nav";
+import Title from "../components/Title";
 import { ex } from "../FakeD/exersise";
 import { threepower } from "../FakeD/power";
 import { free } from "../FakeD/free";
-import BoardStyle from "../components/home/BoardStyle";
-import Summary from '../components/home/SummaryStyle';
+import BoardStyle from "../components/Board/BoardStyle";
+import Summary from '../components/Board/BoardTitleStyle';
 import HomeStyle from "../components/home/HomeStyle";
 import { HomeDiv,LeftDiv,RightDiv,ExersiseDiv,ThreePowerDiv } from "../components/home/HomeSeparate";
 

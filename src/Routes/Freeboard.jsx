@@ -1,8 +1,8 @@
-import Title from "../funcskills/title";
-import Nav from '../components/Nav'
-import BoardStyle, { SeeDiv } from "../components/home/BoardStyle";
+import Title from "../components/Title";
+import Nav from '../components/Navgation/Nav'
+import BoardStyle, { SeeDiv } from "../components/Board/BoardStyle";
 import HomeStyle from "../components/home/HomeStyle";
-import Summary from "../components/home/SummaryStyle";
+import Summary from "../components/Board/BoardTitleStyle";
 import { free } from "../FakeD/free";
 
 function Freeboard(){
