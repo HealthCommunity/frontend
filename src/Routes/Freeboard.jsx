@@ -1,7 +1,7 @@
 import Title from "../components/Title";
-import Nav from '../components/Navgation/Nav'
+import Nav from '../components/Navigation/Nav'
 import BoardStyle, { SeeDiv } from "../components/Board/BoardStyle";
-import HomeStyle from "../components/home/HomeStyle";
+import HomeStyle from "../components/Main/HomeStyle";
 import Summary from "../components/Board/BoardTitleStyle";
 import { free } from "../FakeD/free";
 
