@@ -1,6 +1,6 @@
 
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Navgation/Nav";
 import Title from "../funcskills/title";
 import { ex } from "../FakeD/exersise";
 import { threepower } from "../FakeD/power";

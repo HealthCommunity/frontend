@@ -1,5 +1,5 @@
 import Title from "../funcskills/title";
-import Nav from '../components/Nav'
+import Nav from '../components/Navgation/Nav'
 import { ExersiseDiv } from "../components/home/HomeSeparate";
 import HomeStyle from "../components/home/HomeStyle";
 import Summary from "../components/home/SummaryStyle";

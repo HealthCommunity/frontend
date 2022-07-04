@@ -1,6 +1,6 @@
 import Title from "../funcskills/title";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import Nav from "../components/Navgation/Nav";
+import Footer from "../components/Footer/Footer";
 import UserForm from "../components/form/UserForm";
 
 import {

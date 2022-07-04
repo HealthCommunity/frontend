@@ -1,6 +1,6 @@
 import Title from "../funcskills/title";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Navgation/Nav";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import UserForm from "../components/form/UserForm";

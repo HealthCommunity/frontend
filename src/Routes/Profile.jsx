@@ -1,6 +1,6 @@
 import Title from "../funcskills/title";
-import Footer from "../components/Footer";
-import Nav from "../components/Nav";
+import Footer from "../components/Footer/Footer";
+import Nav from "../components/Navgation/Nav";
 import { ContentDiv, ContentHeader } from "../components/menu/menuStyle";
 import ContentBody from "../components/profile/ContentBody";
 
