@@ -1,5 +1,5 @@
 import Title from "../components/Title";
-import Nav from "../components/Navgation/Nav";
+import Nav from "../components/Navigation/Nav";
 import Footer from "../components/Footer/Footer";
 import UserForm from "../components/form/UserForm";
 

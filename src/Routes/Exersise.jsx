@@ -1,7 +1,7 @@
 import Title from "../components/Title";
-import Nav from '../components/Navgation/Nav'
-import { ExersiseDiv } from "../components/home/HomeSeparate";
-import HomeStyle from "../components/home/HomeStyle";
+import Nav from '../components/Navigation/Nav'
+import { ExersiseDiv } from "../components/Main/HomeSeparate";
+import HomeStyle from "../components/Main/HomeStyle";
 import Summary from "../components/Board/BoardTitleStyle";
 import BoardStyle, { SeeDiv } from "../components/Board/BoardStyle";
 import { ex } from "../FakeD/exersise";
