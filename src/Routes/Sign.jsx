@@ -1,14 +1,14 @@
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
 import Footer from "../components/Footer/Footer";
-import UserForm from "../components/form/UserForm";
+import UserForm from "../components/Form/UserForm";
 
 import {
     ContentDiv,
     ContentHeader,
     ContentContainer,
     ContainerTitle,
-} from "../components/Menu/menuStyle";
+} from "../components/Menu/MenuStyle";
 
 function Sign() {
     return (

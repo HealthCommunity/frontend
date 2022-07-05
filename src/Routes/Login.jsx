@@ -3,13 +3,13 @@ import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import UserForm from "../components/form/UserForm";
+import UserForm from "../components/Form/UserForm";
 import {
     ContentDiv,
     ContentHeader,
     ContentContainer,
     ContainerTitle,
-} from "../components/Menu/menuStyle";
+} from "../components/Menu/MenuStyle";
 
 const FindGroup = styled.div`
     width: 300px;

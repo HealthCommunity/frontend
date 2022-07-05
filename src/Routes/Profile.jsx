@@ -1,8 +1,8 @@
 import Title from "../components/Title";
 import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
-import { ContentDiv, ContentHeader } from "../components/Menu/menuStyle";
-import ContentBody from "../components/profile/ContentBody";
+import { ContentDiv, ContentHeader } from "../components/Menu/MenuStyle";
+import ContentBody from "../components/Profile/ContentBody";
 
 function Profile() {
     return (
