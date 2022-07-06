@@ -7,7 +7,6 @@ function Board(){
         <>
             <Title name="Board"/>
             <Nav/>
-
         </>
         
     )
