@@ -3,9 +3,9 @@ import {LeftBtn,LeftBtnLogo,LeftBtnSummary,LeftBtnSummaryH4,LeftBtnSummaryH5,Lef
 import { MdArrowForwardIos } from "react-icons/md";
 import { GiMuscleUp,GiThreeFriends} from "react-icons/gi";
 import { BsClipboard} from "react-icons/bs";
-function BoardNav({click,name,summary}){
+function BoardNav({style,click,name,summary}){
     return(
-        <LeftBtn onClick={click}>
+        <LeftBtn onClick={click} style={style}>
             <LeftBtnLogo>
             {name=== "운동게시판" ? <GiMuscleUp/> :name==="3대 운동 게시판" ? <GiThreeFriends/> : <BsClipboard/> }
             </LeftBtnLogo>
