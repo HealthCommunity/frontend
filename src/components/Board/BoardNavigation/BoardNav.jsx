@@ -7,7 +7,7 @@ function BoardNav({style,click,name,summary}){
     return(
         <LeftBtn onClick={click} style={style}>
             <LeftBtnLogo>
-            {name=== "운동게시판" ? <GiMuscleUp/> :name==="3대 운동 게시판" ? <GiThreeFriends/> : <BsClipboard/> }
+            {name=== "운동 게시판" ? <GiMuscleUp/> :name==="3대 운동 게시판" ? <GiThreeFriends/> : <BsClipboard/> }
             </LeftBtnLogo>
             <LeftBtnSummary>
                 <LeftBtnSummaryH4>
