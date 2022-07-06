@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Modal from "../Asset/Modal";
 
 const InfoInnerDiv = styled.div`
     position: relative;
     margin: 0 36px;
     margin-left: 236px;
     padding-top: 24px;
-    border-bottom: 1px solid rgba(126, 155, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 `;
 
 const RoundCornerImg = styled.img`
@@ -26,7 +27,7 @@ const ProfileInfo = styled.div`
 const DescTitle = styled.span`
     display: block;
     margin-bottom: 16px;
-    color: rgba(47, 62, 78, 0.7);
+    color: rgba(0, 0, 0, 0.7);
 `;
 
 const DescNickname = styled.p`
@@ -63,9 +64,37 @@ const DescChangeBtn = styled.button`
     border-color: black;
     background-color: #fff;
     font-weight: 700;
+    cursor: pointer;
 `;
 
 export default function ContentMyinfoInner({ nickname, desc, imgUrl }) {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    useEffect(() => {
+        if (modalOpen) {
+            document.body.style.overflow = "hidden";
+        }
+
+        return () => {
+            document.body.style.overflow = "visible";
+        };
+    }, [modalOpen]);
+
+    const openModal = () => {
+        console.log("open");
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        console.log("close");
+        setModalOpen(false);
+    };
+
+    const TextArea = styled.textarea`
+        width: 100%;
+        height: 80px;
+    `;
+
     return (
         <InfoInnerDiv>
             <RoundCornerImg src={imgUrl} alt="" />
@@ -73,7 +102,14 @@ export default function ContentMyinfoInner({ nickname, desc, imgUrl }) {
                 <DescNickname>{nickname}</DescNickname>
                 <DescTitle>한줄소개</DescTitle>
                 <DescText>{desc}</DescText>
-                <DescChangeBtn>한줄소개 변경</DescChangeBtn>
+                <DescChangeBtn onClick={openModal}>한줄소개 변경</DescChangeBtn>
+                <Modal
+                    open={modalOpen}
+                    close={closeModal}
+                    header={"한줄 소개 변경"}
+                >
+                    <TextArea></TextArea>
+                </Modal>
             </ProfileInfo>
         </InfoInnerDiv>
     );

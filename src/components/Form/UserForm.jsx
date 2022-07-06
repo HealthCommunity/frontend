@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
+import { PuppleButton } from "../Asset/PuppleButton";
+
+const FormGroup = styled.div`
+    width: 370px;
+`;
 
 const Form = styled.form`
-    width: 300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,40 +16,23 @@ const Form = styled.form`
     padding: 20px;
 `;
 
-const InputGroup = styled.div`
-    width: 100%;
-    margin-left: auto;
-    margin-bottom: 1rem;
-    text-align: left;
-`;
-
-const Button = styled.button`
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 24px;
-    font-weight: 700;
-    background-color: #9e9a9a;
-    color: white;
-    cursor: pointer;
-`;
-
 const Label = styled.label`
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    font-size: 14px;
+    margin-bottom: 10px;
+    font-size: ${(props) => props.theme.fontSizeH4};
 `;
+
 const CheckInput = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
+    margin: 20px 0px;
+
     input {
-        margin: 0 4px 0 0;
+        margin: 0 8px 0 0;
     }
     label {
         margin-top: 8px;
-        letter-spacing: -0.9px;
     }
 `;
 
@@ -78,39 +66,27 @@ function UserForm({ isJoin = false, onSubmit }) {
 
     const checkValidityId = (id) => {
         if (id.length < 5) {
-            return [
-                false,
-                "id가 너무 짧습니다. 아이디는 5자 이상 12자 이하로 입력해주세요.",
-            ];
+            return [false, "아이디 5~12자 문자입니다."];
         } else if (id.length > 12) {
-            return [
-                false,
-                "id가 너무 깁니다. 아이디는 5자 이상 12자 이하로 입력해주세요.",
-            ];
+            return [false, "아이디 5~12자 문자입니다."];
         } else {
             if (isRuleId(id)) {
-                return [true, "올바른 ID 입니다."];
+                return [true, "사용 가능 아이디입니다."];
             }
-            return [false, "유효하지 않는 ID 입니다."];
+            return [false, "유효하지 않은 아이디입니다."];
         }
     };
 
     const checkValidityPassword = (password) => {
         if (password.length < 8) {
-            return [
-                false,
-                "비밀번호가 너무 짧습니다. 8자 이상 16자 이하 숫자, 문자, 특수문자를 입력해주세요.",
-            ];
+            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
         } else if (password.length > 16) {
-            return [
-                false,
-                "비밀번호가 너무 깁니다. 8자 이상 15자 이하 숫자, 문자, 특수문자를 입력해주세요.",
-            ];
+            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
         } else {
             if (isRulePassword(password)) {
-                return [true, "올바른 패스워드입니다."];
+                return [true, "사용 가능 비밀번호입니다."];
             }
-            return [false, "올바르지 않는 패스워드입니다."];
+            return [false, "유효하지 않은 비밀번호입니다."];
         }
     };
 
@@ -118,21 +94,15 @@ function UserForm({ isJoin = false, onSubmit }) {
         if (password !== usrInputs.password) {
             return [false, "비밀번호가 일치하지 않습니다."];
         } else {
-            return [true, "동일한 패스워드입니다."];
+            return [true, "동일한 비밀번호입니다."];
         }
     };
 
     const checkValidityNickname = (nickname) => {
         if (nickname.length < 2) {
-            return [
-                false,
-                "닉네임이 너무 짧습니다. 2자 이상 10자 이하 문자를 입력해주세요.",
-            ];
+            return [false, "닉네임은 2~10자 문자입니다."];
         } else if (nickname.length > 10) {
-            return [
-                false,
-                "닉네임이 너무 깁니다. 2자 이상 10자 이하 문자를 입력해주세요.",
-            ];
+            return [false, "닉네임은 2~10자 문자입니다."];
         } else {
             if (isRuleNick(nickname)) {
                 return [true, "올바른 닉네임입니다."];
@@ -182,9 +152,8 @@ function UserForm({ isJoin = false, onSubmit }) {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <InputGroup>
-                <Label>아이디</Label>
+        <FormGroup>
+            <Form onSubmit={handleSubmit}>
                 <DescTextInput
                     type="text"
                     name="id"
@@ -193,35 +162,26 @@ function UserForm({ isJoin = false, onSubmit }) {
                     onValidation={isJoin ? checkValidityId : null}
                     required
                 />
-            </InputGroup>
 
-            <InputGroup>
-                <Label>비밀번호</Label>
                 <DescTextInput
                     type="password"
                     name="password"
-                    placeholder="********"
+                    placeholder="비밀번호"
                     onChange={handleChange}
                     onValidation={isJoin ? checkValidityPassword : null}
                     required
                 />
-            </InputGroup>
 
-            {isJoin && (
-                <>
-                    <InputGroup>
-                        <Label>비밀번호 확인</Label>
+                {isJoin && (
+                    <>
                         <DescTextInput
                             type="password"
                             name="checkPassword"
-                            placeholder="********"
+                            placeholder="비밀번호 확인"
                             onChange={handleChange}
                             onValidation={checkDoublePassword}
                             required
                         />
-                    </InputGroup>
-                    <InputGroup>
-                        <Label>닉네임</Label>
                         <DescTextInput
                             type="text"
                             name="nickname"
@@ -230,8 +190,6 @@ function UserForm({ isJoin = false, onSubmit }) {
                             onValidation={checkValidityNickname}
                             required
                         />
-                    </InputGroup>
-                    <InputGroup>
                         <CheckInput>
                             <input
                                 type="checkbox"
@@ -244,11 +202,14 @@ function UserForm({ isJoin = false, onSubmit }) {
                                 이용약관 및 개인정보 수집∙이용에 동의합니다.
                             </Label>
                         </CheckInput>
-                    </InputGroup>
-                </>
-            )}
-            <Button type="submit">{isJoin ? "가입하기" : "로그인"}</Button>
-        </Form>
+                    </>
+                )}
+                <PuppleButton
+                    type="submit"
+                    info={isJoin ? "가입하기" : "로그인"}
+                ></PuppleButton>
+            </Form>
+        </FormGroup>
     );
 }
 

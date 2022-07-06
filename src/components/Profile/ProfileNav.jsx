@@ -57,7 +57,7 @@ export default function ProfileNav({ onChange }) {
                         href="/#"
                         onClick={(e) => {
                             e.preventDefault();
-                            onChange("userWithdraw");
+                            onChange("userDropOut");
                         }}
                     >
                         회원탈퇴

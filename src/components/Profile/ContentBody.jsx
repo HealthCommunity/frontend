@@ -3,9 +3,11 @@ import styled from "styled-components";
 import ProfileNav from "./ProfileNav";
 import ContentMyinfoInner from "./ContentMyinfoInner";
 import ContentMyinfoMain from "./ContentMyinfoMain";
+import ContentUserDropOut from "./ContentUserDropOut";
+import ContentUserModify from "./ContentUserModify";
+import ContentPwModify from "./ContentPwModify";
 
 const MyPage = styled.div`
-    position: relative;
     width: 970px !important;
     margin-left: auto;
     margin-right: auto;
@@ -35,13 +37,13 @@ export default function ContentBody({ userData = {} }) {
                     </ContentMyinfoMain>
                 </GroupItem>
                 <GroupItem name="profileModify">
-                    <p>회원정보 변경</p>
+                    <ContentUserModify></ContentUserModify>
                 </GroupItem>
                 <GroupItem name="pwModify">
-                    <p>비밀번호 변경</p>
+                    <ContentPwModify></ContentPwModify>
                 </GroupItem>
-                <GroupItem name="userWithdraw">
-                    <p>회원 탈퇴</p>
+                <GroupItem name="userDropOut">
+                    <ContentUserDropOut></ContentUserDropOut>
                 </GroupItem>
             </Group>
         </MyPage>
