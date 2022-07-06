@@ -14,8 +14,7 @@ import { GiMuscleUp,GiThreeFriends} from "react-icons/gi";
 import { BsClipboard} from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
 import { useState } from "react";
-import Animal from "react-animals";
-import {GoComment , GoEye} from 'react-icons/go';
+import BoardItem from "../components/Board/BoardItem";
 
 const LeftBtn =styled.div`
     width: 90%;
@@ -76,44 +75,7 @@ const LeftBtnSummaryH5 =styled.h5`
     }
 `
 
-const RightDivItem = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:250px;
-    height:250px;
-    border-radius: ${(props)=>props.theme.radiusSize20};
-    flex-direction: column;
 
-    cursor: pointer;
-    :hover{
-        transform: scale(1.05);
-        background-color: ${(props)=>props.theme.bgColorSub};
-        box-shadow: ${(props)=>props.theme.shadowColor};
-    }
-`
-
-const RightItemTitle =styled.h3`
-    font-size: ${(props)=>props.theme.fontSizeH3};
-    font-weight: 500;
-    text-align: center;
-    margin: 15px 0px;
-`
-
-const RightItemSeparate=styled.div`
-    display: flex;
-`
-
-const RightItemComments = styled.div`
-    font-size: ${(props)=>props.theme.fontSizeH4};
-    margin: 0px 5px;
-    display: flex;
-`
-const RightItemViews = styled.div`
-    display: flex;
-    font-size: ${(props)=>props.theme.fontSizeH4};
-    margin: 0px 5px;
-`
 const LeftDivArrow =styled.div`
     @media all and (min-width:480px) and (max-width:767px) {
         display:none;
@@ -199,32 +161,11 @@ function Home(){
                 </LeftDiv>
                 <RightDiv>
                     {whereboard === 0 ? ex.map((x)=>
-                    <RightDivItem key={Math.random()}>
-                        <Animal size="100px" color="#6C5DD3" circle dance/>
-                        <RightItemTitle>{x.title}</RightItemTitle>
-                        <RightItemSeparate>
-                            <RightItemComments><GoComment style={{marginRight:"3px"}}/>{x.comments}</RightItemComments>
-                            <RightItemViews><GoEye style={{marginRight:"3px"}}/>{x.views}</RightItemViews>
-                        </RightItemSeparate>
-                    </RightDivItem>
+                        <BoardItem key={Math.random()} item={x} />
                     ) : whereboard ===1 ? threepower.map((x)=> 
-                        <RightDivItem key={Math.random()}>
-                            <Animal size="100px" color="#3F8CFF" circle dance/>
-                            <RightItemTitle>{x.title}</RightItemTitle>
-                            <RightItemSeparate>
-                                <RightItemComments><GoComment style={{marginRight:"3px"}}/>{x.comments}</RightItemComments>
-                                <RightItemViews><GoEye style={{marginRight:"3px"}}/>{x.views}</RightItemViews>
-                            </RightItemSeparate>
-                        </RightDivItem>
+                        <BoardItem key={Math.random()} item={x} />
                     ) :  free.map((x)=>
-                    <RightDivItem key={Math.random()}>
-                        <Animal size="100px" color="#FF754C" circle dance/>
-                        <RightItemTitle>{x.title}</RightItemTitle>
-                        <RightItemSeparate>
-                            <RightItemComments><GoComment style={{marginRight:"3px"}}/>{x.comments}</RightItemComments>
-                            <RightItemViews><GoEye style={{marginRight:"3px"}}/>{x.views}</RightItemViews>
-                        </RightItemSeparate>
-                    </RightDivItem>
+                        <BoardItem key={Math.random()} item={x} />
                     )}
                 </RightDiv>
             </HomeDiv>
