@@ -9,7 +9,8 @@ import BoardStyle from "../components/Board/BoardStyle";
 import Summary from '../components/Board/BoardTitleStyle';
 import HomeStyle from "../components/Main/HomeStyle";
 import { HomeDiv,LeftDiv,RightDiv,ExersiseDiv,ThreePowerDiv } from "../components/Main/HomeSeparate";
-import Search from "../components/Search";
+import Search from "../components/Search/Search";
+import MainSlider from "../components/Main/MainSlider/MainSlider";
 
 function Home(){
     return (
@@ -17,6 +18,7 @@ function Home(){
             <Title name="Home"/>
             <Nav/>
             <Search/>
+            <MainSlider/>
             <HomeDiv>
                 <LeftDiv>
                    

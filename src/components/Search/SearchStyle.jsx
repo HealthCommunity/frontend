@@ -1,11 +1,7 @@
 import styled from "styled-components"
-import {FaSearch} from "react-icons/fa";
-import  { useState } from "react";
-import { useForm } from "react-hook-form";
-
-const SearchDiv= styled.div`
+export const SearchDiv= styled.div`
     margin: 0 auto;
-    padding: 150px 0px 100px 0px;
+    padding: 150px 0px 50px 0px;
     width:20%;
     display: flex;
     flex-direction: column;
@@ -18,7 +14,7 @@ const SearchDiv= styled.div`
         width:45%;
     }
 `
-const SearchForm = styled.form`
+export const SearchForm = styled.form`
     color: #555;
     display: flex;
     padding: 2px;
@@ -35,7 +31,7 @@ const SearchForm = styled.form`
     }
 `
 
-const SearchInput = styled.input`
+export const SearchInput = styled.input`
   border: none;
   background: transparent;
   margin: 0;
@@ -50,25 +46,3 @@ const SearchInput = styled.input`
     outline: none;
   }
 `
-
-
-
-function Search () {
-    const [inputValue, setInputValue]= useState("");
-    const { register, handleSubmit,reset } = useForm();
-    const onSubmit =(data)=>{
-        setInputValue(data.find);
-        reset();
-    }
-    console.log(inputValue)
-    return(
-        <SearchDiv>
-            <SearchForm onSubmit={handleSubmit(onSubmit)}>
-                <SearchInput {...register("find", {required:true})}/>
-                <FaSearch style={{width:"10%", fontSize:"20px", marginRight:"5px"}} onClick={handleSubmit(onSubmit)}/>
-            </SearchForm>
-        </SearchDiv>
-    )
-}
-
-export default Search
