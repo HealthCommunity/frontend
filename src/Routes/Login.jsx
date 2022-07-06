@@ -3,7 +3,8 @@ import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import UserForm from "../components/Form/UserForm";
+import UserLoginForm from "../components/Form/UserLoginForm";
+
 import {
     ContentDiv,
     ContentHeader,
@@ -32,7 +33,7 @@ function Login() {
                 <ContentHeader>로그인</ContentHeader>
                 <ContentContainer>
                     <ContainerTitle>로그인</ContainerTitle>
-                    <UserForm onSubmit={console.log} />
+                    <UserLoginForm onSubmit={console.log} />
                     <FindGroup>
                         <Link to={"find_id"}>
                             <FindButton>아이디 찾기</FindButton>

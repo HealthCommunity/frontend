@@ -1,21 +1,44 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+const InputGroup = styled.div`
+    width: 100%;
+    margin: 10px 0;
+`;
+
 const Input = styled.input`
     box-sizing: border-box;
     width: 100%;
-    height: 40px;
-    padding: 0.75rem 0.75rem;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #495057;
-    background-color: #fff;
-    margin: 0 0 4px 0;
+    height: 45px;
+    color: ${(props) => props.theme.fontColor};
+    font-size: ${(props) => props.theme.fontSizeH4};
+    padding: 0 20px;
+    border-radius: ${(props) => props.theme.radiusSize50};
+    background-color: ${(props) => props.theme.bgColorSub};
+    border: 1px solid #ccc;
+    line-height: 45px !important;
+
+    :active {
+        outline: none;
+        border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    }
+
+    :focus {
+        outline: none;
+        border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    }
 `;
 
-function DescTextInput({
+const Span = styled.span`
+    color: ${(props) =>
+        props.isSuccess
+            ? props.theme.colorPointOrange100
+            : props.theme.colorPointBlue200};
+    font-size: ${(props) => props.theme.fontSizeH4};
+    margin-left: 22.5px;
+`;
+
+export default function DescTextInput({
     defaultValue = "",
     onChange,
     onValidation,
@@ -34,15 +57,9 @@ function DescTextInput({
     };
 
     return (
-        <>
+        <InputGroup>
             <Input {...props} value={value} onChange={handleChange} />
-            {!!msg && (
-                <span style={{ color: isSuccess ? "tomato" : "blue" }}>
-                    {msg}
-                </span>
-            )}
-        </>
+            {!!msg && <Span isSuccess={isSuccess}>{msg}</Span>}
+        </InputGroup>
     );
 }
-
-export default DescTextInput;

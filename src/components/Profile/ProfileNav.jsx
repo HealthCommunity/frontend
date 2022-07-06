@@ -46,18 +46,7 @@ export default function ProfileNav({ onChange }) {
                         href="/#"
                         onClick={(e) => {
                             e.preventDefault();
-                            onChange("pwModify");
-                        }}
-                    >
-                        비밀번호 변경
-                    </a>
-                </ProfileItem>
-                <ProfileItem>
-                    <a
-                        href="/#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            onChange("userWithdraw");
+                            onChange("userDropOut");
                         }}
                     >
                         회원탈퇴
