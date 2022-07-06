@@ -44,11 +44,11 @@ function Home(){
                 </LeftDiv>
                 <RightDiv>
                     {whereboard === 0 ? ex.map((x)=>
-                        <BoardItem key={Math.random()} item={x} />
+                        <BoardItem key={Math.random()} item={x} color={"#6C5DD3"} value={"exersise"}/>
                     ) : whereboard ===1 ? threepower.map((x)=> 
-                        <BoardItem key={Math.random()} item={x} />
+                        <BoardItem key={Math.random()} item={x} color={"#3F8CFF"} value={"board"}/>
                     ) :  free.map((x)=>
-                        <BoardItem key={Math.random()} item={x} />
+                        <BoardItem key={Math.random()} item={x} color={"#FF754C"} value={"freeboard"}/>
                     )}
                 </RightDiv>
             </HomeDiv>
