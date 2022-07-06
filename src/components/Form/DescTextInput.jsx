@@ -31,7 +31,7 @@ const Input = styled.input`
 
 const Span = styled.span`
     color: ${(props) =>
-        props.color
+        props.isSuccess
             ? props.theme.colorPointOrange100
             : props.theme.colorPointBlue200};
     font-size: ${(props) => props.theme.fontSizeH4};
@@ -59,7 +59,7 @@ export default function DescTextInput({
     return (
         <InputGroup>
             <Input {...props} value={value} onChange={handleChange} />
-            {!!msg && <Span color={isSuccess}>{msg}</Span>}
+            {!!msg && <Span isSuccess={isSuccess}>{msg}</Span>}
         </InputGroup>
     );
 }

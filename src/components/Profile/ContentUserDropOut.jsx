@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ContentContainer } from "../Menu/MenuStyle";
 import Modal from "../Asset/Modal";
 import { Link } from "react-router-dom";
+import { PuppleButton } from "../Asset/PuppleButton";
 
 const ProfileFrom = styled.section`
     padding: 20px;

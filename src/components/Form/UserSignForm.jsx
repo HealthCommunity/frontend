@@ -2,19 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
 import { PuppleButton } from "../Asset/PuppleButton";
-
-const FormGroup = styled.div`
-    width: 370px;
-`;
-
-const Form = styled.form`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-`;
+import { FormGroup, Form } from "./FromStyle";
 
 const Label = styled.label`
     margin-bottom: 10px;
@@ -36,7 +24,7 @@ const CheckInput = styled.div`
     }
 `;
 
-function UserForm({ isJoin = false, onSubmit }) {
+function UserSignForm({ onSubmit }) {
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -128,14 +116,7 @@ function UserForm({ isJoin = false, onSubmit }) {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); //새로고침 방지
-
-        if (!isJoin) {
-            return onSubmit(e, {
-                id: usrInputs.id,
-                password: usrInputs.password,
-            });
-        }
+        e.preventDefault();
 
         if (!isAgree) {
             return alert("동의 해주세요.");
@@ -159,7 +140,7 @@ function UserForm({ isJoin = false, onSubmit }) {
                     name="id"
                     placeholder="아이디"
                     onChange={handleChange}
-                    onValidation={isJoin ? checkValidityId : null}
+                    onValidation={checkValidityId}
                     required
                 />
 
@@ -168,49 +149,42 @@ function UserForm({ isJoin = false, onSubmit }) {
                     name="password"
                     placeholder="비밀번호"
                     onChange={handleChange}
-                    onValidation={isJoin ? checkValidityPassword : null}
+                    onValidation={checkValidityPassword}
                     required
                 />
 
-                {isJoin && (
-                    <>
-                        <DescTextInput
-                            type="password"
-                            name="checkPassword"
-                            placeholder="비밀번호 확인"
-                            onChange={handleChange}
-                            onValidation={checkDoublePassword}
-                            required
-                        />
-                        <DescTextInput
-                            type="text"
-                            name="nickname"
-                            placeholder="닉네임"
-                            onChange={handleChange}
-                            onValidation={checkValidityNickname}
-                            required
-                        />
-                        <CheckInput>
-                            <input
-                                type="checkbox"
-                                id="agree"
-                                checked={isAgree}
-                                name="isAgree"
-                                onChange={handleIsAgree}
-                            />
-                            <Label htmlFor="agree">
-                                이용약관 및 개인정보 수집∙이용에 동의합니다.
-                            </Label>
-                        </CheckInput>
-                    </>
-                )}
-                <PuppleButton
-                    type="submit"
-                    info={isJoin ? "가입하기" : "로그인"}
-                ></PuppleButton>
+                <DescTextInput
+                    type="password"
+                    name="checkPassword"
+                    placeholder="비밀번호 확인"
+                    onChange={handleChange}
+                    onValidation={checkDoublePassword}
+                    required
+                />
+                <DescTextInput
+                    type="text"
+                    name="nickname"
+                    placeholder="닉네임"
+                    onChange={handleChange}
+                    onValidation={checkValidityNickname}
+                    required
+                />
+                <CheckInput>
+                    <input
+                        type="checkbox"
+                        id="agree"
+                        checked={isAgree}
+                        name="isAgree"
+                        onChange={handleIsAgree}
+                    />
+                    <Label htmlFor="agree">
+                        이용약관 및 개인정보 수집∙이용에 동의합니다.
+                    </Label>
+                </CheckInput>
+                <PuppleButton type="submit" info={"가입하기"}></PuppleButton>
             </Form>
         </FormGroup>
     );
 }
 
-export default UserForm;
+export default UserSignForm;

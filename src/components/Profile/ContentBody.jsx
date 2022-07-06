@@ -5,7 +5,6 @@ import ContentMyinfoInner from "./ContentMyinfoInner";
 import ContentMyinfoMain from "./ContentMyinfoMain";
 import ContentUserDropOut from "./ContentUserDropOut";
 import ContentUserModify from "./ContentUserModify";
-import ContentPwModify from "./ContentPwModify";
 
 const MyPage = styled.div`
     width: 970px !important;
@@ -38,9 +37,6 @@ export default function ContentBody({ userData = {} }) {
                 </GroupItem>
                 <GroupItem name="profileModify">
                     <ContentUserModify></ContentUserModify>
-                </GroupItem>
-                <GroupItem name="pwModify">
-                    <ContentPwModify></ContentPwModify>
                 </GroupItem>
                 <GroupItem name="userDropOut">
                     <ContentUserDropOut></ContentUserDropOut>
