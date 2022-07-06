@@ -5,6 +5,7 @@ export const ex = [
     userId: "tail ",
     writeDay: "2021-06-06",
     views: 14,
+    comments: 20,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const ex = [
     userId: "song ",
     writeDay: "2021-06-13",
     views: 91,
+    comments: 20,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const ex = [
     userId: "jun ",
     writeDay: "2021-06-21",
     views: 23,
+    comments: 20,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const ex = [
     userId: "jun ",
     writeDay: "2021-06-14",
     views: 1,
+    comments: 20,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const ex = [
     userId: "tail ",
     writeDay: "2021-06-01",
     views: 10,
+    comments: 20,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const ex = [
     userId: "jun ",
     writeDay: "2021-06-11",
     views: 4,
+    comments: 20,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const ex = [
     userId: "song ",
     writeDay: "2021-05-30",
     views: 114,
+    comments: 20,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const ex = [
     userId: "hoon ",
     writeDay: "2021-06-04",
     views: 1114,
+    comments: 20,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const ex = [
     userId: "hoon ",
     writeDay: "2021-06-21",
     views: 1234,
+    comments: 20,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const ex = [
     userId: "tail",
     writeDay: "2021-05-11",
     views: 3321,
+    comments: 20,
   },
   {
     id: 11,
@@ -75,5 +85,6 @@ export const ex = [
     userId: "hoon",
     writeDay: "2021-06-21",
     views: 12,
+    comments: 20,
   },
 ];

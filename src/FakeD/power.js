@@ -5,6 +5,7 @@ export const threepower = [
     userId: "tail ",
     writeDay: "2021-05-10",
     views: 1234,
+    comments: 20,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const threepower = [
     userId: "song ",
     writeDay: "2021-06-13",
     views: 91123,
+    comments: 20,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const threepower = [
     userId: "Hilton",
     writeDay: "2021-06-21",
     views: 231,
+    comments: 20,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const threepower = [
     userId: "james",
     writeDay: "2021-06-14",
     views: 1,
+    comments: 20,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const threepower = [
     userId: "Iron Musk",
     writeDay: "2021-06-11",
     views: 101234,
+    comments: 20,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const threepower = [
     userId: "Doge",
     writeDay: "2021-06-12",
     views: 114,
+    comments: 20,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const threepower = [
     userId: "hoon ",
     writeDay: "2021-05-30",
     views: 1114,
+    comments: 20,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const threepower = [
     userId: "jun ",
     writeDay: "2021-06-04",
     views: 14,
+    comments: 20,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const threepower = [
     userId: "hoon ",
     writeDay: "2021-06-21",
     views: 123124,
+    comments: 20,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const threepower = [
     userId: "KimEgg",
     writeDay: "2021-05-30",
     views: 3321,
+    comments: 20,
   },
   {
     id: 12,
@@ -75,6 +85,7 @@ export const threepower = [
     userId: "FastFood",
     writeDay: "2021-06-11",
     views: 11123,
+    comments: 20,
   },
   {
     id: 13,
@@ -82,6 +93,7 @@ export const threepower = [
     userId: "김철수",
     writeDay: "2021-06-28",
     views: 123,
+    comments: 20,
   },
   {
     id: 14,
@@ -89,5 +101,6 @@ export const threepower = [
     userId: "이꿀팁",
     writeDay: "2021-06-27",
     views: 112323,
+    comments: 20,
   },
 ];

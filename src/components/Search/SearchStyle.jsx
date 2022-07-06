@@ -21,7 +21,7 @@ export const SearchForm = styled.form`
     font-size: ${(props)=>props.theme.fontSizeH4};
     height: 40px;
     border: 1px solid currentColor;
-    border-radius: ${(props)=>props.theme.radiusSize50};
+    border-radius: ${(props)=>props.theme.radiusSize20};
     margin: 0 0 30px;
     svg {
         :hover{
