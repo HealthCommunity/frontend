@@ -30,7 +30,6 @@ function Login() {
             <Title name="Login" />
             <Nav />
             <ContentDiv>
-                <ContentHeader>로그인</ContentHeader>
                 <ContentContainer>
                     <ContainerTitle>로그인</ContainerTitle>
                     <UserLoginForm onSubmit={console.log} />

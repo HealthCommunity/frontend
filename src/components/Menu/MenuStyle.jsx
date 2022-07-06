@@ -5,20 +5,12 @@ export const ContentDiv = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
-`;
-
-export const ContentHeader = styled.div`
-    width: 100%;
-    height: 300px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9e9a9a;
 `;
 
 export const ContentContainer = styled.div`
-    width: 100%;
+    width: 400px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,7 +19,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const ContainerTitle = styled.h3`
-    margin: 48px 0 24px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: ${(props) => props.theme.fontSizeH1};
+    color: ${(props) => props.theme.fontColor};
 `;

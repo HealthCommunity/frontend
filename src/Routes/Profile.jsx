@@ -10,7 +10,6 @@ function Profile() {
             <Title name="Profile" />
             <Nav />
             <ContentDiv>
-                <ContentHeader>마이페이지</ContentHeader>
                 <ContentBody
                     userData={{
                         nickname: "김계란",
