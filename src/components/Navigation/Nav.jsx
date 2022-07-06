@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import {NavDiv,NavLogo,NavItem,NavItemDiv,NavHamberDiv,NavToggle,NavToggleTwo,ToggleMenu} from './NavStyle'
 
 
-function Nav() {
+function Nav({color}) {
     const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
@@ -21,7 +21,7 @@ function Nav() {
         setDisplayChange((prev) => !prev);
     };
     return (
-        <NavDiv heigthchange={heigthchange}>
+        <NavDiv heigthchange={heigthchange} style={{backgroundColor:color}}>
             <NavLogo>
                 <Link to={"/"}>로고</Link>
                 <ToggleMenu>
