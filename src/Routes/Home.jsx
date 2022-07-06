@@ -10,7 +10,7 @@ import Search from "../components/Search/Search";
 import MainSlider from "../components/Main/MainSlider/MainSlider";
 import {MainTitle,MainTitleH1,MainTitleH4} from '../components/Main/MainTitle'
 import { useState } from "react";
-import BoardItem from "../components/Board/BoardItem/BoardItem";
+import {BoardItem} from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 
 
