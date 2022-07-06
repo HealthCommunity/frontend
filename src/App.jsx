@@ -34,6 +34,7 @@ body {
 	line-height: 1;
 	background-color: ${(props) => props.theme.bgColor};
 	color: ${(props) => props.theme.fontColor};
+	font-family: 'Open Sans', sans-serif ;
 }
 ol, ul {
 	list-style: none;

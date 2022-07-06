@@ -28,7 +28,7 @@ export const lightTheme = {
   bgColor: "#FEFEFE",
   bgColorSub: "#FFFFFF",
   fontColor: "#21242E",
-  navBgColor: "#6C5DD3",  
+  navBgColor: "#6C5DD3",
   colorFontGrey100: "#B2B8CA",
   colorFontGrey200: "#808191",
   colorFontBlack100: "#242731",
@@ -48,6 +48,4 @@ export const lightTheme = {
   radiusSize20: "20px",
   radiusSize50: "50px",
   shadowColor: "0 20px 20px 0 rgb(32 33 39 / 5%)",
-  
 };
-
