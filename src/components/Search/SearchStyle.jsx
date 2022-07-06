@@ -15,7 +15,7 @@ export const SearchDiv= styled.div`
     }
 `
 export const SearchForm = styled.form`
-    color: #555;
+    color: ${(props)=>props.theme.fontColor};
     display: flex;
     padding: 2px;
     font-size: ${(props)=>props.theme.fontSizeH4};
