@@ -1,6 +1,5 @@
 import styled from "styled-components";
 export const HomeDiv = styled.div`
-    padding-top: 100px;
     width:100%;
     display: flex;
     height:100vh;

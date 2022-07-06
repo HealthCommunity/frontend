@@ -9,35 +9,21 @@ import BoardStyle from "../components/Board/BoardStyle";
 import Summary from '../components/Board/BoardTitleStyle';
 import HomeStyle from "../components/Main/HomeStyle";
 import { HomeDiv,LeftDiv,RightDiv,ExersiseDiv,ThreePowerDiv } from "../components/Main/HomeSeparate";
+import Search from "../components/Search";
 
 function Home(){
     return (
         <>
             <Title name="Home"/>
             <Nav/>
+            <Search/>
             <HomeDiv>
                 <LeftDiv>
-                    <ExersiseDiv>
-                        <HomeStyle homeitem="exersise" homevalue="운동 게시판"/>
-                        <Summary/>
-                        {ex.map((x)=>(
-                        <BoardStyle itemvalue="exersise" arrayvalue={x} key={x.id}/>      
-                        ))}
-                    </ExersiseDiv>
-                    <ThreePowerDiv>
-                        <HomeStyle homeitem="board" homevalue="3대력 게시판"/>
-                        <Summary/>
-                        {threepower.map((x)=>(
-                            <BoardStyle itemvalue="board" arrayvalue={x} key={x.id}/>     
-                        ))}
-                    </ThreePowerDiv>
+                   
+                    
                 </LeftDiv>
                 <RightDiv>
-                        <HomeStyle homeitem="freeboard" homevalue="자유 게시판"/>
-                        <Summary/>
-                        {free.map((x)=>(
-                            <BoardStyle itemvalue="freeboard" arrayvalue={x} key={x.id}/>             
-                        ))}
+                        
                 </RightDiv>
             </HomeDiv>
             <Footer/>
