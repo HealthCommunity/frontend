@@ -5,6 +5,7 @@ export const free = [
     userId: "HanaBank",
     writeDay: "2021-05-10",
     views: 44,
+    comments: 20,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const free = [
     userId: "hoon ",
     writeDay: "2021-06-13",
     views: 12321,
+    comments: 20,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const free = [
     userId: "Bill",
     writeDay: "2021-06-21",
     views: 1231,
+    comments: 20,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const free = [
     userId: "toy",
     writeDay: "2021-06-14",
     views: 122,
+    comments: 20,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const free = [
     userId: "g",
     writeDay: "2021-06-11",
     views: 1,
+    comments: 20,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const free = [
     userId: "Doge",
     writeDay: "2021-06-12",
     views: 114,
+    comments: 20,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const free = [
     userId: "CoinTube",
     writeDay: "2021-05-30",
     views: 11114,
+    comments: 20,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const free = [
     userId: "zf ",
     writeDay: "2021-06-04",
     views: 12314,
+    comments: 20,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const free = [
     userId: "hoon ",
     writeDay: "2021-06-21",
     views: 14,
+    comments: 20,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const free = [
     userId: "친절한아이",
     writeDay: "2021-05-30",
     views: 3321,
+    comments: 20,
   },
   {
     id: 12,
@@ -75,6 +85,7 @@ export const free = [
     userId: "Pig",
     writeDay: "2021-06-13",
     views: 11233,
+    comments: 20,
   },
   {
     id: 13,
@@ -82,6 +93,7 @@ export const free = [
     userId: "Andrew",
     writeDay: "2021-06-28",
     views: 123,
+    comments: 20,
   },
   {
     id: 14,
@@ -89,6 +101,7 @@ export const free = [
     userId: "성수동장",
     writeDay: "2021-06-27",
     views: 1,
+    comments: 20,
   },
   {
     id: 15,
@@ -96,6 +109,7 @@ export const free = [
     userId: "gdf",
     writeDay: "2021-06-27",
     views: 133,
+    comments: 20,
   },
   {
     id: 16,
@@ -103,6 +117,7 @@ export const free = [
     userId: "2022차기헬창",
     writeDay: "2021-06-23",
     views: 31,
+    comments: 20,
   },
   {
     id: 17,
@@ -110,6 +125,7 @@ export const free = [
     userId: "유재석",
     writeDay: "2021-05-27",
     views: 1,
+    comments: 20,
   },
   {
     id: 18,
@@ -117,6 +133,7 @@ export const free = [
     userId: "크크루",
     writeDay: "2021-06-17",
     views: 1241,
+    comments: 20,
   },
   {
     id: 19,
@@ -124,6 +141,7 @@ export const free = [
     userId: "himan",
     writeDay: "2021-06-17",
     views: 11,
+    comments: 20,
   },
   {
     id: 20,
@@ -131,6 +149,7 @@ export const free = [
     userId: "육식맨",
     writeDay: "2021-06-13",
     views: 121,
+    comments: 20,
   },
   {
     id: 21,
@@ -138,6 +157,7 @@ export const free = [
     userId: "하핳!",
     writeDay: "2021-06-17",
     views: 3311,
+    comments: 20,
   },
   {
     id: 22,
@@ -145,6 +165,7 @@ export const free = [
     userId: "WorldZZZZ",
     writeDay: "2021-06-17",
     views: 441,
+    comments: 20,
   },
   {
     id: 23,
@@ -152,6 +173,7 @@ export const free = [
     userId: "noA",
     writeDay: "2021-03-12",
     views: 4441,
+    comments: 20,
   },
   {
     id: 24,
@@ -159,6 +181,7 @@ export const free = [
     userId: "zizn",
     writeDay: "2021-06-24",
     views: 224,
+    comments: 20,
   },
   {
     id: 25,
@@ -166,6 +189,7 @@ export const free = [
     userId: "AMEN",
     writeDay: "2021-06-24",
     views: 14,
+    comments: 20,
   },
   {
     id: 26,
@@ -173,5 +197,6 @@ export const free = [
     userId: "파이팅맨",
     writeDay: "2021-04-14",
     views: 1424,
+    comments: 20,
   },
 ];
