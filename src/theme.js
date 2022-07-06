@@ -21,7 +21,7 @@ export const darkTheme = {
     fontSizeH4: "14px",
     fontSizeH5: "10px",
     radiusSize20: "20px",
-    radiusSize50: "50px",
+    radiusSize50: "50%",
     shadowColor: "0 20px 20px 0 rgb(32 33 39 / 5%)",
 };
 
@@ -48,6 +48,6 @@ export const lightTheme = {
     fontSizeH4: "14px",
     fontSizeH5: "10px",
     radiusSize20: "20px",
-    radiusSize50: "50px",
+    radiusSize50: "50%",
     shadowColor: "0 20px 20px 0 rgb(32 33 39 / 5%)",
 };
