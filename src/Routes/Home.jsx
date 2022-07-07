@@ -12,6 +12,7 @@ import {MainTitle,MainTitleH1,MainTitleH4} from '../components/Main/MainTitle'
 import { useState } from "react";
 import {BoardItem} from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
+import MainChart from "../components/Main/MainChart/MainChart";
 
 
 
@@ -32,6 +33,7 @@ function Home(){
             <Nav/>
             <Search/>
             <MainSlider/>
+            <MainChart/>
             <MainTitle>
                 <MainTitleH1>Notice Board List </MainTitleH1>
                 <MainTitleH4>Click the button to check the Notice Board!</MainTitleH4>
