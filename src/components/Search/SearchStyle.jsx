@@ -2,16 +2,16 @@ import styled from "styled-components"
 export const SearchDiv= styled.div`
     margin: 0 auto;
     padding: 150px 0px 50px 0px;
-    width:20%;
+    width:25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
     @media all and (min-width:480px) and (max-width:767px) {
-        width:45%;
+        width:65%;
     }
     @media all and (max-width:479px) {
-        width:45%;
+        width:65%;
     }
 `
 export const SearchForm = styled.form`
@@ -35,7 +35,7 @@ export const SearchInput = styled.input`
   border: none;
   background: transparent;
   margin: 0;
-  width:90%;
+  width:100%;
   padding: 7px 8px;
   font-size: 14px;
   color: inherit;
