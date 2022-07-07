@@ -1,8 +1,8 @@
 import {FootDiv,FootItem} from './FooterStyle'
 
-function Footer({color}) {
+function Footer() {
     return (
-        <FootDiv style={{backgroundColor:color}}>
+        <FootDiv>
             <FootItem>
                 노션링크
             </FootItem>

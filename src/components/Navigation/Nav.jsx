@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
-import { BsFillSunFill, BsMoonFill } from "react-icons/bs";
+import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {NavDiv,NavLogo,NavItem,NavItemDiv,NavHamberDiv,NavToggle,NavToggleTwo,ToggleMenu} from './NavStyle'
 
 
-function Nav({color}) {
+function Nav() {
     const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
@@ -21,7 +21,7 @@ function Nav({color}) {
         setDisplayChange((prev) => !prev);
     };
     return (
-        <NavDiv heigthchange={heigthchange} style={{backgroundColor:color}}>
+        <NavDiv heigthchange={heigthchange} >
             <NavLogo>
                 <Link to={"/"}>로고</Link>
                 <ToggleMenu>
@@ -29,7 +29,7 @@ function Nav({color}) {
                         <GiHamburgerMenu />
                     </NavHamberDiv>
                     <NavToggle onClick={isModeChange}>
-                        {useAtom ? <BsMoonFill /> : <BsFillSunFill />}
+                        {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"yellow"}}/>}
                     </NavToggle>
                 </ToggleMenu>
             </NavLogo>
@@ -63,7 +63,7 @@ function Nav({color}) {
                     </>
                 )}
                 <NavToggleTwo onClick={isModeChange}>
-                    {useAtom ? <BsMoonFill /> : <BsFillSunFill />}
+                    {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"yellow"}}/>}
                 </NavToggleTwo>
             </NavItemDiv>
         </NavDiv>

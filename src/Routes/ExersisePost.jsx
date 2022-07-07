@@ -1,4 +1,6 @@
 import { useParams } from "react-router";
+import BoardDetail from "../components/Board/BoardPost/BoardDetail";
+import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 
 function ExersisePost(){
@@ -6,7 +8,8 @@ function ExersisePost(){
     return (
         <>
             <Title name={`${id}`}/>
-            <h1>{`안녕하세요 운동 Post 의 ${id} 페이지 입니다`}</h1>
+            <Nav/>
+            <BoardDetail/>
         </>
         
     )

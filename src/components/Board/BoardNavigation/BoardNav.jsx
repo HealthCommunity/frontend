@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import {LeftBtn,LeftBtnLogo,LeftBtnSummary,LeftBtnSummaryH4,LeftBtnSummaryH5,LeftDivArrow} from './BoardNavStyle'
 import { MdArrowForwardIos } from "react-icons/md";
 import { GiMuscleUp,GiThreeFriends} from "react-icons/gi";

@@ -47,11 +47,13 @@ export const NavItemDiv = styled.div`
         flex-direction: column;
         width: 100%;
         display: ${(props) => (props.displaychange ? "" : "none")};
+        margin: 0 auto;
     }
     @media all and (max-width: 479px) {
         flex-direction: column;
         width: 100%;
         display: ${(props) => (props.displaychange ? "" : "none")};
+        margin: 0 auto;
     }
 `;
 
@@ -86,12 +88,16 @@ export const NavToggle = styled(NavItem)`
     }
 `;
 export const NavToggleTwo = styled(NavItem)`
-    background-color: ${(props) => props.theme.bgColor};
     border-radius: 50%;
     width: 30px;
     height: 30px;
+    font-size:${(props)=>props.theme.fontSizeH1};
     cursor: pointer;
     display: flex;
+    :hover{
+        transform: scale(1.2);
+        transition-duration: 1s;
+    }
     @media all and (min-width: 480px) and (max-width: 767px) {
         display: none;
     }
