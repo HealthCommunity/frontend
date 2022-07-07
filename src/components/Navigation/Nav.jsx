@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import {NavDiv,NavLogo,NavItem,NavItemDiv,NavHamberDiv,NavToggle,NavToggleTwo,ToggleMenu} from './NavStyle'
 
 
-function Nav({color}) {
+function Nav() {
     const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);

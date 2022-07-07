@@ -1,6 +1,6 @@
 import {FootDiv,FootItem} from './FooterStyle'
 
-function Footer({color}) {
+function Footer() {
     return (
         <FootDiv>
             <FootItem>
