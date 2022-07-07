@@ -1,73 +1,99 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Modal from "../Asset/Modal";
+import Modal from "../Share/Modal";
 
 const InfoInnerDiv = styled.div`
-    position: relative;
-    margin: 0 36px;
-    margin-left: 236px;
-    padding-top: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    padding: 32px;
+
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        padding: 32px 0px;
+    }
+    @media all and (max-width: 479px) {
+        padding: 32px 0px;
+    }
 `;
 
-const RoundCornerImg = styled.img`
-    position: absolute;
-    top: 24px;
-    left: -236px;
-    width: 200px;
-    height: 200px;
-    border-radius: 4px;
+const ProfileImg = styled.div`
+    img {
+        border-radius: ${(props) => props.theme.radiusSize20};
+        width: 200px;
+        height: 200px;
+
+        @media all and (min-width: 480px) and (max-width: 767px) {
+            width: 80px;
+            height: 80px;
+        }
+        @media all and (max-width: 479px) {
+            width: 80px;
+            height: 80px;
+        }
+    }
 `;
 
 const ProfileInfo = styled.div`
-    position: relative;
-    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        padding: 0 12px;
+    }
+    @media all and (max-width: 479px) {
+        padding: 0 12px;
+    }
 `;
 
-const DescTitle = styled.span`
-    display: block;
-    margin-bottom: 16px;
-    color: rgba(0, 0, 0, 0.7);
+const DescGroup = styled.div`
+    display: flex;
+    align-items: center;
+    height: 20px;
+    margin: 12px 0;
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        margin: 4px 0;
+    }
+    @media all and (max-width: 479px) {
+        margin: 4px 0;
+    }
 `;
 
-const DescNickname = styled.p`
-    margin-bottom: 12px;
-    min-height: 42px;
-    font-weight: 700;
-    font-size: 16px;
+const DescSub = styled.span`
+    width: 80px;
+
+    color: ${(props) => props.theme.colorFontGrey100};
+    font-size: ${(props) => props.theme.fontSizeH4};
 `;
 
 const DescText = styled.p`
-    margin-bottom: 12px;
-    min-height: 42px;
-    font-weight: 700;
+    font-size: ${(props) => props.theme.fontSizeH3};
 `;
 
-const DescChangeBtn = styled.button`
-    margin-right: 8px;
-    display: inline-block;
-    font-weight: 400;
-    color: #212529;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    color: black;
-    border-color: black;
-    background-color: #fff;
+const DescChangeBtn = styled.div`
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 40px;
+    border: none;
+    border-radius: ${(props) => props.theme.radiusSize20};
+    font-size: ${(props) => props.theme.fontSizeH5};
+    line-height: 1.42857;
     font-weight: 700;
+    -webkit-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
     cursor: pointer;
+
+    background: #e4e4e4;
+
+    :hover {
+        background: rgba(228, 228, 228, 0.5);
+    }
 `;
 
-export default function ContentMyinfoInner({ nickname, desc, imgUrl }) {
+export default function ContentMyinfoInner({ id, nickname, desc, imgUrl }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
@@ -97,12 +123,29 @@ export default function ContentMyinfoInner({ nickname, desc, imgUrl }) {
 
     return (
         <InfoInnerDiv>
-            <RoundCornerImg src={imgUrl} alt="" />
+            <ProfileImg>
+                <img src={imgUrl} alt=""></img>
+            </ProfileImg>
             <ProfileInfo>
-                <DescNickname>{nickname}</DescNickname>
-                <DescTitle>한줄소개</DescTitle>
-                <DescText>{desc}</DescText>
-                <DescChangeBtn onClick={openModal}>한줄소개 변경</DescChangeBtn>
+                <DescGroup>
+                    <DescSub>이메일</DescSub>
+                    <DescText>{id}</DescText>
+                </DescGroup>
+
+                <DescGroup>
+                    <DescSub>닉네임</DescSub>
+                    <DescText>{nickname}</DescText>
+                </DescGroup>
+                <DescGroup>
+                    <DescSub>한줄소개</DescSub>
+                    <DescText>{desc}</DescText>
+                </DescGroup>
+                <DescGroup>
+                    <DescChangeBtn onClick={openModal}>
+                        한줄소개 변경
+                    </DescChangeBtn>
+                </DescGroup>
+
                 <Modal
                     open={modalOpen}
                     close={closeModal}

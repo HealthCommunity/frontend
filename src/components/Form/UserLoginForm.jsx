@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DescTextInput from "./DescTextInput";
-import { PuppleButton } from "../Asset/PuppleButton";
+import { ButtonPupple } from "../Share/ButtonPupple";
 import { FormGroup, Form } from "./FromStyle";
 
 export default function UserInputForm({ onSubmit }) {
@@ -44,7 +44,7 @@ export default function UserInputForm({ onSubmit }) {
                     onChange={handleChange}
                     required
                 />
-                <PuppleButton type="submit" info={"로그인"}></PuppleButton>
+                <ButtonPupple type="submit" info={"로그인"}></ButtonPupple>
             </Form>
         </FormGroup>
     );

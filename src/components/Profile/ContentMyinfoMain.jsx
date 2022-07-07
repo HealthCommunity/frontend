@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const MyInfo = styled.section`
     padding: 20px;
-    min-height: 200px;
-    margin-bottom: 72px;
-    box-shadow: 0 4px 16px 0 rgb(126 155 255 / 30%);
+    height: 450px;
+    border-radius: ${(props) => props.theme.radiusSize20};
+    box-shadow: ${(props) => props.theme.shadowColor};
 `;
 
 const MyInfoTitle = styled.h3`
@@ -13,40 +13,68 @@ const MyInfoTitle = styled.h3`
     display: inline-block;
 `;
 
-const Info = styled.div`
+const ThreeInfo = styled.div`
     display: flex;
     justify-content: space-around;
-    padding: 32px 0;
+
+    border-radius: ${(props) => props.theme.radiusSize20};
+    border: 1px solid #e4e4e4;
 
     div {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 24px;
+        width: 25%;
+        height: 100px;
 
         span {
-            display: block;
+            font-size: ${(props) => props.theme.fontSizeH4};
+            font-weight: 500;
+            line-height: 1.33333;
+            margin-bottom: 8px;
         }
 
         b {
-            font-size: 20px;
+            font-size: ${(props) => props.theme.fontSizeH1};
+            font-weight: 500;
             padding: 0 12px;
+
+            @media all and (min-width: 480px) and (max-width: 767px) {
+                font-size: ${(props) => props.theme.fontSizeH2};
+            }
+            @media all and (max-width: 479px) {
+                font-size: ${(props) => props.theme.fontSizeH2};
+            }
         }
+
+        @media all and (min-width: 480px) and (max-width: 767px) {
+            padding: 12px;
+        }
+        @media all and (max-width: 479px) {
+            padding: 12px;
+        }
+    }
+
+    div:not(:last-child) {
+        border-right: 1px solid #e4e4e4;
     }
 `;
 
 export default function ContentMyinfoMain({ data, children }) {
     return (
         <MyInfo>
-            <MyInfoTitle>내 프로필</MyInfoTitle>
+            <MyInfoTitle>내 정보</MyInfoTitle>
             {children}
-            <Info>
+            <ThreeInfo>
                 {Object.keys(data).map((name) => (
                     <div>
                         <span>{name}</span>
-                        <b>{data[name]}kg</b>
+                        <b>{data[name]}</b>
                     </div>
                 ))}
-            </Info>
+            </ThreeInfo>
         </MyInfo>
     );
 }

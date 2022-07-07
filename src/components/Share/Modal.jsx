@@ -93,7 +93,13 @@ const Footer = styled.div`
     text-align: right;
 `;
 
-export default function Modal({ open, close, header, children }) {
+export default function Modal({
+    open,
+    close,
+    header,
+    children,
+    footerDesc = "확인",
+}) {
     return (
         <>
             {open && (
@@ -105,7 +111,9 @@ export default function Modal({ open, close, header, children }) {
                         </Header>
                         <Main>{children}</Main>
                         <Footer>
-                            <FooterButton onClick={close}>확인</FooterButton>
+                            <FooterButton onClick={close}>
+                                {footerDesc}
+                            </FooterButton>
                         </Footer>
                     </Section>
                 </ModalGroup>

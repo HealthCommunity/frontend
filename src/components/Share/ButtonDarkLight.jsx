@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 const Button = styled.button`
     width: 100%;
-    min-width: 166px;
+    min-width: 120px;
     height: 56px;
-    padding: 0 20px;
     border: none;
-    border-radius: 16px/16px;
-    font-size: 14px;
+    border-radius: ${(props) => props.theme.radiusSize20};
+    font-size: ${(props) => props.theme.fontSizeH4};
     line-height: 1.42857;
     font-weight: 700;
     -webkit-transition: all 0.25s;
@@ -26,7 +25,7 @@ const LightDarkButton = styled(Button)`
     }
 `;
 
-export function CommonButton({ info = "" }) {
+export function ButtonDarkLight({ info = "" }) {
     return (
         <>
             <LightDarkButton>{info}</LightDarkButton>

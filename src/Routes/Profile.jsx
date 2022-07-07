@@ -10,9 +10,9 @@ function Profile() {
             <Title name="Profile" />
             <Nav />
             <ContentDiv>
-                <ContentHeader>마이페이지</ContentHeader>
                 <ContentBody
                     userData={{
+                        id: "song@naver.com",
                         nickname: "김계란",
                         scoreData: {
                             삼대력: 470,
@@ -25,7 +25,6 @@ function Profile() {
                     }}
                 />
             </ContentDiv>
-
             <Footer />
         </>
     );
