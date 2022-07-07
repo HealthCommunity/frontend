@@ -15,6 +15,7 @@ export const HomeDiv = styled.div`
 export const LeftDiv =styled.div`
     width:35%;
     display: flex;
+    align-items: center;
     height:100%;
     margin: 0 auto;
     flex-direction: column;
@@ -38,6 +39,16 @@ export const RightDiv =styled.div`
     gap: 20px 20px;
     align-items: center;
     margin: 0 auto;
+    @media all and (min-width:480px) and (max-width:767px) {
+        width:90%;
+        grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+        
+    } 
+    @media all and (max-width:479px) {
+        width:90%;
+        grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+        
+    }
 `
 
 export const ExersiseDiv =styled.div`
