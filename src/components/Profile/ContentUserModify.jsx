@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ContentContainer, ContainerTitle } from "../Menu/MenuStyle";
 import DescTextInput from "../Form/DescTextInput";
 import { FormGroup, Form } from "../Form/FromStyle";
-import { PuppleButton } from "../Asset/PuppleButton";
+import { ButtonPupple } from "../Share/ButtonPupple";
 
 const ProfileFrom = styled.section`
     padding: 20px;
@@ -119,10 +119,10 @@ export default function ContentUserModify({ onSubmit }) {
                             onValidation={checkValidityNickname}
                             required
                         />
-                        <PuppleButton
+                        <ButtonPupple
                             type="submit"
                             info={"변경하기"}
-                        ></PuppleButton>
+                        ></ButtonPupple>
                     </Form>
                 </FormGroup>
             </ProfileFrom>

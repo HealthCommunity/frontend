@@ -1,8 +1,10 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
 import Footer from "../components/Footer/Footer";
 import UserSignForm from "../components/Form/UserSignForm";
+import SnsNav from "../components/Login/SnsNav";
 
 import {
     ContentDiv,
@@ -14,49 +16,28 @@ import kakao from "../images/kakao.png";
 import google from "../images/google.png";
 import naver from "../images/naver.png";
 
-const SignTab = styled.div`
-    display: flex;
-    margin-top: 28px;
-    width: 100%;
+const SingGroup = styled.div`
+    height: 420px;
 `;
 
-const SignTabItem = styled.div`
-    flex: 1 1;
-    font-size: ${(props) => props.theme.fontSizeH4};
-    line-height: 47px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-    border-bottom: pxsolidrgba (230, 234, 238, 0.6);
-    text-transform: uppercase;
-    cursor: pointer;
-    color: ${(props) =>
-        props.isActive
-            ? props.theme.colorPointPupple200
-            : props.theme.colorFontGrey100};
-`;
-
-const LoginType = styled.div`
-    width: 100%;
-`;
 const SocailList = styled.ul`
     width: 100%;
+    height: 420px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
-const SocailItem = styled.li`
-    background-color: tomato;
-    padding: 8px;
-    text-align: left;
-    color: #fff;
-    font-weight: 700;
 
+const SocailItem = styled.li`
     img {
-        width: 44px;
-        height: 44px;
+        width: 380px;
+        height: 70px;
     }
 `;
 
 function Sign() {
+    const [selected, setSelected] = useState("emaillogin");
     return (
         <>
             <Title name="Sign" />
@@ -64,35 +45,64 @@ function Sign() {
             <ContentDiv>
                 <ContentContainer>
                     <ContainerTitle>회원가입</ContainerTitle>
-                    <SignTab>
-                        <SignTabItem isActive={true}>이메일</SignTabItem>
-                        <SignTabItem isActive={false}>소셜</SignTabItem>
-                    </SignTab>
-                    <LoginType>
-                        <SocailList>
-                            <SocailItem>
-                                <a href="/#">
-                                    <img src={naver} alt="네이버 로그인"></img>
-                                </a>
-                            </SocailItem>
-                            <SocailItem>
-                                <a href="/#">
-                                    <img src={kakao} alt="카카오 로그인"></img>
-                                </a>
-                            </SocailItem>
-                            <SocailItem>
-                                <a href="/#">
-                                    <img src={google} alt="구글 로그인"></img>
-                                </a>
-                            </SocailItem>
-                        </SocailList>
-                        <UserSignForm onSubmit={console.log}></UserSignForm>
-                    </LoginType>
+                    <SnsNav
+                        onChange={(name) => {
+                            setSelected(name);
+                        }}
+                        typeName={selected}
+                    />
+                    <Group selected={selected}>
+                        <GroupItem name="emaillogin">
+                            <SingGroup>
+                                <UserSignForm
+                                    onSubmit={console.log}
+                                ></UserSignForm>
+                            </SingGroup>
+                        </GroupItem>
+
+                        <GroupItem name="snslogin">
+                            <SocailList>
+                                <SocailItem>
+                                    <a href="/#">
+                                        <img
+                                            src={naver}
+                                            alt="네이버 로그인"
+                                        ></img>
+                                    </a>
+                                </SocailItem>
+                                <SocailItem>
+                                    <a href="/#">
+                                        <img
+                                            src={kakao}
+                                            alt="카카오 로그인"
+                                        ></img>
+                                    </a>
+                                </SocailItem>
+                                <SocailItem>
+                                    <a href="/#">
+                                        <img
+                                            src={google}
+                                            alt="구글 로그인"
+                                        ></img>
+                                    </a>
+                                </SocailItem>
+                            </SocailList>
+                        </GroupItem>
+                    </Group>
                 </ContentContainer>
             </ContentDiv>
             <Footer />
         </>
     );
+}
+
+function Group({ children, selected }) {
+    const elements = React.Children.toArray(children);
+    return <>{elements.find(({ props }) => selected === props.name)}</>;
+}
+
+function GroupItem({ children }) {
+    return <>{children}</>;
 }
 
 export default Sign;

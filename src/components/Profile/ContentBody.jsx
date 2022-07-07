@@ -7,42 +7,48 @@ import ContentUserDropOut from "./ContentUserDropOut";
 import ContentUserModify from "./ContentUserModify";
 
 const MyPage = styled.div`
-    width: 970px !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 108px;
-    padding: 0;
+    width: 970px;
+
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        width: 480px;
+    }
+    @media all and (max-width: 479px) {
+        width: 480px;
+    }
 `;
 
 export default function ContentBody({ userData = {} }) {
-    const { nickname, scoreData, desc, imgUrl } = userData;
+    const { id, nickname, scoreData, desc, imgUrl } = userData;
     const [selected, setSelected] = useState("profile");
 
     return (
-        <MyPage>
-            <ProfileNav
-                onChange={(name) => {
-                    setSelected(name);
-                }}
-            />
-            <Group selected={selected}>
-                <GroupItem name="profile">
-                    <ContentMyinfoMain data={scoreData}>
-                        <ContentMyinfoInner
-                            nickname={nickname}
-                            desc={desc}
-                            imgUrl={imgUrl}
-                        />
-                    </ContentMyinfoMain>
-                </GroupItem>
-                <GroupItem name="profileModify">
-                    <ContentUserModify></ContentUserModify>
-                </GroupItem>
-                <GroupItem name="userDropOut">
-                    <ContentUserDropOut></ContentUserDropOut>
-                </GroupItem>
-            </Group>
-        </MyPage>
+        <>
+            <MyPage>
+                <ProfileNav
+                    onChange={(name) => {
+                        setSelected(name);
+                    }}
+                />
+                <Group selected={selected}>
+                    <GroupItem name="profile">
+                        <ContentMyinfoMain data={scoreData}>
+                            <ContentMyinfoInner
+                                id={id}
+                                nickname={nickname}
+                                desc={desc}
+                                imgUrl={imgUrl}
+                            />
+                        </ContentMyinfoMain>
+                    </GroupItem>
+                    <GroupItem name="profileModify">
+                        <ContentUserModify></ContentUserModify>
+                    </GroupItem>
+                    <GroupItem name="userDropOut">
+                        <ContentUserDropOut></ContentUserDropOut>
+                    </GroupItem>
+                </Group>
+            </MyPage>
+        </>
     );
 }
 

@@ -12,6 +12,7 @@ function Profile() {
             <ContentDiv>
                 <ContentBody
                     userData={{
+                        id: "song@naver.com",
                         nickname: "김계란",
                         scoreData: {
                             삼대력: 470,
@@ -24,7 +25,6 @@ function Profile() {
                     }}
                 />
             </ContentDiv>
-
             <Footer />
         </>
     );

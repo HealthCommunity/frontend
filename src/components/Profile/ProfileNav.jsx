@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ButtonPupple } from "../Share/ButtonPupple";
 
 const ProfileDiv = styled.div`
     width: 100%;
@@ -10,8 +11,7 @@ const ProfileItemDiv = styled.div`
     display: flex;
 `;
 
-const ProfileItem = styled.div`
-    margin: 0px 10px;
+const ProfileItem = styled.span`
     padding: 10px;
 `;
 
@@ -27,7 +27,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("profile");
                         }}
                     >
-                        기본정보
+                        <ButtonPupple info={"기본정보"}></ButtonPupple>
                     </a>
                 </ProfileItem>
                 <ProfileItem>
@@ -38,7 +38,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("profileModify");
                         }}
                     >
-                        회원정보 변경
+                        <ButtonPupple info={"회원정보 변경"}></ButtonPupple>
                     </a>
                 </ProfileItem>
                 <ProfileItem>
@@ -49,7 +49,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("userDropOut");
                         }}
                     >
-                        회원탈퇴
+                        <ButtonPupple info={"회원탈퇴"}></ButtonPupple>
                     </a>
                 </ProfileItem>
             </ProfileItemDiv>

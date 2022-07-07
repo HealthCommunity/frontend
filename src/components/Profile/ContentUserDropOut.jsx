@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ContentContainer } from "../Menu/MenuStyle";
-import Modal from "../Asset/Modal";
+import Modal from "../Share/Modal";
 import { Link } from "react-router-dom";
-import { PuppleButton } from "../Asset/PuppleButton";
+import { ButtonPupple } from "../Share/ButtonPupple";
 
 const ProfileFrom = styled.section`
     padding: 20px;
