@@ -1,7 +1,7 @@
 import {InfoCommentInputSubmit,InfoCommentInputText,InfoDiv,InfoExplanationDiv,InfoExplanationTitle,InfoTitle,InfoTitleDiv,InfoTitleWrite,InfoCommentForm,CommentList,CommentListitem,BoardSummary} from "./BoardDetailStyle";
 import { threepower } from "../../../FakeD/power";
 import {ex} from '../../../FakeD/exersise';
-import {freeboard} from '../../../FakeD/free';
+import {free} from '../../../FakeD/free';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useParams } from "react-router";
@@ -9,7 +9,7 @@ function BoardDetail(){
     const {id} = useParams();
     const {pathname} = useLocation();
     const boardname = pathname.split('/')[1];
-    const item = threepower.find((x=>x.id == id));
+    const item = boardname === "exersise" ? ex.find((x=>x.id === +id)) : boardname === "freeboard" ? free.find((x)=>x.id === +id) : threepower.find((x)=>x.id=== +id);
     const {
         register,
         handleSubmit,
