@@ -21,7 +21,7 @@ function Nav({color}) {
         setDisplayChange((prev) => !prev);
     };
     return (
-        <NavDiv heigthchange={heigthchange} style={{backgroundColor:color}}>
+        <NavDiv heigthchange={heigthchange} >
             <NavLogo>
                 <Link to={"/"}>로고</Link>
                 <ToggleMenu>

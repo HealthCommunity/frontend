@@ -11,14 +11,14 @@ function Board(){
     return (
         <>
             <Title name="Board"/>
-            <Nav color={"#3F8CFF"}/>
+            <Nav/>
             <BoardNav style={{paddingTop:"150px" ,width:"50%" , margin:"0 auto",pointerEvents:"none"}} name={"3대 운동 게시판"} summary={"다른 사람의 3대 능력을 확인해보세요!"}/>
             <RightDiv style={{marginBottom:"150px"}}>
             {threepower.map((x)=> 
                         <SoloBoardItem key={Math.random()} item={x} color={"#3F8CFF"} value={"board"}/>
                 )}
             </RightDiv>
-            <Footer color={"#3F8CFF"}/>
+            <Footer/>
         </>
         
     )

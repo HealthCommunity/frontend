@@ -10,14 +10,14 @@ function Freeboard(){
     return (
         <>
             <Title name="FreeBoard"/>
-            <Nav color={"#FF754C"}/>
+            <Nav/>
             <BoardNav style={{paddingTop:"150px" ,width:"50%" , margin:"0 auto",pointerEvents:"none"}} name={"자유 게시판"} summary={" 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"}/>
             <RightDiv style={{marginBottom:"150px"}}>
                 {free.map((x)=>
                     <SoloBoardItem key={Math.random()} item={x} color={"#FF754C"} value={"freeboard"}/>
                 )}
             </RightDiv>
-            <Footer color={"#FF754C"}/>
+            <Footer/>
         </>
         
     )

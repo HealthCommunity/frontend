@@ -2,7 +2,7 @@ import {FootDiv,FootItem} from './FooterStyle'
 
 function Footer({color}) {
     return (
-        <FootDiv style={{backgroundColor:color}}>
+        <FootDiv>
             <FootItem>
                 노션링크
             </FootItem>
