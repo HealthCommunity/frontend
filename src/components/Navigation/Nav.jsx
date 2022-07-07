@@ -29,7 +29,7 @@ function Nav() {
                         <GiHamburgerMenu />
                     </NavHamberDiv>
                     <NavToggle onClick={isModeChange}>
-                        {useAtom ? <BsLightbulb style={{fill:"yellow"}}/> : <BsLightbulbFill style={{fill:"black"}}/>}
+                        {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"yellow"}}/>}
                     </NavToggle>
                 </ToggleMenu>
             </NavLogo>
@@ -63,7 +63,7 @@ function Nav() {
                     </>
                 )}
                 <NavToggleTwo onClick={isModeChange}>
-                    {useAtom ? <BsLightbulb style={{fill:"yellow"}}/> : <BsLightbulbFill style={{fill:"black"}}/>}
+                    {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"yellow"}}/>}
                 </NavToggleTwo>
             </NavItemDiv>
         </NavDiv>
