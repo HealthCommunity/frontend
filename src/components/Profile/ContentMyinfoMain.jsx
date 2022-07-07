@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const MyInfo = styled.section`
     padding: 20px;
+    height: 450px;
     border-radius: ${(props) => props.theme.radiusSize20};
     box-shadow: ${(props) => props.theme.shadowColor};
 `;

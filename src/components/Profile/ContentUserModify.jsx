@@ -1,14 +1,32 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ContentContainer, ContainerTitle } from "../Menu/MenuStyle";
 import DescTextInput from "../Form/DescTextInput";
 import { FormGroup, Form } from "../Form/FromStyle";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
-const ProfileFrom = styled.section`
+const UserModify = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
     padding: 20px;
+`;
+
+const UserModifyTitle = styled.div`
+    color: ${(props) => props.theme.fontColor};
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 32px;
+`;
+
+const UserModifyFrom = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 480px;
     min-height: 200px;
-    margin-bottom: 72px;
 `;
 
 export default function ContentUserModify({ onSubmit }) {
@@ -89,9 +107,9 @@ export default function ContentUserModify({ onSubmit }) {
         }
     };
     return (
-        <ContentContainer>
-            <ProfileFrom>
-                <ContainerTitle>회원정보 변경</ContainerTitle>
+        <UserModify>
+            <UserModifyFrom>
+                <UserModifyTitle>회원정보 변경</UserModifyTitle>
                 <FormGroup>
                     <Form onSubmit={handleSubmit}>
                         <DescTextInput
@@ -125,7 +143,7 @@ export default function ContentUserModify({ onSubmit }) {
                         ></ButtonPupple>
                     </Form>
                 </FormGroup>
-            </ProfileFrom>
-        </ContentContainer>
+            </UserModifyFrom>
+        </UserModify>
     );
 }

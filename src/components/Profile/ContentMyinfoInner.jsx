@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../Share/Modal";
-import { ButtonPupple } from "../Share/ButtonPupple";
 
 const InfoInnerDiv = styled.div`
     display: flex;
