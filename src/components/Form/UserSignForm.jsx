@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
-import { PuppleButton } from "../Asset/PuppleButton";
+import { ButtonPupple } from "../Share/ButtonPupple";
 import { FormGroup, Form } from "./FromStyle";
 
 const Label = styled.label`
@@ -181,7 +181,7 @@ function UserSignForm({ onSubmit }) {
                         이용약관 및 개인정보 수집∙이용에 동의합니다.
                     </Label>
                 </CheckInput>
-                <PuppleButton type="submit" info={"가입하기"}></PuppleButton>
+                <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
             </Form>
         </FormGroup>
     );

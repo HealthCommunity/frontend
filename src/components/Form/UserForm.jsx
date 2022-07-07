@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
-import { PuppleButton } from "../Asset/PuppleButton";
+import { ButtonPupple } from "../Share/ButtonPupple";
 
 const FormGroup = styled.div`
     width: 370px;
@@ -204,10 +204,10 @@ function UserForm({ isJoin = false, onSubmit }) {
                         </CheckInput>
                     </>
                 )}
-                <PuppleButton
+                <ButtonPupple
                     type="submit"
                     info={isJoin ? "가입하기" : "로그인"}
-                ></PuppleButton>
+                ></ButtonPupple>
             </Form>
         </FormGroup>
     );

@@ -10,5 +10,4 @@ export const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 `;
