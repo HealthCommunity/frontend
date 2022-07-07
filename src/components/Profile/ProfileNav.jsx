@@ -11,11 +11,46 @@ const ProfileItemDiv = styled.div`
     display: flex;
 `;
 
-const ProfileItem = styled.span`
-    padding: 10px;
+const ProfileItem = styled.div`
+    flex: 1 1;
+    font-size: ${(props) => props.theme.fontSizeH4};
+    line-height: 47px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: pxsolidrgba (230, 234, 238, 0.6);
+    text-transform: uppercase;
+    cursor: pointer;
+    color: ${(props) =>
+        props.isActive
+            ? props.theme.colorPointPupple200
+            : props.theme.colorFontGrey100};
+
+    border-bottom: 1px solid
+        ${(props) =>
+            props.isActive
+                ? props.theme.colorPointPupple200
+                : props.theme.bgColor};
+    a {
+        display: block;
+    }
 `;
 
-export default function ProfileNav({ onChange }) {
+function selectorNav(typeName) {
+    switch (typeName) {
+        case "profile":
+            return true;
+        case "profileModify":
+            return true;
+        default:
+            return true;
+    }
+}
+
+export default function ProfileNav({ onChange, typeName = "profile" }) {
+    // let navSelect = false;
+    // console.log(selectorNav(typeName));
+
     return (
         <ProfileDiv>
             <ProfileItemDiv>
@@ -27,7 +62,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("profile");
                         }}
                     >
-                        <ButtonPupple info={"기본정보"}></ButtonPupple>
+                        기본정보
                     </a>
                 </ProfileItem>
                 <ProfileItem>
@@ -38,7 +73,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("profileModify");
                         }}
                     >
-                        <ButtonPupple info={"회원정보 변경"}></ButtonPupple>
+                        회원정보 변경
                     </a>
                 </ProfileItem>
                 <ProfileItem>
@@ -49,7 +84,7 @@ export default function ProfileNav({ onChange }) {
                             onChange("userDropOut");
                         }}
                     >
-                        <ButtonPupple info={"회원탈퇴"}></ButtonPupple>
+                        회원탈퇴
                     </a>
                 </ProfileItem>
             </ProfileItemDiv>
