@@ -80,8 +80,8 @@ export default function ContentUserDropOut() {
                     <Modal
                         open={modalOpen}
                         close={closeModal}
-                        header={"회원 탈퇴"}
-                        footerDesc={"동의합니다"}
+                        header={"회원탈퇴"}
+                        footerDesc={"동의"}
                     >
                         회원 탈퇴를 하게 되면 보유하신 프로필, 삼대력 등이 모두
                         사라지며, 작성한 글, 댓글은 사라지지 않습니다. <br />
