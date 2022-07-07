@@ -47,11 +47,13 @@ export const NavItemDiv = styled.div`
         flex-direction: column;
         width: 100%;
         display: ${(props) => (props.displaychange ? "" : "none")};
+        margin: 0 auto;
     }
     @media all and (max-width: 479px) {
         flex-direction: column;
         width: 100%;
         display: ${(props) => (props.displaychange ? "" : "none")};
+        margin: 0 auto;
     }
 `;
 

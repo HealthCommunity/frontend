@@ -30,7 +30,7 @@ function BoardDetail(){
         <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
         <BoardSummary>각 게시판 내용을 여기에 넣을생각입니다</BoardSummary>
         <InfoExplanationDiv>
-            <InfoExplanationTitle>댓글</InfoExplanationTitle>                   
+            <InfoExplanationTitle style={{marginTop: "50px"}}>댓글</InfoExplanationTitle>                   
             <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
                 <InfoCommentInputText {...register('comment' , {
                     required: "댓글을 입력해주세요",
