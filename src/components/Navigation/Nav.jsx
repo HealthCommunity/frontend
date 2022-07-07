@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
-import { BsFillSunFill, BsMoonFill } from "react-icons/bs";
+import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {NavDiv,NavLogo,NavItem,NavItemDiv,NavHamberDiv,NavToggle,NavToggleTwo,ToggleMenu} from './NavStyle'
 
@@ -29,7 +29,7 @@ function Nav() {
                         <GiHamburgerMenu />
                     </NavHamberDiv>
                     <NavToggle onClick={isModeChange}>
-                        {useAtom ? <BsMoonFill /> : <BsFillSunFill />}
+                        {useAtom ? <BsLightbulb style={{fill:"yellow"}}/> : <BsLightbulbFill style={{fill:"black"}}/>}
                     </NavToggle>
                 </ToggleMenu>
             </NavLogo>
@@ -63,7 +63,7 @@ function Nav() {
                     </>
                 )}
                 <NavToggleTwo onClick={isModeChange}>
-                    {useAtom ? <BsMoonFill /> : <BsFillSunFill />}
+                    {useAtom ? <BsLightbulb style={{fill:"yellow"}}/> : <BsLightbulbFill style={{fill:"black"}}/>}
                 </NavToggleTwo>
             </NavItemDiv>
         </NavDiv>
