@@ -9,6 +9,7 @@ const ProfileDiv = styled.div`
 
 const ProfileItemDiv = styled.div`
     display: flex;
+    width: 50%;
 `;
 
 const ProfileItem = styled.div`
@@ -36,25 +37,30 @@ const ProfileItem = styled.div`
     }
 `;
 
-function selectorNav(typeName) {
+function selectorNav(typeName, navSelect) {
     switch (typeName) {
         case "profile":
-            return true;
+            return (navSelect.isProfile = true);
         case "profileModify":
-            return true;
+            return (navSelect.isModify = true);
         default:
-            return true;
+            return (navSelect.isDropOut = true);
     }
 }
 
 export default function ProfileNav({ onChange, typeName = "profile" }) {
-    // let navSelect = false;
-    // console.log(selectorNav(typeName));
+    const navSelect = {
+        isProfile: false,
+        isModify: false,
+        isDropOut: false,
+    };
+
+    selectorNav(typeName, navSelect);
 
     return (
         <ProfileDiv>
             <ProfileItemDiv>
-                <ProfileItem>
+                <ProfileItem isActive={navSelect.isProfile}>
                     <a
                         href="/#"
                         onClick={(e) => {
@@ -65,7 +71,7 @@ export default function ProfileNav({ onChange, typeName = "profile" }) {
                         기본정보
                     </a>
                 </ProfileItem>
-                <ProfileItem>
+                <ProfileItem isActive={navSelect.isModify}>
                     <a
                         href="/#"
                         onClick={(e) => {
@@ -76,7 +82,7 @@ export default function ProfileNav({ onChange, typeName = "profile" }) {
                         회원정보 변경
                     </a>
                 </ProfileItem>
-                <ProfileItem>
+                <ProfileItem isActive={navSelect.isDropOut}>
                     <a
                         href="/#"
                         onClick={(e) => {

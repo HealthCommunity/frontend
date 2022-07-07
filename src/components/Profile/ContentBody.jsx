@@ -28,6 +28,7 @@ export default function ContentBody({ userData = {} }) {
                     onChange={(name) => {
                         setSelected(name);
                     }}
+                    typeName={selected}
                 />
                 <Group selected={selected}>
                     <GroupItem name="profile">
