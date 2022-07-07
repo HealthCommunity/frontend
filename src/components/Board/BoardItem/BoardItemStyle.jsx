@@ -4,12 +4,12 @@ export const RightDivItem = styled.div`
     justify-content: center;
     align-items: center;
     width:250px;
-    height:250px;
+    height:250px;   
     border-radius: ${(props)=>props.theme.radiusSize20};
     flex-direction: column;
     cursor: pointer;
     :hover{
-        transform: scale(1.05);
+        transform: scale(1.03);
         background-color: ${(props)=>props.theme.bgColorSub};
         box-shadow: ${(props)=>props.theme.shadowColor};
     }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const HomeDiv = styled.div`
     width:100%;
     display: flex;
-    height:120vh;
+    height: 100%;
     margin-bottom: 200px;
     @media all and (min-width:480px) and (max-width:767px) {
         flex-direction: column;
@@ -33,7 +33,7 @@ export const RightDiv =styled.div`
     height: 100%;
     display: grid;
     justify-content: center;
-    grid-gap: 20px;
+    grid-gap: 30px;
     grid-template-columns: repeat(auto-fill,minmax(226px,1fr));
     gap: 20px 20px;
     align-items: center;
