@@ -6,7 +6,7 @@ export const LeftBtn =styled.div`
     padding: 0px 20px;
     cursor: pointer;
     border-radius: ${(props)=>props.theme.radiusSize16};
-    :hover{
+    :hover {
         transform: scale(1.05);
         background-color: ${(props)=>props.theme.bgColorSub};
         box-shadow: ${(props)=>props.theme.shadowColor};
