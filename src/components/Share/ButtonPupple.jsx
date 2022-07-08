@@ -14,6 +14,7 @@ const Button = styled.button`
     -o-transition: all 0.25s;
     transition: all 0.25s;
     cursor: pointer;
+    margin: 0;
 `;
 
 const Pupple = styled(Button)`

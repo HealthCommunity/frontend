@@ -3,17 +3,23 @@ import styled from "styled-components";
 
 const ProfileDiv = styled.div`
     width: 100%;
-    height: 100px;
 `;
 
 const ProfileItemDiv = styled.div`
     display: flex;
     width: 50%;
+
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        width: 100%;
+    }
+    @media all and (max-width: 479px) {
+        width: 100%;
+    }
 `;
 
 const ProfileItem = styled.div`
     flex: 1 1;
-    font-size: ${(props) => props.theme.fontSizeH4};
+    font-size: ${(props) => props.theme.fontSizeH5};
     line-height: 47px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -78,7 +84,7 @@ export default function ProfileNav({ onChange, typeName = "profile" }) {
                             onChange("profileModify");
                         }}
                     >
-                        회원정보 변경
+                        정보변경
                     </a>
                 </ProfileItem>
                 <ProfileItem isActive={navSelect.isDropOut}>

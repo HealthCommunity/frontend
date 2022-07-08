@@ -2,16 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "../Form/DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "../Form/FormLayout";
-
-const UserModify = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 450px;
-    padding: 20px;
-`;
+import { UserFormGroup } from "../Login/LoginLayout";
+import { ProfileContainerCenter } from "./ProfileLayout";
 
 const UserModifyTitle = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -21,12 +13,11 @@ const UserModifyTitle = styled.div`
 `;
 
 const UserModifyFrom = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 480px;
-    min-height: 200px;
 `;
 
 export default function ContentUserModify({ onSubmit }) {
@@ -107,7 +98,7 @@ export default function ContentUserModify({ onSubmit }) {
         }
     };
     return (
-        <UserModify>
+        <ProfileContainerCenter>
             <UserModifyFrom>
                 <UserModifyTitle>회원정보 변경</UserModifyTitle>
                 <UserFormGroup onSubmit={handleSubmit}>
@@ -142,6 +133,6 @@ export default function ContentUserModify({ onSubmit }) {
                     ></ButtonPupple>
                 </UserFormGroup>
             </UserModifyFrom>
-        </UserModify>
+        </ProfileContainerCenter>
     );
 }

@@ -38,7 +38,7 @@ function Login() {
                                 <UserLoginForm onSubmit={console.log} />
                             </GroupItem>
                             <GroupItem name="snslogin">
-                                <SnsList>
+                                <SnsList style={{ height: "300px" }}>
                                     <SnsItem>
                                         <a href="/#">
                                             <img

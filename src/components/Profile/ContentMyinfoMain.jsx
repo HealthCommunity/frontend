@@ -1,11 +1,5 @@
 import styled from "styled-components";
-
-const MyInfo = styled.section`
-    padding: 20px;
-    height: 450px;
-    border-radius: ${(props) => props.theme.radiusSize20};
-    box-shadow: ${(props) => props.theme.shadowColor};
-`;
+import { ProfileContainerMyInfo } from "./ProfileLayout";
 
 const MyInfoTitle = styled.h3`
     font-weight: 700;
@@ -30,10 +24,17 @@ const ThreeInfo = styled.div`
         height: 100px;
 
         span {
-            font-size: ${(props) => props.theme.fontSizeH4};
+            font-size: ${(props) => props.theme.fontSizeH5};
             font-weight: 500;
             line-height: 1.33333;
             margin-bottom: 8px;
+
+            @media all and (min-width: 480px) and (max-width: 767px) {
+                font-size: ${(props) => props.theme.fontSizeH8};
+            }
+            @media all and (max-width: 479px) {
+                font-size: ${(props) => props.theme.fontSizeH8};
+            }
         }
 
         b {
@@ -42,10 +43,10 @@ const ThreeInfo = styled.div`
             padding: 0 12px;
 
             @media all and (min-width: 480px) and (max-width: 767px) {
-                font-size: ${(props) => props.theme.fontSizeH2};
+                font-size: ${(props) => props.theme.fontSizeH4};
             }
             @media all and (max-width: 479px) {
-                font-size: ${(props) => props.theme.fontSizeH2};
+                font-size: ${(props) => props.theme.fontSizeH4};
             }
         }
 
@@ -64,7 +65,7 @@ const ThreeInfo = styled.div`
 
 export default function ContentMyinfoMain({ data, children }) {
     return (
-        <MyInfo>
+        <ProfileContainerMyInfo>
             <MyInfoTitle>내 정보</MyInfoTitle>
             {children}
             <ThreeInfo>
@@ -75,6 +76,6 @@ export default function ContentMyinfoMain({ data, children }) {
                     </div>
                 ))}
             </ThreeInfo>
-        </MyInfo>
+        </ProfileContainerMyInfo>
     );
 }

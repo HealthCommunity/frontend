@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const InputGroup = styled.div`
     width: 100%;
-    margin: 10px 0;
+    margin: 8px 0;
 `;
 
 const Input = styled.input`
@@ -11,12 +11,13 @@ const Input = styled.input`
     width: 100%;
     height: 45px;
     color: ${(props) => props.theme.fontColor};
-    font-size: ${(props) => props.theme.fontSizeH4};
+    font-size: ${(props) => props.theme.fontSizeH5};
     padding: 0 20px;
     border-radius: ${(props) => props.theme.radiusSize20};
     background-color: ${(props) => props.theme.bgColorSub};
     border: 1px solid #ccc;
     line-height: 45px !important;
+    margin-bottom: 2px;
 
     :active {
         outline: none;
@@ -34,8 +35,8 @@ const Span = styled.span`
         props.isSuccess
             ? props.theme.colorPointOrange100
             : props.theme.colorPointBlue200};
-    font-size: ${(props) => props.theme.fontSizeH4};
-    margin-left: 22.5px;
+    font-size: ${(props) => props.theme.fontSizeH6};
+    margin-left: 16px;
 `;
 
 export default function DescTextInput({
