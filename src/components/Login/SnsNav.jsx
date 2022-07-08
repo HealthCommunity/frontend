@@ -27,6 +27,9 @@ const SignTabItem = styled.div`
             props.isActive
                 ? props.theme.colorPointPupple200
                 : props.theme.bgColor};
+    a {
+        display: block;
+    }
 `;
 
 export default function SnsNav({ onChange, typeName }) {

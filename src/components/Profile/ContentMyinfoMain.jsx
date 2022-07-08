@@ -69,7 +69,7 @@ export default function ContentMyinfoMain({ data, children }) {
             {children}
             <ThreeInfo>
                 {Object.keys(data).map((name) => (
-                    <div>
+                    <div key={name}>
                         <span>{name}</span>
                         <b>{data[name]}</b>
                     </div>

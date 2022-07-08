@@ -118,7 +118,16 @@ export default function ContentMyinfoInner({ id, nickname, desc, imgUrl }) {
 
     const TextArea = styled.textarea`
         width: 100%;
-        height: 80px;
+        height: 6.25em;
+        resize: none;
+        border: none;
+        outline: none;
+
+        font-size: ${(props) => props.theme.fontSizeH6};
+        font-weight: 600;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+        margin-bottom: 0;
     `;
 
     return (

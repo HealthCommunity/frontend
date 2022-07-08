@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { IoClose } from "react-icons/io5";
 
 const ModalShow = keyframes`
     from {
@@ -22,6 +23,7 @@ const ModalBgShow = keyframes`
 `;
 
 const ModalGroup = styled.div`
+    box-sizing: border-box;
     display: flex;
     position: fixed;
     top: 0;
@@ -30,8 +32,8 @@ const ModalGroup = styled.div`
     left: 0;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
     align-items: center;
-    /* 팝업이 열릴때 스르륵 열리는 효과 */
     animation: ${ModalBgShow} 0.3s;
 `;
 
@@ -39,18 +41,29 @@ const Section = styled.section`
     width: 90%;
     max-width: 450px;
     margin: 0 auto;
-    border-radius: 0.3rem;
-    background-color: #fff;
-    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    border-radius: 25px;
+    background-color: ${(props) => props.theme.constPointWhite100};
     animation: ${ModalShow} 0.3s;
     overflow: hidden;
+    padding: 0;
 `;
 
 const Header = styled.div`
     position: relative;
-    padding: 16px 64px 16px 16px;
-    background-color: #f1f1f1;
+    display: flex;
+    border-radius: ${(props) => props.theme.radiusSize20}
+        ${(props) => props.theme.radiusSize20} 0 0;
+    padding: 40px 50px 30px;
+    margin-bottom: 0;
+    font-size: ${(props) => props.theme.fontSizeH4};
     font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    color: ${(props) => props.theme.constPointWhite100};
+    background-color: black;
+    z-index: 99;
 `;
 
 const Button = styled.button`
@@ -61,31 +74,69 @@ const Button = styled.button`
 
 const HeaderButton = styled(Button)`
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 15px;
-    width: 30px;
-    font-size: 21px;
-    font-weight: 700;
-    text-align: center;
-    color: #999;
-    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    background: hsla(0, 0%, 100%, 0.3);
+    text-indent: -999999px;
+    border: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+
+    :hover {
+        background: hsla(0, 0%, 100%, 0.4);
+    }
+
+    .logo {
+        color: ${(props) => props.theme.constPointWhite100};
+        position: absolute;
+        top: 42%;
+        left: 42%;
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: -7.6px 0 0 -7.6px;
+    }
 `;
 
 const FooterButton = styled(Button)`
     padding: 6px 12px;
-    color: #fff;
-    background-color: #6c757d;
-    border-radius: 5px;
-    font-size: 13px;
-    outline: none;
-    cursor: pointer;
     border: 0;
+    width: 150px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    color: #fff;
+    box-shadow: ${(props) => props.theme.shadowColor2};
+    background-image: linear-gradient(180deg, #87a2ff, #867dfe);
+
+    :hover {
+        color: #fff;
+        background-image: linear-gradient(180deg, #8099ef, #8179f4);
+    }
 `;
 
 const Main = styled.div`
-    padding: 16px;
-    border-bottom: 1px solid #dee2e6;
-    border-top: 1px solid #dee2e6;
+    padding: 10px;
+`;
+
+const MainContent = styled.div`
+    background-color: white;
+    padding: 10px;
+    border-radius: ${(props) => props.theme.radiusSize20};
+    box-shadow: ${(props) => props.theme.shadowColor};
+
+    font-size: ${(props) => props.theme.fontSizeH6};
+    font-weight: 600;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    margin-bottom: 0;
 `;
 
 const Footer = styled.div`
@@ -107,9 +158,13 @@ export default function Modal({
                     <Section>
                         <Header>
                             {header}
-                            <HeaderButton onClick={close}>X</HeaderButton>
+                            <HeaderButton onClick={close}>
+                                <IoClose className="logo"></IoClose>
+                            </HeaderButton>
                         </Header>
-                        <Main>{children}</Main>
+                        <Main>
+                            <MainContent>{children}</MainContent>
+                        </Main>
                         <Footer>
                             <FooterButton onClick={close}>
                                 {footerDesc}
