@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 //콘텐츠 가로100, 세로 100, 전체 영역
 export const ContentBackgroud = styled.div`
+    margin: auto auto;
     padding-top: 150px;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: #19db7a;
 `;
 
@@ -12,7 +13,7 @@ export const ContentBackgroud = styled.div`
 //여기서 실제 사용할 수 있는 가로 크기 잡음
 export const ContentContainer = styled.div`
     width: 470px;
-    height: 100vh;
+    height: 100%;
     background-color: #3f2ae2;
     margin: 0 auto;
     /* display: flex;
