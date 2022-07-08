@@ -1,18 +1,15 @@
 import Title from "../components/Title";
 import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
-import {
-    ContentBackgroud,
-    ContentHeader,
-} from "../components/Login/LoginLayout";
 import ContentBody from "../components/Profile/ContentBody";
+import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
 
 function Profile() {
     return (
         <>
             <Title name="Profile" />
             <Nav />
-            <ContentBackgroud>
+            <ProfileBackgroud>
                 <ContentBody
                     userData={{
                         id: "song@naver.com",
@@ -27,7 +24,7 @@ function Profile() {
                         imgUrl: "https://static.news.zumst.com/images/29/2020/08/27/2794637adfbc4748a4da1ea7ffeb3c85.jpg",
                     }}
                 />
-            </ContentBackgroud>
+            </ProfileBackgroud>
             <Footer />
         </>
     );

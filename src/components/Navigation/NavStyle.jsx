@@ -54,46 +54,45 @@ export const NavItemDiv = styled.div`
         width: 100%;
         display: ${(props) => (props.displaychange ? "" : "none")};
         margin: 0 auto;
-        
     }
 `;
 
 export const NavItem = styled.div`
     margin: 0px 10px;
     padding: 10px;
-    width:100%;
+    width: 100%;
     text-align: center;
-    font-size: ${(props)=>props.theme.fontSizeH5};
+    font-size: ${(props) => props.theme.fontSizeH5};
     font-weight: 600;
-    :hover{
+    :hover {
         transition-duration: 1s;
         transform: translateY(-5px);
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         font-size: 10px;
-        :hover{
+        :hover {
             cursor: pointer;
-            background-color: ${(props)=>props.theme.colorPointPupple300};
+            background-color: ${(props) => props.theme.colorPointPupple300};
         }
     }
     @media all and (max-width: 479px) {
         font-size: 10px;
-        :hover{
+        :hover {
             cursor: pointer;
-            background-color: ${(props)=>props.theme.colorPointPupple300};
+            background-color: ${(props) => props.theme.colorPointPupple300};
         }
     }
 `;
 
 export const NavToggle = styled(NavItem)`
     display: none;
-    :hover{
+    :hover {
         transform: scale(1.2);
         transition-duration: 1s;
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         border-radius: 50%;
-        font-size:${(props)=>props.theme.fontSizeH3};
+        font-size: ${(props) => props.theme.fontSizeH3};
         width: 30px;
         height: 30px;
         cursor: pointer;
@@ -101,7 +100,7 @@ export const NavToggle = styled(NavItem)`
     }
     @media all and (max-width: 479px) {
         border-radius: 50%;
-        font-size:${(props)=>props.theme.fontSizeH3};
+        font-size: ${(props) => props.theme.fontSizeH3};
         width: 30px;
         height: 30px;
         cursor: pointer;
@@ -112,10 +111,10 @@ export const NavToggleTwo = styled(NavItem)`
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    font-size:${(props)=>props.theme.fontSizeH2};
+    font-size: ${(props) => props.theme.fontSizeH2};
     cursor: pointer;
     display: flex;
-    :hover{
+    :hover {
         transform: scale(1.2);
         transition-duration: 1s;
     }
@@ -130,7 +129,7 @@ export const NavToggleTwo = styled(NavItem)`
 export const NavHamberDiv = styled.div`
     display: none;
     cursor: pointer;
-    :hover{
+    :hover {
         transform: scale(1.2);
         transition-duration: 1s;
     }

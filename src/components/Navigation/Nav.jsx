@@ -4,8 +4,16 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
 import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
-import {NavDiv,NavLogo,NavItem,NavItemDiv,NavHamberDiv,NavToggle,NavToggleTwo,ToggleMenu} from './NavStyle'
-
+import {
+    NavDiv,
+    NavLogo,
+    NavItem,
+    NavItemDiv,
+    NavHamberDiv,
+    NavToggle,
+    NavToggleTwo,
+    ToggleMenu,
+} from "./NavStyle";
 
 function Nav() {
     const [login, setLogin] = useState(false);
@@ -21,7 +29,7 @@ function Nav() {
         setDisplayChange((prev) => !prev);
     };
     return (
-        <NavDiv heigthchange={heigthchange} >
+        <NavDiv heigthchange={heigthchange}>
             <NavLogo>
                 <Link to={"/"}>로고</Link>
                 <ToggleMenu>
@@ -29,7 +37,11 @@ function Nav() {
                         <GiHamburgerMenu />
                     </NavHamberDiv>
                     <NavToggle onClick={isModeChange}>
-                        {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"#f1c40f"}}/>}
+                        {useAtom ? (
+                            <BsLightbulb style={{ fill: "black" }} />
+                        ) : (
+                            <BsLightbulbFill style={{ fill: "#f1c40f" }} />
+                        )}
                     </NavToggle>
                 </ToggleMenu>
             </NavLogo>
@@ -63,7 +75,11 @@ function Nav() {
                     </>
                 )}
                 <NavToggleTwo onClick={isModeChange}>
-                    {useAtom ? <BsLightbulb style={{fill:"black"}}/> : <BsLightbulbFill style={{fill:"#f1c40f"}}/>}
+                    {useAtom ? (
+                        <BsLightbulb style={{ fill: "black" }} />
+                    ) : (
+                        <BsLightbulbFill style={{ fill: "#f1c40f" }} />
+                    )}
                 </NavToggleTwo>
             </NavItemDiv>
         </NavDiv>

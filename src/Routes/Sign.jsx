@@ -41,7 +41,7 @@ function Sign() {
                             </GroupItem>
 
                             <GroupItem name="snslogin">
-                                <SnsList>
+                                <SnsList style={{ height: "450px" }}>
                                     <SnsItem>
                                         <a href="/#">
                                             <img

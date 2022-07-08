@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DescTextInput from "./DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "./FormLayout";
+import { UserFormGroup } from "../Login/LoginLayout";
 
 export default function UserInputForm({ onSubmit }) {
     const [usrInputs, setUsrInputs] = useState({
@@ -27,7 +27,7 @@ export default function UserInputForm({ onSubmit }) {
     };
 
     return (
-        <UserFormGroup onSubmit={handleSubmit}>
+        <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
             <DescTextInput
                 type="text"
                 name="id"

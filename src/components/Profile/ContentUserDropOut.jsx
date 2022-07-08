@@ -2,18 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../Share/Modal";
 import { ButtonPupple } from "../Share/ButtonPupple";
-
-const UserDropOut = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 450px;
-    padding: 20px;
-`;
+import { ProfileContainerCenter } from "./ProfileLayout";
 
 const UserDropOutGroup = styled.div`
-    width: 370px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,7 +65,7 @@ export default function ContentUserDropOut() {
 
     return (
         <>
-            <UserDropOut>
+            <ProfileContainerCenter>
                 <UserDropOutGroup>
                     <DescTitle>정말로 탈퇴하시겠습니까?</DescTitle>
                     <Btn onClick={openModal}>탈퇴하기</Btn>
@@ -88,7 +80,7 @@ export default function ContentUserDropOut() {
                         동의하십니까?
                     </Modal>
                 </UserDropOutGroup>
-            </UserDropOut>
+            </ProfileContainerCenter>
         </>
     );
 }

@@ -6,6 +6,4 @@ export const UserFormGroup = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #e33b57;
-    margin: 0 auto;
 `;

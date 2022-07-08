@@ -7,10 +7,10 @@ const InfoInnerDiv = styled.div`
     padding: 32px;
 
     @media all and (min-width: 480px) and (max-width: 767px) {
-        padding: 32px 0px;
+        padding: 16px 0px;
     }
     @media all and (max-width: 479px) {
-        padding: 32px 0px;
+        padding: 16px 0px;
     }
 `;
 
@@ -49,47 +49,55 @@ const DescGroup = styled.div`
     display: flex;
     align-items: center;
     height: 20px;
-    margin: 12px 0;
+    margin: 16px 0;
     @media all and (min-width: 480px) and (max-width: 767px) {
-        margin: 4px 0;
+        flex-direction: column;
+        align-items: start;
     }
     @media all and (max-width: 479px) {
-        margin: 4px 0;
+        flex-direction: column;
+        align-items: start;
     }
 `;
 
 const DescSub = styled.span`
     width: 80px;
+    margin: 4px;
 
     color: ${(props) => props.theme.colorFontGrey100};
-    font-size: ${(props) => props.theme.fontSizeH4};
+    font-size: ${(props) => props.theme.fontSizeH6};
 `;
 
 const DescText = styled.p`
-    font-size: ${(props) => props.theme.fontSizeH3};
+    font-size: ${(props) => props.theme.fontSizeH5};
 `;
 
-const DescChangeBtn = styled.div`
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 40px;
-    border: none;
-    border-radius: ${(props) => props.theme.radiusSize20};
-    font-size: ${(props) => props.theme.fontSizeH5};
-    line-height: 1.42857;
-    font-weight: 700;
-    -webkit-transition: all 0.25s;
-    -o-transition: all 0.25s;
-    transition: all 0.25s;
+const Button = styled.button`
+    outline: none;
     cursor: pointer;
+    border: 0;
+    margin: 0;
+`;
 
-    background: #e4e4e4;
+const DescChangeBtn = styled(Button)`
+    padding: 6px 12px;
+    border: 0;
+    width: 150px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    color: #fff;
+    box-shadow: ${(props) => props.theme.shadowColor2};
+    background-image: linear-gradient(180deg, #87a2ff, #867dfe);
 
     :hover {
-        background: rgba(228, 228, 228, 0.5);
+        color: #fff;
+        background-image: linear-gradient(180deg, #8099ef, #8179f4);
     }
 `;
 

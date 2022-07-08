@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
+import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "./FormLayout";
 
 const Label = styled.label`
     margin-bottom: 10px;
-    font-size: ${(props) => props.theme.fontSizeH4};
+    font-size: ${(props) => props.theme.fontSizeH5};
+
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
+    @media all and (max-width: 479px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
 `;
 
 const CheckInput = styled.div`
@@ -133,7 +144,7 @@ function UserSignForm({ onSubmit }) {
     };
 
     return (
-        <UserFormGroup onSubmit={handleSubmit}>
+        <UserFormGroup onSubmit={handleSubmit} style={{ height: "450px" }}>
             <DescTextInput
                 type="text"
                 name="id"
