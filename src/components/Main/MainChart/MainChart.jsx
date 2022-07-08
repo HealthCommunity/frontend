@@ -10,21 +10,17 @@ const MainChartDiv= styled.div`
     margin: 0 auto;
     font-size: ${(props)=>props.theme.fontSizeH1};
 `
-const BarData =  { series: [{
-    name: 'Dead Lift',
-    data: threechart.map((x)=>x.deadlift),
-  }, {
-    name: 'Bench Press',
-    data: threechart.map((x)=>x.benchpress),
-  }, {
-    name: 'Squat',
-    data: threechart.map((x)=>x.squat),
-  }],
+
+
+const BarData =  { 
   options: {
     chart: {
       type: 'bar',
       height: 100,
       stacked: true,
+      toolbar:{
+        show: false
+      },
     },
     plotOptions: {
       bar: {
@@ -38,8 +34,9 @@ const BarData =  { series: [{
     title: {
       text: `${getToday()} 기준 3대력 상위 10명`,
       style : {
-        fontSize: "24px",
+        fontSize: "20px",
         fontWeight: 600,
+        color: "grey",
       }
     },
     xaxis: {
@@ -63,7 +60,7 @@ const BarData =  { series: [{
       },
       labels:{
         style:{
-            colors : "#646464",
+            colors : 'grey',
             fontSize: "16px",
             fontWeight: 500,
         },
@@ -83,7 +80,16 @@ const BarData =  { series: [{
     legend: {
       position: 'top',
       horizontalAlign: 'left',
-      offsetX: 40
+      offsetX: 40,
+      fontSize: "14px",
+      labels: {
+       color: "grey",
+      },
+      markers:{
+        width: 14,
+        height:14,
+        fillColors :['#3F8CFF','#7FBA7A',  '#FF754C'],
+      }
     },
   },}
 
@@ -93,7 +99,16 @@ function MainChart (){
         <MainChartDiv>
             <ApexCharts
                 options={BarData.options}
-                series={BarData.series}
+                series={[{
+                  name: 'Dead Lift',
+                  data: threechart.map((x)=>x.deadlift),
+                }, {
+                  name: 'Bench Press',
+                  data: threechart.map((x)=>x.benchpress),
+                }, {
+                  name: 'Squat',
+                  data: threechart.map((x)=>x.squat),
+                }]}
                 width= "100%"
                 height="100%"
                 type="bar"/>
