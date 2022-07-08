@@ -12,7 +12,7 @@ function Exersise(){
             <Title name="Exersise"/>
             <Nav/>
             <BoardNav style={{paddingTop:"150px" ,width:"50%" , margin:"0 auto",pointerEvents:"none"}} name={"운동 게시판"} summary={" 다른 사람의 운동 경험을 확인해보세요!"}/>
-            <RightDiv style={{marginBottom:"150px"}}>
+            <RightDiv style={{marginBottom:"150px", paddingRight:"0px"}}>
                 {ex.map((x)=>
                     <SoloBoardItem key={Math.random()} item={x} color={"#7FBA7A"} value={"exersise"}/>
                 )}
