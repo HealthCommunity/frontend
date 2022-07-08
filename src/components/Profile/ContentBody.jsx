@@ -8,6 +8,7 @@ import ContentUserModify from "./ContentUserModify";
 
 const MyPage = styled.div`
     width: 970px;
+    padding-top: 150px;
 
     @media all and (min-width: 480px) and (max-width: 767px) {
         width: 480px;
@@ -16,6 +17,15 @@ const MyPage = styled.div`
         width: 480px;
     }
 `;
+
+function Group({ children, selected }) {
+    const elements = React.Children.toArray(children);
+    return <>{elements.find(({ props }) => selected === props.name)}</>;
+}
+
+function GroupItem({ children }) {
+    return <>{children}</>;
+}
 
 export default function ContentBody({ userData = {} }) {
     const { id, nickname, scoreData, desc, imgUrl } = userData;
@@ -51,13 +61,4 @@ export default function ContentBody({ userData = {} }) {
             </MyPage>
         </>
     );
-}
-
-function Group({ children, selected }) {
-    const elements = React.Children.toArray(children);
-    return <>{elements.find(({ props }) => selected === props.name)}</>;
-}
-
-function GroupItem({ children }) {
-    return <>{children}</>;
 }

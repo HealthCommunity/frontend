@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { ButtonPupple } from "../Share/ButtonPupple";
 
 const ProfileDiv = styled.div`
     width: 100%;
