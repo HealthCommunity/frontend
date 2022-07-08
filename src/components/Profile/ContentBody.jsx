@@ -8,6 +8,7 @@ import ContentUserModify from "./ContentUserModify";
 
 const MyPage = styled.div`
     width: 970px;
+    padding-top: 150px;
 
     @media all and (min-width: 480px) and (max-width: 767px) {
         width: 480px;
