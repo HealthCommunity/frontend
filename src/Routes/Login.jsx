@@ -4,42 +4,18 @@ import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
 import UserLoginForm from "../components/Form/UserLoginForm";
-import SnsNav from "../components/Login/SnsNav";
+import { SnsNav, SnsList, SnsItem } from "../components/Login/SnsNav";
 
 import {
-    ContentDiv,
+    ContentBackgroud,
     ContentContainer,
     ContainerTitle,
-} from "../components/Menu/MenuStyle";
+    LoginContainerArea,
+} from "../components/Login/LoginLayout";
 
 import kakao from "../images/kakao.png";
 import google from "../images/google.png";
 import naver from "../images/naver.png";
-
-const SocailList = styled.ul`
-    width: 100%;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
-
-const SocailItem = styled.li`
-    img {
-        width: 380px;
-        height: 70px;
-    }
-`;
-
-const LoginGroup = styled.div`
-    width: 100%;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
 
 function Login() {
     const [selected, setSelected] = useState("emaillogin");
@@ -47,52 +23,52 @@ function Login() {
         <>
             <Title name="Login" />
             <Nav />
-            <ContentDiv>
+            <ContentBackgroud>
                 <ContentContainer>
-                    <ContainerTitle>로그인</ContainerTitle>
-                    <SnsNav
-                        onChange={(name) => {
-                            setSelected(name);
-                        }}
-                        typeName={selected}
-                    />
-                    <Group selected={selected}>
-                        <GroupItem name="emaillogin">
-                            <LoginGroup>
+                    <LoginContainerArea>
+                        <ContainerTitle>로그인</ContainerTitle>
+                        <SnsNav
+                            onChange={(name) => {
+                                setSelected(name);
+                            }}
+                            typeName={selected}
+                        />
+                        <Group selected={selected}>
+                            <GroupItem name="emaillogin">
                                 <UserLoginForm onSubmit={console.log} />
-                            </LoginGroup>
-                        </GroupItem>
-                        <GroupItem name="snslogin">
-                            <SocailList>
-                                <SocailItem>
-                                    <a href="/#">
-                                        <img
-                                            src={naver}
-                                            alt="네이버 로그인"
-                                        ></img>
-                                    </a>
-                                </SocailItem>
-                                <SocailItem>
-                                    <a href="/#">
-                                        <img
-                                            src={kakao}
-                                            alt="카카오 로그인"
-                                        ></img>
-                                    </a>
-                                </SocailItem>
-                                <SocailItem>
-                                    <a href="/#">
-                                        <img
-                                            src={google}
-                                            alt="구글 로그인"
-                                        ></img>
-                                    </a>
-                                </SocailItem>
-                            </SocailList>
-                        </GroupItem>
-                    </Group>
+                            </GroupItem>
+                            <GroupItem name="snslogin">
+                                <SnsList>
+                                    <SnsItem>
+                                        <a href="/#">
+                                            <img
+                                                src={naver}
+                                                alt="네이버 로그인"
+                                            ></img>
+                                        </a>
+                                    </SnsItem>
+                                    <SnsItem>
+                                        <a href="/#">
+                                            <img
+                                                src={kakao}
+                                                alt="카카오 로그인"
+                                            ></img>
+                                        </a>
+                                    </SnsItem>
+                                    <SnsItem>
+                                        <a href="/#">
+                                            <img
+                                                src={google}
+                                                alt="구글 로그인"
+                                            ></img>
+                                        </a>
+                                    </SnsItem>
+                                </SnsList>
+                            </GroupItem>
+                        </Group>
+                    </LoginContainerArea>
                 </ContentContainer>
-            </ContentDiv>
+            </ContentBackgroud>
             <Footer />
         </>
     );

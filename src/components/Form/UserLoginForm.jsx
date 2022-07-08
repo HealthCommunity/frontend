@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DescTextInput from "./DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { FormGroup, Form } from "./FromStyle";
+import { UserFormGroup } from "./FormLayout";
 
 export default function UserInputForm({ onSubmit }) {
     const [usrInputs, setUsrInputs] = useState({
@@ -27,25 +27,23 @@ export default function UserInputForm({ onSubmit }) {
     };
 
     return (
-        <FormGroup>
-            <Form onSubmit={handleSubmit}>
-                <DescTextInput
-                    type="text"
-                    name="id"
-                    placeholder="아이디"
-                    onChange={handleChange}
-                    required
-                />
+        <UserFormGroup onSubmit={handleSubmit}>
+            <DescTextInput
+                type="text"
+                name="id"
+                placeholder="아이디"
+                onChange={handleChange}
+                required
+            />
 
-                <DescTextInput
-                    type="password"
-                    name="password"
-                    placeholder="비밀번호"
-                    onChange={handleChange}
-                    required
-                />
-                <ButtonPupple type="submit" info={"로그인"}></ButtonPupple>
-            </Form>
-        </FormGroup>
+            <DescTextInput
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+                onChange={handleChange}
+                required
+            />
+            <ButtonPupple type="submit" info={"로그인"}></ButtonPupple>
+        </UserFormGroup>
     );
 }

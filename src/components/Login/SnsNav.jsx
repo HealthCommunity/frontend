@@ -32,7 +32,23 @@ const SignTabItem = styled.div`
     }
 `;
 
-export default function SnsNav({ onChange, typeName }) {
+export const SnsList = styled.ul`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: tomato;
+`;
+
+export const SnsItem = styled.li`
+    img {
+        width: 100%;
+        height: 70px;
+    }
+`;
+
+export function SnsNav({ onChange, typeName }) {
     let navSelect = typeName === "emaillogin";
 
     return (

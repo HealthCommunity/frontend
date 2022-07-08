@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "../Form/DescTextInput";
-import { FormGroup, Form } from "../Form/FromStyle";
 import { ButtonPupple } from "../Share/ButtonPupple";
+import { UserFormGroup } from "../Form/FormLayout";
 
 const UserModify = styled.section`
     display: flex;
@@ -110,39 +110,37 @@ export default function ContentUserModify({ onSubmit }) {
         <UserModify>
             <UserModifyFrom>
                 <UserModifyTitle>회원정보 변경</UserModifyTitle>
-                <FormGroup>
-                    <Form onSubmit={handleSubmit}>
-                        <DescTextInput
-                            type="password"
-                            name="password"
-                            placeholder="비밀번호"
-                            onChange={handleChange}
-                            onValidation={checkValidityPassword}
-                            required
-                        />
+                <UserFormGroup onSubmit={handleSubmit}>
+                    <DescTextInput
+                        type="password"
+                        name="password"
+                        placeholder="비밀번호"
+                        onChange={handleChange}
+                        onValidation={checkValidityPassword}
+                        required
+                    />
 
-                        <DescTextInput
-                            type="password"
-                            name="checkPassword"
-                            placeholder="비밀번호 확인"
-                            onChange={handleChange}
-                            onValidation={checkDoublePassword}
-                            required
-                        />
-                        <DescTextInput
-                            type="text"
-                            name="nickname"
-                            placeholder="닉네임"
-                            onChange={handleChange}
-                            onValidation={checkValidityNickname}
-                            required
-                        />
-                        <ButtonPupple
-                            type="submit"
-                            info={"변경하기"}
-                        ></ButtonPupple>
-                    </Form>
-                </FormGroup>
+                    <DescTextInput
+                        type="password"
+                        name="checkPassword"
+                        placeholder="비밀번호 확인"
+                        onChange={handleChange}
+                        onValidation={checkDoublePassword}
+                        required
+                    />
+                    <DescTextInput
+                        type="text"
+                        name="nickname"
+                        placeholder="닉네임"
+                        onChange={handleChange}
+                        onValidation={checkValidityNickname}
+                        required
+                    />
+                    <ButtonPupple
+                        type="submit"
+                        info={"변경하기"}
+                    ></ButtonPupple>
+                </UserFormGroup>
             </UserModifyFrom>
         </UserModify>
     );
