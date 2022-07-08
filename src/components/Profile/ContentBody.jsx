@@ -18,6 +18,15 @@ const MyPage = styled.div`
     }
 `;
 
+function Group({ children, selected }) {
+    const elements = React.Children.toArray(children);
+    return <>{elements.find(({ props }) => selected === props.name)}</>;
+}
+
+function GroupItem({ children }) {
+    return <>{children}</>;
+}
+
 export default function ContentBody({ userData = {} }) {
     const { id, nickname, scoreData, desc, imgUrl } = userData;
     const [selected, setSelected] = useState("profile");
@@ -52,13 +61,4 @@ export default function ContentBody({ userData = {} }) {
             </MyPage>
         </>
     );
-}
-
-function Group({ children, selected }) {
-    const elements = React.Children.toArray(children);
-    return <>{elements.find(({ props }) => selected === props.name)}</>;
-}
-
-function GroupItem({ children }) {
-    return <>{children}</>;
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import DescTextInput from "./DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { FormGroup, Form } from "./FromStyle";
+import { UserFormGroup } from "./FormLayout";
 
 const Label = styled.label`
     margin-bottom: 10px;
@@ -133,57 +133,55 @@ function UserSignForm({ onSubmit }) {
     };
 
     return (
-        <FormGroup>
-            <Form onSubmit={handleSubmit}>
-                <DescTextInput
-                    type="text"
-                    name="id"
-                    placeholder="아이디"
-                    onChange={handleChange}
-                    onValidation={checkValidityId}
-                    required
-                />
+        <UserFormGroup onSubmit={handleSubmit}>
+            <DescTextInput
+                type="text"
+                name="id"
+                placeholder="아이디"
+                onChange={handleChange}
+                onValidation={checkValidityId}
+                required
+            />
 
-                <DescTextInput
-                    type="password"
-                    name="password"
-                    placeholder="비밀번호"
-                    onChange={handleChange}
-                    onValidation={checkValidityPassword}
-                    required
-                />
+            <DescTextInput
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+                onChange={handleChange}
+                onValidation={checkValidityPassword}
+                required
+            />
 
-                <DescTextInput
-                    type="password"
-                    name="checkPassword"
-                    placeholder="비밀번호 확인"
-                    onChange={handleChange}
-                    onValidation={checkDoublePassword}
-                    required
+            <DescTextInput
+                type="password"
+                name="checkPassword"
+                placeholder="비밀번호 확인"
+                onChange={handleChange}
+                onValidation={checkDoublePassword}
+                required
+            />
+            <DescTextInput
+                type="text"
+                name="nickname"
+                placeholder="닉네임"
+                onChange={handleChange}
+                onValidation={checkValidityNickname}
+                required
+            />
+            <CheckInput>
+                <input
+                    type="checkbox"
+                    id="agree"
+                    checked={isAgree}
+                    name="isAgree"
+                    onChange={handleIsAgree}
                 />
-                <DescTextInput
-                    type="text"
-                    name="nickname"
-                    placeholder="닉네임"
-                    onChange={handleChange}
-                    onValidation={checkValidityNickname}
-                    required
-                />
-                <CheckInput>
-                    <input
-                        type="checkbox"
-                        id="agree"
-                        checked={isAgree}
-                        name="isAgree"
-                        onChange={handleIsAgree}
-                    />
-                    <Label htmlFor="agree">
-                        이용약관 및 개인정보 수집∙이용에 동의합니다.
-                    </Label>
-                </CheckInput>
-                <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
-            </Form>
-        </FormGroup>
+                <Label htmlFor="agree">
+                    이용약관 및 개인정보 수집∙이용에 동의합니다.
+                </Label>
+            </CheckInput>
+            <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
+        </UserFormGroup>
     );
 }
 
