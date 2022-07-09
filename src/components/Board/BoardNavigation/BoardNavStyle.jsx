@@ -6,11 +6,7 @@ export const LeftBtn =styled.div`
     padding: 0px 20px;
     cursor: pointer;
     border-radius: ${(props)=>props.theme.radiusSize16};
-    :hover {
-        transform: scale(1.05);
-        background-color: ${(props)=>props.theme.bgColorSub};
-        box-shadow: ${(props)=>props.theme.shadowColor};
-    }
+    box-shadow: ${(props)=>props.border};
     @media all and (min-width:480px) and (max-width:767px) {
         flex-direction: column;
         

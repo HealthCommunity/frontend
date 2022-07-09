@@ -13,7 +13,7 @@ export const MainTitleH1 = styled.h1`
     margin: 10px 0px;
     font-weight: 600;
     @media all and (min-width:480px) and (max-width:767px) {
-    font-size: ${(props)=>props.theme.fontSizeH2};   
+        display: none;
 
     } 
     @media all and (max-width:479px) {
@@ -22,9 +22,10 @@ export const MainTitleH1 = styled.h1`
     }
 `
 export const MainTitleH4 =styled.div`
+    text-align: center;
     font-size: ${(props)=>props.theme.fontSizeH5};
-    width:320px;
-    margin: 10px 0px;
+    width:350px;
+    margin: 10px;
     animation: typing 3s steps(22), blink .7s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
@@ -40,4 +41,5 @@ export const MainTitleH4 =styled.div`
         border-color: transparent
     }
     }
+
 `
