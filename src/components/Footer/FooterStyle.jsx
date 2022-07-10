@@ -7,10 +7,16 @@ export const FootDiv = styled.div`
     border-radius: 5px;
     background-color: ${(props)=>props.theme.navBgColor};
     overflow: hidden;
-    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 30px;
     justify-content: center;
     align-items: center;
-    
+    @media all and (min-width:480px) and (max-width:767px) {
+        flex-direction: column;
+    } 
+    @media all and (max-width:479px) {
+        flex-direction: column;
+    }
 `
 
 export const FootItem = styled.div`
