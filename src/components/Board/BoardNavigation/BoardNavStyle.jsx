@@ -3,16 +3,19 @@ export const LeftBtn =styled.div`
     width:70%;
     display: flex;
     align-items: center;
-    padding: 0px 20px;
+    padding: 0px 10px;
     cursor: pointer;
     border-radius: ${(props)=>props.theme.radiusSize16};
     box-shadow: ${(props)=>props.border};
     @media all and (min-width:480px) and (max-width:767px) {
         flex-direction: column;
-        
+        padding: 0px ;
+        margin-bottom: 15px;
     } 
     @media all and (max-width:479px) {
         flex-direction: column;
+        padding: 0px ;
+        margin-bottom: 15px;
     }
 `
 
@@ -40,6 +43,12 @@ export const LeftBtnSummary = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px 0px 20px 0px;
+    @media all and (min-width:480px) and (max-width:767px) {
+        padding: 5px 0px 5px 0px;
+    } 
+    @media all and (max-width:479px) {
+        padding: 5px 0px 5px 0px;
+    }
 `
 
 export const LeftBtnSummaryH4 =styled.h4`

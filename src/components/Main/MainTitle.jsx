@@ -13,7 +13,7 @@ export const MainTitleH1 = styled.h1`
     margin: 10px 0px;
     font-weight: 600;
     @media all and (min-width:480px) and (max-width:767px) {
-        display: none;
+        font-size: ${(props)=>props.theme.fontSizeH2}; 
 
     } 
     @media all and (max-width:479px) {
