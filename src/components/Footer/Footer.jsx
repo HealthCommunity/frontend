@@ -1,133 +1,21 @@
-import {FootDiv,FootItem} from './FooterStyle'
-import { SiGithub , SiNotion} from "react-icons/si";
-import styled from 'styled-components';
+import {FootDiv,FootBottom} from './FooterStyle'
 import ReactCardCarousel from "react-card-carousel";
-import ReactCardFlip from 'react-card-flip';
-import { useState } from 'react';
+import FooterItem from './FooterItem';
+import FooterItemTitle from './FooterItemTitle';
 
-const FootTop = styled.div`
-    display: flex;
-    margin-bottom: 30px;
-
-`
-
-const FootBottom = styled.div`
-    display: flex;
-    position: relative;
-    height: 50%;
-    width: 50%;
-    justify-content: center;
-    align-items: middle;
-`
-
-const FootBottomItem = styled.div`
-    height: 200px;
-    width: 200px;
-    padding-top: 10px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-    text-align: center;
-    color:${(props)=>props.theme.fontColor};
-    font-size: 16px;
-    border-radius: 10px;
-    box-sizing: border-box;
-`
-
-const FrontItem =styled.div`
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background-position: center;
-    background-size: cover;
-    background-image: ${(props)=>props.image};
-`
-
-const BackItem =styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-    height: 150px;
-    justify-content: center;
-`
-
-const BackItemTitle = styled.h4`
-    font-size: ${(props)=>props.theme.fontSizeH4};
-    font-weight: 600;
-    margin: 5px 0px;
-`
-const BackItemSubTitle= styled.h5`
-    font-size: ${(props)=>props.theme.fontSizeH6};
-    margin: 5px 0px;
-`
 
 function Footer() {
-    const [isflip , setIsFlip] = useState(false);
-    const onClick= ()=>{
-        setIsFlip((prev)=>!prev);
-    }
     return (
         <FootDiv>
-            <FootTop>
-                <a href="https://www.notion.so/SpringBoot-JPA-1-db69d2f168ef4a16b4f8668fcb3d70da" target="_blank" rel="noreferrer">
-                    <FootItem>
-                        <SiNotion size="32px" style={{fill:"white" , marginRight: "10px"}}/>
-                        Notion
-                    </FootItem>
-                </a>
-                <a href="https://github.com/HealthCommunity" target="_blank" rel="noreferrer">
-                    <FootItem>
-                        <SiGithub size="32px" style={{fill:"white" , marginRight: "10px"}}/>
-                        GitHub
-                    </FootItem>
-                </a>
-            </FootTop>
             <FootBottom>
                 <ReactCardCarousel autoplay={true}  spread={"wide"}>
-                    <FootBottomItem>
-                        <ReactCardFlip isFlipped={isflip}>
-                            <FrontItem onClick={onClick} image={"url('https://avatars.githubusercontent.com/u/86876414?s=120&v=4')"}/>
-                            <BackItem>
-                                <BackItemTitle>Park Song Hee</BackItemTitle>
-                                <BackItemSubTitle>Front-End Dev</BackItemSubTitle>
-                                <button onClick={onClick}>Click Flip</button>
-                            </BackItem>
-                        </ReactCardFlip>
-                    </FootBottomItem>
-                    <FootBottomItem>
-                        <ReactCardFlip isFlipped={isflip}>
-                            <FrontItem onClick={onClick} image={"url('https://avatars.githubusercontent.com/u/58128623?v=4')"}/>
-                            <BackItem>
-                                <BackItemTitle>Choi Chang Jun</BackItemTitle>
-                                <BackItemSubTitle>Back-End Dev</BackItemSubTitle>
-                                <button onClick={onClick}>Click Flip</button>
-                            </BackItem>
-                        </ReactCardFlip>
-                    </FootBottomItem>
-                    <FootBottomItem>
-                        <ReactCardFlip isFlipped={isflip}>
-                            <FrontItem onClick={onClick} image={"url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRqRsuxt-PLyLh5fO0NoikjwsL5U5d3cAVzFCTBas5xmkqi35QXrMDSy_VdSfmHXv9Hho&usqp=CAU')"}/>
-                            <BackItem>
-                                <BackItemTitle>Park Hun Hee</BackItemTitle>
-                                <BackItemSubTitle>Back-End Dev</BackItemSubTitle>
-                                <button onClick={onClick}>Click Flip</button>
-                            </BackItem>
-                        </ReactCardFlip>
-                    </FootBottomItem>
-                    <FootBottomItem>
-                        <ReactCardFlip isFlipped={isflip}>
-                            <FrontItem onClick={onClick} image={"url('https://avatars.githubusercontent.com/u/94469974?v=4')"}/>
-                            <BackItem>
-                                <BackItemTitle>Lee Ji Hoon</BackItemTitle>
-                                <BackItemSubTitle>Front-End Dev</BackItemSubTitle>
-                                <button onClick={onClick}>Click Flip</button>
-                            </BackItem>
-                        </ReactCardFlip>
-                    </FootBottomItem>
+                    <FooterItem image={"url('https://avatars.githubusercontent.com/u/86876414?s=120&v=4')"} name={"Park Song Hee"} position={"Front-End Dev"} git={"https://github.com/pasong0511"}/>
+                    <FooterItem image={"url('https://avatars.githubusercontent.com/u/58128623?v=4')"} name={"Choi Chang Jun"} position = {"Back-End Dev"} git={"https://github.com/changjun6518"}/>
+                    <FooterItem image={"url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRqRsuxt-PLyLh5fO0NoikjwsL5U5d3cAVzFCTBas5xmkqi35QXrMDSy_VdSfmHXv9Hho&usqp=CAU')"} name={"Park Hun Hee"} position = {"Back-End Dev"} git={"https://github.com/qkrgnsgml"}/>
+                    <FooterItem image={"url('https://avatars.githubusercontent.com/u/94469974?v=4')"} name={"Lee Ji Hoon"} position={"Front-End Dev"} git={"https://github.com/jiji-hoon96"}/>
+                    <FooterItemTitle image={"url('https://cdn-icons-png.flaticon.com/512/25/25231.png')"} name={"Git Hub"} position={"프로젝트 작업을 살펴보세요"}/>
+                    <FooterItemTitle image={"url('https://blog.kakaocdn.net/dn/2CufY/btq8RTsnYaT/3EQm1A8iL54UcCzFkemVJ1/img.png')"} name={"Notion"} position={"프로젝트 과정을 살표보아요"}/>
+                    <FooterItemTitle image={"url('https://cdn-icons-png.flaticon.com/512/2307/2307756.png')"} name={"아이콘을 클릭해주세요"} position={"정보를 더 확인할 수 있습니다"}/>
                 </ReactCardCarousel>
             </FootBottom>
         </FootDiv>
