@@ -23,7 +23,7 @@ const SliderItem = styled.div`
     }
 `;
 
-function MainSliderItem({ title, urlimage, active = false }) {
+function MainSliderItem({ id, title, urlimage, active = false }) {
     return (
         <SliderItem className={active ? "active" : ""}>
             <img alt="" src={`${urlimage}`} />

@@ -25,7 +25,7 @@ function MainSlider() {
     const items = popular;
     const [active, setActive] = useState(0);
 
-    console.log(items);
+    //console.log(items);
 
     return (
         <MainSliderDiv>
@@ -46,13 +46,28 @@ function MainSlider() {
                     width: "90%",
                     height: "100%",
                 }}
+                navigation={{
+                    nextEl: ".swiper-next",
+                    prevEl: ".swiper-prev",
+                }}
+                breakpoints={{
+                    // 화면의 넓이가 320px 이상일 때 한개만 보여줌
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    // 화면의 넓이가 640px 이상일 때
+                    640: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }}
                 onTransitionEnd={({ activeIndex }) => setActive(activeIndex)}
             >
                 {items.map(({ id, title, urlimage }, idx) => (
                     // console.log(title, urlimage)
-                    <SwiperSlide>
+                    <SwiperSlide key={id}>
                         <MainSliderItem
-                            key={id}
                             title={title}
                             urlimage={urlimage}
                             active={idx === active}
