@@ -54,12 +54,12 @@ export default function ContentUserDropOut() {
     }, [modalOpen]);
 
     const openModal = () => {
-        console.log("open");
+        //console.log("open");
         setModalOpen(true);
     };
 
     const closeModal = () => {
-        console.log("close");
+        //console.log("close");
         setModalOpen(false);
     };
 

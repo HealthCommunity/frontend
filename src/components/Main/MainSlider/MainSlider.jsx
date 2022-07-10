@@ -21,9 +21,11 @@ const MainSliderDiv = styled.div`
 `;
 
 function MainSlider() {
-    console.log(popular);
+    //console.log(popular);
     const items = popular;
     const [active, setActive] = useState(0);
+
+    console.log(items);
 
     return (
         <MainSliderDiv>
@@ -46,10 +48,11 @@ function MainSlider() {
                 }}
                 onTransitionEnd={({ activeIndex }) => setActive(activeIndex)}
             >
-                {items.map(({ title, urlimage }, idx) => (
+                {items.map(({ id, title, urlimage }, idx) => (
                     // console.log(title, urlimage)
                     <SwiperSlide>
                         <MainSliderItem
+                            key={id}
                             title={title}
                             urlimage={urlimage}
                             active={idx === active}

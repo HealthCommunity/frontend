@@ -101,6 +101,20 @@ const DescChangeBtn = styled(Button)`
     }
 `;
 
+const TextArea = styled.textarea`
+    width: 100%;
+    height: 6.25em;
+    resize: none;
+    border: none;
+    outline: none;
+
+    font-size: ${(props) => props.theme.fontSizeH6};
+    font-weight: 600;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    margin-bottom: 0;
+`;
+
 export default function ContentMyinfoInner({ id, nickname, desc, imgUrl }) {
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -115,28 +129,14 @@ export default function ContentMyinfoInner({ id, nickname, desc, imgUrl }) {
     }, [modalOpen]);
 
     const openModal = () => {
-        console.log("open");
+        //console.log("open");
         setModalOpen(true);
     };
 
     const closeModal = () => {
-        console.log("close");
+        //console.log("close");
         setModalOpen(false);
     };
-
-    const TextArea = styled.textarea`
-        width: 100%;
-        height: 6.25em;
-        resize: none;
-        border: none;
-        outline: none;
-
-        font-size: ${(props) => props.theme.fontSizeH6};
-        font-weight: 600;
-        line-height: 1.8;
-        letter-spacing: 0.3px;
-        margin-bottom: 0;
-    `;
 
     return (
         <InfoInnerDiv>
