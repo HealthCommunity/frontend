@@ -21,7 +21,6 @@ const MainSliderDiv = styled.div`
 `;
 
 function MainSlider() {
-    console.log(popular);
     const items = popular;
     const [active, setActive] = useState(0);
 
