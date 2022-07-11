@@ -32,7 +32,14 @@ const Temp = styled.div`
     }
 
     & .swiper-slide.active {
-        width: 400px;
+        width: 640px;
+
+        /* @media all and (min-width: 480px) and (max-width: 767px) {
+            width: calc(100% - 20px);
+        }
+        @media all and (max-width: 479px) {
+            width: calc(100% - 20px);
+        } */
     }
 `;
 
@@ -45,7 +52,7 @@ function MainSlider() {
             <Temp>
                 <Swiper
                     spaceBetween={30}
-                    slidesPerView={1}
+                    slidesPerView={"auto"}
                     autoplay={{
                         delay: 2500,
                         loopedSlides: 1,
@@ -55,13 +62,13 @@ function MainSlider() {
                     modules={[Autoplay, Pagination, Navigation]}
                     pagination={{ clickable: true }}
                     style={{
+                        width: "90%",
                         height: "100%",
                         backgroundColor: "teal",
                     }}
                     navigation={true} // 네비게이션 적용, < >
                     breakpoints={{
                         // 화면의 넓이가 320px 이상일 때 한개만 보여줌
-                        // 먼저 모바일부터 고려해서 1이고, 350보다 큰 경우 auto
                         350: {
                             slidesPerView: "auto",
                             spaceBetween: 30,
@@ -78,7 +85,8 @@ function MainSlider() {
                                 height: "450px",
                                 backgroundColor: "tomato",
                             }}
-                            className={idx === active ? "active" : ""}
+                            //className={idx === active ? "active" : ""}
+                            className="active"
                         >
                             <MainSliderItem
                                 title={title}

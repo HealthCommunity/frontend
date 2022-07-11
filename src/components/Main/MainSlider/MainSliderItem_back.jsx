@@ -6,7 +6,7 @@ const SliderItem = styled.div`
     border-radius: 20px;
 
     img {
-        width: calc(100% - 28px);
+        width: 100%;
         height: 100%;
         border-radius: 14px;
         margin-top: 220px;
@@ -14,7 +14,7 @@ const SliderItem = styled.div`
 
     &.active {
         img {
-            width: 400px;
+            width: 200%;
             height: 450px;
             border-radius: 14px 0 0 14px;
             margin-top: 0px;
