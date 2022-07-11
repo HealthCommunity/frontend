@@ -61,6 +61,7 @@ function MainSlider() {
                     navigation={true} // 네비게이션 적용, < >
                     breakpoints={{
                         // 화면의 넓이가 320px 이상일 때 한개만 보여줌
+                        // 먼저 모바일부터 고려해서 1이고, 350보다 큰 경우 auto
                         350: {
                             slidesPerView: "auto",
                             spaceBetween: 30,
