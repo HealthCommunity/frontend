@@ -11,12 +11,14 @@ import FreePost from "./Routes/FreePost"
 import ExersisePost from "./Routes/ExersisePost"
 import FindId from "./Routes/FindId"
 import FindPw from "./Routes/FindPw"
+import SearchPage from "./Routes/Search";
 
 function Router() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/search" element={<SearchPage/>}/>
                 <Route path="/login" element={<Login />} />
                 <Route path="/login/find_id" element={<FindId />} />
                 <Route path="/login/find_pw" element={<FindPw />} />

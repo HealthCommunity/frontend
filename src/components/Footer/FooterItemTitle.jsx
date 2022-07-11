@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const FooterItemDiv =styled.div`
-    height : 250px;
+    height : 150px;
     padding: 20px;
-    width: 450px;
+    width: 350px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -15,12 +15,12 @@ const FooterItemDiv =styled.div`
     border-radius: 10px;
     box-sizing: border-box;
     @media all and (min-width:480px) and (max-width:767px) {
-        height: 200px;
-        width: 250px;
+        height: 150px;
+        width: 200px;
     } 
     @media all and (max-width:479px) {
-        height: 200px;
-        width: 250px;
+        height: 150px;
+        width: 200px;
     }
 `
 
@@ -37,11 +37,11 @@ const RigntDivH3 = styled.h3`
     margin-bottom: 15px;
     font-weight: 600;
     @media all and (min-width:480px) and (max-width:767px) {
-        font-size: ${(props)=>props.theme.fontSizeH5};
+        font-size: ${(props)=>props.theme.fontSizeH6};
         margin-bottom: 5px;
     } 
     @media all and (max-width:479px) {
-        font-size: ${(props)=>props.theme.fontSizeH5};
+        font-size: ${(props)=>props.theme.fontSizeH6};
         margin-bottom: 5px;
     }
 `
@@ -50,18 +50,18 @@ const RightDivH4 = styled.h4`
     font-size: ${(props)=>props.theme.fontSizeH4};
     line-height: 1.5em;
     @media all and (min-width:480px) and (max-width:767px) {
-        font-size: ${(props)=>props.theme.fontSizeH6};
+        font-size: ${(props)=>props.theme.fontSizeH7};
         
     } 
     @media all and (max-width:479px) {
-        font-size: ${(props)=>props.theme.fontSizeH6};
+        font-size: ${(props)=>props.theme.fontSizeH7};
         
     }
 `
 
 const LeftItem =styled.div`
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
     border-radius: 50%;
     background-position: center;
@@ -73,12 +73,12 @@ const LeftItem =styled.div`
         transition-duration: 1s;
     }
     @media all and (min-width:480px) and (max-width:767px) {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     } 
     @media all and (max-width:479px) {
-        width: 100px;
-    height: 100px;
+        width: 80px;
+    height: 80px;
     }
 `
 
