@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const FootDiv = styled.div`
     width: 100%;
-    height: 300px;
+    height: 200px;
     display: flex;
-    border-radius: 5px;
     background-color: ${(props)=>props.theme.navBgColor};
     overflow: hidden;
     margin: 0 auto;
@@ -56,9 +55,9 @@ export const FootBottom = styled.div`
 `
 
 export const FootBottomItem = styled.div`
-    height : 250px;
+    height : 150px;
     padding: 20px;
-    width: 450px;
+    width: 300px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -71,18 +70,18 @@ export const FootBottomItem = styled.div`
     border-radius: 10px;
     box-sizing: border-box;
     @media all and (min-width:480px) and (max-width:767px) {
-        height: 200px;
-        width: 250px;
+        height: 150px;
+        width: 200px;
     } 
     @media all and (max-width:479px) {
-        height: 200px;
-        width: 250px;
+        height: 150px;
+        width: 200px;
     }
 `
 
 export const FrontItem =styled.div`
-    width: 200px;
-    height: 200px;
+    width: 130px;
+    height: 130px;
     margin: 0 auto;
     border-radius: 50%;
     background-position: center;
@@ -118,15 +117,15 @@ export const BackItem =styled.div`
 `
 
 export const BackItemTitle = styled.h4`
-    font-size: ${(props)=>props.theme.fontSizeH3};
+    font-size: ${(props)=>props.theme.fontSizeH5};
     font-weight: 600;
-    margin: 10px 0px;
+    margin: 15px 0px;
     @media all and (min-width:480px) and (max-width:767px) {
-        font-size: ${(props)=>props.theme.fontSizeH5};
+        font-size: ${(props)=>props.theme.fontSizeH6};
         margin-bottom: 5px;
     } 
     @media all and (max-width:479px) {
-        font-size: ${(props)=>props.theme.fontSizeH5};
+        font-size: ${(props)=>props.theme.fontSizeH6};
         margin-bottom: 5px;
     }
 `

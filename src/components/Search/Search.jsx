@@ -3,6 +3,7 @@ import  { useState } from "react";
 import { useForm } from "react-hook-form";
 import {SearchDiv,SearchForm,SearchInput} from './SearchStyle'
 import styled from "styled-components";
+import {useNavigate} from 'react-router-dom';
 
 const SearchIconStyle =styled.div`
     width:150px;
@@ -53,12 +54,12 @@ const SearchIconStyle =styled.div`
 `
 
 function Search () {
-    const [inputValue, setInputValue]= useState("");
+    const navigate = useNavigate();
     const [searchIcon, setSearchIcon] = useState(false);
     const { register, handleSubmit,reset } = useForm();
     const onSubmit =(data)=>{
-        setInputValue(data.find);
         reset();
+        navigate('/search' , {state : { searchItem : `${data.find}`}});
     }
     return(
         <SearchDiv>

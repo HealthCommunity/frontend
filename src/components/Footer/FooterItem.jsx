@@ -7,7 +7,7 @@ import { SiGithub , SiNotion} from "react-icons/si";
 const BackItemButton = styled.button`
     background-color: ${(props)=>props.theme.navBgColor};
     width: 50%;
-    font-size: ${(props)=>props.theme.fontSizeH4};
+    font-size: ${(props)=>props.theme.fontSizeH6};
     height: 30px;
     margin: 0 auto;
     border :none;
@@ -22,25 +22,37 @@ const BackItemButton = styled.button`
 `
 
 const GitIcon =styled.div`
-    width: 100px;
-    height: 100px;
-    font-size: 64px;
+    width: 80px;
+    height: 80px;
+    font-size: ${(props)=>props.theme.fontSizeH0};
     margin: 0 auto;
-    padding-top: 10px;
+    padding-top: 5px;
     border-radius: ${(props)=>props.theme.radiusSize50};
     :hover{
         transform: translateY(-5px);
         transition-duration: 1s;
     }
+    @media all and (min-width:480px) and (max-width:767px) {
+        font-size: ${(props)=>props.theme.fontSizeH2};
+    } 
+    @media all and (max-width:479px) {
+        font-size: ${(props)=>props.theme.fontSizeH2};
+    }
 `
 
 
 const BackLeft = styled.div`
-    width: 200px;
-
+    width: 140px;
+    @media all and (min-width:480px) and (max-width:767px) {
+       width: 200px;
+    } 
+    @media all and (max-width:479px) {
+       width: 200px;
+    }
+    
 `
 const BackRight = styled.div`
-    width: 200px;
+    width: 140px;
     margin: 10px;
     border-radius: ${(props)=>props.theme.radiusSize12};
     background-color: ${(props)=>props.theme.colorPointPupple100};
