@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation, loop } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 import MainSliderItem from "./MainSliderItem";
 
@@ -13,8 +13,7 @@ import { useState } from "react";
 
 const MainSliderDiv = styled.div`
     overflow: hidden;
-    background: linear-gradient(45deg, rgb(81, 204, 226), rgb(51, 105, 231));
-    height: 100%;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,83 +28,102 @@ const BKSlider = styled.div`
 
     & .swiper {
         width: 100%;
-        height: 200px;
+        height: 300px;
         overflow: visible;
+        font-size: 10px;
 
         .swiper-slide {
-            width: 300px;
+            color: #fff;
+            box-sizing: border-box;
             text-align: center;
             font-size: 18px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0px;
-            background: white;
             transition: all 0.3s ease;
 
             &.swiper-slide-active {
                 color: #fff;
-                background: linear-gradient(
-                    45deg,
-                    rgb(246, 146, 89),
-                    rgb(241, 105, 117)
-                );
                 transform: scale(1.4);
                 z-index: 2;
             }
         }
+    }
 
-        .swiper-pagination-bullet {
-            top: 0px;
-            left: 0px;
+    & .swiper-pagination {
+        bottom: -100px;
+
+        .swiper-pagination-bullet-active {
+            background-color: ${(props) => props.theme.colorPointPupple200};
         }
+    }
+
+    & .swiper-button-prev,
+    & .swiper-button-next {
+        color: ${(props) => props.theme.colorPointPupple200};
     }
 `;
 
 function MainSlider() {
+    const items = popular;
+    const [active, setActive] = useState(0);
+
     return (
         <MainSliderDiv>
             <BKSlider>
                 <Swiper
                     loop
                     loopedSlides={60}
-                    spaceBetween={20}
+                    spaceBetween={30}
                     slidesPerView={1}
                     slideToClickedSlide={true}
                     autoplay={{
                         delay: 2500,
                         loopedSlides: 1,
                         loop: true,
+                        disableOnInteraction: false,
                     }}
                     centeredSlides={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     pagination={{ clickable: true }}
                     resizeObserver={true}
-                    style={{}}
                     navigation={true} // 네비게이션 적용, < >
                     breakpoints={{
                         // 화면의 넓이가 320px 이상일 때 한개만 보여줌
                         // 먼저 모바일부터 고려해서 1이고, 350보다 큰 경우 auto
-                        400: {
+                        500: {
                             slidesPerView: 3,
-                            spaceBetween: 20,
+                            spaceBetween: 30,
                         },
-                        700: {
+                        1000: {
                             slidesPerView: 5,
-                            spaceBetween: 20,
+                            spaceBetween: 30,
+                        },
+                        1400: {
+                            slidesPerView: 7,
+                            spaceBetween: 30,
+                        },
+                        1800: {
+                            slidesPerView: 9,
+                            spaceBetween: 30,
                         },
                     }}
+                    onTransitionEnd={({ activeIndex }) =>
+                        setActive(activeIndex)
+                    }
                 >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
-                    <SwiperSlide>Slide 10</SwiperSlide>
+                    {items.map(({ id, title, urlimage }) => (
+                        <SwiperSlide key={id}>
+                            <MainSliderItem
+                                id={id}
+                                title={title}
+                                urlimage={urlimage}
+                                active={active}
+                                value={"exersise"}
+                            ></MainSliderItem>
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </BKSlider>
         </MainSliderDiv>
