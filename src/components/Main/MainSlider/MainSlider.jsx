@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation, loop } from "swiper";
 
 import MainSliderItem from "./MainSliderItem";
 
@@ -12,40 +12,66 @@ import { popular } from "../../../FakeD/popular";
 import { useState } from "react";
 
 const MainSliderDiv = styled.div`
-    width: 100%;
-    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(45deg, rgb(81, 204, 226), rgb(51, 105, 231));
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${(props) => props.theme.fontSizeH1};
-    /* background-color: ${(props) => props.theme.navBgColor}; */
+    margin: 0px;
 `;
 
-const Temp = styled.div`
-    border-radius: 8px;
+const BKSlider = styled.div`
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 90vw;
+    height: auto;
+    padding: 50px 0 100px;
 
-    & .swiper-slide {
-        width: 172px;
-    }
+    & .swiper {
+        width: 100%;
+        height: 200px;
+        overflow: visible;
 
-    & .swiper-slide.active {
-        width: 400px;
+        .swiper-slide {
+            width: 300px;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+            background: white;
+            transition: all 0.3s ease;
+
+            &.swiper-slide-active {
+                color: #fff;
+                background: linear-gradient(
+                    45deg,
+                    rgb(246, 146, 89),
+                    rgb(241, 105, 117)
+                );
+                transform: scale(1.4);
+                z-index: 2;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            top: 0px;
+            left: 0px;
+        }
     }
 `;
 
 function MainSlider() {
-    const items = popular;
-    const [active, setActive] = useState(0);
-
     return (
         <MainSliderDiv>
-            <Temp>
+            <BKSlider>
                 <Swiper
-                    spaceBetween={30}
+                    loop
+                    loopedSlides={60}
+                    spaceBetween={20}
                     slidesPerView={1}
+                    slideToClickedSlide={true}
                     autoplay={{
                         delay: 2500,
                         loopedSlides: 1,
@@ -54,41 +80,34 @@ function MainSlider() {
                     centeredSlides={true}
                     modules={[Autoplay, Pagination, Navigation]}
                     pagination={{ clickable: true }}
-                    style={{
-                        height: "100%",
-                        backgroundColor: "teal",
-                    }}
+                    resizeObserver={true}
+                    style={{}}
                     navigation={true} // 네비게이션 적용, < >
                     breakpoints={{
                         // 화면의 넓이가 320px 이상일 때 한개만 보여줌
                         // 먼저 모바일부터 고려해서 1이고, 350보다 큰 경우 auto
-                        350: {
-                            slidesPerView: "auto",
-                            spaceBetween: 30,
+                        400: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        700: {
+                            slidesPerView: 5,
+                            spaceBetween: 20,
                         },
                     }}
-                    onTransitionEnd={({ activeIndex }) =>
-                        setActive(activeIndex)
-                    }
                 >
-                    {items.map(({ id, title, urlimage }, idx) => (
-                        <SwiperSlide
-                            key={id}
-                            style={{
-                                height: "450px",
-                                backgroundColor: "tomato",
-                            }}
-                            className={idx === active ? "active" : ""}
-                        >
-                            <MainSliderItem
-                                title={title}
-                                urlimage={urlimage}
-                                active={idx === active}
-                            ></MainSliderItem>
-                        </SwiperSlide>
-                    ))}
+                    <SwiperSlide>Slide 1</SwiperSlide>
+                    <SwiperSlide>Slide 2</SwiperSlide>
+                    <SwiperSlide>Slide 3</SwiperSlide>
+                    <SwiperSlide>Slide 4</SwiperSlide>
+                    <SwiperSlide>Slide 5</SwiperSlide>
+                    <SwiperSlide>Slide 6</SwiperSlide>
+                    <SwiperSlide>Slide 7</SwiperSlide>
+                    <SwiperSlide>Slide 8</SwiperSlide>
+                    <SwiperSlide>Slide 9</SwiperSlide>
+                    <SwiperSlide>Slide 10</SwiperSlide>
                 </Swiper>
-            </Temp>
+            </BKSlider>
         </MainSliderDiv>
     );
 }
