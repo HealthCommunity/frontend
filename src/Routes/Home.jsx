@@ -40,9 +40,9 @@ function Home(){
             </MainTitle>
             <HomeDiv>
                 <LeftDiv>
-                   <BoardNav click={onExersise} name={"운동 게시판"} summary={"다른 사람의 운동 경험을 확인해보세요!"}/>
-                   <BoardNav  click={onThree} name={"3대 운동 게시판"} summary={"다른 사람의 3대 능력을 확인해보세요!"}/>
-                   <BoardNav click={onFree} name={"자유 게시판"} summary={" 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"}/>
+                   <BoardNav border={whereboard === 0 && "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"} click={onExersise} name={"운동 게시판"} summary={"다른 사람의 운동 경험을 확인해보세요!"}/>
+                   <BoardNav border={whereboard === 1 && "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"} click={onThree} name={"3대 운동 게시판"} summary={"다른 사람의 3대 능력을 확인해보세요!"}/>
+                   <BoardNav border={whereboard === 2 && "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"} click={onFree} name={"자유 게시판"} summary={" 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"}/>
                 </LeftDiv>
                 <RightDiv>
                     {whereboard === 0 ? ex.map((x)=>

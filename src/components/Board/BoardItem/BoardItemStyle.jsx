@@ -3,8 +3,8 @@ export const RightDivItem = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: ${(props) => props.theme.radiusSize20};
     flex-direction: column;
     cursor: pointer;
@@ -14,12 +14,14 @@ export const RightDivItem = styled.div`
         box-shadow: ${(props) => props.theme.shadowColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
+        padding: 10px;
     }
     @media all and (max-width: 479px) {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
+        padding: 10px;
     }
 `;
 
