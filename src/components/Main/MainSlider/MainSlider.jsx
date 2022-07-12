@@ -23,17 +23,19 @@ const MainSliderDiv = styled.div`
 const BKSlider = styled.div`
     position: relative;
     width: 90vw;
-    height: auto;
+    height: 90%;
     padding: 50px 0 100px;
+    margin: auto;
 
     & .swiper {
         width: 100%;
-        height: 300px;
-        overflow: visible;
+        height: 400px;
+        overflow: hidden;
         font-size: 10px;
 
         .swiper-slide {
             color: #fff;
+            height: 340px;
             box-sizing: border-box;
             text-align: center;
             font-size: 18px;
@@ -42,18 +44,19 @@ const BKSlider = styled.div`
             align-items: center;
             margin: 0px;
             transition: all 0.3s ease;
+            transform: scale(0.8);
+            margin: auto 0;
 
             &.swiper-slide-active {
                 color: #fff;
-                transform: scale(1.4);
+                transform: scale(1);
                 z-index: 2;
             }
         }
     }
 
     & .swiper-pagination {
-        bottom: -100px;
-
+        bottom: 0px;
         .swiper-pagination-bullet-active {
             background-color: ${(props) => props.theme.colorPointPupple200};
         }
@@ -62,6 +65,16 @@ const BKSlider = styled.div`
     & .swiper-button-prev,
     & .swiper-button-next {
         color: ${(props) => props.theme.colorPointPupple200};
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: 0.8;
+    }
+
+    & .swiper-button-prev::after,
+    & .swiper-button-next::after {
+        font-size: 16px;
     }
 `;
 
@@ -90,22 +103,16 @@ function MainSlider() {
                     resizeObserver={true}
                     navigation={true} // 네비게이션 적용, < >
                     breakpoints={{
-                        // 화면의 넓이가 320px 이상일 때 한개만 보여줌
-                        // 먼저 모바일부터 고려해서 1이고, 350보다 큰 경우 auto
-                        500: {
+                        1000: {
                             slidesPerView: 3,
                             spaceBetween: 30,
                         },
-                        1000: {
+                        1400: {
                             slidesPerView: 5,
                             spaceBetween: 30,
                         },
-                        1400: {
+                        2000: {
                             slidesPerView: 7,
-                            spaceBetween: 30,
-                        },
-                        1800: {
-                            slidesPerView: 9,
                             spaceBetween: 30,
                         },
                     }}
