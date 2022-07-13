@@ -58,15 +58,14 @@ export const NavItemDiv = styled.div`
 `;
 
 export const NavItem = styled.div`
-    margin: 0px 10px;
     padding: 10px;
-    width: 100%;
     text-align: center;
     font-size: ${(props) => props.theme.fontSizeH5};
     font-weight: 600;
+    cursor: pointer;
     :hover {
         transition-duration: 1s;
-        transform: translateY(-5px);
+        background-color: ${(props)=>props.theme.navBgColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         font-size: 10px;
