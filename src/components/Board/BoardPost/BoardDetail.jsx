@@ -104,9 +104,9 @@ function BoardDetail(){
         ariaHideApp={false}
       >
         <ModalForm onSubmit={modalsubmit(onSubmit)}>
-            <input {...modalregister("deadlift", { required: true })} placeholder="데드 리프트"/>
-            <input {...modalregister("benchpress", { required: true })} placeholder="벤치 프레스" />
-            <input {...modalregister("squat", { required: true })} placeholder="스쿼트"/>
+            <input {...modalregister("deadlift", { required : true , pattern :/^[0-9]*$/  })} placeholder="데드 리프트"/>
+            <input {...modalregister("benchpress", { required: true , pattern :/^[0-9]*$/ })} placeholder="벤치 프레스" />
+            <input {...modalregister("squat", { required: true , pattern :/^[0-9]*$/ })} placeholder="스쿼트"/>
             <input style={{fontWeight:"600" ,width: "60%" , border:"none"  , cursor:"pointer", marginTop:"10px"}} type="submit" />
         </ModalForm>
       </Modal>
