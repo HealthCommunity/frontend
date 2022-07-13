@@ -4,7 +4,6 @@ export const NavDiv = styled.div`
     height: 100px;
     position: fixed;
     display: flex;
-    justify-content: space-between;
     background-color: ${(props) => props.theme.navBgColor};
     z-index: 10;
     opacity: 0.98;
@@ -41,7 +40,7 @@ export const NavItemDiv = styled.div`
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 0px 30px;
     @media all and (min-width: 480px) and (max-width: 767px) {
         flex-direction: column;
