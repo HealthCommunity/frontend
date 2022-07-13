@@ -95,7 +95,8 @@ function BoardDetail(){
         <InfoTitleDiv>
             <InfoTitleWrite>{`작성자 : ${item.userId} `}</InfoTitleWrite>
             <InfoTitleWrite>{`작성일 : ${item.writeDay}`}</InfoTitleWrite>
-        </InfoTitleDiv>    
+        </InfoTitleDiv>
+        {boardname === "board" && <>
         <ModalButton onClick={modalIsOpen}>관리자 3대력 부여</ModalButton>
         <Modal
         isOpen={modalOpen}
@@ -110,6 +111,8 @@ function BoardDetail(){
             <input style={{fontWeight:"600" ,width: "60%" , border:"none"  , cursor:"pointer", marginTop:"10px"}} type="submit" />
         </ModalForm>
       </Modal>
+      </>
+        }
         <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
         <BoardSummary>각 게시판 내용을 여기에 넣을생각입니다</BoardSummary>
         <InfoExplanationDiv>
