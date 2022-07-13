@@ -7,6 +7,15 @@ import { RightDiv } from "../components/Main/HomeSeparate";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import Footer from "../components/Footer/Footer";
 import ExersiseSlider from "../components/Board/BoardSlider/ExersiseSlider";
+import styled from "styled-components";
+
+const ModalButton = styled.button`
+    width: 200px;
+    min-width: 150px;
+    height: 56px;
+    top: 0px;
+    right: 0px;
+`;
 
 function Exersise() {
     return (
@@ -14,10 +23,6 @@ function Exersise() {
             <Title name="Exersise" />
             <Nav />
             <ExersiseSlider />
-
-            <Link to={"write"}>
-                <button>글쓰기</button>
-            </Link>
 
             <BoardNav
                 style={{
@@ -28,6 +33,11 @@ function Exersise() {
                 name={"운동 게시판"}
                 summary={" 다른 사람의 운동 경험을 확인해보세요!"}
             />
+
+            <Link to={"write"}>
+                <ModalButton>글쓰기</ModalButton>
+            </Link>
+
             <RightDiv style={{ marginBottom: "150px", paddingRight: "0px" }}>
                 {ex.map((x) => (
                     <SoloBoardItem

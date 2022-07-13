@@ -1,6 +1,6 @@
 import { InfoDiv, InfoTitle, BoardSummary } from "./BoardDetailStyle";
 import { useLocation } from "react-router";
-// import Tiptap from "../../Editor/Tiptap";
+import Tiptap from "../../Editor/Tiptap";
 
 function BoardNewWrite() {
     const { pathname } = useLocation();
@@ -10,7 +10,7 @@ function BoardNewWrite() {
         <InfoDiv>
             <InfoTitle>{`${boardname} 글쓰기`}</InfoTitle>
             <BoardSummary></BoardSummary>
-            {/* <Tiptap /> */}
+            <Tiptap />
         </InfoDiv>
     );
 }
