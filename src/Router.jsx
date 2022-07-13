@@ -13,6 +13,7 @@ import ExersiseWrite from "./Routes/ExersiseWrite";
 import FindId from "./Routes/FindId";
 import FindPw from "./Routes/FindPw";
 import SearchPage from "./Routes/Search";
+import NotFoundScene from "./Routes/NotFoundScene";
 
 function Router() {
     return (
@@ -32,6 +33,7 @@ function Router() {
                 <Route path="/exersise" element={<Exersise />} />
                 <Route path="/exersise/:id" element={<ExersisePost />} />
                 <Route path="/exersise/write" element={<ExersiseWrite />} />
+                <Route path="*" element={<NotFoundScene />} />
             </Routes>
         </BrowserRouter>
     );
