@@ -10,7 +10,6 @@ const NotFoundArea = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 150px;
-    margin-bottom: 150px;
     background: ${(props) => props.theme.colorPointPupple200};
     color: ${(props) => props.theme.constPointWhite100};
 `;
