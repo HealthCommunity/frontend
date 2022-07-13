@@ -14,6 +14,13 @@ import {
     NavToggleTwo,
     ToggleMenu,
 } from "./NavStyle";
+import {
+    Menu,
+} from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
+
+
 
 function Nav() {
     const [login, setLogin] = useState(false);
@@ -46,6 +53,7 @@ function Nav() {
                 </ToggleMenu>
             </NavLogo>
             <NavItemDiv displaychange={displaychange}>
+            <Menu menuButton={<NavItem>게시판</NavItem>} transition>
                 <NavItem>
                     <Link to="/board">3대력 게시판</Link>
                 </NavItem>
@@ -55,6 +63,7 @@ function Nav() {
                 <NavItem>
                     <Link to="/freeboard">자유 게시판</Link>
                 </NavItem>
+            </Menu>
                 {login ? (
                     <>
                         <NavItem>

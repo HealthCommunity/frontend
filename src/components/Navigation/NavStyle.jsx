@@ -4,7 +4,6 @@ export const NavDiv = styled.div`
     height: 100px;
     position: fixed;
     display: flex;
-    justify-content: space-between;
     background-color: ${(props) => props.theme.navBgColor};
     z-index: 10;
     opacity: 0.98;
@@ -41,7 +40,7 @@ export const NavItemDiv = styled.div`
     width: 70%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 0px 30px;
     @media all and (min-width: 480px) and (max-width: 767px) {
         flex-direction: column;
@@ -58,15 +57,14 @@ export const NavItemDiv = styled.div`
 `;
 
 export const NavItem = styled.div`
-    margin: 0px 10px;
     padding: 10px;
-    width: 100%;
     text-align: center;
     font-size: ${(props) => props.theme.fontSizeH5};
     font-weight: 600;
+    cursor: pointer;
     :hover {
         transition-duration: 1s;
-        transform: translateY(-5px);
+        background-color: ${(props)=>props.theme.navBgColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         font-size: 10px;
