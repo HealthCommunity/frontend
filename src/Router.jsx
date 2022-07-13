@@ -6,19 +6,21 @@ import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Profile from "./Routes/Profile";
 import Sign from "./Routes/Sign";
-import BoardPost from "./Routes/BoardPost"
-import FreePost from "./Routes/FreePost"
-import ExersisePost from "./Routes/ExersisePost"
-import FindId from "./Routes/FindId"
-import FindPw from "./Routes/FindPw"
+import BoardPost from "./Routes/BoardPost";
+import FreePost from "./Routes/FreePost";
+import ExersisePost from "./Routes/ExersisePost";
+import ExersiseWrite from "./Routes/ExersiseWrite";
+import FindId from "./Routes/FindId";
+import FindPw from "./Routes/FindPw";
 import SearchPage from "./Routes/Search";
+import NotFoundScene from "./Routes/NotFoundScene";
 
 function Router() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/search" element={<SearchPage/>}/>
+                <Route path="/search" element={<SearchPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/login/find_id" element={<FindId />} />
                 <Route path="/login/find_pw" element={<FindPw />} />
@@ -30,9 +32,10 @@ function Router() {
                 <Route path="/board/:id" element={<BoardPost />} />
                 <Route path="/exersise" element={<Exersise />} />
                 <Route path="/exersise/:id" element={<ExersisePost />} />
+                <Route path="/exersise/write" element={<ExersiseWrite />} />
+                <Route path="*" element={<NotFoundScene />} />
             </Routes>
         </BrowserRouter>
-
-    )
+    );
 }
 export default Router;
