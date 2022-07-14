@@ -29,10 +29,12 @@ const SearchList = styled.div`
 
 function SearchPage (){
     const location = useLocation();
+    console.log(location.state)
     return (
         <>
             <Nav/>
             <SearchDiv>
+                <h1>{location.state.searchOption}</h1>
                 <SearchTitle>
                     {`검색어 : ${location.state.searchItem}`}
                 </SearchTitle>
