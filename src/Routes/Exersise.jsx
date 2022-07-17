@@ -10,11 +10,19 @@ import ExersiseSlider from "../components/Board/BoardSlider/ExersiseSlider";
 import styled from "styled-components";
 
 const ModalButton = styled.button`
-    width: 200px;
-    min-width: 150px;
-    height: 56px;
-    top: 0px;
-    right: 0px;
+    height: 45px;
+    background: #fcfcfd;
+    border: 1px solid #e8eaee;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    min-width: 200px;
+    padding: 0 10px;
+    transition: all 0.4s;
 `;
 
 function Exersise() {
