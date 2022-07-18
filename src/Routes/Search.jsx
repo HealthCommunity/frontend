@@ -5,9 +5,6 @@ import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 const SearchDiv = styled.div`
     box-sizing: border-box;
-    padding-top: 150px;
-    width: 100vw;
-    height: 100vh;
     margin-bottom: 50px;
 `;
 

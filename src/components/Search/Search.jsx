@@ -6,6 +6,15 @@ import styled from "styled-components";
 import {useNavigate} from 'react-router-dom';
 import Modal from "react-modal";
 
+const SearchBtn = styled.button`
+    width: 50px;
+    background-color: transparent;
+    height: 50px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+`
+
 const SelectOption = styled.select`
     border:none;
     :focus {
@@ -17,11 +26,12 @@ const customStyles = {
     overlay: {
         backgroundColor: "#999999",
         
+        
     },
     content: {
         zIndex: "1",
+        opacity: "0.9",
         height: "100px",
-        opacity : "1",
         margin: "0 auto",
     
     },
@@ -45,7 +55,7 @@ function Search () {
     }
     return(
         <div>
-            <button onClick={openSearch}><FaSearch/></button>
+            <SearchBtn onClick={openSearch}><FaSearch/></SearchBtn>
             <Modal
                 isOpen={open}
                 onRequestClose={closeModal}

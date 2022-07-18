@@ -107,7 +107,6 @@ function Home() {
                     </RightDiv>
                 </HomeDiv>
             </WidthAreaSpace>
-            <Footer />
         </>
     );
 }

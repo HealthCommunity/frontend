@@ -14,10 +14,10 @@ function Freeboard() {
             <WidthAreaSpace>
                 <BoardNav
                     style={{
-                        paddingTop: "150px",
                         width: "50%",
                         margin: "0 auto",
                         pointerEvents: "none",
+                        marginBottom: "50px"
                     }}
                     name={"자유 게시판"}
                     summary={
@@ -37,7 +37,7 @@ function Freeboard() {
                     ))}
                 </RightDiv>
             </WidthAreaSpace>
-            <Footer />
+            
         </>
     );
 }
