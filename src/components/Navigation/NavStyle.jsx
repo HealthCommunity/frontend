@@ -2,27 +2,27 @@ import styled from "styled-components";
 export const NavDiv = styled.div`
     width: 100%;
     height: 100px;
-    position: fixed;
     display: flex;
     top: 0;
     background-color: ${(props) => props.theme.navBgColor};
-    z-index: 10;
     opacity: 0.98;
     @media all and (min-width: 480px) and (max-width: 767px) {
         justify-content: center;
         flex-direction: column;
-        height: ${(props) => (props.heigthchange ? "250px" : "100px")};
+        margin: 0 auto;
+        height: ${(props) => (props.heigthchange ? "200px" : "100px")};
     }
     @media all and (max-width: 479px) {
         justify-content: center;
+        margin: 0 auto;
         flex-direction: column;
-        height: ${(props) => (props.heigthchange ? "250px" : "100px")};
+        height: ${(props) => (props.heigthchange ? "200px" : "100px")};
     }
 `;
 
 export const NavLogo = styled.div`
     display: flex;
-    width: 30%;
+    
     justify-content: center;
     align-items: center;
     @media all and (min-width: 480px) and (max-width: 767px) {
@@ -38,10 +38,10 @@ export const NavLogo = styled.div`
 `;
 
 export const NavItemDiv = styled.div`
-    width: 70%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    height:100px;
     margin: 0px 30px;
     @media all and (min-width: 480px) and (max-width: 767px) {
         flex-direction: column;

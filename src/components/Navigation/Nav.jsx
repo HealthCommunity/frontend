@@ -4,9 +4,9 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
 import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Search from '../Search/Search';
 import {
     NavDiv,
-    NavLogo,
     NavItem,
     NavItemDiv,
     NavHamberDiv,
@@ -35,23 +35,19 @@ function Nav() {
     return (
         <NavDiv heigthchange={heigthchange}>
             <WidthAreaNavSpace>
-                <NavLogo>
-                    <Link to={"/"}>로고</Link>
-                    <ToggleMenu>
-                        <NavHamberDiv onClick={onMenuToggle}>
-                            <GiHamburgerMenu />
-                        </NavHamberDiv>
-                        <NavToggle onClick={isModeChange}>
-                            {useAtom ? (
-                                <BsLightbulb style={{ fill: "black" }} />
-                            ) : (
-                                <BsLightbulbFill style={{ fill: "#f1c40f" }} />
-                            )}
-                        </NavToggle>
-                    </ToggleMenu>
-                </NavLogo>
+                <ToggleMenu>
+                    <NavHamberDiv onClick={onMenuToggle}>
+                        <GiHamburgerMenu />
+                    </NavHamberDiv>
+                    <NavToggle onClick={isModeChange}>
+                        {useAtom ? (
+                            <BsLightbulb style={{ fill: "black" }} />
+                        ) : (
+                            <BsLightbulbFill style={{ fill: "#f1c40f" }} />
+                        )}
+                    </NavToggle>
+                </ToggleMenu>
                 <NavItemDiv displaychange={displaychange}>
-                    <Menu menuButton={<NavItem>게시판</NavItem>} transition>
                         <NavItem>
                             <Link to="/board">3대력 게시판</Link>
                         </NavItem>
@@ -61,7 +57,6 @@ function Nav() {
                         <NavItem>
                             <Link to="/freeboard">자유 게시판</Link>
                         </NavItem>
-                    </Menu>
                     {login ? (
                         <>
                             <NavItem>
@@ -81,6 +76,7 @@ function Nav() {
                             </NavItem>
                         </>
                     )}
+                    <Search/>
                     <NavToggleTwo onClick={isModeChange}>
                         {useAtom ? (
                             <BsLightbulb style={{ fill: "black" }} />

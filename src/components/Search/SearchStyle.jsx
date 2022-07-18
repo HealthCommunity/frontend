@@ -1,8 +1,7 @@
 import styled from "styled-components"
 export const SearchDiv= styled.div`
     margin: 0 auto;
-    padding: 150px 0px 50px 0px;
-    width:25%;
+    width:45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
