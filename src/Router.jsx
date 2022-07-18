@@ -15,7 +15,9 @@ import FindPw from "./Routes/FindPw";
 import SearchPage from "./Routes/Search";
 import NotFoundScene from "./Routes/NotFoundScene";
 
-function Router() {
+function Router({ items }) {
+    //console.log("라우터", items);
+
     return (
         <BrowserRouter>
             <Routes>
@@ -25,7 +27,7 @@ function Router() {
                 <Route path="/login/find_id" element={<FindId />} />
                 <Route path="/login/find_pw" element={<FindPw />} />
                 <Route path="/sign" element={<Sign />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile" element={<Profile items={items} />} />
                 <Route path="/freeboard" element={<Freeboard />} />
                 <Route path="/freeboard/:id" element={<FreePost />} />
                 <Route path="/board" element={<Board />} />

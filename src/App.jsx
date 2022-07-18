@@ -4,6 +4,9 @@ import { isDarkAtom } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
 
+import React, { useEffect, useState } from "react";
+import API from "./API.js";
+
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -61,12 +64,18 @@ a {
 `;
 
 function App() {
-	const isDark = useRecoilValue(isDarkAtom)
-	return (
-		<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-			<GlobalStyle />
-			<Router />
-		</ThemeProvider>
-	)
+    const isDark = useRecoilValue(isDarkAtom);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        API().then(setItems); //전체 데이터
+    }, []);
+
+    return (
+        <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+            <GlobalStyle />
+            <Router items={items} />
+        </ThemeProvider>
+    );
 }
 export default App;

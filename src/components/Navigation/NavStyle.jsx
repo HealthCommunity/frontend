@@ -4,6 +4,7 @@ export const NavDiv = styled.div`
     height: 100px;
     position: fixed;
     display: flex;
+    top: 0;
     background-color: ${(props) => props.theme.navBgColor};
     z-index: 10;
     opacity: 0.98;
@@ -64,7 +65,7 @@ export const NavItem = styled.div`
     cursor: pointer;
     :hover {
         transition-duration: 1s;
-        background-color: ${(props)=>props.theme.navBgColor};
+        background-color: ${(props) => props.theme.navBgColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         font-size: 10px;

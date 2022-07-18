@@ -9,6 +9,8 @@ import Footer from "../components/Footer/Footer";
 import ExersiseSlider from "../components/Board/BoardSlider/ExersiseSlider";
 import styled from "styled-components";
 
+import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+
 const ModalButton = styled.button`
     height: 45px;
     background: #fcfcfd;
@@ -30,32 +32,36 @@ function Exersise() {
         <>
             <Title name="Exersise" />
             <Nav />
-            <ExersiseSlider />
+            <WidthAreaSpace>
+                <ExersiseSlider />
 
-            <BoardNav
-                style={{
-                    width: "50%",
-                    margin: "0 auto",
-                    pointerEvents: "none",
-                }}
-                name={"운동 게시판"}
-                summary={" 다른 사람의 운동 경험을 확인해보세요!"}
-            />
+                <BoardNav
+                    style={{
+                        width: "50%",
+                        margin: "0 auto",
+                        pointerEvents: "none",
+                    }}
+                    name={"운동 게시판"}
+                    summary={" 다른 사람의 운동 경험을 확인해보세요!"}
+                />
 
-            <Link to={"write"}>
-                <ModalButton>글쓰기</ModalButton>
-            </Link>
+                <Link to={"write"}>
+                    <ModalButton>글쓰기</ModalButton>
+                </Link>
 
-            <RightDiv style={{ marginBottom: "150px", paddingRight: "0px" }}>
-                {ex.map((x) => (
-                    <SoloBoardItem
-                        key={Math.random()}
-                        item={x}
-                        color={"#7FBA7A"}
-                        value={"exersise"}
-                    />
-                ))}
-            </RightDiv>
+                <RightDiv
+                    style={{ marginBottom: "150px", paddingRight: "0px" }}
+                >
+                    {ex.map((x) => (
+                        <SoloBoardItem
+                            key={Math.random()}
+                            item={x}
+                            color={"#7FBA7A"}
+                            value={"exersise"}
+                        />
+                    ))}
+                </RightDiv>
+            </WidthAreaSpace>
             <Footer />
         </>
     );
