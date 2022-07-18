@@ -1,49 +1,52 @@
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
-import {useLocation} from 'react-router-dom'
+import { useLocation } from "react-router-dom";
+import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
-const SearchDiv= styled.div`
+const SearchDiv = styled.div`
     box-sizing: border-box;
     padding-top: 150px;
     width: 100vw;
     height: 100vh;
     margin-bottom: 50px;
-`
+`;
 
 const SearchTitle = styled.div`
-    font-size: ${(props)=>props.theme.fontSizeH2};
+    font-size: ${(props) => props.theme.fontSizeH2};
     text-align: center;
     margin-bottom: 20px;
-`
+`;
 
 const SearchList = styled.div`
-    width:90%;
+    width: 90%;
     height: 600px;
-    background-color: ${(props)=>props.theme.navBgColor};
+    background-color: ${(props) => props.theme.navBgColor};
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${(props)=>props.theme.fontSizeH3};
-`
+    font-size: ${(props) => props.theme.fontSizeH3};
+`;
 
-function SearchPage (){
+function SearchPage() {
     const location = useLocation();
-    console.log(location.state)
+    console.log(location.state);
     return (
         <>
-            <Nav/>
-            <SearchDiv>
-                <h1>{location.state.searchOption}</h1>
-                <SearchTitle>
-                    {`검색어 : ${location.state.searchItem}`}
-                </SearchTitle>
-                <SearchList>
-                    <h1>{`제목에 검색어 : (${location.state.searchItem}) 가 포함되어있으면 list 로 출력됩니다`}</h1>
-                </SearchList>
-            </SearchDiv>
+            <Nav />
+            <WidthAreaSpace>
+                <SearchDiv>
+                    <h1>{location.state.searchOption}</h1>
+                    <SearchTitle>
+                        {`검색어 : ${location.state.searchItem}`}
+                    </SearchTitle>
+                    <SearchList>
+                        <h1>{`제목에 검색어 : (${location.state.searchItem}) 가 포함되어있으면 list 로 출력됩니다`}</h1>
+                    </SearchList>
+                </SearchDiv>
+            </WidthAreaSpace>
         </>
-    )
+    );
 }
 
 export default SearchPage;

@@ -14,13 +14,10 @@ import {
     NavToggleTwo,
     ToggleMenu,
 } from "./NavStyle";
-import {
-    Menu,
-} from '@szhsin/react-menu';
-import '@szhsin/react-menu/dist/index.css';
-import '@szhsin/react-menu/dist/transitions/slide.css';
-
-
+import { Menu } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/slide.css";
+import { WidthAreaNavSpace } from "../Layout/CommonLayout";
 
 function Nav() {
     const [login, setLogin] = useState(false);
@@ -37,60 +34,62 @@ function Nav() {
     };
     return (
         <NavDiv heigthchange={heigthchange}>
-            <NavLogo>
-                <Link to={"/"}>로고</Link>
-                <ToggleMenu>
-                    <NavHamberDiv onClick={onMenuToggle}>
-                        <GiHamburgerMenu />
-                    </NavHamberDiv>
-                    <NavToggle onClick={isModeChange}>
+            <WidthAreaNavSpace>
+                <NavLogo>
+                    <Link to={"/"}>로고</Link>
+                    <ToggleMenu>
+                        <NavHamberDiv onClick={onMenuToggle}>
+                            <GiHamburgerMenu />
+                        </NavHamberDiv>
+                        <NavToggle onClick={isModeChange}>
+                            {useAtom ? (
+                                <BsLightbulb style={{ fill: "black" }} />
+                            ) : (
+                                <BsLightbulbFill style={{ fill: "#f1c40f" }} />
+                            )}
+                        </NavToggle>
+                    </ToggleMenu>
+                </NavLogo>
+                <NavItemDiv displaychange={displaychange}>
+                    <Menu menuButton={<NavItem>게시판</NavItem>} transition>
+                        <NavItem>
+                            <Link to="/board">3대력 게시판</Link>
+                        </NavItem>
+                        <NavItem>
+                            <Link to="/exersise">운동 게시판</Link>
+                        </NavItem>
+                        <NavItem>
+                            <Link to="/freeboard">자유 게시판</Link>
+                        </NavItem>
+                    </Menu>
+                    {login ? (
+                        <>
+                            <NavItem>
+                                <Link to="/login">로그인</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link to="/sign">회원가입</Link>
+                            </NavItem>
+                        </>
+                    ) : (
+                        <>
+                            <NavItem>
+                                <Link to="/login">로그아웃</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link to="/profile">마이페이지</Link>
+                            </NavItem>
+                        </>
+                    )}
+                    <NavToggleTwo onClick={isModeChange}>
                         {useAtom ? (
                             <BsLightbulb style={{ fill: "black" }} />
                         ) : (
                             <BsLightbulbFill style={{ fill: "#f1c40f" }} />
                         )}
-                    </NavToggle>
-                </ToggleMenu>
-            </NavLogo>
-            <NavItemDiv displaychange={displaychange}>
-            <Menu menuButton={<NavItem>게시판</NavItem>} transition>
-                <NavItem>
-                    <Link to="/board">3대력 게시판</Link>
-                </NavItem>
-                <NavItem>
-                    <Link to="/exersise">운동 게시판</Link>
-                </NavItem>
-                <NavItem>
-                    <Link to="/freeboard">자유 게시판</Link>
-                </NavItem>
-            </Menu>
-                {login ? (
-                    <>
-                        <NavItem>
-                            <Link to="/login">로그인</Link>
-                        </NavItem>
-                        <NavItem>
-                            <Link to="/sign">회원가입</Link>
-                        </NavItem>
-                    </>
-                ) : (
-                    <>
-                        <NavItem>
-                            <Link to="/login">로그아웃</Link>
-                        </NavItem>
-                        <NavItem>
-                            <Link to="/profile">마이페이지</Link>
-                        </NavItem>
-                    </>
-                )}
-                <NavToggleTwo onClick={isModeChange}>
-                    {useAtom ? (
-                        <BsLightbulb style={{ fill: "black" }} />
-                    ) : (
-                        <BsLightbulbFill style={{ fill: "#f1c40f" }} />
-                    )}
-                </NavToggleTwo>
-            </NavItemDiv>
+                    </NavToggleTwo>
+                </NavItemDiv>
+            </WidthAreaNavSpace>
         </NavDiv>
     );
 }
