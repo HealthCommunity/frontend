@@ -6,39 +6,24 @@ import styled from "styled-components";
 import {useNavigate} from 'react-router-dom';
 import Modal from "react-modal";
 
-const MobileSearch = styled.div`
-    
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        display: flex;
-        
-    }
-    @media all and (max-width: 479px) {
-        display: flex;
-        
-    }
-`
-
 
 const SearchBtn = styled.div`
     display:flex;
+    justify-content: center;
+    margin-bottom: 5px;
     background-color: transparent;
-    font-size: 24px;
+    font-size: ${(props) => props.theme.fontSizeH4};
     border: none;
-    padding: 10px;
     cursor: pointer;
     :focus{
         outline: none;
     }
-    :hover {
-        transform: scale(1.2);
-        transition-duration: 1s;
-    }
     @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH3};
+        font-size: ${(props) => props.theme.fontSizeH4};
         
     }
     @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH3};
+        font-size: ${(props) => props.theme.fontSizeH4};
         
     }
 `
@@ -82,8 +67,8 @@ function Search () {
         setOpen(true)
     }
     return(
-        <MobileSearch>
-            <SearchBtn onClick={openSearch}><FaSearch/></SearchBtn>
+        <>
+            <SearchBtn onClick={openSearch}><FaSearch style={{margin: "0" , padding: "0px 10px"}}/>Search</SearchBtn>
             <Modal
                 isOpen={open}
                 onRequestClose={closeModal}
@@ -102,7 +87,7 @@ function Search () {
                     </SearchForm>
                 </SearchDiv>
             </Modal>
-        </MobileSearch>
+        </>
     )
 }
 

@@ -66,14 +66,14 @@ export const NavItem = styled.div`
         background-color: ${(props) => props.theme.navBgColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: 10px;
+        font-size: ${(props) => props.theme.fontSizeH7};
         :hover {
             cursor: pointer;
             background-color: ${(props) => props.theme.colorPointPupple300};
         }
     }
     @media all and (max-width: 479px) {
-        font-size: 10px;
+        font-size: ${(props) => props.theme.fontSizeH7};
         :hover {
             cursor: pointer;
             background-color: ${(props) => props.theme.colorPointPupple300};
@@ -104,22 +104,22 @@ export const NavToggle = styled(NavItem)`
         display: flex;
     }
 `;
-export const NavToggleTwo = styled(NavItem)`
-    border-radius: 50%;
-    font-size: ${(props) => props.theme.fontSizeH3};
-    cursor: pointer;
+export const NavToggleTwo = styled.div`
+    font-size: ${(props) => props.theme.fontSizeH4};
     display: flex;
-    :hover {
-        transform: scale(1.2);
-        transition-duration: 1s;
-    }
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0.375rem 1.5rem;
     @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH3};
+        font-size: ${(props) => props.theme.fontSizeH4};
         
     }
     @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH3};
-        
+        font-size: ${(props) => props.theme.fontSizeH4};
+    }
+    :hover{
+        background-color: #ebebeb;
     }
 `;
 

@@ -1,34 +1,35 @@
-import { IoIosPeople } from "react-icons/io";
+import { FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const IntroduceBtn = styled.div`
+    display: flex;
+    justify-content: center;
     background-color: transparent;
-    font-size: 36px;
+    margin-bottom: 5px;
+    font-size: ${(props) => props.theme.fontSizeH4};
     cursor: pointer;
-
     :focus{
         outline: none;
     }
-    :hover {
-        transform: scale(1.2);
-        transition-duration: 1s;
-    }
     @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH2};
+        font-size: ${(props) => props.theme.fontSizeH4};
         
     }
     @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH2};
+        font-size: ${(props) => props.theme.fontSizeH4};
         
     }
 `
 
 function Introduce(){
     return(
+        <Link to="/introduce">
         <IntroduceBtn>
-              <Link to="/introduce"><IoIosPeople/></Link>
+              <FaUsers style={{margin: "0" , padding: "0px 10px"}}/>
+              Develope
         </IntroduceBtn>
+        </Link>
     )
 }
 

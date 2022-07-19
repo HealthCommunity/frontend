@@ -2,19 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
-import { BsLightbulb, BsLightbulbFill } from "react-icons/bs";
+import {FaLightbulb,FaRegLightbulb} from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from '../Search/Search';
 import {
     NavDiv,
     NavItem,
     NavItemDiv,
-    NavHamberDiv,
-    NavToggle,
     NavToggleTwo,
-    ToggleMenu,
 } from "./NavStyle";
-import { Menu } from "@szhsin/react-menu";
+import { Menu,MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { WidthAreaNavSpace } from "../Layout/CommonLayout";
@@ -73,15 +70,24 @@ function Nav() {
                             </NavItem>
                         </>
                     )}
-                    <NavToggleTwo onClick={isModeChange}>
-                        {useAtom ? (
-                            <BsLightbulb style={{ fill: "black" }} />
-                        ) : (
-                            <BsLightbulbFill style={{ fill: "#f1c40f" }} />
-                        )}
-                    </NavToggleTwo>
-                    <Search/>
-                    <Introduce/>
+                  
+                    <Menu transition menuButton={<MenuButton style={{margin: "0" ,display:"flex", justifyContent:"center",width:"100px" ,border:"none", backgroundColor:"transparent", fontSize:"24px", cursor:"pointer"}}><GiHamburgerMenu style={{margin:"0"}}/></MenuButton>} >
+                        <NavToggleTwo onClick={isModeChange}>
+                            {useAtom ? (
+                                <FaLightbulb style={{ fill: "black" , margin: "0" , padding: "0px 10px"}} />
+                            ) : (
+                                <FaRegLightbulb style={{ fill: "#f1c40f", margin: "0" , padding: "0px 10px"}} />
+                            )}
+                            {useAtom ? "Dark" : "Light"}
+                        </NavToggleTwo>
+                    <MenuItem>
+                        <Search/>
+                    </MenuItem>
+                    <MenuItem>
+                        <Introduce/>
+                    </MenuItem>
+                    </Menu>
+                  
                 </NavItemDiv>
             </WidthAreaNavSpace>
         </NavDiv>
