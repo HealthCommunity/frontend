@@ -51,6 +51,8 @@ function Home() {
                 <PullSlider data={data} />
                 <MiniSlider data={data} />
             </WidthAreaPull>
+            <WidthAreaPull></WidthAreaPull>
+
             <WidthAreaSpace>
                 <MainChart />
                 <MainTitle>
