@@ -27,7 +27,7 @@ function Introduce(){
         <Link to="/introduce">
         <IntroduceBtn>
               <FaUsers style={{margin: "0" , padding: "0px 10px"}}/>
-              Develope
+              About Us
         </IntroduceBtn>
         </Link>
     )
