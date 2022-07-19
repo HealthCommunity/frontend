@@ -106,14 +106,20 @@ export const NavToggle = styled(NavItem)`
 `;
 export const NavToggleTwo = styled(NavItem)`
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: ${(props) => props.theme.fontSizeH2};
+    font-size: ${(props) => props.theme.fontSizeH3};
     cursor: pointer;
     display: flex;
     :hover {
         transform: scale(1.2);
         transition-duration: 1s;
+    }
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        font-size: ${(props) => props.theme.fontSizeH3};
+        
+    }
+    @media all and (max-width: 479px) {
+        font-size: ${(props) => props.theme.fontSizeH3};
+        
     }
 `;
 

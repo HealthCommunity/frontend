@@ -20,12 +20,11 @@ const MobileSearch = styled.div`
 
 
 const SearchBtn = styled.div`
-    width: 50px;
     display:flex;
     background-color: transparent;
-    height: 50px;
     font-size: 24px;
     border: none;
+    padding: 10px;
     cursor: pointer;
     :focus{
         outline: none;
@@ -33,6 +32,14 @@ const SearchBtn = styled.div`
     :hover {
         transform: scale(1.2);
         transition-duration: 1s;
+    }
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        font-size: ${(props) => props.theme.fontSizeH3};
+        
+    }
+    @media all and (max-width: 479px) {
+        font-size: ${(props) => props.theme.fontSizeH3};
+        
     }
 `
 

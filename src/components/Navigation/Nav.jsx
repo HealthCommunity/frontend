@@ -19,6 +19,7 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { WidthAreaNavSpace } from "../Layout/CommonLayout";
 import styled from "styled-components";
+import Introduce from "../Introduce/Introduce";
 
 
 const MobileMenu = styled.div`
@@ -53,7 +54,7 @@ function Nav() {
                         <NavItem>
                             <Link to="/freeboard">자유 게시판</Link>
                         </NavItem>
-                    {login ? (
+                    {!login ? (
                         <>
                             <NavItem>
                                 <Link to="/login">로그인</Link>
@@ -80,6 +81,7 @@ function Nav() {
                         )}
                     </NavToggleTwo>
                     <Search/>
+                    <Introduce/>
                 </NavItemDiv>
             </WidthAreaNavSpace>
         </NavDiv>
