@@ -22,7 +22,7 @@ function BoardSlider ( ){
           clickable: true,
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        style={{  width: "70%",height: "200px" , paddingTop:"100px", textAlign:"center" , fontSize:"20px"}}
+        style={{zIndex:"-1", textAlign:"center" , fontSize:"20px", marginBottom: "50px"}}
       >
          <SwiperSlide style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
            <BoardSliderItem color={"#3F8CFF"} url={"http://speedandpower.co.kr/"} urlname={"삽짐"} title={"운동 정보"} summary={'크로스핏이나 파워트레이닝 등 운동 정보를 찾는 곳'}/>

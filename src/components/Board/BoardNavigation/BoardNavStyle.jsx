@@ -1,12 +1,17 @@
 import styled from "styled-components";
 export const LeftBtn =styled.div`
-    width:70%;
     display: flex;
     align-items: center;
-    padding: 0px 10px;
+    margin: 10px;
     cursor: pointer;
+    background-color: ${(props)=>props.border};
+    border: 2px solid #d1d1d1;
+    width: 90%;    
     border-radius: ${(props)=>props.theme.radiusSize16};
-    box-shadow: ${(props)=>props.border};
+    :hover{
+        transition: .2s ease-in;
+        transform: scale(1.05);
+    }
     @media all and (min-width:480px) and (max-width:767px) {
         flex-direction: column;
         padding: 0px ;
@@ -81,7 +86,7 @@ export const LeftBtnSummaryH5 =styled.h5`
 
 
 export const LeftDivArrow =styled.div`
-    margin-left: 10px;
+    margin: 0px 10px;
     @media all and (min-width:480px) and (max-width:767px) {
         display:none;
     } 

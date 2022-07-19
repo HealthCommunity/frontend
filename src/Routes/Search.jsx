@@ -5,9 +5,6 @@ import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 const SearchDiv = styled.div`
     box-sizing: border-box;
-    padding-top: 150px;
-    width: 100vw;
-    height: 100vh;
     margin-bottom: 50px;
 `;
 
@@ -36,9 +33,8 @@ function SearchPage() {
             <Nav />
             <WidthAreaSpace>
                 <SearchDiv>
-                    <h1>{location.state.searchOption}</h1>
                     <SearchTitle>
-                        {`검색어 : ${location.state.searchItem}`}
+                        {`검색 분류 : ${location.state.searchOption} / 검색어 : ${location.state.searchItem}`}
                     </SearchTitle>
                     <SearchList>
                         <h1>{`제목에 검색어 : (${location.state.searchItem}) 가 포함되어있으면 list 로 출력됩니다`}</h1>

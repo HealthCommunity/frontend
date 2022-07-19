@@ -50,11 +50,11 @@ const ModalForm = styled.form`
         color: #21242e;
         font-size: 16px;
         padding: 0 20px;
-        border-radius: 20px;
+        border-radius: 10px;
         background-color: #f3f4f7;
         border: 1px solid #ccc;
         line-height: 45px !important;
-        margin-bottom: 2px;
+        margin: 10px 0px;
         :focus {
             outline: none;
         }
@@ -148,7 +148,7 @@ function BoardDetail() {
                             <input
                                 style={{
                                     fontWeight: "600",
-                                    width: "60%",
+                                    width: "100%",
                                     border: "none",
                                     cursor: "pointer",
                                     marginTop: "10px",

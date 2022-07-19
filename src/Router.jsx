@@ -14,6 +14,7 @@ import FindId from "./Routes/FindId";
 import FindPw from "./Routes/FindPw";
 import SearchPage from "./Routes/Search";
 import NotFoundScene from "./Routes/NotFoundScene";
+import IntroducePage from './Routes/IntroducePage';
 
 function Router({ items }) {
     //console.log("라우터", items);
@@ -22,6 +23,7 @@ function Router({ items }) {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/introduce" element = {<IntroducePage/> }/>
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/login/find_id" element={<FindId />} />

@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 export const BannerDiv = styled.div`
-    width:500px;
-    height:100px;
+    width: 600px;
+    height:150px;
     border-radius: ${(props)=>props.theme.radiusSize16};
     padding:10px;
     display: flex;
     background-color: ${(props)=>props.color};
-    box-shadow: ${(props)=>props.theme.shadowColor2};
     @media all and (min-width:480px) and (max-width:767px) {
         width:700px;
     } 

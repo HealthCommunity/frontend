@@ -9,15 +9,15 @@ export const MainTitle =styled.div`
 `
 
 export const MainTitleH1 = styled.h1`
-    font-size: ${(props)=>props.theme.fontSizeH1};
+    font-size: ${(props)=>props.theme.fontSizeH0};
     margin: 10px 0px;
     font-weight: 600;
     @media all and (min-width:480px) and (max-width:767px) {
-        font-size: ${(props)=>props.theme.fontSizeH2}; 
+        font-size: ${(props)=>props.theme.fontSizeH0}; 
 
     } 
     @media all and (max-width:479px) {
-    font-size: ${(props)=>props.theme.fontSizeH2}; 
+    font-size: ${(props)=>props.theme.fontSizeH0}; 
 
     }
 `

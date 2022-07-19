@@ -20,6 +20,7 @@ function Board() {
                     style={{
                         width: "50%",
                         margin: "0 auto",
+                        marginBottom : "50px",
                         pointerEvents: "none",
                     }}
                     name={"3대 운동 게시판"}
@@ -38,7 +39,7 @@ function Board() {
                     ))}
                 </RightDiv>
             </WidthAreaSpace>
-            <Footer />
+            
         </>
     );
 }
