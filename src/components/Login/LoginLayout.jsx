@@ -3,8 +3,7 @@ import styled from "styled-components";
 //콘텐츠 가로100, 세로 100, 전체 영역
 export const ContentBackgroud = styled.div`
     box-sizing: border-box;
-    padding-top: 150px;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     @media all and (min-width: 480px) and (max-width: 767px) {
         margin-bottom: 150px;

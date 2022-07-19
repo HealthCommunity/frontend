@@ -36,9 +36,7 @@ function Home() {
         <>
             <Title name="Home" />
             <Nav />
-            <WidthAreaPull>
-                <MainSlider />
-            </WidthAreaPull>
+            <WidthAreaPull></WidthAreaPull>
 
             <WidthAreaSpace>
                 <Search />
