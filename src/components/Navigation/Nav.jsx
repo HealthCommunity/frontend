@@ -18,36 +18,32 @@ import { Menu } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { WidthAreaNavSpace } from "../Layout/CommonLayout";
+import styled from "styled-components";
+
+
+const MobileMenu = styled.div`
+    display:none;
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        display: flex;
+        
+    }
+    @media all and (max-width: 479px) {
+        display: flex;
+        
+    }
+`
 
 function Nav() {
     const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
-    const [heigthchange, setHeightChange] = useState(false);
-    const [displaychange, setDisplayChange] = useState(false);
     const isModeChange = () => {
         setAtom((prev) => !prev);
     };
-    const onMenuToggle = () => {
-        setHeightChange((prev) => !prev);
-        setDisplayChange((prev) => !prev);
-    };
     return (
-        <NavDiv heigthchange={heigthchange}>
+        <NavDiv>
             <WidthAreaNavSpace>
-                <ToggleMenu>
-                    <NavHamberDiv onClick={onMenuToggle}>
-                        <GiHamburgerMenu />
-                    </NavHamberDiv>
-                    <NavToggle onClick={isModeChange}>
-                        {useAtom ? (
-                            <BsLightbulb style={{ fill: "black" }} />
-                        ) : (
-                            <BsLightbulbFill style={{ fill: "#f1c40f" }} />
-                        )}
-                    </NavToggle>
-                </ToggleMenu>
-                <NavItemDiv displaychange={displaychange}>
+                <NavItemDiv>
                         <NavItem>
                             <Link to="/board">3대력 게시판</Link>
                         </NavItem>
@@ -76,7 +72,6 @@ function Nav() {
                             </NavItem>
                         </>
                     )}
-                    <Search/>
                     <NavToggleTwo onClick={isModeChange}>
                         {useAtom ? (
                             <BsLightbulb style={{ fill: "black" }} />
@@ -84,6 +79,7 @@ function Nav() {
                             <BsLightbulbFill style={{ fill: "#f1c40f" }} />
                         )}
                     </NavToggleTwo>
+                    <Search/>
                 </NavItemDiv>
             </WidthAreaNavSpace>
         </NavDiv>

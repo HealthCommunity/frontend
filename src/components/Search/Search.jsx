@@ -6,6 +6,19 @@ import styled from "styled-components";
 import {useNavigate} from 'react-router-dom';
 import Modal from "react-modal";
 
+const MobileSearch = styled.div`
+    
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        display: flex;
+        
+    }
+    @media all and (max-width: 479px) {
+        display: flex;
+        
+    }
+`
+
+
 const SearchBtn = styled.div`
     width: 50px;
     display:flex;
@@ -62,7 +75,7 @@ function Search () {
         setOpen(true)
     }
     return(
-        <div>
+        <MobileSearch>
             <SearchBtn onClick={openSearch}><FaSearch/></SearchBtn>
             <Modal
                 isOpen={open}
@@ -73,17 +86,16 @@ function Search () {
                 <SearchDiv>
                     <SearchForm onSubmit={handleSubmit(onSubmit)}>
                         <SelectOption {...register("option")}>
-                            <option value="total">통합검색</option>
-                            <option value="write">작성자</option>
-                            <option value="title">글제목</option>
+                            <option value="통합검색">통합검색</option>
+                            <option value="작성자">작성자</option>
+                            <option value="글제목">글제목</option>
                         </SelectOption>
                         <SearchInput {...register("find", {required:true})}/>
                         <FaSearch style={{width:"30%", fontSize:"20px", marginRight:"5px"}} onClick={handleSubmit(onSubmit)}/>
                     </SearchForm>
                 </SearchDiv>
             </Modal>
-            
-        </div>
+        </MobileSearch>
     )
 }
 

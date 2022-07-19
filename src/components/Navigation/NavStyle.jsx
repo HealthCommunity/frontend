@@ -44,15 +44,13 @@ export const NavItemDiv = styled.div`
     height:100px;
     margin: 0px 30px;
     @media all and (min-width: 480px) and (max-width: 767px) {
-        flex-direction: column;
+        
         width: 100%;
-        display: ${(props) => (props.displaychange ? "" : "none")};
         margin: 0 auto;
     }
     @media all and (max-width: 479px) {
-        flex-direction: column;
+        
         width: 100%;
-        display: ${(props) => (props.displaychange ? "" : "none")};
         margin: 0 auto;
     }
 `;
@@ -117,12 +115,6 @@ export const NavToggleTwo = styled(NavItem)`
         transform: scale(1.2);
         transition-duration: 1s;
     }
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        display: none;
-    }
-    @media all and (max-width: 479px) {
-        display: none;
-    }
 `;
 
 export const NavHamberDiv = styled.div`
@@ -134,13 +126,15 @@ export const NavHamberDiv = styled.div`
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         display: flex;
-        width: 70%;
+        
     }
     @media all and (max-width: 479px) {
         display: flex;
-        width: 70%;
+        
     }
 `;
 export const ToggleMenu = styled.div`
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
 `;
