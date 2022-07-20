@@ -3,7 +3,7 @@ import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 import styled from "styled-components";
 import {FaGithub} from 'react-icons/fa';
-import { SiNotion } from "react-icons/si";
+import { SiNotion,SiReact,SiJavascript,SiJava,SiStyledcomponents,SiAmazonaws, SiGithub } from "react-icons/si";
 
 const IntroDiv = styled.div`
     box-sizing: border-box;
@@ -21,6 +21,11 @@ const IntroTitle = styled.div`
     font-size: ${(props)=>props.theme.fontSizeH0};
     line-height: 1.5em;
     margin-bottom: 60px;
+`
+
+const IntroSub = styled.div`
+    font-size: ${(props)=>props.theme.fontSizeH3};
+    color: ${(props)=>props.theme.colorFontGrey100};
 `
 
 const IntroSubTitle = styled.div`
@@ -48,7 +53,7 @@ const IntroSeparateHowDiv = styled.div`
 `
 
 const IntroHowLink = styled.div`
-    margin-bottom: 30px;
+    margin-bottom: 100px;
 `
 
 const IntroSeparateHowItem = styled.div`
@@ -59,7 +64,7 @@ const IntroSeparateHowItem = styled.div`
 
 const IntroHowFont = styled.h1`
     margin: 10px 0px;
-    font-size: ${(props)=>props.theme.fontSizeH4};
+    font-size: ${(props)=>props.theme.fontSizeH2};
 `
 
 const IntroWhoDiv = styled.div`
@@ -123,37 +128,38 @@ function IntroducePage () {
                 </SeparateIntroDiv>
                 <SeparateIntroDiv>
                     <IntroTitle>How we Make?</IntroTitle>
+                    <IntroSeparateHowH1>제작과정은 GitHub 와 Notion을 참조해주세요</IntroSeparateHowH1>
                     <IntroHowLink>
                         <IntroLink href="https://github.com/HealthCommunity" target="_blank">
-                            <FaGithub style={{margin: "0px 20px"}}/>
+                            <FaGithub style={{margin:"0 50px", width: "200px", height: "200px"}}/>
                         </IntroLink>
                         <IntroLink href="https://www.notion.so/d5155ebe8e9c46578afcc8b29addb88c" target="_blank">
-                            <SiNotion style={{margin: "0px 20px"}}/>
+                            <SiNotion style={{margin:"0 50px", width: "200px", height: "200px"}}/>
                         </IntroLink>
                     </IntroHowLink>
                     <IntroHowDiv>
                         <IntroSeparateHowDiv>
                             <IntroSeparateHowH1>Front Dev Skills</IntroSeparateHowH1>
                             <IntroSeparateHowItem>
-                                <IntroHowFont>React</IntroHowFont>
-                                <IntroHowFont>JavaScript</IntroHowFont>
-                                <IntroHowFont>Recoil</IntroHowFont>
-                                <IntroHowFont>Styled-Components</IntroHowFont>
-                                <IntroHowFont>Axios</IntroHowFont>
+                                <IntroHowFont><SiReact/></IntroHowFont>
+                                <IntroHowFont><SiJavascript/></IntroHowFont>
+                                <IntroHowFont style={{fontSize:"24px"}}>Recoil</IntroHowFont>
+                                <IntroHowFont><SiStyledcomponents/></IntroHowFont>
+                                <IntroHowFont style={{fontSize:"24px"}}>Axios</IntroHowFont>
                             </IntroSeparateHowItem>
                         </IntroSeparateHowDiv>
                         <IntroSeparateHowDiv>
                             <IntroSeparateHowH1>Back Dev Skills</IntroSeparateHowH1>
                             <IntroSeparateHowItem>
-                                <IntroHowFont>Java</IntroHowFont>
-                                <IntroHowFont>Amazon S3</IntroHowFont>
+                                <IntroHowFont><SiJava/></IntroHowFont>
+                                <IntroHowFont><SiAmazonaws/></IntroHowFont>
                             </IntroSeparateHowItem>
                         </IntroSeparateHowDiv>
                         <IntroSeparateHowDiv>
                             <IntroSeparateHowH1>Common Tools</IntroSeparateHowH1>
                             <IntroSeparateHowItem>
-                                <IntroHowFont>Notion</IntroHowFont>
-                                <IntroHowFont>GitHub</IntroHowFont>
+                                <IntroHowFont><SiNotion/></IntroHowFont>
+                                <IntroHowFont><SiGithub/></IntroHowFont>
                             </IntroSeparateHowItem>
                         </IntroSeparateHowDiv>
                     </IntroHowDiv>
