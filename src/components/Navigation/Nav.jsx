@@ -71,7 +71,7 @@ function Nav() {
                         </>
                     )}
                   
-                    <Menu transition menuButton={<MenuButton style={{margin: "0" ,display:"flex", justifyContent:"center",width:"100px" ,border:"none", backgroundColor:"transparent", fontSize:"24px", cursor:"pointer"}}><GiHamburgerMenu style={{margin:"0"}}/></MenuButton>} >
+                    <Menu  transition menuButton={<MenuButton style={{margin: "0" ,display:"flex", justifyContent:"center",width:"100px" ,border:"none", backgroundColor:"transparent", fontSize:"24px", cursor:"pointer"}}><GiHamburgerMenu style={{margin:"0"}}/></MenuButton>} >
                         <NavToggleTwo onClick={isModeChange}>
                             {useAtom ? (
                                 <FaLightbulb style={{ fill: "black" , margin: "0" , padding: "0px 10px"}} />
