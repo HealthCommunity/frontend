@@ -4,7 +4,6 @@ import { RightDiv } from "../components/Main/HomeSeparate";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import { free } from "../FakeD/free";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import Footer from "../components/Footer/Footer";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 function Freeboard() {
     return (

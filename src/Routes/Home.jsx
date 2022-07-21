@@ -1,4 +1,3 @@
-import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 import { ex } from "../FakeD/exersise";

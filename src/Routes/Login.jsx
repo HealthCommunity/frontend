@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Title from "../components/Title";
-import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
 import UserLoginForm from "../components/Form/UserLoginForm";
@@ -72,7 +71,6 @@ function Login() {
                     </ContentContainer>
                 </ContentBackgroud>
             </WidthAreaSpace>
-            <Footer />
         </>
     );
 }
