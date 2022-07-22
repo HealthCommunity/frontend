@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
-import Footer from "../components/Footer/Footer";
 import UserSignForm from "../components/Form/UserSignForm";
 import { SnsNav, SnsList, SnsItem } from "../components/Login/SnsNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
@@ -75,7 +74,6 @@ function Sign() {
                     </ContentContainer>
                 </ContentBackgroud>
             </WidthAreaSpace>
-            <Footer />
         </>
     );
 }

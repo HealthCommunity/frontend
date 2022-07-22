@@ -1,5 +1,4 @@
 import Title from "../components/Title";
-import Footer from "../components/Footer/Footer";
 import Nav from "../components/Navigation/Nav";
 import ContentBody from "../components/Profile/ContentBody";
 import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
@@ -48,7 +47,7 @@ function Profile({ items = [] }) {
                     />
                 </ProfileBackgroud>
             </WidthAreaSpace>
-            <Footer />
+
         </>
     );
 }

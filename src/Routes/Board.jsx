@@ -4,7 +4,6 @@ import { RightDiv } from "../components/Main/HomeSeparate";
 import { threepower } from "../FakeD/power";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import Footer from "../components/Footer/Footer";
 import BoardSlider from "../components/Board/BoardSlider/BoardSlider";
 
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";

@@ -5,7 +5,6 @@ import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import { ex } from "../FakeD/exersise";
 import { RightDiv } from "../components/Main/HomeSeparate";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import Footer from "../components/Footer/Footer";
 import ExersiseSlider from "../components/Board/BoardSlider/ExersiseSlider";
 import styled from "styled-components";
 
