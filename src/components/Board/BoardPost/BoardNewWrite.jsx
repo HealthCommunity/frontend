@@ -5,6 +5,8 @@ import Details from "../../Editor/Details";
 import "../../Editor/TiptapStyle.css";
 import { useState } from "react";
 import styled from "styled-components";
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
 
 const PostWrapper = styled.div`
     max-width: 1040px;
@@ -74,6 +76,13 @@ function BoardNewWrite() {
             <label>미리보기</label>
             <Details description={description} />
             <button onClick={getContent}>내용 가져오기</button>
+            <Editor
+            initialValue="hello react editor world!"
+            previewStyle="vertical"
+            height="600px"
+            initialEditType="markdown"
+            useCommandShortcut={true}
+            />
         </PostWrapper>
     );
 }
