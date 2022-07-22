@@ -17,7 +17,7 @@ function ExersiseSlider (){
           clickable: true,
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        style={{  width: "70%",height: "200px" , paddingTop:"100px", textAlign:"center" , fontSize:"20px"}}
+        style={{zIndex:"-1", textAlign:"center" , fontSize:"20px", marginBottom: "50px"}}
       >
          <SwiperSlide style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
            <BoardSliderItem color={"#7FBA7A"} url={"https://www.youtube.com/channel/UCdtRAcd3L_UpV4tMXCw63NQ"} urlimage={"https://yt3.ggpht.com/ytc/AKedOLSmBl8FnhBQ0dgTqV61RMFp-D0NUs6V2mdZstsAlQ=s88-c-k-c0x00ffffff-no-rj"} title={"피지컬 갤러리"} summary={'빡빡이 아저씨가 체형교정, 재활 정보를 알려주는 유튜브 채널'}/>

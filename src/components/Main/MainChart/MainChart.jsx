@@ -4,9 +4,8 @@ import { threechart } from "../../../FakeD/threeChart";
 import { getToday } from "../../../Func/GetTodayFunc";
 
 const MainChartDiv = styled.div`
-    width: 90%;
-    height: 60vh;
-    padding: 30px 0px;
+    height: 80vh;
+    padding: 100px 0px;
     margin: 0 auto;
     font-size: ${(props) => props.theme.fontSizeH1};
 `;

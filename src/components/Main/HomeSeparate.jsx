@@ -36,8 +36,7 @@ export const RightDiv =styled.div`
     justify-content: center;
     grid-gap: 30px;
     grid-template-columns: repeat(auto-fill,minmax(226px,1fr));
-    gap: 20px 20px;
-    padding-right: 50px;
+    gap: 5px ;
     align-items: center;
     margin: 0 auto;
     @media all and (min-width:480px) and (max-width:767px) {

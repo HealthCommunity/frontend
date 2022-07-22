@@ -2,27 +2,27 @@ import styled from "styled-components";
 export const NavDiv = styled.div`
     width: 100%;
     height: 100px;
-    position: fixed;
     display: flex;
     top: 0;
     background-color: ${(props) => props.theme.navBgColor};
-    z-index: 10;
     opacity: 0.98;
     @media all and (min-width: 480px) and (max-width: 767px) {
         justify-content: center;
         flex-direction: column;
-        height: ${(props) => (props.heigthchange ? "250px" : "100px")};
+        margin: 0 auto;
+        height: ${(props) => (props.heigthchange ? "200px" : "100px")};
     }
     @media all and (max-width: 479px) {
         justify-content: center;
+        margin: 0 auto;
         flex-direction: column;
-        height: ${(props) => (props.heigthchange ? "250px" : "100px")};
+        height: ${(props) => (props.heigthchange ? "200px" : "100px")};
     }
 `;
 
 export const NavLogo = styled.div`
     display: flex;
-    width: 30%;
+    
     justify-content: center;
     align-items: center;
     @media all and (min-width: 480px) and (max-width: 767px) {
@@ -38,21 +38,19 @@ export const NavLogo = styled.div`
 `;
 
 export const NavItemDiv = styled.div`
-    width: 70%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    height:100px;
     margin: 0px 30px;
     @media all and (min-width: 480px) and (max-width: 767px) {
-        flex-direction: column;
+        
         width: 100%;
-        display: ${(props) => (props.displaychange ? "" : "none")};
         margin: 0 auto;
     }
     @media all and (max-width: 479px) {
-        flex-direction: column;
+        
         width: 100%;
-        display: ${(props) => (props.displaychange ? "" : "none")};
         margin: 0 auto;
     }
 `;
@@ -68,14 +66,14 @@ export const NavItem = styled.div`
         background-color: ${(props) => props.theme.navBgColor};
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: 10px;
+        font-size: ${(props) => props.theme.fontSizeH7};
         :hover {
             cursor: pointer;
             background-color: ${(props) => props.theme.colorPointPupple300};
         }
     }
     @media all and (max-width: 479px) {
-        font-size: 10px;
+        font-size: ${(props) => props.theme.fontSizeH7};
         :hover {
             cursor: pointer;
             background-color: ${(props) => props.theme.colorPointPupple300};
@@ -106,22 +104,22 @@ export const NavToggle = styled(NavItem)`
         display: flex;
     }
 `;
-export const NavToggleTwo = styled(NavItem)`
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: ${(props) => props.theme.fontSizeH2};
-    cursor: pointer;
+export const NavToggleTwo = styled.div`
+    font-size: ${(props) => props.theme.fontSizeH4};
     display: flex;
-    :hover {
-        transform: scale(1.2);
-        transition-duration: 1s;
-    }
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0.375rem 1.5rem;
     @media all and (min-width: 480px) and (max-width: 767px) {
-        display: none;
+        font-size: ${(props) => props.theme.fontSizeH4};
+        
     }
     @media all and (max-width: 479px) {
-        display: none;
+        font-size: ${(props) => props.theme.fontSizeH4};
+    }
+    :hover{
+        background-color: #ebebeb;
     }
 `;
 
@@ -134,13 +132,15 @@ export const NavHamberDiv = styled.div`
     }
     @media all and (min-width: 480px) and (max-width: 767px) {
         display: flex;
-        width: 70%;
+        
     }
     @media all and (max-width: 479px) {
         display: flex;
-        width: 70%;
+        
     }
 `;
 export const ToggleMenu = styled.div`
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
 `;

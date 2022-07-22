@@ -34,11 +34,11 @@ function Exersise() {
             <Nav />
             <WidthAreaSpace>
                 <ExersiseSlider />
-
                 <BoardNav
                     style={{
                         width: "50%",
                         margin: "0 auto",
+                        marginBottom : "50px",
                         pointerEvents: "none",
                     }}
                     name={"운동 게시판"}
@@ -62,7 +62,6 @@ function Exersise() {
                     ))}
                 </RightDiv>
             </WidthAreaSpace>
-            <Footer />
         </>
     );
 }
