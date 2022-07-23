@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import Tiptap from "../../Editor/Tiptap";
 import Details from "../../Editor/Details";
 import "../../Editor/TiptapStyle.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 
 const PostWrapper = styled.div`
@@ -57,8 +57,28 @@ function BoardNewWrite() {
     const handleChange = (e) => {
         setTitle(e.target.value);
         console.log(title);
-    };
+    }
+    const inputlist = useRef(1);
+    const [ inputItem, setInputItem] = useState([{id: 0, title: ""}]);
+    function addInput (){
+        const input = {
+            id: inputlist.current,
+            title: "",
+        }
+        setInputItem([[...inputItem, input]]);  //아이디값에 번호 하나씩 추가
+        inputlist.current+=1;
+    }
+    function deleteInput(index) {
+        setInputItem(inputItem.filter((item)=>item.index !== index)); //아이디 리스트중에 index 가 동일하지 않으면 삭제
+    }
 
+    const handleChangeInput= (e, index)=>{
+        if(index > inputItem.length) return;
+        const inputItemsCopy= JSON.parse(JSON.stringify(inputItem));
+        inputItemsCopy[index].title = e.target.value;
+        setInputItem(inputItemsCopy);
+    }
+    
     return (
         <PostWrapper>
             <InfoTitle>{`${boardname} 글쓰기`}</InfoTitle>
@@ -70,6 +90,27 @@ function BoardNewWrite() {
                 onChange={handleChange}
                 autoComplete="off"
             ></PostTitleTitle>
+            {inputItem?.map((item, index) => (
+                <div key={index}>
+                <div>라벨{index}</div>
+                <input
+                    type="text"
+                    className={`title-${index}`}
+                    onChange={e => handleChangeInput(e, index)}
+                    value={item.title || ""}
+                />
+                {index === 0 && (
+                    <button onClick={addInput}> + </button>
+                    )}
+
+
+                {index > 0 && item[index - 1] ? (
+                    <button onClick={deleteInput(item.id)}> - </button>
+                ) : (
+                    ''
+                )}
+                </div>
+            ))}
             <Tiptap setDescription={setDescription} />
             <label>미리보기</label>
             <Details description={description} />
