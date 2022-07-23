@@ -34,8 +34,7 @@ function Home() {
         <>
             <Title name="Home" />
             <Nav />
-            <WidthAreaPull>
-            </WidthAreaPull>
+            <WidthAreaPull></WidthAreaPull>
             <WidthAreaSpace>
                 <MainChart />
                 <MainTitle>
@@ -47,28 +46,19 @@ function Home() {
                 <HomeDiv>
                     <LeftDiv>
                         <BoardNav
-                            border={
-                                whereboard === 0 &&
-                                "#6C5DD3"
-                            }
+                            border={whereboard === 0 && "#6C5DD3"}
                             click={onExersise}
                             name={"운동 게시판"}
                             summary={"다른 사람의 운동 경험을 확인해보세요!"}
                         />
                         <BoardNav
-                            border={
-                                whereboard === 1 &&
-                                "#3F8CFF"
-                            }
+                            border={whereboard === 1 && "#3F8CFF"}
                             click={onThree}
                             name={"3대 운동 게시판"}
                             summary={"다른 사람의 3대 능력을 확인해보세요!"}
                         />
                         <BoardNav
-                            border={
-                                whereboard === 2 &&
-                                "#FF754C"
-                            }
+                            border={whereboard === 2 && "#FF754C"}
                             click={onFree}
                             name={"자유 게시판"}
                             summary={
