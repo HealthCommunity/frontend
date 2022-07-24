@@ -97,6 +97,16 @@ export default function SliderMain({ data }) {
     //     }
     //     return idx >= data.length ? data.length - 1 : idx;
     // }
+    useEffect(() => {
+        // setInterval 삽입하여 2초마다 setCurrentIndex 실행
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => prev + 1);
+        }, 2000);
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, [currentIndex]);
 
     const ref = useRef();
     const idx = Math.floor(currentIndex % data.length);
