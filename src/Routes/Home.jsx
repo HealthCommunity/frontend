@@ -14,12 +14,22 @@ import { useState } from "react";
 import { BoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import MainChart from "../components/Main/MainChart/MainChart";
+import PullSlider from "../components/Main/PullSlider/SliderMain";
 import {
     WidthAreaSpace,
     WidthAreaPull,
 } from "../components/Layout/CommonLayout";
 
+import img0 from "../images/img00.png";
+import img1 from "../images/img01.png";
+import img2 from "../images/img02.png";
+import img3 from "../images/img03.png";
+import img4 from "../images/img04.png";
+import img5 from "../images/img05.png";
+
 function Home() {
+    const data = [img0, img1, img2, img3, img4, img5];
+
     const [whereboard, setWhereBoard] = useState(0);
     const onExersise = () => {
         setWhereBoard(0);
@@ -34,7 +44,9 @@ function Home() {
         <>
             <Title name="Home" />
             <Nav />
-            <WidthAreaPull></WidthAreaPull>
+            <WidthAreaPull>
+                <PullSlider data={data} />
+            </WidthAreaPull>
             <WidthAreaSpace>
                 <MainChart />
                 <MainTitle>
