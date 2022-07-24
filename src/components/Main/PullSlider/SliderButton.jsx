@@ -26,7 +26,7 @@ const BtnSlideControl = styled.button`
 
 export default function SliderButton({ direction, onClick }) {
     return (
-        <BtnSlideControl onClick={onClick} direction={direction ? 1 : 0}>
+        <BtnSlideControl onClick={onClick} direction={direction}>
             <ArrowIcon width="16" height="16" fill="#333" />
         </BtnSlideControl>
     );
