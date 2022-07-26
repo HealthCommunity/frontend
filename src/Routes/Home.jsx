@@ -45,6 +45,7 @@ function Home() {
             <Title name="Home" />
             <Nav />
             <WidthAreaPull>
+                테스트
                 <PullSlider data={data} />
             </WidthAreaPull>
             <WidthAreaSpace>

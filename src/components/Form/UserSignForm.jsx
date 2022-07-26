@@ -4,6 +4,8 @@ import DescTextInput from "./DescTextInput";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
+import axios from "axios";
+
 const Label = styled.label`
     margin-bottom: 10px;
     font-size: ${(props) => props.theme.fontSizeH5};
@@ -139,7 +141,41 @@ function UserSignForm({ onSubmit }) {
             checkDoublePassword(password, checkPassword)[0] &&
             checkValidityNickname(nickname)[0]
         ) {
-            onSubmit(e, usrInputs);
+            console.log(usrInputs.id, usrInputs.nickname, usrInputs.password);
+
+            // axios
+            //     .post("http://54.166.132.169:8080/api/user/join", {
+            //         email: "test@naver.com",
+            //         loginId: usrInputs.id,
+            //         nickName: usrInputs.nickname,
+            //         password: usrInputs.password,
+            //     })
+            //     .then((response) => response.data);
+
+            /* 데이터 전송 */
+            axios
+                .post("http://54.166.132.169:8080/api/user/join", {
+                    email: "test1@naver.com",
+                    loginId: usrInputs.id,
+                    nickName: usrInputs.nickname,
+                    password: usrInputs.password,
+                })
+                .then((response) => {
+                    console.log("200", response.data);
+
+                    if (response.status === 200) {
+                        console.log("200", response.data);
+                    }
+
+                    if (response.status === 20000) {
+                        console.log("숫자 20000", response.data);
+                    }
+
+                    if (response.status === "20000") {
+                        console.log("문자열 20000", response.data);
+                    }
+                })
+                .catch((error) => console.log(error.response));
         }
     };
 
