@@ -67,9 +67,9 @@ function App() {
     const isDark = useRecoilValue(isDarkAtom);
     const [userDatas, setUserDatas] = useState({});
 
-    // useEffect(() => {
-    //     getAxiosUserData().then(setUserDatas); //전체 데이터
-    // }, []);
+    useEffect(() => {
+        getAxiosUserData().then(setUserDatas); //전체 데이터
+    }, []);
 
     return (
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>

@@ -16,11 +16,10 @@ function GroupItem({ children }) {
 }
 
 export default function ContentBody({ userDatas = {} }) {
-    //const { id, nickname, scoreData, desc, imgUrl } = userData;
     const [selected, setSelected] = useState("profile");
 
-    console.log("여기", userDatas);
-    const { loginId, nickName } = userDatas;
+    const { userNickName } = userDatas.users[0];
+    console.log(userNickName);
     return (
         <ProfileContainer>
             <ProfileNav
@@ -33,8 +32,8 @@ export default function ContentBody({ userDatas = {} }) {
                 <GroupItem name="profile">
                     <ContentMyinfoMain data="">
                         <ContentMyinfoInner
-                            id={loginId}
-                            nickname={nickName}
+                            id=""
+                            nickname={userNickName}
                             desc=""
                             imgUrl=""
                         />

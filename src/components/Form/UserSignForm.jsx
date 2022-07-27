@@ -141,41 +141,42 @@ function UserSignForm({ onSubmit }) {
             checkDoublePassword(password, checkPassword)[0] &&
             checkValidityNickname(nickname)[0]
         ) {
-            console.log(usrInputs.id, usrInputs.nickname, usrInputs.password);
-
-            // axios
-            //     .post("http://54.166.132.169:8080/api/user/join", {
-            //         email: "test@naver.com",
-            //         loginId: usrInputs.id,
-            //         nickName: usrInputs.nickname,
-            //         password: usrInputs.password,
-            //     })
-            //     .then((response) => response.data);
-
             /* 데이터 전송 */
             axios
                 .post("http://54.166.132.169:8080/api/user/join", {
-                    email: "test1@naver.com",
-                    loginId: usrInputs.id,
-                    nickName: usrInputs.nickname,
-                    password: usrInputs.password,
+                    loginId: id,
+                    password: password,
+                    passwordCheck: checkPassword,
+                    nickName: nickname,
                 })
-                .then((response) => {
-                    console.log("200", response.data);
-
-                    if (response.status === 200) {
-                        console.log("200", response.data);
-                    }
-
-                    if (response.status === 20000) {
-                        console.log("숫자 20000", response.data);
-                    }
-
-                    if (response.status === "20000") {
-                        console.log("문자열 20000", response.data);
-                    }
+                .then(function (response) {
+                    console.log("성공", response);
+                    alert("회원가입에 성공하였습니다.");
                 })
-                .catch((error) => console.log(error.response));
+                .catch(function (error) {
+                    // 오류발생시 실행
+                    console.log("실패", error);
+                });
+
+            /* 데이터 전송 URLSearchParams*/
+            // axios
+            //     .post(
+            //         "http://54.166.132.169:8080/api/user/join",
+            //         new URLSearchParams({
+            //             loginId: id,
+            //             password: password,
+            //             passwordCheck: checkPassword,
+            //             nickName: nickname,
+            //         })
+            //     )
+            //     .then(function (response) {
+            //         console.log("성공", response);
+            //         alert("회원가입에 성공하였습니다.");
+            //     })
+            //     .catch(function (error) {
+            //         // 오류발생시 실행
+            //         console.log("실패", error);
+            //     });
         }
     };
 

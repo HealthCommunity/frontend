@@ -15,6 +15,8 @@ import { BoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import MainChart from "../components/Main/MainChart/MainChart";
 import PullSlider from "../components/Main/PullSlider/SliderMain";
+import MiniSlider from "../components/Main/MiniSlider/SliderMain";
+
 import {
     WidthAreaSpace,
     WidthAreaPull,
@@ -47,6 +49,7 @@ function Home() {
             <WidthAreaPull>
                 테스트
                 <PullSlider data={data} />
+                <MiniSlider data={data} />
             </WidthAreaPull>
             <WidthAreaSpace>
                 <MainChart />

@@ -11,7 +11,7 @@ function Profile({ userDatas }) {
     }
     const { data } = userDatas;
     console.log(data);
-    console.log(data.loginId);
+    // console.log(data.loginId);
 
     return (
         <>
