@@ -33,7 +33,10 @@ export default function SliderMain({ data }) {
                 <SliderButton direction={false} />
                 <SliderLists className="slider-list">
                     {data.map((item, idx) => (
-                        <SliderItem item={item}></SliderItem>
+                        <SliderItem
+                            key={"mini-slider" + idx}
+                            item={item}
+                        ></SliderItem>
                     ))}
                 </SliderLists>
             </Slider>
