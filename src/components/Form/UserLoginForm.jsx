@@ -40,10 +40,12 @@ export default function UserInputForm({ onSubmit }) {
                 password: password,
             })
             .then(function (response) {
-                console.log("성공", response);
-                alert("로그인에 성공하였습니다.");
-                //window.location.href = response.url;
-                //response.redirect(response.url);
+                //window.location.href = "http://54.166.132.169:3200";
+
+                if (response.status === 200) {
+                    console.log("성공", response);
+                    alert("로그인에 성공하였습니다.");
+                }
             })
             .catch(function (error) {
                 // 오류발생시 실행

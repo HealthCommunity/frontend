@@ -4,6 +4,8 @@ import Modal from "../Share/Modal";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { ProfileContainerCenter } from "./ProfileLayout";
 
+import axios from "axios";
+
 const UserDropOutGroup = styled.div`
     width: 100%;
     display: flex;
@@ -42,6 +44,7 @@ const DescTitle = styled.span`
 
 export default function ContentUserDropOut() {
     const [modalOpen, setModalOpen] = useState(false);
+    const [isAgree, setIsAgree] = useState(false);
 
     useEffect(() => {
         if (modalOpen) {
@@ -63,6 +66,27 @@ export default function ContentUserDropOut() {
         setModalOpen(false);
     };
 
+    const withdrawUser = () => {
+        setModalOpen(false);
+        setIsAgree(true);
+        console.log(isAgree);
+        console.log("회원탈퇴 동의완료");
+    };
+
+    /* 데이터 전송 */
+    // axios
+    //     .post("http://54.166.132.169:8080/api/user/405/delete", {
+    //         loginId: "404",
+    //     })
+    //     .then((response) => {
+    //         console.log("200", response.data);
+
+    //         if (response.status === 200) {
+    //             console.log("회원탈퇴를 완료하였습니다.");
+    //         }
+    //     })
+    //     .catch((error) => console.log(error.response));
+
     return (
         <>
             <ProfileContainerCenter>
@@ -74,6 +98,7 @@ export default function ContentUserDropOut() {
                         close={closeModal}
                         header={"회원탈퇴"}
                         footerDesc={"동의"}
+                        isAgree={withdrawUser}
                     >
                         회원 탈퇴를 하게 되면 보유하신 프로필, 삼대력 등이 모두
                         사라지며, 작성한 글, 댓글은 사라지지 않습니다. <br />

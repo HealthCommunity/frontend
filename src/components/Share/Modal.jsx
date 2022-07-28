@@ -150,6 +150,7 @@ export default function Modal({
     header,
     children,
     footerDesc = "확인",
+    isAgree,
 }) {
     return (
         <>
@@ -166,7 +167,7 @@ export default function Modal({
                             <MainContent>{children}</MainContent>
                         </Main>
                         <Footer>
-                            <FooterButton onClick={close}>
+                            <FooterButton onClick={isAgree}>
                                 {footerDesc}
                             </FooterButton>
                         </Footer>

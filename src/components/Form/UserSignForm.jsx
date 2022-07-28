@@ -149,14 +149,14 @@ function UserSignForm({ onSubmit }) {
                     passwordCheck: checkPassword,
                     nickName: nickname,
                 })
-                .then(function (response) {
-                    console.log("성공", response);
-                    alert("회원가입에 성공하였습니다.");
+                .then((response) => {
+                    console.log("200", response.data);
+
+                    if (response.status === 200) {
+                        console.log("로그인 성공");
+                    }
                 })
-                .catch(function (error) {
-                    // 오류발생시 실행
-                    console.log("실패", error);
-                });
+                .catch((error) => console.log(error.response));
 
             /* 데이터 전송 URLSearchParams*/
             // axios
