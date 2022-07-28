@@ -1,7 +1,7 @@
 import { ReactComponent as ArrowIcon } from "../../../assets/icons/ic_arrow.svg";
 import styled, { css } from "styled-components";
 
-const BtnSlideControl = styled.button`
+const Control = styled.button`
     position: absolute;
     top: calc(50% - 30px);
     padding: 20px 4px;
