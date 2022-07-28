@@ -143,7 +143,7 @@ function UserSignForm({ onSubmit }) {
         ) {
             /* 데이터 전송 */
             axios
-                .post("http://54.166.132.169:8080/api/user/join", {
+                .post("/api/user/join", {
                     loginId: id,
                     password: password,
                     passwordCheck: checkPassword,
