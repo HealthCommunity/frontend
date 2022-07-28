@@ -35,7 +35,7 @@ export default function UserInputForm({ onSubmit }) {
 
         /* 데이터 전송 */
         axios
-            .post("/login", {
+            .post("http://54.166.132.169:8080/login", {
                 username: id,
                 password: password,
             })
