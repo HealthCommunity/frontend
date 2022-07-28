@@ -49,7 +49,7 @@ function Home() {
             <WidthAreaPull>
                 테스트
                 <PullSlider data={data} />
-                <MiniSlider data={data} />
+                {/* <MiniSlider data={data} /> */}
             </WidthAreaPull>
             <WidthAreaSpace>
                 <MainChart />
