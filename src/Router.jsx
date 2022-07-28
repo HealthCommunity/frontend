@@ -16,9 +16,7 @@ import SearchPage from "./Routes/Search";
 import NotFoundScene from "./Routes/NotFoundScene";
 import IntroducePage from "./Routes/IntroducePage";
 
-function Router({ userDatas }) {
-    //console.log("라우터", items);
-
+function Router() {
     return (
         <BrowserRouter>
             <Routes>
@@ -29,10 +27,7 @@ function Router({ userDatas }) {
                 <Route path="/login/find_id" element={<FindId />} />
                 <Route path="/login/find_pw" element={<FindPw />} />
                 <Route path="/sign" element={<Sign />} />
-                <Route
-                    path="/profile"
-                    element={<Profile userDatas={userDatas} />}
-                />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/freeboard" element={<Freeboard />} />
                 <Route path="/freeboard/:id" element={<FreePost />} />
                 <Route path="/board" element={<Board />} />

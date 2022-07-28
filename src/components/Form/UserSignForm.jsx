@@ -4,6 +4,8 @@ import DescTextInput from "./DescTextInput";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
+import axios from "axios";
+
 const Label = styled.label`
     margin-bottom: 10px;
     font-size: ${(props) => props.theme.fontSizeH5};
@@ -139,7 +141,42 @@ function UserSignForm({ onSubmit }) {
             checkDoublePassword(password, checkPassword)[0] &&
             checkValidityNickname(nickname)[0]
         ) {
-            onSubmit(e, usrInputs);
+            /* 데이터 전송 */
+            axios
+                .post("http://54.166.132.169:8080/api/user/join", {
+                    loginId: id,
+                    password: password,
+                    passwordCheck: checkPassword,
+                    nickName: nickname,
+                })
+                .then(function (response) {
+                    console.log("성공", response);
+                    alert("회원가입에 성공하였습니다.");
+                })
+                .catch(function (error) {
+                    // 오류발생시 실행
+                    console.log("실패", error);
+                });
+
+            /* 데이터 전송 URLSearchParams*/
+            // axios
+            //     .post(
+            //         "http://54.166.132.169:8080/api/user/join",
+            //         new URLSearchParams({
+            //             loginId: id,
+            //             password: password,
+            //             passwordCheck: checkPassword,
+            //             nickName: nickname,
+            //         })
+            //     )
+            //     .then(function (response) {
+            //         console.log("성공", response);
+            //         alert("회원가입에 성공하였습니다.");
+            //     })
+            //     .catch(function (error) {
+            //         // 오류발생시 실행
+            //         console.log("실패", error);
+            //     });
         }
     };
 

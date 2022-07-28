@@ -29,7 +29,7 @@ const SliderPagenation = styled.ul`
     position: absolute;
     top: auto;
     right: auto;
-    bottom: 8px;
+    bottom: 16px;
     left: 0;
     display: block;
     width: 100%;
