@@ -1,15 +1,46 @@
 import Title from "../components/Title";
-import Nav from "../components/Navigation/Nav";
+// import Nav from "../components/Navigation/Nav";
 import { RightDiv } from "../components/Main/HomeSeparate";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import { free } from "../FakeD/free";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+
+import {
+    Nav,
+    CommonContainer,
+    CommonContents,
+    CommonContentsHome,
+    CommonContentsRight,
+    CommonContentsLeft,
+    MainSlide,
+    CommonContent,
+    CommonContentSidebar,
+    CommonTitleArea,
+    CommonTitleTitle,
+    CommonTitleText,
+    CommonContentArea,
+    BoardSlide,
+    CommonContentTools,
+} from "../component/common/Layout/Layout";
+
 function Freeboard() {
     return (
         <>
             <Title name="FreeBoard" />
-            <Nav />
+            <Nav></Nav>
+            <CommonContainer>
+                <BoardSlide></BoardSlide>
+                <CommonContents>
+                    <CommonContent>
+                        <CommonContentTools>버튼 추가 영역</CommonContentTools>
+                        <CommonContentArea>
+                            게시판 컴포넌트 추가
+                        </CommonContentArea>
+                    </CommonContent>
+                </CommonContents>
+            </CommonContainer>
+            {/* <Nav />
             <WidthAreaSpace>
                 <BoardNav
                     style={{
@@ -35,8 +66,7 @@ function Freeboard() {
                         />
                     ))}
                 </RightDiv>
-            </WidthAreaSpace>
-            
+            </WidthAreaSpace> */}
         </>
     );
 }
