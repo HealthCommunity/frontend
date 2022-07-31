@@ -1,4 +1,4 @@
-import Nav from "../components/Navigation/Nav";
+// import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 import { ex } from "../FakeD/exersise";
 import { threepower } from "../FakeD/power";
@@ -19,6 +19,24 @@ import {
     WidthAreaSpace,
     WidthAreaPull,
 } from "../components/Layout/CommonLayout";
+
+import {
+    Nav,
+    CommonContainer,
+    CommonContents,
+    CommonContentsHome,
+    CommonContentsRight,
+    CommonContentsLeft,
+    MainSlide,
+    CommonContent,
+    CommonContentSidebar,
+    CommonTitleArea,
+    CommonTitleTitle,
+    CommonTitleText,
+    CommonContentArea,
+    BoardSlide,
+    CommonContentTools,
+} from "../component/common/Layout/Layout";
 
 import img0 from "../images/img00.png";
 import img1 from "../images/img01.png";
@@ -43,7 +61,41 @@ function Home() {
     return (
         <>
             <Title name="Home" />
-            <Nav />
+            <Nav></Nav>
+            <CommonContainer>
+                <MainSlide></MainSlide>
+                <CommonContents>
+                    <CommonContentsHome>
+                        <CommonContentsRight>
+                            <CommonContent>
+                                <CommonTitleArea>
+                                    <CommonTitleTitle>
+                                        <CommonTitleText>
+                                            이번주 인기사진
+                                        </CommonTitleText>
+                                    </CommonTitleTitle>
+                                </CommonTitleArea>
+                                <CommonContentArea>내용물</CommonContentArea>
+                            </CommonContent>
+
+                            <CommonContent>
+                                <CommonTitleArea>
+                                    <CommonTitleTitle>
+                                        <CommonTitleText>
+                                            삼대력게시판
+                                        </CommonTitleText>
+                                    </CommonTitleTitle>
+                                </CommonTitleArea>
+                                <CommonContentArea>내용물</CommonContentArea>
+                            </CommonContent>
+                        </CommonContentsRight>
+                        <CommonContentsLeft>
+                            <CommonContentSidebar></CommonContentSidebar>
+                        </CommonContentsLeft>
+                    </CommonContentsHome>
+                </CommonContents>
+            </CommonContainer>
+            {/* <Nav />
             <WidthAreaPull>
                 <PullSlider data={data} />
             </WidthAreaPull>
@@ -107,7 +159,7 @@ function Home() {
                               ))}
                     </RightDiv>
                 </HomeDiv>
-            </WidthAreaSpace>
+            </WidthAreaSpace> */}
         </>
     );
 }
