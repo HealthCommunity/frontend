@@ -39,7 +39,7 @@ export default function UserInputForm({ onSubmit }) {
       password: password,
     };
 
-    fetch("http://54.166.132.169:8080/login", {
+    fetch("http://54.166.132.169:8080/api/user/login", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(myData),
