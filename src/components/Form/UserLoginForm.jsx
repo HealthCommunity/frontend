@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import DescTextInput from "./DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
+import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
+// import axios from "axios";
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export default function UserInputForm({ onSubmit }) {
+    let navigate = useNavigate();
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -26,82 +28,50 @@ export default function UserInputForm({ onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault(); //새로고침 방지
 
-        // return onSubmit(e, {
-        //     id: usrInputs.id,
-        //     password: usrInputs.password,
-        // });
-        console.log("로그인 시작", id, password);
-        console.log("로그인 재실행", id, password);
-
-        /* 데이터 전송 */
         const myData = {
             username: id,
             password: password,
         };
 
-        fetch("http://54.166.132.169:8080/api/user/login", {
-            method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(myData),
-        })
-            .then(function (response) {
-                console.log("성공", response);
-                alert("로그인에 성공하였습니다.");
-                //window.location.href = response.url;
-                //response.redirect(response.url);
-            })
-            .catch(function (error) {
-                // 오류발생시 실행
-                console.log("실패", error);
-                //window.location.href = "http://54.166.132.169:3200";
-            });
-        /*
-        axios
-            .post("http://54.166.132.169:8080/login", {
-                username: id,
-                password: password,
-            })
-            .then(function (response) {
-                console.log("성공", response);
-                alert("로그인에 성공하였습니다.");
-                //window.location.href = response.url;
-                //response.redirect(response.url);
-            })
-            .catch(function (error) {
-                // 오류발생시 실행
-                console.log("실패", error);
-                //window.location.href = "http://54.166.132.169:3200";
-            });
-            */
-        /*데이터 전송*/
-        // fetch("http://54.166.132.169:8080/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         username: id,
-        //         password: password,
-        //     }),
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => console.log(data));
+        async function getUser() {
+            try {
+                const response = await fetch(
+                    "http://54.166.132.169:8080/api/user/login",
+                    {
+                        method: "POST",
+                        headers: { "Content-type": "application/json" },
+                        body: JSON.stringify(myData),
+                    }
+                );
 
-        /* 데이터 전송 URLSearchParams*/
-        // axios
-        //     .post(
-        //         "http://54.166.132.169:8080/login",
-        //         new URLSearchParams({
-        //             username: id,
-        //             password: password,
-        //         })
-        //     )
+                if (!response.ok) {
+                    console.log("실패", response.status);
+                    throw new Error(`Error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log(result);
+                navigate("/exersise");
+                return result;
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        getUser();
+
+        // fetch("http://54.166.132.169:8080/api/user/login", {
+        //     method: "POST",
+        //     headers: { "Content-type": "application/json" },
+        //     body: JSON.stringify(myData),
+        // })
         //     .then(function (response) {
-        //         console.log("성공", response);
-        //         alert("로그인에 성공하였습니다.");
+        //         console.log("설명", response);
+        //         //console.log("성공", response.json());
+
+        //         navigate("/exersise");
         //     })
         //     .catch(function (error) {
-        //         // 오류발생시 실행
         //         console.log("실패", error);
         //     });
     };

@@ -5,7 +5,7 @@ import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
 import { useEffect, useState } from "react";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
-function Profile() {
+function Profile({ userDatas }) {
     // if (!userDatas || !userDatas?.data) {
     //     return <></>;
     // }

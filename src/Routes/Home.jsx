@@ -19,6 +19,7 @@ import {
     WidthAreaSpace,
     WidthAreaPull,
 } from "../components/Layout/CommonLayout";
+import { Link } from "react-router-dom";
 
 import {
     Nav,
@@ -37,6 +38,7 @@ import {
     BoardSlide,
     CommonContentTools,
 } from "../component/common/Layout/Layout";
+import styled from "styled-components";
 
 import img0 from "../images/img00.png";
 import img1 from "../images/img01.png";
@@ -44,6 +46,153 @@ import img2 from "../images/img02.png";
 import img3 from "../images/img03.png";
 import img4 from "../images/img04.png";
 import img5 from "../images/img05.png";
+import { IoContrast } from "react-icons/io5";
+import { useEffect } from "react";
+
+function BoardItemBox({ id, title, createdDate, nickname, view }) {
+    const BoardItem = styled.div`
+        width: 325px;
+        height: 346px;
+        background: #ffffff;
+        box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
+        border-radius: 8px;
+    `;
+
+    const ItemArea = styled.div`
+        width: 300px;
+        height: 250px;
+        margin: 0 auto; /*수정 : margin-top 안먹음*/
+    `;
+
+    const ItemImgGroup = styled.div`
+        width: 300px;
+        height: 250px;
+        background: #f4a3a3;
+    `;
+
+    const ItemInfoGroup = styled.div`
+        width: 300px;
+        background: #f18686;
+    `;
+
+    const ItemInfoTitle = styled.div`
+        width: 300px;
+        font-family: "Pretendard";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #222222;
+    `;
+
+    const ItemInfo = styled.div`
+        display: flex;
+        background-color: teal;
+    `;
+
+    const ItemInfoDesc = styled.div``;
+
+    const ItemInfoSumnail = styled.span`
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: #d9d9d9;
+        border-radius: 50%;
+    `;
+
+    const ItemInfoNicname = styled.span`
+        font-family: "Pretendard";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #222222;
+    `;
+
+    const ItemInfoText = styled.span`
+        font-family: "Pretendard";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #aaaaaa;
+        margin: 0 16px;
+    `;
+
+    return (
+        <BoardItem>
+            <ItemArea>
+                <ItemImgGroup></ItemImgGroup>
+                <ItemInfoGroup>
+                    <ItemInfoTitle>{title}</ItemInfoTitle>
+                    <ItemInfo>
+                        <ItemInfoDesc>
+                            <ItemInfoSumnail></ItemInfoSumnail>
+                            <ItemInfoNicname>{nickname}</ItemInfoNicname>
+                            <ItemInfoText>덧글</ItemInfoText>
+                            <ItemInfoText>{view}</ItemInfoText>
+                            <ItemInfoText>좋음</ItemInfoText>
+                        </ItemInfoDesc>
+                    </ItemInfo>
+                </ItemInfoGroup>
+            </ItemArea>
+        </BoardItem>
+    );
+}
+
+function BoardCategory({ category }) {
+    const BoardItemList = styled.ul`
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(
+            3,
+            minmax(226px, 1fr)
+        ); /*동적 개수 표현 수정*/
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+    `;
+
+    const [boardLists, setboardLists] = useState([]);
+
+    const getRequest = async () => {
+        const response = await fetch(
+            "http://54.166.132.169:8080/api/exercisepost/list?page=1&size=20",
+            {
+                method: "GET",
+            }
+        );
+        const data = await response.json();
+        return data.data;
+    };
+
+    useEffect(() => {
+        getRequest().then(setboardLists);
+    }, []);
+
+    console.log("제발 와라", boardLists);
+
+    return (
+        <>
+            <BoardItemList>
+                {boardLists.map(
+                    ({ id, title, createdDate, nickname, view }) => (
+                        <Link to={`./${category}/${id}`}>
+                            <li key={id}>
+                                <BoardItemBox
+                                    id={`${category}` + id}
+                                    title={title}
+                                    createdDate={createdDate}
+                                    nickname={nickname}
+                                    view={view}
+                                ></BoardItemBox>
+                            </li>
+                        </Link>
+                    )
+                )}
+            </BoardItemList>
+        </>
+    );
+}
 
 function Home() {
     const data = [img0, img1, img2, img3, img4, img5];
@@ -58,6 +207,7 @@ function Home() {
     const onFree = () => {
         setWhereBoard(2);
     };
+
     return (
         <>
             <Title name="Home" />
@@ -82,11 +232,15 @@ function Home() {
                                 <CommonTitleArea>
                                     <CommonTitleTitle>
                                         <CommonTitleText>
-                                            삼대력게시판
+                                            3대력 게시판
                                         </CommonTitleText>
                                     </CommonTitleTitle>
                                 </CommonTitleArea>
-                                <CommonContentArea>내용물</CommonContentArea>
+                                <CommonContentArea>
+                                    <BoardCategory
+                                        category={"exersise"}
+                                    ></BoardCategory>
+                                </CommonContentArea>
                             </CommonContent>
                         </CommonContentsRight>
                         <CommonContentsLeft>
