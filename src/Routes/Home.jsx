@@ -6,9 +6,9 @@ import { free } from "../FakeD/free";
 import { HomeDiv, LeftDiv, RightDiv } from "../components/Main/HomeSeparate";
 //import MainSlider from "../components/Main/MainSlider/MainSlider";
 import {
-    MainTitle,
-    MainTitleH1,
-    MainTitleH4,
+  MainTitle,
+  MainTitleH1,
+  MainTitleH4,
 } from "../components/Main/MainTitle";
 import { useState } from "react";
 import { BoardItem } from "../components/Board/BoardItem/BoardItem";
@@ -16,26 +16,26 @@ import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import MainChart from "../components/Main/MainChart/MainChart";
 import PullSlider from "../components/Main/PullSlider/SliderMain";
 import {
-    WidthAreaSpace,
-    WidthAreaPull,
+  WidthAreaSpace,
+  WidthAreaPull,
 } from "../components/Layout/CommonLayout";
 
 import {
-    Nav,
-    CommonContainer,
-    CommonContents,
-    CommonContentsHome,
-    CommonContentsRight,
-    CommonContentsLeft,
-    MainSlide,
-    CommonContent,
-    CommonContentSidebar,
-    CommonTitleArea,
-    CommonTitleTitle,
-    CommonTitleText,
-    CommonContentArea,
-    BoardSlide,
-    CommonContentTools,
+  Nav,
+  CommonContainer,
+  CommonContents,
+  CommonContentsHome,
+  CommonContentsRight,
+  CommonContentsLeft,
+  MainSlide,
+  CommonContent,
+  CommonContentSidebar,
+  CommonTitleArea,
+  CommonTitleTitle,
+  CommonTitleText,
+  CommonContentArea,
+  BoardSlide,
+  CommonContentTools,
 } from "../component/common/Layout/Layout";
 
 import img0 from "../images/img00.png";
@@ -44,58 +44,66 @@ import img2 from "../images/img02.png";
 import img3 from "../images/img03.png";
 import img4 from "../images/img04.png";
 import img5 from "../images/img05.png";
+import { useEffect } from "react";
 
 function Home() {
-    const data = [img0, img1, img2, img3, img4, img5];
+  //const data = [img0, img1, img2, img3, img4, img5];
+  const [whereboard, setWhereBoard] = useState("");
+  useEffect(() => {
+    fetch("http://54.166.132.169:8080/api/freepost/6", {
+      method: "GET",
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((value) => setWhereBoard(value.data))
+      .catch(function (error) {
+        console.log("실패", error);
+      });
+  }, []);
+  console.log(whereboard);
+  const onExersise = () => {
+    setWhereBoard(0);
+  };
+  const onThree = () => {
+    setWhereBoard(1);
+  };
+  const onFree = () => {
+    setWhereBoard(2);
+  };
+  return (
+    <>
+      <Title name="Home" />
+      <Nav></Nav>
+      <CommonContainer>
+        <MainSlide></MainSlide>
+        <CommonContents>
+          <CommonContentsHome>
+            <CommonContentsRight>
+              <CommonContent>
+                <CommonTitleArea>
+                  <CommonTitleTitle>
+                    <CommonTitleText>이번주 인기사진</CommonTitleText>
+                  </CommonTitleTitle>
+                </CommonTitleArea>
+                <CommonContentArea>내용물</CommonContentArea>
+              </CommonContent>
 
-    const [whereboard, setWhereBoard] = useState(0);
-    const onExersise = () => {
-        setWhereBoard(0);
-    };
-    const onThree = () => {
-        setWhereBoard(1);
-    };
-    const onFree = () => {
-        setWhereBoard(2);
-    };
-    return (
-        <>
-            <Title name="Home" />
-            <Nav></Nav>
-            <CommonContainer>
-                <MainSlide></MainSlide>
-                <CommonContents>
-                    <CommonContentsHome>
-                        <CommonContentsRight>
-                            <CommonContent>
-                                <CommonTitleArea>
-                                    <CommonTitleTitle>
-                                        <CommonTitleText>
-                                            이번주 인기사진
-                                        </CommonTitleText>
-                                    </CommonTitleTitle>
-                                </CommonTitleArea>
-                                <CommonContentArea>내용물</CommonContentArea>
-                            </CommonContent>
-
-                            <CommonContent>
-                                <CommonTitleArea>
-                                    <CommonTitleTitle>
-                                        <CommonTitleText>
-                                            삼대력게시판
-                                        </CommonTitleText>
-                                    </CommonTitleTitle>
-                                </CommonTitleArea>
-                                <CommonContentArea>내용물</CommonContentArea>
-                            </CommonContent>
-                        </CommonContentsRight>
-                        <CommonContentsLeft>
-                            <CommonContentSidebar></CommonContentSidebar>
-                        </CommonContentsLeft>
-                    </CommonContentsHome>
-                </CommonContents>
-            </CommonContainer>
-            {/* <Nav />
+              <CommonContent>
+                <CommonTitleArea>
+                  <CommonTitleTitle>
+                    <CommonTitleText>삼대력게시판</CommonTitleText>
+                  </CommonTitleTitle>
+                </CommonTitleArea>
+                <CommonContentArea>내용물</CommonContentArea>
+              </CommonContent>
+            </CommonContentsRight>
+            <CommonContentsLeft>
+              <CommonContentSidebar></CommonContentSidebar>
+            </CommonContentsLeft>
+          </CommonContentsHome>
+        </CommonContents>
+      </CommonContainer>
+      {/* <Nav />
             <WidthAreaPull>
                 <PullSlider data={data} />
             </WidthAreaPull>
@@ -160,8 +168,8 @@ function Home() {
                     </RightDiv>
                 </HomeDiv>
             </WidthAreaSpace> */}
-        </>
-    );
+    </>
+  );
 }
 
 export default Home;
