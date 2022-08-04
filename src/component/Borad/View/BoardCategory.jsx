@@ -56,6 +56,7 @@ export default function BoardCategory({ category }) {
         return () => observer && observer.disconnect();
     }, [target]);
 
+    console.log("게시판", category);
     console.log("제발 와라", itemList);
 
     return (
