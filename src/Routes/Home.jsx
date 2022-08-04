@@ -10,7 +10,7 @@ import {
     MainTitleH1,
     MainTitleH4,
 } from "../components/Main/MainTitle";
-import { useState } from "react";
+import React, { useState } from "react";
 import { BoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import MainChart from "../components/Main/MainChart/MainChart";
@@ -19,6 +19,7 @@ import {
     WidthAreaSpace,
     WidthAreaPull,
 } from "../components/Layout/CommonLayout";
+import { Link } from "react-router-dom";
 
 import {
     Nav,
@@ -37,33 +38,46 @@ import {
     BoardSlide,
     CommonContentTools,
 } from "../component/common/Layout/Layout";
+import BoardCategory from "../component/Borad/View/BoardCategory";
+import {
+    BoardSelectTab,
+    SnsList,
+    SnsItem,
+} from "../component/Borad/View/BoardSelectTab";
 
-import img0 from "../images/img00.png";
-import img1 from "../images/img01.png";
-import img2 from "../images/img02.png";
-import img3 from "../images/img03.png";
-import img4 from "../images/img04.png";
-import img5 from "../images/img05.png";
+import SliderMain from "../component/Slider/PullSlider/SliderMain";
+
+import styled from "styled-components";
+import { IoContrast } from "react-icons/io5";
+import { useEffect } from "react";
+
+import slide1 from "../images/main-slide-img01.png";
+import slide2 from "../images/main-slide-img02.png";
+import slide3 from "../images/main-slide-img03.png";
 
 function Home() {
-    const data = [img0, img1, img2, img3, img4, img5];
+    const data = [slide1, slide2, slide3];
+    const [selected, setSelected] = useState("threepowerpost");
 
-    const [whereboard, setWhereBoard] = useState(0);
-    const onExersise = () => {
-        setWhereBoard(0);
-    };
-    const onThree = () => {
-        setWhereBoard(1);
-    };
-    const onFree = () => {
-        setWhereBoard(2);
-    };
+    // const [whereboard, setWhereBoard] = useState(0);
+    // const onExersise = () => {
+    //     setWhereBoard(0);
+    // };
+    // const onThree = () => {
+    //     setWhereBoard(1);
+    // };
+    // const onFree = () => {
+    //     setWhereBoard(2);
+    // };
+
     return (
         <>
             <Title name="Home" />
             <Nav></Nav>
             <CommonContainer>
-                <MainSlide></MainSlide>
+                <MainSlide>
+                    <SliderMain data={data} />
+                </MainSlide>
                 <CommonContents>
                     <CommonContentsHome>
                         <CommonContentsRight>
@@ -82,11 +96,38 @@ function Home() {
                                 <CommonTitleArea>
                                     <CommonTitleTitle>
                                         <CommonTitleText>
-                                            삼대력게시판
+                                            <BoardSelectTab
+                                                onChange={(category) => {
+                                                    setSelected(category);
+                                                }}
+                                                typeName={selected}
+                                            />
                                         </CommonTitleText>
+                                        {/* <CommonTitleText>
+                                            3대력 게시판
+                                        </CommonTitleText> */}
                                     </CommonTitleTitle>
                                 </CommonTitleArea>
-                                <CommonContentArea>내용물</CommonContentArea>
+
+                                <CommonContentArea>
+                                    <Group selected={selected}>
+                                        <GroupItem category="threepowerpost">
+                                            <BoardCategory
+                                                category={"threepowerpost"}
+                                            />
+                                        </GroupItem>
+                                        <GroupItem category="exercisepost">
+                                            <BoardCategory
+                                                category={"exercisepost"}
+                                            />
+                                        </GroupItem>
+                                        <GroupItem category="freepost">
+                                            <BoardCategory
+                                                category={"freepost"}
+                                            />
+                                        </GroupItem>
+                                    </Group>
+                                </CommonContentArea>
                             </CommonContent>
                         </CommonContentsRight>
                         <CommonContentsLeft>
@@ -162,6 +203,15 @@ function Home() {
             </WidthAreaSpace> */}
         </>
     );
+}
+
+function Group({ children, selected }) {
+    const elements = React.Children.toArray(children);
+    return <>{elements.find(({ props }) => selected === props.category)}</>;
+}
+
+function GroupItem({ children }) {
+    return <>{children}</>;
 }
 
 export default Home;

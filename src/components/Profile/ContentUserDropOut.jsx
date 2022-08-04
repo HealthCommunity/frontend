@@ -75,7 +75,7 @@ export default function ContentUserDropOut() {
 
     /* 데이터 전송 */
     // axios
-    //     .post("http://54.166.132.169:8080/api/user/405/delete", {
+    //     .post("/api/user/405/delete", {
     //         loginId: "404",
     //     })
     //     .then((response) => {

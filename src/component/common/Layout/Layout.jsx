@@ -128,7 +128,6 @@ export const CommonTitleText = styled.div`
 export const CommonContentArea = styled.div`
     width: 100%;
     background-color: #b1283f;
-    height: 50px;
 `;
 
 /*게시판 별 광고 슬라이드*/
