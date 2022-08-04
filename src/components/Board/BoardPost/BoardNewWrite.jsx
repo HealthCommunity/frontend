@@ -83,7 +83,7 @@ function BoardNewWrite() {
             title: title,
             userId: 2,
         };
-        fetch("http://54.166.132.169:8080/api/exercisepost", {
+        fetch("/api/exercisepost", {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(myData),

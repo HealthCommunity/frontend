@@ -39,11 +39,17 @@ import {
     CommonContentTools,
 } from "../component/common/Layout/Layout";
 import BoardCategory from "../component/Borad/View/BoardCategory";
+import SliderMain from "../component/Slider/PullSlider/SliderMain";
 import styled from "styled-components";
 import { IoContrast } from "react-icons/io5";
 import { useEffect } from "react";
 
+import slide1 from "../images/main-slide-img01.png";
+import slide2 from "../images/main-slide-img02.png";
+import slide3 from "../images/main-slide-img03.png";
+
 function Home() {
+    const data = [slide1, slide2, slide3];
     const [whereboard, setWhereBoard] = useState(0);
     const onExersise = () => {
         setWhereBoard(0);
@@ -60,7 +66,9 @@ function Home() {
             <Title name="Home" />
             <Nav></Nav>
             <CommonContainer>
-                <MainSlide></MainSlide>
+                <MainSlide>
+                    <SliderMain data={data} />
+                </MainSlide>
                 <CommonContents>
                     <CommonContentsHome>
                         <CommonContentsRight>

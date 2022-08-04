@@ -1,20 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { useEffect } from "react";
-
 import BoardItemBox from "./BoardItemBox";
+import axios from "axios";
 
 export default function BoardCategory({ category }) {
-    const PAGE_SIZE = 20;
-    const PAGE_CURRENT = 1;
-
-    const [boardLists, setboardLists] = useState([]);
+    const PAGE_SIZE = 5;
+    // const PAGE_CURRENT = 1;
+    const [itemList, setItemList] = useState([]);
+    const [page, setPage] = useState(1); //현재 페이지
+    const [target, setTarget] = useState(""); // target
+    const [isLoding, setIsLoding] = useState(false); // isloding
 
     const getRequest = async () => {
         const response = await fetch(
-            `http://54.166.132.169:8080/api/exercisepost/list?page=${PAGE_CURRENT}&size=${PAGE_SIZE}`,
+            `/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`,
             {
                 method: "GET",
             }
@@ -23,15 +24,43 @@ export default function BoardCategory({ category }) {
         return data.data;
     };
 
+    const onIntersect = async ([entry], observer) => {
+        if (entry.isIntersecting && !isLoding) {
+            observer.unobserve(entry.target);
+            setIsLoding(true);
+            // 데이터를 가져오는 부분
+            console.log("옵저버 수행");
+            setPage((page) => page + 1);
+            console.log("페이지 번호-->>", page);
+            let Items = await getRequest();
+            setItemList((itemLists) => itemLists.concat(Items));
+            setIsLoding(false);
+            observer.observe(entry.target);
+        }
+    };
+
+    //처음 데이터 패칭
     useEffect(() => {
-        getRequest().then(setboardLists);
+        getRequest().then(setItemList);
     }, []);
 
-    console.log("제발 와라", boardLists);
+    useEffect(() => {
+        let observer;
+        if (target) {
+            // callback 함수, option
+            observer = new IntersectionObserver(onIntersect, {
+                threshold: 0.4,
+            });
+            observer.observe(target); // 타겟 엘리먼트 지정
+        }
+        return () => observer && observer.disconnect();
+    }, [target]);
+
+    console.log("제발 와라", itemList);
 
     return (
         <BoardItemList>
-            {boardLists.map(({ id, title, createdDate, nickname, view }) => (
+            {itemList.map(({ id, title, createdDate, nickname, view }) => (
                 <Link to={`./${category}/${id}`}>
                     <li key={`${category}` + id}>
                         <BoardItemBox
@@ -44,6 +73,7 @@ export default function BoardCategory({ category }) {
                     </li>
                 </Link>
             ))}
+            <div ref={setTarget}>타겟</div>
         </BoardItemList>
     );
 }

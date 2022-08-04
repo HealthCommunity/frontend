@@ -146,7 +146,7 @@ function UserSignForm({ onSubmit }) {
                 nickName: nickname,
             };
 
-            fetch("http://54.166.132.169:8080/api/user/join", {
+            fetch("/api/user/join", {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(myData),
@@ -160,7 +160,7 @@ function UserSignForm({ onSubmit }) {
             /* 데이터 전송 */
             /*
             axios
-                .post("http://54.166.132.169:8080/api/user/join", {
+                .post("/api/user/join", {
                     loginId: id,
                     password: password,
                     passwordCheck: checkPassword,
@@ -178,7 +178,7 @@ function UserSignForm({ onSubmit }) {
             /* 데이터 전송 URLSearchParams*/
             // axios
             //     .post(
-            //         "http://54.166.132.169:8080/api/user/join",
+            //         "/api/user/join",
             //         new URLSearchParams({
             //             loginId: id,
             //             password: password,

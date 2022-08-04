@@ -27,6 +27,7 @@ export default function UserInputForm({ onSubmit }) {
 
     const handleSubmit = (e) => {
         e.preventDefault(); //새로고침 방지
+        e.stopPropagation();
 
         const myData = {
             username: id,
@@ -34,7 +35,7 @@ export default function UserInputForm({ onSubmit }) {
         };
 
         axios
-            .post("http://54.166.132.169:8080/api/user/login", myData, {
+            .post("/api/user/login", myData, {
                 withCredentials: true,
                 credentials: "include",
             })
