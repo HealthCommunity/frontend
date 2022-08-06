@@ -7,40 +7,58 @@ import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 import {
-    Nav,
-    CommonContainer,
-    CommonContents,
-    CommonContentsHome,
-    CommonContentsRight,
-    CommonContentsLeft,
-    MainSlide,
-    CommonContent,
-    CommonContentSidebar,
-    CommonTitleArea,
-    CommonTitleTitle,
-    CommonTitleText,
-    CommonContentArea,
-    BoardSlide,
-    CommonContentTools,
+  Nav,
+  CommonContainer,
+  CommonContents,
+  CommonContentsHome,
+  CommonContentsRight,
+  CommonContentsLeft,
+  MainSlide,
+  CommonContent,
+  CommonContentSidebar,
+  CommonTitleArea,
+  CommonTitleTitle,
+  CommonTitleText,
+  CommonContentArea,
+  BoardSlide,
+  CommonContentTools,
 } from "../component/common/Layout/Layout";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
+const ModalButton = styled.button`
+  height: 45px;
+  background: #fcfcfd;
+  border: 1px solid #e8eaee;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  min-width: 200px;
+  padding: 0 10px;
+  transition: all 0.4s;
+`;
 function Freeboard() {
-    return (
-        <>
-            <Title name="FreeBoard" />
-            <Nav></Nav>
-            <CommonContainer>
-                <BoardSlide></BoardSlide>
-                <CommonContents>
-                    <CommonContent>
-                        <CommonContentTools>버튼 추가 영역</CommonContentTools>
-                        <CommonContentArea>
-                            게시판 컴포넌트 추가
-                        </CommonContentArea>
-                    </CommonContent>
-                </CommonContents>
-            </CommonContainer>
-            {/* <Nav />
+  return (
+    <>
+      <Title name="FreeBoard" />
+      <Nav></Nav>
+      <CommonContainer>
+        <BoardSlide></BoardSlide>
+        <CommonContents>
+          <CommonContent>
+            <CommonContentTools>버튼 추가 영역</CommonContentTools>
+            <Link to={"write"}>
+              <ModalButton>글쓰기</ModalButton>
+            </Link>
+            <CommonContentArea>게시판 컴포넌트 추가</CommonContentArea>
+          </CommonContent>
+        </CommonContents>
+      </CommonContainer>
+      {/* <Nav />
             <WidthAreaSpace>
                 <BoardNav
                     style={{
@@ -67,8 +85,8 @@ function Freeboard() {
                     ))}
                 </RightDiv>
             </WidthAreaSpace> */}
-        </>
-    );
+    </>
+  );
 }
 
 export default Freeboard;

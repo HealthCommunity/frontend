@@ -1,4 +1,4 @@
-import BoardNewWrite from "../components/Board/BoardPost/BoardNewWrite";
+import FreeBoardPost from "../components/Board/BoardPost/FreeBoardPost";
 // import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
@@ -24,13 +24,13 @@ import {
 function ExersiseWrite() {
   return (
     <>
-      <Title name="exersiseWrite" />
+      <Title name="freewrite" />
       <Nav></Nav>
       <CommonContainer>
         <CommonContents>
           <CommonContent>
             <CommonContentArea>
-              <BoardNewWrite />
+              <FreeBoardPost />
             </CommonContentArea>
           </CommonContent>
         </CommonContents>

@@ -57,14 +57,19 @@ function BoardNewWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = "/api/exercisepost";
-    let files = e.target.inputfile.files;
+    const url = "/api/threepowerpost";
+    let benchFile = e.target.bench.files[0];
+    let deadFile = e.target.dead.files[0];
+    let squatFile = e.target.squat.files[0];
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", description);
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
-    }
+    formData.append("bench", benchFile);
+    formData.append("squat", squatFile);
+    formData.append("dead", deadFile);
+    console.log("bench", benchFile);
+    console.log("dead", deadFile);
+    console.log("squat", squatFile);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
@@ -73,7 +78,7 @@ function BoardNewWrite() {
     axios.post(url, formData, config).then((response) => {
       console.log(response);
       if (response.data.status === "200") {
-        navigate("/exersise");
+        navigate("/board");
       } else {
         alert(response.message);
       }
@@ -91,7 +96,9 @@ function BoardNewWrite() {
           onChange={handleChange}
           autoComplete="off"
         ></PostTitleTitle>
-        <input type="file" multiple name="inputfile" />
+        <input type="file" name="bench" />
+        <input type="file" name="squat" />
+        <input type="file" name="dead" />
         <Tiptap setDescription={setDescription} />
         <button type="submit">제출하기</button>
       </form>

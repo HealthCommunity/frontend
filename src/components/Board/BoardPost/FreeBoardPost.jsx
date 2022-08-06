@@ -57,7 +57,7 @@ function BoardNewWrite() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = "/api/exercisepost";
+    const url = "/api/freepost";
     let files = e.target.inputfile.files;
     const formData = new FormData();
     formData.append("title", title);
@@ -73,7 +73,7 @@ function BoardNewWrite() {
     axios.post(url, formData, config).then((response) => {
       console.log(response);
       if (response.data.status === "200") {
-        navigate("/exersise");
+        navigate("/freeboard");
       } else {
         alert(response.message);
       }

@@ -15,29 +15,33 @@ import FindPw from "./Routes/FindPw";
 import SearchPage from "./Routes/Search";
 import NotFoundScene from "./Routes/NotFoundScene";
 import IntroducePage from "./Routes/IntroducePage";
+import BoardWrite from "./Routes/BoardWrite";
+import FreeWrite from "./Routes/FreeWrite";
 
 function Router() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/introduce" element={<IntroducePage />} />
-                <Route path="/search" element={<SearchPage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/login/find_id" element={<FindId />} />
-                <Route path="/login/find_pw" element={<FindPw />} />
-                <Route path="/sign" element={<Sign />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/freeboard" element={<Freeboard />} />
-                <Route path="/freeboard/:id" element={<FreePost />} />
-                <Route path="/board" element={<Board />} />
-                <Route path="/board/:id" element={<BoardPost />} />
-                <Route path="/exersise" element={<Exersise />} />
-                <Route path="/exersise/:id" element={<ExersisePost />} />
-                <Route path="/exersise/write" element={<ExersiseWrite />} />
-                <Route path="*" element={<NotFoundScene />} />
-            </Routes>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/introduce" element={<IntroducePage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/find_id" element={<FindId />} />
+        <Route path="/login/find_pw" element={<FindPw />} />
+        <Route path="/sign" element={<Sign />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/freeboard" element={<Freeboard />} />
+        <Route path="/freeboard/:id" element={<FreePost />} />
+        <Route path="/freeboard/write" element={<FreeWrite />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/board/:id" element={<BoardPost />} />
+        <Route path="/board/write" element={<BoardWrite />} />
+        <Route path="/exersise" element={<Exersise />} />
+        <Route path="/exersise/:id" element={<ExersisePost />} />
+        <Route path="/exersise/write" element={<ExersiseWrite />} />
+        <Route path="*" element={<NotFoundScene />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 export default Router;
