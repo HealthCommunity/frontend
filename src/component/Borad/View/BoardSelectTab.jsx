@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const SignTab = styled.div`
+const TabList = styled.div`
     display: flex;
     margin-top: 28px;
     width: 100%;
 `;
 
-const SignTabItem = styled.div`
+const TabItem = styled.div`
     flex: 1 1;
     font-size: ${(props) => props.theme.fontSizeH4};
     line-height: 47px;
@@ -19,20 +19,10 @@ const SignTabItem = styled.div`
     cursor: pointer;
 `;
 
-export const SnsList = styled.ul`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
-
-export const SnsItem = styled.li``;
-
-export function BoardSelectTab({ onChange, typeName }) {
+export function BoardSelectTab({ onChange }) {
     return (
-        <SignTab>
-            <SignTabItem>
+        <TabList>
+            <TabItem>
                 <a
                     href="/#"
                     onClick={(e) => {
@@ -42,8 +32,8 @@ export function BoardSelectTab({ onChange, typeName }) {
                 >
                     3대력게시판
                 </a>
-            </SignTabItem>
-            <SignTabItem>
+            </TabItem>
+            <TabItem>
                 <a
                     href="/#"
                     onClick={(e) => {
@@ -53,8 +43,8 @@ export function BoardSelectTab({ onChange, typeName }) {
                 >
                     운동게시판
                 </a>
-            </SignTabItem>
-            <SignTabItem>
+            </TabItem>
+            <TabItem>
                 <a
                     href="/#"
                     onClick={(e) => {
@@ -64,7 +54,7 @@ export function BoardSelectTab({ onChange, typeName }) {
                 >
                     자유게시판
                 </a>
-            </SignTabItem>
-        </SignTab>
+            </TabItem>
+        </TabList>
     );
 }

@@ -41,8 +41,8 @@ import {
 import BoardCategory from "../component/Borad/View/BoardCategory";
 import {
     BoardSelectTab,
-    SnsList,
-    SnsItem,
+    TabList,
+    TabItem,
 } from "../component/Borad/View/BoardSelectTab";
 
 import SliderMain from "../component/Slider/PullSlider/SliderMain";
@@ -58,17 +58,6 @@ import slide3 from "../images/main-slide-img03.png";
 function Home() {
     const data = [slide1, slide2, slide3];
     const [selected, setSelected] = useState("threepowerpost");
-
-    // const [whereboard, setWhereBoard] = useState(0);
-    // const onExersise = () => {
-    //     setWhereBoard(0);
-    // };
-    // const onThree = () => {
-    //     setWhereBoard(1);
-    // };
-    // const onFree = () => {
-    //     setWhereBoard(2);
-    // };
 
     return (
         <>
@@ -103,13 +92,12 @@ function Home() {
                                                 typeName={selected}
                                             />
                                         </CommonTitleText>
-                                        {/* <CommonTitleText>
-                                            3대력 게시판
-                                        </CommonTitleText> */}
                                     </CommonTitleTitle>
                                 </CommonTitleArea>
 
-                                <CommonContentArea>
+                                <CommonContentArea
+                                    style={{ marginTop: "100px" }}
+                                >
                                     <Group selected={selected}>
                                         <GroupItem category="threepowerpost">
                                             <BoardCategory
@@ -136,71 +124,6 @@ function Home() {
                     </CommonContentsHome>
                 </CommonContents>
             </CommonContainer>
-            {/* <Nav />
-            <WidthAreaPull>
-                <PullSlider data={data} />
-            </WidthAreaPull>
-            <WidthAreaSpace>
-                <MainChart />
-                <MainTitle>
-                    <MainTitleH1>Notice Board List </MainTitleH1>
-                    <MainTitleH4>
-                        Click the button to check the Notice Board!
-                    </MainTitleH4>
-                </MainTitle>
-                <HomeDiv>
-                    <LeftDiv>
-                        <BoardNav
-                            border={whereboard === 0 && "#6C5DD3"}
-                            click={onExersise}
-                            name={"운동 게시판"}
-                            summary={"다른 사람의 운동 경험을 확인해보세요!"}
-                        />
-                        <BoardNav
-                            border={whereboard === 1 && "#3F8CFF"}
-                            click={onThree}
-                            name={"3대 운동 게시판"}
-                            summary={"다른 사람의 3대 능력을 확인해보세요!"}
-                        />
-                        <BoardNav
-                            border={whereboard === 2 && "#FF754C"}
-                            click={onFree}
-                            name={"자유 게시판"}
-                            summary={
-                                " 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"
-                            }
-                        />
-                    </LeftDiv>
-                    <RightDiv>
-                        {whereboard === 0
-                            ? ex.map((x) => (
-                                  <BoardItem
-                                      key={Math.random()}
-                                      item={x}
-                                      color={"#6C5DD3"}
-                                      value={"exersise"}
-                                  />
-                              ))
-                            : whereboard === 1
-                            ? threepower.map((x) => (
-                                  <BoardItem
-                                      key={Math.random()}
-                                      item={x}
-                                      color={"#3F8CFF"}
-                                      value={"board"}
-                                  />
-                              ))
-                            : free.map((x) => (
-                                  <BoardItem
-                                      key={Math.random()}
-                                      item={x}
-                                      color={"#FF754C"}
-                                      value={"freeboard"}
-                                  />
-                              ))}
-                    </RightDiv>
-                </HomeDiv>
-            </WidthAreaSpace> */}
         </>
     );
 }
