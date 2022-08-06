@@ -8,8 +8,8 @@ import axios from "axios";
 
 export default function UserInputForm({ onSubmit }) {
     axios.defaults.withCredentials = true;
-
     let navigate = useNavigate();
+
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -40,59 +40,14 @@ export default function UserInputForm({ onSubmit }) {
                 credentials: "include",
             })
             .then(function (response) {
-                console.log("성공", response);
-                alert("로그인 성공하였습니다.");
+                if (response.status === 200) {
+                    console.log("로그인 성공");
+                    navigate("/");
+                }
             })
             .catch(function (error) {
-                // 오류발생시 실행
-                console.log("실패", error);
+                console.log("로그인 실패", error);
             });
-
-        // async function getUser() {
-        //     try {
-        //         const response = await fetch(
-        //             "http://54.166.132.169:8080/api/user/login",
-        //             {
-        //                 method: "POST",
-        //                 headers: {
-        //                     "Content-Type": "application/x-www-form-urlencoded",
-        //                 },
-        //                 withCredentials: true,
-        //                 credentials: "include",
-
-        //                 body: JSON.stringify(myData),
-        //             }
-        //         );
-
-        //         if (!response.ok) {
-        //             throw new Error(`Error! status: ${response.status}`);
-        //         }
-
-        //         const result = await response.json();
-        //         console.log(result);
-        //         navigate("/exersise");
-        //         return result;
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // }
-
-        // getUser();
-
-        // fetch("http://54.166.132.169:8080/api/user/login", {
-        //     method: "POST",
-        //     headers: { "Content-type": "application/json" },
-        //     body: JSON.stringify(myData),
-        // })
-        //     .then(function (response) {
-        //         console.log("설명", response);
-        //         //console.log("성공", response.json());
-
-        //         navigate("/exersise");
-        //     })
-        //     .catch(function (error) {
-        //         console.log("실패", error);
-        //     });
     };
 
     return (

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import BoardItemBox from "./BoardItemBox";
-import axios from "axios";
 
 const PAGE_SIZE = 15;
 
