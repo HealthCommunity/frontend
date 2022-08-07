@@ -6,17 +6,6 @@ import axios from "axios";
 
 const PAGE_SIZE = 15; //env 파일로 차후 변경
 
-const getRequest = async (page) => {
-  const response = await fetch(
-    `/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`,
-    {
-      method: "GET",
-    }
-  );
-  const data = await response.json();
-  return data.data;
-};
-
 export default function BoardCategory({ category }) {
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1); //현재 페이지
@@ -33,10 +22,12 @@ export default function BoardCategory({ category }) {
     const observer = new IntersectionObserver(onIntersect, {
       threshold: 0.4,
     });
-    getRequest(page).then((items) => {
-      setItemList((prevItems) => [...prevItems, ...items]);
-      observer.observe(target.current); // 타겟 엘리먼트 지정
-    });
+    axios
+      .get(`/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`)
+      .then((data) => {
+        setItemList((prevItems) => [...prevItems, ...data.data.data]);
+        observer.observe(target.current); // 타겟 엘리먼트 지정
+      });
     return () => observer.disconnect();
   }, [page]);
 
