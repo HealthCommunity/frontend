@@ -44,7 +44,6 @@ function Nav() {
             .then((response) => {
                 if (response.status === 200) {
                     setLogin(false);
-                    console.log("setLogin >>", useLogin);
                     console.log("로그아웃 성공");
                 }
             })

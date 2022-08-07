@@ -24,6 +24,7 @@ export default function ContentBody({ userDatas = {} }) {
         .then(function (response) {
             if (response.status === 200) {
                 console.log("데이터 겟", response.data.data);
+                return response.data.data;
             }
         })
         .catch(function (error) {

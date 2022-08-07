@@ -13,7 +13,6 @@ export default function UserInputForm() {
     let navigate = useNavigate();
 
     const setLogin = useSetRecoilState(isLogin);
-    const useLogin = useRecoilValue(isLogin);
 
     const [usrInputs, setUsrInputs] = useState({
         id: "",
@@ -49,7 +48,6 @@ export default function UserInputForm() {
                     console.log("로그인 성공");
                     navigate("/");
                     setLogin(true);
-                    console.log("setLogin >>", useLogin);
                 }
             })
             .catch(function (error) {
