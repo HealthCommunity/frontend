@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardItemBox";
 import axios from "axios";
 
-const PAGE_SIZE = 15;
+const PAGE_SIZE = 15; //env 파일로 차후 변경
 
 const getRequest = async (page) => {
   const response = await fetch(
