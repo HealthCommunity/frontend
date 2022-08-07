@@ -1,7 +1,6 @@
-import BoardNewWrite from "../components/Board/BoardPost/BoardNewWrite";
+import ThreeBoardPost from "../components/Board/BoardPost/ThreeBoardPost";
 // import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 import {
   Nav,
@@ -21,16 +20,16 @@ import {
   CommonContentTools,
 } from "../component/common/Layout/Layout";
 
-function ExersiseWrite() {
+function exerciseWrite() {
   return (
     <>
-      <Title name="exersiseWrite" />
+      <Title name="boardWrite" />
       <Nav></Nav>
       <CommonContainer>
         <CommonContents>
           <CommonContent>
             <CommonContentArea>
-              <BoardNewWrite />
+              <ThreeBoardPost />
             </CommonContentArea>
           </CommonContent>
         </CommonContents>
@@ -43,4 +42,4 @@ function ExersiseWrite() {
   );
 }
 
-export default ExersiseWrite;
+export default exerciseWrite;

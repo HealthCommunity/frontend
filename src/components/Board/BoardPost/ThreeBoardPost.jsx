@@ -96,9 +96,9 @@ function BoardNewWrite() {
           onChange={handleChange}
           autoComplete="off"
         ></PostTitleTitle>
-        <input type="file" name="bench" />
-        <input type="file" name="squat" />
-        <input type="file" name="dead" />
+        <input type="file" name="bench" accept="video/*" />
+        <input type="file" name="squat" accept="video/*" />
+        <input type="file" name="dead" accept="video/*" />
         <Tiptap setDescription={setDescription} />
         <button type="submit">제출하기</button>
       </form>

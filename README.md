@@ -9,8 +9,8 @@
    -- 회원 탈퇴 : Profile/remove
    자유 게시판: FreeBoard
    --자유게시판 보기 : FreePost
-   운동 게시판 : Exersise
-   --운동게시판 보기 : ExersisePost
+   운동 게시판 : exercise
+   --운동게시판 보기 : exercisePost
    3대력관련 : Board
    --3대력게시판: BoardPost
 

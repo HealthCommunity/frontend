@@ -21,7 +21,7 @@ import {
   CommonContentTools,
 } from "../component/common/Layout/Layout";
 
-function ExersiseWrite() {
+function exerciseWrite() {
   return (
     <>
       <Title name="freewrite" />
@@ -43,4 +43,4 @@ function ExersiseWrite() {
   );
 }
 
-export default ExersiseWrite;
+export default exerciseWrite;
