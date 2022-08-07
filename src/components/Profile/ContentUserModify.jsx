@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import InputTextDesc from "../Form/InputTextDesc";
+import InputTextDesc from "../User/InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ProfileContainerCenter } from "./ProfileLayout";
