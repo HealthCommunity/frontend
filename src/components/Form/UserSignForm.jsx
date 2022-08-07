@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import DescTextInput from "./DescTextInput";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
-export default function UserSignForm({ onSubmit }) {
+import axios from "axios";
+
+export default function UserSignForm() {
+    let navigate = useNavigate();
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -115,17 +119,18 @@ export default function UserSignForm({ onSubmit }) {
                 nickName: nickname,
             };
 
-            fetch("/api/user/join", {
-                method: "POST",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(myData),
-            })
-                .then((response) => response.json())
-                .then((response) => {
-                    console.log(response);
-                    alert("서브밋 완료");
+            axios
+                .post("/api/user/join", myData)
+                .then(function (response) {
+                    if (response.status === 200) {
+                        console.log(response);
+                        console.log("회원가입 성공");
+                        navigate("/login");
+                    }
                 })
-                .catch((error) => console.error(error.message));
+                .catch(function (error) {
+                    console.log("회원가입 실패", error);
+                });
         }
     };
 

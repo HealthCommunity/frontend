@@ -3,17 +3,16 @@ import DescTextInput from "./DescTextInput";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { isLogin } from "../../atom";
 
 import axios from "axios";
 
-export default function UserInputForm({ onSubmit }) {
+export default function UserInputForm() {
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
 
     const setLogin = useSetRecoilState(isLogin);
-    const useLogin = useRecoilValue(isLogin);
 
     const [usrInputs, setUsrInputs] = useState({
         id: "",
@@ -46,7 +45,6 @@ export default function UserInputForm({ onSubmit }) {
             })
             .then(function (response) {
                 if (response.status === 200) {
-                    console.log(response);
                     console.log("로그인 성공");
                     navigate("/");
                     setLogin((prev) => !prev);

@@ -36,9 +36,7 @@ function Sign() {
                             />
                             <Group selected={selected}>
                                 <GroupItem name="emaillogin">
-                                    <UserSignForm
-                                        onSubmit={console.log}
-                                    ></UserSignForm>
+                                    <UserSignForm></UserSignForm>
                                 </GroupItem>
 
                                 <GroupItem name="snslogin">
