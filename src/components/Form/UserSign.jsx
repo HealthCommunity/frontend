@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import DescTextInput from "./DescTextInput";
+import InputTextDesc from "./InputTextDesc";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
@@ -136,7 +136,7 @@ export default function UserSign() {
 
     return (
         <UserFormGroup onSubmit={handleSubmit} style={{ height: "450px" }}>
-            <DescTextInput
+            <InputTextDesc
                 type="text"
                 name="id"
                 placeholder="아이디"
@@ -145,7 +145,7 @@ export default function UserSign() {
                 required
             />
 
-            <DescTextInput
+            <InputTextDesc
                 type="password"
                 name="password"
                 placeholder="비밀번호"
@@ -154,7 +154,7 @@ export default function UserSign() {
                 required
             />
 
-            <DescTextInput
+            <InputTextDesc
                 type="password"
                 name="checkPassword"
                 placeholder="비밀번호 확인"
@@ -162,7 +162,7 @@ export default function UserSign() {
                 onValidation={checkDoublePassword}
                 required
             />
-            <DescTextInput
+            <InputTextDesc
                 type="text"
                 name="nickname"
                 placeholder="닉네임"

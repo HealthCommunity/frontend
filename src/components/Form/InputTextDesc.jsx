@@ -39,7 +39,7 @@ const Span = styled.span`
     margin-left: 16px;
 `;
 
-export default function DescTextInput({
+export default function InputDescText({
     defaultValue = "",
     onChange,
     onValidation,

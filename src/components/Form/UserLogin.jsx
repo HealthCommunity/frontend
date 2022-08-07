@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DescTextInput from "./DescTextInput";
+import InputTextDesc from "./InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,7 @@ import { isLogin } from "../../atom";
 
 import axios from "axios";
 
-export default function UserLogin() {
+export default function UserInputForm() {
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
 
@@ -57,7 +57,7 @@ export default function UserLogin() {
 
     return (
         <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
-            <DescTextInput
+            <InputTextDesc
                 type="text"
                 name="id"
                 placeholder="아이디"
@@ -65,7 +65,7 @@ export default function UserLogin() {
                 required
             />
 
-            <DescTextInput
+            <InputTextDesc
                 type="password"
                 name="password"
                 placeholder="비밀번호"
