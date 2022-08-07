@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom, isLogin } from "../../atom";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
@@ -12,6 +12,7 @@ import "@szhsin/react-menu/dist/transitions/slide.css";
 import { WidthAreaNavSpace } from "../Layout/CommonLayout";
 import styled from "styled-components";
 import Introduce from "../Introduce/Introduce";
+import axios from "axios";
 
 const MobileMenu = styled.div`
     display: none;
@@ -24,6 +25,7 @@ const MobileMenu = styled.div`
 `;
 
 function Nav() {
+    let navigate = useNavigate();
     //const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
@@ -36,17 +38,30 @@ function Nav() {
     };
 
     const isLoginChange = () => {
-        setLogin((prev) => !prev);
-
         fetch("/api/user/logout", {
             method: "GET",
         })
             .then((response) => {
                 if (response.status === 200) {
+                    setLogin(false);
+                    console.log("setLogin >>", useLogin);
                     console.log("로그아웃 성공");
                 }
             })
             .catch((error) => console.error(error.message));
+        // axios
+        //     .get("/api/user/logout")
+        //     .then(function (response) {
+        //         console.log(response);
+        //         // if (response.status === 200) {
+        //         //     console.log("로그아웃 성공");
+        //         //     navigate("/");
+        //         //     setLogin((prev) => !prev);
+        //         // }
+        //     })
+        //     .catch(function (error) {
+        //         console.log("로그아웃 실패", error);
+        //     });
     };
 
     return (
@@ -62,7 +77,7 @@ function Nav() {
                     <NavItem>
                         <Link to="/freeboard">자유 게시판</Link>
                     </NavItem>
-                    {!useLogin ? (
+                    {useLogin === false ? (
                         <>
                             <NavItem>
                                 <Link to="/login">로그인</Link>

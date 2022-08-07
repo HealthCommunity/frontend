@@ -3,7 +3,7 @@ import InputTextDesc from "./InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { isLogin } from "../../atom";
 
 import axios from "axios";
@@ -13,6 +13,7 @@ export default function UserInputForm() {
     let navigate = useNavigate();
 
     const setLogin = useSetRecoilState(isLogin);
+    const useLogin = useRecoilValue(isLogin);
 
     const [usrInputs, setUsrInputs] = useState({
         id: "",
@@ -47,7 +48,8 @@ export default function UserInputForm() {
                 if (response.status === 200) {
                     console.log("로그인 성공");
                     navigate("/");
-                    setLogin((prev) => !prev);
+                    setLogin(true);
+                    console.log("setLogin >>", useLogin);
                 }
             })
             .catch(function (error) {
