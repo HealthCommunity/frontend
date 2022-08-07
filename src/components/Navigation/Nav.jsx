@@ -37,7 +37,16 @@ function Nav() {
 
     const isLoginChange = () => {
         setLogin((prev) => !prev);
-        console.log("변경 실행");
+
+        fetch("/api/user/logout", {
+            method: "GET",
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log("로그아웃 성공");
+                }
+            })
+            .catch((error) => console.error(error.message));
     };
 
     return (

@@ -46,6 +46,7 @@ export default function UserInputForm({ onSubmit }) {
             })
             .then(function (response) {
                 if (response.status === 200) {
+                    console.log(response);
                     console.log("로그인 성공");
                     navigate("/");
                     setLogin((prev) => !prev);
