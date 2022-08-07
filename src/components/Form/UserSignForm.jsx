@@ -4,38 +4,7 @@ import DescTextInput from "./DescTextInput";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
-import axios from "axios";
-
-const Label = styled.label`
-    margin-bottom: 10px;
-    font-size: ${(props) => props.theme.fontSizeH5};
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-    @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-`;
-
-const CheckInput = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 0px 0px;
-    input {
-        margin: 0 8px 0 0;
-    }
-    label {
-        margin-top: 8px;
-    }
-`;
-
-function UserSignForm({ onSubmit }) {
+export default function UserSignForm({ onSubmit }) {
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -157,43 +126,6 @@ function UserSignForm({ onSubmit }) {
                     alert("서브밋 완료");
                 })
                 .catch((error) => console.error(error.message));
-            /* 데이터 전송 */
-            /*
-            axios
-                .post("/api/user/join", {
-                    loginId: id,
-                    password: password,
-                    passwordCheck: checkPassword,
-                    nickName: nickname,
-                })
-                .then(function (response) {
-                    console.log("성공", response);
-                    alert("회원가입에 성공하였습니다.");
-                })
-                .catch(function (error) {
-                    // 오류발생시 실행
-                    console.log("실패", error);
-                });
-                */
-            /* 데이터 전송 URLSearchParams*/
-            // axios
-            //     .post(
-            //         "/api/user/join",
-            //         new URLSearchParams({
-            //             loginId: id,
-            //             password: password,
-            //             passwordCheck: checkPassword,
-            //             nickName: nickname,
-            //         })
-            //     )
-            //     .then(function (response) {
-            //         console.log("성공", response);
-            //         alert("회원가입에 성공하였습니다.");
-            //     })
-            //     .catch(function (error) {
-            //         // 오류발생시 실행
-            //         console.log("실패", error);
-            //     });
         }
     };
 
@@ -250,4 +182,31 @@ function UserSignForm({ onSubmit }) {
     );
 }
 
-export default UserSignForm;
+const Label = styled.label`
+    margin-bottom: 10px;
+    font-size: ${(props) => props.theme.fontSizeH5};
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
+    @media all and (max-width: 479px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
+`;
+
+const CheckInput = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0px 0px;
+    input {
+        margin: 0 8px 0 0;
+    }
+    label {
+        margin-top: 8px;
+    }
+`;
