@@ -5,16 +5,16 @@ import { useParams } from "react-router-dom";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 function BoardPost() {
-    const { id } = useParams();
-    return (
-        <>
-            <Title name={`${id}`} />
-            <Nav />
-            <WidthAreaSpace>
-                <BoardDetail />
-            </WidthAreaSpace>
-        </>
-    );
+  const { id } = useParams();
+  return (
+    <>
+      <Title name={`${id}`} />
+      <Nav />
+      <WidthAreaSpace>
+        <BoardDetail />
+      </WidthAreaSpace>
+    </>
+  );
 }
 
 export default BoardPost;

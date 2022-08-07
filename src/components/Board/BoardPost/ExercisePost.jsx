@@ -73,7 +73,7 @@ function BoardNewWrite() {
     axios.post(url, formData, config).then((response) => {
       console.log(response);
       if (response.data.status === "200") {
-        navigate("/exersise");
+        navigate("/exercise");
       } else {
         alert(response.message);
       }
@@ -91,7 +91,12 @@ function BoardNewWrite() {
           onChange={handleChange}
           autoComplete="off"
         ></PostTitleTitle>
-        <input type="file" multiple name="inputfile" />
+        <input
+          type="file"
+          multiple
+          name="inputfile"
+          accept="video/* , image/*"
+        />
         <Tiptap setDescription={setDescription} />
         <button type="submit">제출하기</button>
       </form>

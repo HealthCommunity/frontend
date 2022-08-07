@@ -1,7 +1,6 @@
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
 import { RightDiv } from "../components/Main/HomeSeparate";
-import { threepower } from "../FakeD/power";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import BoardSlider from "../components/Board/BoardSlider/BoardSlider";
@@ -9,6 +8,7 @@ import BoardSlider from "../components/Board/BoardSlider/BoardSlider";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import BoardCategory from "../component/Borad/View/BoardList";
 
 const ModalButton = styled.button`
   height: 45px;
@@ -26,7 +26,7 @@ const ModalButton = styled.button`
   transition: all 0.4s;
 `;
 
-function Board() {
+export default function Board() {
   return (
     <>
       <Title name="Board" />
@@ -46,19 +46,14 @@ function Board() {
         <Link to={"write"}>
           <ModalButton>글쓰기</ModalButton>
         </Link>
-        <RightDiv style={{ marginBottom: "150px", paddingRight: "0px" }}>
-          {threepower.map((x) => (
-            <SoloBoardItem
-              key={Math.random()}
-              item={x}
-              color={"#3F8CFF"}
-              value={"board"}
-            />
-          ))}
-        </RightDiv>
+        <GroupItem category="threepowerpost">
+          <BoardCategory category={"threepowerpost"} />
+        </GroupItem>
       </WidthAreaSpace>
     </>
   );
 }
 
-export default Board;
+function GroupItem({ children }) {
+  return <>{children}</>;
+}

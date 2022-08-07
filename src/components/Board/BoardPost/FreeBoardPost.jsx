@@ -91,7 +91,12 @@ function BoardNewWrite() {
           onChange={handleChange}
           autoComplete="off"
         ></PostTitleTitle>
-        <input type="file" multiple name="inputfile" />
+        <input
+          type="file"
+          multiple
+          name="inputfile"
+          accept="video/* , image/*"
+        />
         <Tiptap setDescription={setDescription} />
         <button type="submit">제출하기</button>
       </form>
