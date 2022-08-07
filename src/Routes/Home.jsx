@@ -1,4 +1,4 @@
-// import Nav from "../components/Navigation/Nav";
+import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
 import { ex } from "../FakeD/exersise";
 import { threepower } from "../FakeD/power";
@@ -22,7 +22,7 @@ import {
 import { Link } from "react-router-dom";
 
 import {
-    Nav,
+    // Nav,
     CommonContainer,
     CommonContents,
     CommonContentsHome,
@@ -62,7 +62,8 @@ function Home() {
     return (
         <>
             <Title name="Home" />
-            <Nav></Nav>
+            {/* <Nav></Nav> */}
+            <Nav />
             <CommonContainer>
                 <MainSlide>
                     <SliderMain data={data} />

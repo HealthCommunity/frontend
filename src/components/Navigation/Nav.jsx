@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { isDarkAtom } from "../../atom";
+import { isDarkAtom, isLogin } from "../../atom";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Search from "../Search/Search";
@@ -24,12 +24,22 @@ const MobileMenu = styled.div`
 `;
 
 function Nav() {
-    const [login, setLogin] = useState(false);
+    //const [login, setLogin] = useState(false);
     const setAtom = useSetRecoilState(isDarkAtom);
     const useAtom = useRecoilValue(isDarkAtom);
+
+    const setLogin = useSetRecoilState(isLogin);
+    const useLogin = useRecoilValue(isLogin);
+
     const isModeChange = () => {
         setAtom((prev) => !prev);
     };
+
+    const isLoginChange = () => {
+        setLogin((prev) => !prev);
+        console.log("변경 실행");
+    };
+
     return (
         <NavDiv>
             <WidthAreaNavSpace>
@@ -43,7 +53,7 @@ function Nav() {
                     <NavItem>
                         <Link to="/freeboard">자유 게시판</Link>
                     </NavItem>
-                    {!login ? (
+                    {!useLogin ? (
                         <>
                             <NavItem>
                                 <Link to="/login">로그인</Link>
@@ -54,7 +64,7 @@ function Nav() {
                         </>
                     ) : (
                         <>
-                            <NavItem>
+                            <NavItem onClick={isLoginChange}>
                                 <Link to="/login">로그아웃</Link>
                             </NavItem>
                             <NavItem>

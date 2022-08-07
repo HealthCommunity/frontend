@@ -14,6 +14,7 @@ const getRequest = async (page) => {
         }
     );
     const data = await response.json();
+    console.log(data);
     return data.data;
 };
 
