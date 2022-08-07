@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
-import UserSignForm from "../components/Form/UserSignForm";
+import UserSign from "../components/Form/UserSign";
 import { SnsNav, SnsList, SnsItem } from "../components/Login/SnsNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
@@ -36,7 +36,7 @@ function Sign() {
                             />
                             <Group selected={selected}>
                                 <GroupItem name="emaillogin">
-                                    <UserSignForm></UserSignForm>
+                                    <UserSign />
                                 </GroupItem>
 
                                 <GroupItem name="snslogin">

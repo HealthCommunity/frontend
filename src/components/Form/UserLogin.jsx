@@ -8,7 +8,7 @@ import { isLogin } from "../../atom";
 
 import axios from "axios";
 
-export default function UserInputForm() {
+export default function UserLogin() {
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
 

@@ -7,7 +7,7 @@ import { ButtonPupple } from "../Share/ButtonPupple";
 
 import axios from "axios";
 
-export default function UserSignForm() {
+export default function UserSign() {
     let navigate = useNavigate();
     const [usrInputs, setUsrInputs] = useState({
         id: "",
