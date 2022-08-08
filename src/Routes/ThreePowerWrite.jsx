@@ -1,8 +1,6 @@
-import { useParams } from "react-router";
-import BoardDetail from "../components/Board/BoardPost/BoardDetail";
+import ThreeBoardPost from "../components/Board/BoardPost/ThreeBoardPost";
 // import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
 import {
   Nav,
@@ -22,22 +20,26 @@ import {
   CommonContentTools,
 } from "../component/common/Layout/Layout";
 
-function FreePost() {
-  const { id } = useParams();
+function exerciseWrite() {
   return (
     <>
-      <Title name={`${id}`} />
+      <Title name="boardWrite" />
       <Nav></Nav>
-      <WidthAreaSpace>
-        <BoardDetail />
-      </WidthAreaSpace>
-
+      <CommonContainer>
+        <CommonContents>
+          <CommonContent>
+            <CommonContentArea>
+              <ThreeBoardPost />
+            </CommonContentArea>
+          </CommonContent>
+        </CommonContents>
+      </CommonContainer>
       {/* <Nav />
             <WidthAreaSpace>
-                <BoardDetail />
+                <BoardNewWrite />
             </WidthAreaSpace> */}
     </>
   );
 }
 
-export default FreePost;
+export default exerciseWrite;

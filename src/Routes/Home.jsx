@@ -1,8 +1,5 @@
 import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
-import { ex } from "../FakeD/exersise";
-import { threepower } from "../FakeD/power";
-import { free } from "../FakeD/free";
 import { HomeDiv, LeftDiv, RightDiv } from "../components/Main/HomeSeparate";
 //import MainSlider from "../components/Main/MainSlider/MainSlider";
 import {
@@ -62,7 +59,6 @@ function Home() {
     return (
         <>
             <Title name="Home" />
-            {/* <Nav></Nav> */}
             <Nav />
             <CommonContainer>
                 <MainSlide>

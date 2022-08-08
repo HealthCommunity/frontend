@@ -68,13 +68,16 @@ function Nav() {
             <WidthAreaNavSpace>
                 <NavItemDiv>
                     <NavItem>
-                        <Link to="/board">3대력 게시판</Link>
+                        <Link to="/">홈</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/exersise">운동 게시판</Link>
+                        <Link to="/threepower">3대력 게시판</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/freeboard">자유 게시판</Link>
+                        <Link to="/exercise">운동 게시판</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link to="/free">자유 게시판</Link>
                     </NavItem>
                     {useLogin === false ? (
                         <>
@@ -95,7 +98,6 @@ function Nav() {
                             </NavItem>
                         </>
                     )}
-
                     <Menu
                         transition
                         menuButton={

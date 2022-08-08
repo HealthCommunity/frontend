@@ -1,22 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 import BoardItemBox from "./BoardItemBox";
+import axios from "axios";
 
-const PAGE_SIZE = 15;
-
-const getRequest = async (page) => {
-    const response = await fetch(
-        `/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`,
-        {
-            method: "GET",
-        }
-    );
-    const data = await response.json();
-    console.log(data);
-    return data.data;
-};
+const PAGE_SIZE = 15; //env 파일로 차후 변경
 
 export default function BoardCategory({ category }) {
     const [itemList, setItemList] = useState([]);
@@ -34,10 +22,12 @@ export default function BoardCategory({ category }) {
         const observer = new IntersectionObserver(onIntersect, {
             threshold: 0.4,
         });
-        getRequest(page).then((items) => {
-            setItemList((prevItems) => [...prevItems, ...items]);
-            observer.observe(target.current); // 타겟 엘리먼트 지정
-        });
+        axios
+            .get(`/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`)
+            .then((data) => {
+                setItemList((prevItems) => [...prevItems, ...data.data.data]);
+                observer.observe(target.current); // 타겟 엘리먼트 지정
+            });
         return () => observer.disconnect();
     }, [page]);
 
@@ -60,7 +50,6 @@ export default function BoardCategory({ category }) {
         </BoardItemList>
     );
 }
-
 const BoardItemList = styled.ul`
     display: grid;
     justify-content: center;
