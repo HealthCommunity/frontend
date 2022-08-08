@@ -1,6 +1,23 @@
 import styled from "styled-components";
 import { ProfileContainerMyInfo } from "./ProfileLayout";
 
+export default function ContentMyinfoMain({ data, children }) {
+    return (
+        <ProfileContainerMyInfo>
+            <MyInfoTitle>내 정보</MyInfoTitle>
+            {children}
+            <ThreeInfo>
+                {Object.keys(data).map((name) => (
+                    <div key={name}>
+                        <span>{name}</span>
+                        <b>{data[name]}</b>
+                    </div>
+                ))}
+            </ThreeInfo>
+        </ProfileContainerMyInfo>
+    );
+}
+
 const MyInfoTitle = styled.h3`
     font-weight: 700;
     font-size: 16px;
@@ -62,20 +79,3 @@ const ThreeInfo = styled.div`
         border-right: 1px solid #e4e4e4;
     }
 `;
-
-export default function ContentMyinfoMain({ data, children }) {
-    return (
-        <ProfileContainerMyInfo>
-            <MyInfoTitle>내 정보</MyInfoTitle>
-            {children}
-            <ThreeInfo>
-                {Object.keys(data).map((name) => (
-                    <div key={name}>
-                        <span>{name}</span>
-                        <b>{data[name]}</b>
-                    </div>
-                ))}
-            </ThreeInfo>
-        </ProfileContainerMyInfo>
-    );
-}

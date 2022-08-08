@@ -5,6 +5,7 @@ import ContentMyinfoInner from "./ContentMyinfoInner";
 import ContentMyinfoMain from "./ContentMyinfoMain";
 import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
+import axios from "axios";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -18,8 +19,18 @@ function GroupItem({ children }) {
 export default function ContentBody({ userDatas = {} }) {
     const [selected, setSelected] = useState("profile");
 
-    // const { userNickName } = userDatas.users[0];
-    // console.log(userNickName);
+    axios
+        .get("/api/user")
+        .then(function (response) {
+            if (response.status === 200) {
+                console.log("데이터 겟", response.data.data);
+                return response.data.data;
+            }
+        })
+        .catch(function (error) {
+            console.log("회원데이터 불러옴 실패", error);
+        });
+
     return (
         <ProfileContainer>
             <ProfileNav

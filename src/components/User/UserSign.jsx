@@ -1,41 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import DescTextInput from "./DescTextInput";
+import { useNavigate } from "react-router-dom";
+import InputTextDesc from "./InputTextDesc";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
 import axios from "axios";
 
-const Label = styled.label`
-    margin-bottom: 10px;
-    font-size: ${(props) => props.theme.fontSizeH5};
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-    @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-`;
-
-const CheckInput = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 0px 0px;
-    input {
-        margin: 0 8px 0 0;
-    }
-    label {
-        margin-top: 8px;
-    }
-`;
-
-function UserSignForm({ onSubmit }) {
+export default function UserSign() {
+    let navigate = useNavigate();
     const [usrInputs, setUsrInputs] = useState({
         id: "",
         password: "",
@@ -146,60 +119,24 @@ function UserSignForm({ onSubmit }) {
                 nickName: nickname,
             };
 
-            fetch("/api/user/join", {
-                method: "POST",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify(myData),
-            })
-                .then((response) => response.json())
-                .then((response) => {
-                    console.log(response);
-                    alert("서브밋 완료");
-                })
-                .catch((error) => console.error(error.message));
-            /* 데이터 전송 */
-            /*
             axios
-                .post("/api/user/join", {
-                    loginId: id,
-                    password: password,
-                    passwordCheck: checkPassword,
-                    nickName: nickname,
-                })
+                .post("/api/user/join", myData)
                 .then(function (response) {
-                    console.log("성공", response);
-                    alert("회원가입에 성공하였습니다.");
+                    if (response.status === 200) {
+                        console.log(response);
+                        console.log("회원가입 성공");
+                        navigate("/login");
+                    }
                 })
                 .catch(function (error) {
-                    // 오류발생시 실행
-                    console.log("실패", error);
+                    console.log("회원가입 실패", error);
                 });
-                */
-            /* 데이터 전송 URLSearchParams*/
-            // axios
-            //     .post(
-            //         "/api/user/join",
-            //         new URLSearchParams({
-            //             loginId: id,
-            //             password: password,
-            //             passwordCheck: checkPassword,
-            //             nickName: nickname,
-            //         })
-            //     )
-            //     .then(function (response) {
-            //         console.log("성공", response);
-            //         alert("회원가입에 성공하였습니다.");
-            //     })
-            //     .catch(function (error) {
-            //         // 오류발생시 실행
-            //         console.log("실패", error);
-            //     });
         }
     };
 
     return (
         <UserFormGroup onSubmit={handleSubmit} style={{ height: "450px" }}>
-            <DescTextInput
+            <InputTextDesc
                 type="text"
                 name="id"
                 placeholder="아이디"
@@ -208,7 +145,7 @@ function UserSignForm({ onSubmit }) {
                 required
             />
 
-            <DescTextInput
+            <InputTextDesc
                 type="password"
                 name="password"
                 placeholder="비밀번호"
@@ -217,7 +154,7 @@ function UserSignForm({ onSubmit }) {
                 required
             />
 
-            <DescTextInput
+            <InputTextDesc
                 type="password"
                 name="checkPassword"
                 placeholder="비밀번호 확인"
@@ -225,7 +162,7 @@ function UserSignForm({ onSubmit }) {
                 onValidation={checkDoublePassword}
                 required
             />
-            <DescTextInput
+            <InputTextDesc
                 type="text"
                 name="nickname"
                 placeholder="닉네임"
@@ -250,4 +187,31 @@ function UserSignForm({ onSubmit }) {
     );
 }
 
-export default UserSignForm;
+const Label = styled.label`
+    margin-bottom: 10px;
+    font-size: ${(props) => props.theme.fontSizeH5};
+    @media all and (min-width: 480px) and (max-width: 767px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
+    @media all and (max-width: 479px) {
+        font-size: ${(props) => props.theme.fontSizeH6};
+        white-space: nowrap;
+        letter-spacing: -1px;
+    }
+`;
+
+const CheckInput = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0px 0px;
+    input {
+        margin: 0 8px 0 0;
+    }
+    label {
+        margin-top: 8px;
+    }
+`;

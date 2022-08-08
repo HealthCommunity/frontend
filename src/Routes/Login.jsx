@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Title from "../components/Title";
 import Nav from "../components/Navigation/Nav";
 import styled from "styled-components";
-import UserLoginForm from "../components/Form/UserLoginForm";
+import UserLogin from "../components/User/UserLogin";
 import { SnsNav, SnsList, SnsItem } from "../components/Login/SnsNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
@@ -36,7 +36,7 @@ function Login() {
                             />
                             <Group selected={selected}>
                                 <GroupItem name="emaillogin">
-                                    <UserLoginForm onSubmit={console.log} />
+                                    <UserLogin />
                                 </GroupItem>
                                 <GroupItem name="snslogin">
                                     <SnsList style={{ height: "300px" }}>

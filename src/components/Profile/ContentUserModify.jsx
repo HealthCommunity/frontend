@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import DescTextInput from "../Form/DescTextInput";
+import InputTextDesc from "../User/InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ProfileContainerCenter } from "./ProfileLayout";
@@ -102,7 +102,7 @@ export default function ContentUserModify({ onSubmit }) {
             <UserModifyFrom>
                 <UserModifyTitle>회원정보 변경</UserModifyTitle>
                 <UserFormGroup onSubmit={handleSubmit}>
-                    <DescTextInput
+                    <InputTextDesc
                         type="password"
                         name="password"
                         placeholder="비밀번호"
@@ -111,7 +111,7 @@ export default function ContentUserModify({ onSubmit }) {
                         required
                     />
 
-                    <DescTextInput
+                    <InputTextDesc
                         type="password"
                         name="checkPassword"
                         placeholder="비밀번호 확인"
@@ -119,7 +119,7 @@ export default function ContentUserModify({ onSubmit }) {
                         onValidation={checkDoublePassword}
                         required
                     />
-                    <DescTextInput
+                    <InputTextDesc
                         type="text"
                         name="nickname"
                         placeholder="닉네임"
