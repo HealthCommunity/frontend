@@ -67,22 +67,25 @@ function BoardNewWrite() {
     formData.append("bench", benchFile);
     formData.append("squat", squatFile);
     formData.append("dead", deadFile);
-    console.log("bench", benchFile);
-    console.log("dead", deadFile);
-    console.log("squat", squatFile);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
       },
     };
-    axios.post(url, formData, config).then((response) => {
-      console.log(response);
-      if (response.data.status === "200") {
-        navigate("/board");
-      } else {
-        alert(response.message);
-      }
-    });
+
+    axios
+      .post(url, formData, config)
+      .then((response) => {
+        console.log(response);
+        if (response.data.status === "200") {
+          navigate("/threepower");
+        }
+      })
+      .catch((error) =>
+        alert(
+          `${error.response.status}번 error 입니다. 입력정보를 확인해주세요`
+        )
+      );
   };
 
   return (
@@ -95,6 +98,7 @@ function BoardNewWrite() {
           value={title}
           onChange={handleChange}
           autoComplete="off"
+          required
         ></PostTitleTitle>
         <input type="file" name="bench" accept="video/*" />
         <input type="file" name="squat" accept="video/*" />

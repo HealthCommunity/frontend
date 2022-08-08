@@ -37,7 +37,7 @@ const BarData = {
       },
     },
     xaxis: {
-      categories: ["123123", "123"],
+      categories: ["123123", "123"], ////////임의설정해논값
       labels: {
         formatter: function (val) {
           return val + "KG";
@@ -97,15 +97,15 @@ function MainChart() {
         series={[
           {
             name: "Dead Lift",
-            data: ["123123", "123"],
+            data: ["123123", "123"], ////////임의설정해논값
           },
           {
             name: "Bench Press",
-            data: ["123123", "123"],
+            data: ["123123", "123"], ////////임의설정해논값
           },
           {
             name: "Squat",
-            data: ["123123", "123"],
+            data: ["123123", "123"], ////////임의설정해논값
           },
         ]}
         width="100%"

@@ -70,14 +70,18 @@ function BoardNewWrite() {
         "content-type": "multipart/form-data",
       },
     };
-    axios.post(url, formData, config).then((response) => {
-      console.log(response);
-      if (response.data.status === "200") {
-        navigate("/freeboard");
-      } else {
-        alert(response.message);
-      }
-    });
+    axios
+      .post(url, formData, config)
+      .then((response) => {
+        if (response.data.status === "200") {
+          navigate("/freeboard");
+        }
+      })
+      .catch((error) =>
+        alert(
+          `${error.response.status}번 error 입니다. 입력정보를 확인해주세요`
+        )
+      );
   };
 
   return (
@@ -90,6 +94,7 @@ function BoardNewWrite() {
           value={title}
           onChange={handleChange}
           autoComplete="off"
+          required
         ></PostTitleTitle>
         <input
           type="file"

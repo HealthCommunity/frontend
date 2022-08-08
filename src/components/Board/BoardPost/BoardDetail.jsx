@@ -18,6 +18,8 @@ import { useLocation, useParams } from "react-router";
 import Modal from "react-modal";
 import styled from "styled-components";
 import { useEffect } from "react";
+import axios from "axios";
+import parser from "html-react-parser";
 
 const ModalButton = styled.button`
   width: 200px;
@@ -77,11 +79,9 @@ function BoardDetail() {
   const [boardData, setBoardData] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/${boardname}post/${id}`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => setBoardData(data.data));
+    axios
+      .get(`/api/${boardname}post/${id}`)
+      .then((res) => setBoardData(res.data.data));
   }, []);
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const [commentlist, setCommentlist] = useState([]);
@@ -106,6 +106,7 @@ function BoardDetail() {
     closeModal();
     modalreset();
   };
+  console.log(boardData.content);
   return (
     <InfoDiv>
       <InfoTitle>{`${boardname} : ${boardData.title}`}</InfoTitle>
@@ -162,7 +163,13 @@ function BoardDetail() {
         </>
       )}
       <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
-      <BoardSummary>{boardData.content}</BoardSummary>
+      <BoardSummary>
+        {parser(
+          boardData.content === undefined
+            ? "<h1>빈공간입니다</h1>"
+            : boardData.content
+        )}
+      </BoardSummary>
       <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
           댓글
