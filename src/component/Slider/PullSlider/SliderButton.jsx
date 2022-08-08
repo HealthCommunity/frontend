@@ -28,7 +28,7 @@ export default function SliderButton({ direction, onClick }) {
     return (
         <BtnSlideControl onClick={onClick} direction={direction ? 1 : 0}>
             {/* <ArrowIcon width="16" height="16" fill="#333" /> */}
-            <button>></button>
+            {/* <button></button> */}
         </BtnSlideControl>
     );
 }
