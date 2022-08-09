@@ -4,57 +4,59 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardItemBox";
 import axios from "axios";
 
-const getRequest = async (page, category) => {
-  const response = await fetch(
-    `/api/${category}/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`,
-    {
-      method: "GET",
-    }
-  );
-  const data = await response.json();
-  return data.data;
-};
-
-export default function BoardCategory({ category }) {
+export default function BoardCategory() {
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1); //현재 페이지
   const target = useRef();
-
+  const [isLoading, setIsLoading] = useState(false);
   const onIntersect = async ([entry], observer) => {
     if (entry.isIntersecting) {
       observer.unobserve(entry.target);
       setPage((page) => page + 1); //페이지 증가
     }
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersect, {
       threshold: 0.4,
     });
-    getRequest(page, category).then((items) => {
-      setItemList((prevItems) => [...prevItems, ...items]);
-      observer.observe(target.current); // 타겟 엘리먼트 지정
-    });
+    const getBoardList = async () => {
+      setIsLoading(true);
+      await axios
+        .get(
+          `/api/exercisepost/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
+        )
+        .then((data) => {
+          setItemList((prevItems) => [...prevItems, ...data.data.data]);
+          observer.observe(target.current); // 타겟 엘리먼트 지정
+        });
+    };
+    getBoardList();
     return () => observer.disconnect();
   }, [page]);
 
   return (
-    <BoardItemList>
-      {itemList.map(({ id, title, createdDate, nickname, view }) => (
-        <Link key={id} to={`./${id}`}>
-          <li>
-            <BoardItemBox
-              id={id}
-              title={title}
-              createdDate={createdDate}
-              nickname={nickname}
-              view={view}
-            ></BoardItemBox>
-          </li>
-        </Link>
-      ))}
-      <div ref={target}>타겟</div>
-    </BoardItemList>
+    <>
+      {isLoading ? (
+        <BoardItemList>
+          {itemList.map(({ id, title, createdDate, nickname, view }) => (
+            <Link key={id} to={`./${id}`}>
+              <li>
+                <BoardItemBox
+                  id={id}
+                  title={title}
+                  createdDate={createdDate}
+                  nickname={nickname}
+                  view={view}
+                ></BoardItemBox>
+              </li>
+            </Link>
+          ))}
+          <div ref={target} />
+        </BoardItemList>
+      ) : (
+        <h1>로딩중입니다</h1>
+      )}
+    </>
   );
 }
 const BoardItemList = styled.ul`
