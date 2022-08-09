@@ -24,7 +24,9 @@ import {
 } from "../component/common/Layout/Layout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import BoardCategory from "../component/Borad/View/BoardList";
+import BoardCategory from "../component/Borad/View/BoardCategory";
+import { useRecoilValue } from "recoil";
+import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
   height: 45px;
@@ -42,6 +44,7 @@ const ModalButton = styled.button`
   transition: all 0.4s;
 `;
 export default function Freeboard() {
+  const useLogin = useRecoilValue(isLogin);
   return (
     <>
       {/*
@@ -72,9 +75,14 @@ export default function Freeboard() {
           name={"자유 게시판"}
           summary={" 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"}
         />
+        {useLogin ? (
+          <Link to={"write"}>
+            <ModalButton>글쓰기</ModalButton>
+          </Link>
+        ) : null}
 
         <GroupItem category="freepost">
-          <BoardCategory category={"freepost"} />
+          <BoardCategory />
         </GroupItem>
       </WidthAreaSpace>
     </>

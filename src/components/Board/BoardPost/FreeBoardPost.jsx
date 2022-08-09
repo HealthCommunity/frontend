@@ -74,7 +74,7 @@ function BoardNewWrite() {
       .post(url, formData, config)
       .then((response) => {
         if (response.data.status === "200") {
-          navigate("/freeboard");
+          navigate("/free");
         }
       })
       .catch((error) =>
