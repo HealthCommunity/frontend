@@ -4,11 +4,9 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardItemBox";
 import axios from "axios";
 
-const PAGE_SIZE = 15;
-
 const getRequest = async (page, category) => {
   const response = await fetch(
-    `/api/${category}/list?page=${page}&size=${PAGE_SIZE}`,
+    `/api/${category}/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`,
     {
       method: "GET",
     }

@@ -4,8 +4,6 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardItemBox";
 import axios from "axios";
 
-const PAGE_SIZE = 15; //env 파일로 차후 변경
-
 export default function BoardCategory({ category }) {
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1); //현재 페이지
@@ -23,7 +21,9 @@ export default function BoardCategory({ category }) {
       threshold: 0.4,
     });
     axios
-      .get(`/api/exercisepost/list?page=${page}&size=${PAGE_SIZE}`)
+      .get(
+        `/api/exercisepost/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
+      )
       .then((data) => {
         setItemList((prevItems) => [...prevItems, ...data.data.data]);
         observer.observe(target.current); // 타겟 엘리먼트 지정
