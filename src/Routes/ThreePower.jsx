@@ -9,6 +9,8 @@ import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import BoardCategory from "../component/Borad/View/BoardList";
+import { useRecoilValue } from "recoil";
+import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
   height: 45px;
@@ -27,6 +29,7 @@ const ModalButton = styled.button`
 `;
 
 export default function Board() {
+  const useLogin = useRecoilValue(isLogin);
   return (
     <>
       <Title name="Board" />
@@ -43,9 +46,12 @@ export default function Board() {
           name={"3대 운동 게시판"}
           summary={"다른 사람의 3대 능력을 확인해보세요!"}
         />
-        <Link to={"write"}>
-          <ModalButton>글쓰기</ModalButton>
-        </Link>
+        {useLogin ? (
+          <Link to={"write"}>
+            <ModalButton>글쓰기</ModalButton>
+          </Link>
+        ) : null}
+
         <GroupItem category="threepowerpost">
           <BoardCategory category={"threepowerpost"} />
         </GroupItem>

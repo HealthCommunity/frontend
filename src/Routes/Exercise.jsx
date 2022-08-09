@@ -9,6 +9,8 @@ import styled from "styled-components";
 
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 import BoardCategory from "../component/Borad/View/BoardList";
+import { useRecoilValue } from "recoil";
+import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
   height: 45px;
@@ -26,7 +28,8 @@ const ModalButton = styled.button`
   transition: all 0.4s;
 `;
 
-export default function exercise() {
+export default function Exercise() {
+  const useLogin = useRecoilValue(isLogin);
   return (
     <>
       <Title name="exercise" />
@@ -43,10 +46,11 @@ export default function exercise() {
           name={"운동 게시판"}
           summary={" 다른 사람의 운동 경험을 확인해보세요!"}
         />
-
-        <Link to={"write"}>
-          <ModalButton>글쓰기</ModalButton>
-        </Link>
+        {useLogin ? (
+          <Link to={"write"}>
+            <ModalButton>글쓰기</ModalButton>
+          </Link>
+        ) : null}
 
         <GroupItem category="exercisepost">
           <BoardCategory category={"exercisepost"} />
