@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardItemBox";
 import axios from "axios";
 
-export default function BoardCategory({ category }) {
+export default function BoardCategory({ category = "" }) {
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1); //현재 페이지
   const target = useRef();
@@ -39,7 +39,7 @@ export default function BoardCategory({ category }) {
       {isLoading ? (
         <BoardItemList>
           {itemList.map(({ id, title, createdDate, nickname, view }) => (
-            <Link key={id} to={`./${category}/${id}`}>
+            <Link key={id} to={`.${category}/${id}`}>
               <li>
                 <BoardItemBox
                   id={id}

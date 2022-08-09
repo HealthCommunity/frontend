@@ -24,7 +24,7 @@ import {
 } from "../component/common/Layout/Layout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import BoardCategory from "../component/Borad/View/BoardList";
+import BoardCategory from "../component/Borad/View/BoardCategory";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
@@ -82,7 +82,7 @@ export default function Freeboard() {
         ) : null}
 
         <GroupItem category="freepost">
-          <BoardCategory category={"freepost"} />
+          <BoardCategory />
         </GroupItem>
       </WidthAreaSpace>
     </>

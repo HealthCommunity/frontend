@@ -93,13 +93,13 @@ function Home() {
                 <CommonContentArea style={{ marginTop: "100px" }}>
                   <Group selected={selected}>
                     <GroupItem category="threepowerpost">
-                      <BoardCategory category={"threepower"} />
+                      <BoardCategory category={"/threepower"} />
                     </GroupItem>
                     <GroupItem category="exercisepost">
-                      <BoardCategory category={"exercise"} />
+                      <BoardCategory category={"/exercise"} />
                     </GroupItem>
                     <GroupItem category="freepost">
-                      <BoardCategory category={"free"} />
+                      <BoardCategory category={"/free"} />
                     </GroupItem>
                   </Group>
                 </CommonContentArea>

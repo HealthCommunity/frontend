@@ -8,7 +8,7 @@ import BoardSlider from "../components/Board/BoardSlider/BoardSlider";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import BoardCategory from "../component/Borad/View/BoardList";
+import BoardCategory from "../component/Borad/View/BoardCategory";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
@@ -53,7 +53,7 @@ export default function Board() {
         ) : null}
 
         <GroupItem category="threepowerpost">
-          <BoardCategory category={"threepowerpost"} />
+          <BoardCategory />
         </GroupItem>
       </WidthAreaSpace>
     </>

@@ -8,7 +8,7 @@ import ExerciseSlider from "../components/Board/BoardSlider/ExerciseSlider";
 import styled from "styled-components";
 
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
-import BoardCategory from "../component/Borad/View/BoardList";
+import BoardCategory from "../component/Borad/View/BoardCategory";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
@@ -53,7 +53,7 @@ export default function Exercise() {
         ) : null}
 
         <GroupItem category="exercisepost">
-          <BoardCategory category={"exercisepost"} />
+          <BoardCategory />
         </GroupItem>
       </WidthAreaSpace>
     </>
