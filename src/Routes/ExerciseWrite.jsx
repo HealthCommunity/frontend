@@ -28,11 +28,9 @@ function exerciseWrite() {
       <Nav></Nav>
       <CommonContainer>
         <CommonContents>
-          <CommonContent>
-            <CommonContentArea>
-              <ExercisePost />
-            </CommonContentArea>
-          </CommonContent>
+          <CommonContentArea>
+            <ExercisePost />
+          </CommonContentArea>
         </CommonContents>
       </CommonContainer>
       {/* <Nav />

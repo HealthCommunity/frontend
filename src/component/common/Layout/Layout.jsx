@@ -47,9 +47,6 @@ export const MainSlide = styled.div`
 `;
 
 /*메인화면 공통*/
-export const CommonContent = styled.article`
-  padding: 20px 0;
-`;
 
 /*홈화면 사이드 바*/
 export const CommonContentSidebar = styled.div`

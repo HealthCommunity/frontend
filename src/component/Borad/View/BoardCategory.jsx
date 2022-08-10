@@ -62,7 +62,7 @@ export default function BoardCategory({ category = "" }) {
           <div ref={target}>타겟</div>
         </BoardItemList>
       ) : (
-        <h1>로딩중입니다</h1>
+        <LodingScreen>로딩중입니다</LodingScreen>
       )}
     </>
   );
@@ -73,4 +73,10 @@ const BoardItemList = styled.ul`
   grid-template-columns: repeat(3, minmax(226px, 1fr)); /*동적 개수 표현 수정*/
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+`;
+
+const LodingScreen = styled.div`
+  width: 100%;
+  height: 800px;
+  background-color: yellow;
 `;
