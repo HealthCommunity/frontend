@@ -13,53 +13,53 @@ import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
-  height: 45px;
-  background: #fcfcfd;
-  border: 1px solid #e8eaee;
-  box-sizing: border-box;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  min-width: 200px;
-  padding: 0 10px;
-  transition: all 0.4s;
+    height: 45px;
+    background: #fcfcfd;
+    border: 1px solid #e8eaee;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    min-width: 200px;
+    padding: 0 10px;
+    transition: all 0.4s;
 `;
 
 export default function Exercise() {
-  const useLogin = useRecoilValue(isLogin);
-  return (
-    <>
-      <Title name="exercise" />
-      <Nav />
-      <WidthAreaSpace>
-        <ExerciseSlider />
-        <BoardNav
-          style={{
-            width: "50%",
-            margin: "0 auto",
-            marginBottom: "50px",
-            pointerEvents: "none",
-          }}
-          name={"운동 게시판"}
-          summary={" 다른 사람의 운동 경험을 확인해보세요!"}
-        />
-        {useLogin ? (
-          <Link to={"write"}>
-            <ModalButton>글쓰기</ModalButton>
-          </Link>
-        ) : null}
+    const useLogin = useRecoilValue(isLogin);
+    return (
+        <>
+            <Title name="exercise" />
+            <Nav />
+            <WidthAreaSpace>
+                <ExerciseSlider />
+                <BoardNav
+                    style={{
+                        width: "50%",
+                        margin: "0 auto",
+                        marginBottom: "50px",
+                        pointerEvents: "none",
+                    }}
+                    name={"운동 게시판"}
+                    summary={" 다른 사람의 운동 경험을 확인해보세요!"}
+                />
+                {useLogin ? (
+                    <Link to={"write"}>
+                        <ModalButton>글쓰기</ModalButton>
+                    </Link>
+                ) : null}
 
-        <GroupItem category="exercisepost">
-          <BoardCategory />
-        </GroupItem>
-      </WidthAreaSpace>
-    </>
-  );
+                <GroupItem category="exercisepost">
+                    <BoardCategory category="exercisepost" />
+                </GroupItem>
+            </WidthAreaSpace>
+        </>
+    );
 }
 
 function GroupItem({ children }) {
-  return <>{children}</>;
+    return <>{children}</>;
 }

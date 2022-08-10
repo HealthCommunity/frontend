@@ -5,7 +5,6 @@ import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
 
 import React, { useEffect, useState } from "react";
-import getAxiosUserData from "./axios.js";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -65,12 +64,6 @@ a {
 
 function App() {
     const isDark = useRecoilValue(isDarkAtom);
-    //const [userDatas, setUserDatas] = useState({});
-
-    // useEffect(() => {
-    //     getAxiosUserData().then(setUserDatas); //전체 데이터
-    // }, []);
-
     return (
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
             <GlobalStyle />

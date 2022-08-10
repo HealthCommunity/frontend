@@ -42,7 +42,7 @@ const DescTitle = styled.span`
     margin-bottom: 40px;
 `;
 
-export default function ContentUserDropOut() {
+export default function ContentUserDropOut(loginId) {
     const [modalOpen, setModalOpen] = useState(false);
     const [isAgree, setIsAgree] = useState(false);
 
@@ -71,21 +71,21 @@ export default function ContentUserDropOut() {
         setIsAgree(true);
         console.log(isAgree);
         console.log("회원탈퇴 동의완료");
+
+        axios
+            .post("/api/user/delete", {
+                withCredentials: true,
+                credentials: "include",
+            })
+            .then(function (response) {
+                if (response.status === 200) {
+                    console.log("회원탈퇴");
+                }
+            })
+            .catch(function (error) {
+                console.log("회원탈퇴 실패", error);
+            });
     };
-
-    /* 데이터 전송 */
-    // axios
-    //     .post("/api/user/405/delete", {
-    //         loginId: "404",
-    //     })
-    //     .then((response) => {
-    //         console.log("200", response.data);
-
-    //         if (response.status === 200) {
-    //             console.log("회원탈퇴를 완료하였습니다.");
-    //         }
-    //     })
-    //     .catch((error) => console.log(error.response));
 
     return (
         <>

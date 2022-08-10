@@ -15,7 +15,6 @@ export default function BoardItemBox({
                     <ItemInfoTitle>{title}</ItemInfoTitle>
                     <ItemInfo>
                         <ItemInfoDesc>
-                            <ItemInfoSumnail></ItemInfoSumnail>
                             <ItemInfoNicname>{nickname}</ItemInfoNicname>
                             <ItemInfoText>덧글</ItemInfoText>
                             <ItemInfoText>{view}</ItemInfoText>
@@ -69,14 +68,6 @@ const ItemInfo = styled.div`
 `;
 
 const ItemInfoDesc = styled.div``;
-
-const ItemInfoSumnail = styled.span`
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-color: #d9d9d9;
-    border-radius: 50%;
-`;
 
 const ItemInfoNicname = styled.span`
     font-family: "Pretendard";

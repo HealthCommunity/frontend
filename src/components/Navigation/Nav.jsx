@@ -71,13 +71,13 @@ function Nav() {
                         <Link to="/">홈</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/threepower">3대력 게시판</Link>
+                        <Link to="/threepowerpost">3대력 게시판</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/exercise">운동 게시판</Link>
+                        <Link to="/exercisepost">운동 게시판</Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/free">자유 게시판</Link>
+                        <Link to="/freepost">자유 게시판</Link>
                     </NavItem>
                     {useLogin === false ? (
                         <>
