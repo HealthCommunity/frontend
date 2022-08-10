@@ -3,10 +3,11 @@ import ApexCharts from "react-apexcharts";
 import { getToday } from "../../../Func/GetTodayFunc";
 
 const MainChartDiv = styled.div`
-  height: 80vh;
-  padding: 100px 0px;
+  height: 100vh;
+  padding: 20px 0px;
   margin: 0 auto;
   font-size: ${(props) => props.theme.fontSizeH1};
+  box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
 `;
 
 const BarData = {

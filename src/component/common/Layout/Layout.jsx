@@ -16,16 +16,10 @@ export const CommonContainer = styled.div`
 `;
 
 export const CommonContents = styled.div`
-  width: 1440px;
   margin: 0 auto;
-
-  height: 3000px;
   border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-  background-color: rgb(221, 176, 196);
+  box-shadow: 5px 5px 10px -5px;
   margin-top: 20px;
-
-  height: 100vh;
 `;
 
 export const CommonContentsHome = styled.div`
@@ -36,21 +30,10 @@ export const CommonContentsHome = styled.div`
 
 export const CommonContentsRight = styled.div`
   width: 75%;
-
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-  background-color: rgb(104, 162, 121);
-
-  height: 100vh;
 `;
 
 export const CommonContentsLeft = styled.div`
   width: 25%;
-
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-  background-color: rgb(73, 116, 172);
-
   height: 100vh;
 `;
 
@@ -66,11 +49,6 @@ export const MainSlide = styled.div`
 /*메인화면 공통*/
 export const CommonContent = styled.article`
   padding: 20px 0;
-  margin-bottom: 60px;
-
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-  background-color: rgb(183, 86, 12);
 `;
 
 /*홈화면 사이드 바*/
@@ -87,47 +65,33 @@ export const CommonContentSidebar = styled.div`
 
 /*홈화면 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
-  margin-bottom: 20px;
+  margin: 20px 0px;
 `;
 
 export const CommonTitleTitle = styled.div`
+  display: flex;
   height: 28px;
   font-size: 24px;
   margin-left: 40px;
-
   font-weight: 400;
   line-height: 32px;
-
   font-family: "GangwonEduPower";
   font-style: normal;
-
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-
-  background-color: yellow;
 `;
 
 export const CommonTitleText = styled.div`
   height: 28px;
   font-size: 24px;
-  margin-left: 40px;
-
+  margin-left: 10px;
   font-weight: 400;
   line-height: 32px;
-
   font-family: "GangwonEduPower";
   font-style: normal;
-
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px -5px red;
-
-  background-color: yellow;
 `;
 
 /*실제 개별 컴포넌트가가 들어갈 영역*/
 export const CommonContentArea = styled.div`
-  width: 100%;
-  background-color: #b1283f;
+  display: flex;
 `;
 
 /*게시판 별 광고 슬라이드*/
