@@ -23,7 +23,7 @@ export default function BoardCategory({ category = "" }) {
             setIsLoading(true);
             await axios
                 .get(
-                    `/api/exercisepost/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
+                    `/api/${category}post/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
                 )
                 .then((data) => {
                     setItemList((prevItems) => [
@@ -37,7 +37,7 @@ export default function BoardCategory({ category = "" }) {
         return () => observer.disconnect();
     }, [page]);
 
-    console.log(category);
+    console.log(itemList);
 
     return (
         <>
@@ -45,7 +45,7 @@ export default function BoardCategory({ category = "" }) {
                 <BoardItemList>
                     {itemList.map(
                         ({ id, title, createdDate, nickname, view }) => (
-                            <Link key={id} to={`.${category}/${id}`}>
+                            <Link key={id} to={`./${category}/${id}`}>
                                 <li>
                                     <BoardItemBox
                                         id={id}
