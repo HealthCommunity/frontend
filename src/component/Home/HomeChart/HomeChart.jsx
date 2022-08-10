@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import ApexCharts from "react-apexcharts";
-import { getToday } from "../../../Func/GetTodayFunc";
+import { threechart } from "./threechart";
 
-const MainChartDiv = styled.div`
-  height: 100vh;
-  padding: 20px 0px;
-  margin: 0 auto;
+const HomeChartDiv = styled.div`
+  height: 70vh;
+  padding-top: 30px;
+  margin: 30px 20px;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
 `;
@@ -14,7 +14,6 @@ const BarData = {
   options: {
     chart: {
       type: "bar",
-      height: 100,
       stacked: true,
       toolbar: {
         show: false,
@@ -30,15 +29,16 @@ const BarData = {
       colors: ["#fff"],
     },
     title: {
-      text: `${getToday()} 기준 3대력 상위 10명`,
+      text: "삼대력 TOP 10",
+      offsetY: 10,
       style: {
-        fontSize: "20px",
+        fontSize: "16px",
         fontWeight: 600,
-        color: "grey",
+        color: "black",
       },
     },
     xaxis: {
-      categories: ["123123", "123"], ////////임의설정해논값
+      categories: threechart.map((x) => x.name),
       labels: {
         formatter: function (val) {
           return val + "KG";
@@ -75,46 +75,44 @@ const BarData = {
     },
     legend: {
       position: "top",
-      horizontalAlign: "left",
-      offsetX: 40,
-      fontSize: "14px",
+      offsetX: -80,
+      offsetY: 10,
+      fontSize: "12px",
       labels: {
         color: "grey",
       },
       markers: {
-        width: 14,
-        height: 14,
+        width: 20,
+        height: 10,
         fillColors: ["#3F8CFF", "#7FBA7A", "#FF754C"],
       },
     },
   },
 };
 
-function MainChart() {
+export default function HomeChart() {
   return (
-    <MainChartDiv>
+    <HomeChartDiv>
       <ApexCharts
         options={BarData.options}
         series={[
           {
-            name: "Dead Lift",
-            data: ["123123", "123"], ////////임의설정해논값
+            name: "데드리프트",
+            data: threechart.map((x) => x.deadlift),
           },
           {
-            name: "Bench Press",
-            data: ["123123", "123"], ////////임의설정해논값
+            name: "벤치프레스",
+            data: threechart.map((x) => x.benchpress),
           },
           {
-            name: "Squat",
-            data: ["123123", "123"], ////////임의설정해논값
+            name: "스쿼트",
+            data: threechart.map((x) => x.squat),
           },
         ]}
         width="100%"
         height="100%"
         type="bar"
       />
-    </MainChartDiv>
+    </HomeChartDiv>
   );
 }
-
-export default MainChart;

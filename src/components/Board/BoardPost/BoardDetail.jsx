@@ -117,7 +117,7 @@ function BoardDetail() {
         } `}</InfoTitleWrite>
         <InfoTitleWrite>{`view : ${boardData.view}`}</InfoTitleWrite>
       </InfoTitleDiv>
-      {boardname === "board" && (
+      {boardname === "threepower" && (
         <>
           <ModalButton onClick={modalIsOpen}>관리자 3대력 부여</ModalButton>
           <Modal

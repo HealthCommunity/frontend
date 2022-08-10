@@ -1,6 +1,13 @@
+import { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import BoardItemBox from "../ThreePower/ThreePowerForm";
+
 import axios from "axios";
+import BoardForm from "./BoardForm";
 
 export default function BoardCategory({ category = "" }) {
+  const { pathname } = useLocation();
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(1); //현재 페이지
   const target = useRef();
@@ -49,13 +56,23 @@ export default function BoardCategory({ category = "" }) {
           {itemList.map(({ id, title, createdDate, nickname, view }) => (
             <Link key={id} to={`./${category}/${id}`}>
               <li>
-                <BoardItemBox
-                  id={id}
-                  title={title}
-                  createdDate={createdDate}
-                  nickname={nickname}
-                  view={view}
-                ></BoardItemBox>
+                {(category === "/threepower") | (pathname === "/threepower") ? (
+                  <BoardItemBox
+                    id={id}
+                    title={title}
+                    createdDate={createdDate}
+                    nickname={nickname}
+                    view={view}
+                  />
+                ) : (
+                  <BoardForm
+                    id={id}
+                    title={title}
+                    createdDate={createdDate}
+                    nickname={nickname}
+                    view={view}
+                  />
+                )}
               </li>
             </Link>
           ))}

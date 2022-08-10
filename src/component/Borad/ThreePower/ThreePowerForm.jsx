@@ -1,5 +1,24 @@
 import styled from "styled-components";
-export default function BoardItemBox({
+import {
+  BoardDiv,
+  BoardVideoOne,
+  BoardVideoDiv,
+  BoardVideoTwo,
+  BoardVideoThree,
+  BoardTextDiv,
+  BoardText,
+  BoardDivBottom,
+  SeparataDivLeft,
+  BoardDivIcon,
+  BoardDivWrite,
+  SeparataSpan,
+  SeparataDiv,
+  SeparataItem,
+} from "../View/BoardStyle/BoardStyle";
+import NewIcon from "../../../images/figma/badge_new.svg";
+import EyeIcon from "../../../images/figma/common_view_16.svg";
+
+export default function ThreePowerForm({
   id,
   title,
   createdDate,
