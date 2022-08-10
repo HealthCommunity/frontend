@@ -98,16 +98,18 @@ function Home() {
                                     <Group selected={selected}>
                                         <GroupItem category="threepowerpost">
                                             <BoardCategory
-                                                category={"threepower"}
+                                                category={"threepowerpost"}
                                             />
                                         </GroupItem>
                                         <GroupItem category="exercisepost">
                                             <BoardCategory
-                                                category={"exercise"}
+                                                category={"exercisepost"}
                                             />
                                         </GroupItem>
                                         <GroupItem category="freepost">
-                                            <BoardCategory category={"free"} />
+                                            <BoardCategory
+                                                category={"freepost"}
+                                            />
                                         </GroupItem>
                                     </Group>
                                 </CommonContentArea>

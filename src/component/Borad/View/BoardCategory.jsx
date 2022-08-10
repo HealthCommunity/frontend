@@ -9,12 +9,22 @@ export default function BoardCategory({ category = "" }) {
     const [page, setPage] = useState(1); //현재 페이지
     const target = useRef();
     const [isLoading, setIsLoading] = useState(false);
+
     const onIntersect = async ([entry], observer) => {
         if (entry.isIntersecting) {
             observer.unobserve(entry.target);
             setPage((page) => page + 1); //페이지 증가
         }
     };
+
+    let categoryPath = "";
+
+    if (category === "user") {
+        categoryPath = `${category}/post`;
+    } else {
+        categoryPath = `${category}`;
+    }
+
     useEffect(() => {
         const observer = new IntersectionObserver(onIntersect, {
             threshold: 0.4,
@@ -23,7 +33,7 @@ export default function BoardCategory({ category = "" }) {
             setIsLoading(true);
             await axios
                 .get(
-                    `/api/${category}post/list?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
+                    `/api/${categoryPath}?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
                 )
                 .then((data) => {
                     setItemList((prevItems) => [

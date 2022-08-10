@@ -6,21 +6,21 @@ import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 import Nav from "../components/Navigation/Nav";
 
 import {
-  //Nav
-  CommonContainer,
-  CommonContents,
-  CommonContentsHome,
-  CommonContentsRight,
-  CommonContentsLeft,
-  MainSlide,
-  CommonContent,
-  CommonContentSidebar,
-  CommonTitleArea,
-  CommonTitleTitle,
-  CommonTitleText,
-  CommonContentArea,
-  BoardSlide,
-  CommonContentTools,
+    //Nav
+    CommonContainer,
+    CommonContents,
+    CommonContentsHome,
+    CommonContentsRight,
+    CommonContentsLeft,
+    MainSlide,
+    CommonContent,
+    CommonContentSidebar,
+    CommonTitleArea,
+    CommonTitleTitle,
+    CommonTitleText,
+    CommonContentArea,
+    BoardSlide,
+    CommonContentTools,
 } from "../component/common/Layout/Layout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -29,25 +29,25 @@ import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
-  height: 45px;
-  background: #fcfcfd;
-  border: 1px solid #e8eaee;
-  box-sizing: border-box;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  min-width: 200px;
-  padding: 0 10px;
-  transition: all 0.4s;
+    height: 45px;
+    background: #fcfcfd;
+    border: 1px solid #e8eaee;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    min-width: 200px;
+    padding: 0 10px;
+    transition: all 0.4s;
 `;
 export default function Freeboard() {
-  const useLogin = useRecoilValue(isLogin);
-  return (
-    <>
-      {/*
+    const useLogin = useRecoilValue(isLogin);
+    return (
+        <>
+            {/*
         <Title name="FreeBoard" />
       <Nav></Nav>
       <CommonContainer>
@@ -63,32 +63,34 @@ export default function Freeboard() {
         </CommonContents>
       </CommonContainer>
   */}
-      <Nav />
-      <WidthAreaSpace>
-        <BoardNav
-          style={{
-            width: "50%",
-            margin: "0 auto",
-            pointerEvents: "none",
-            marginBottom: "50px",
-          }}
-          name={"자유 게시판"}
-          summary={" 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"}
-        />
-        {useLogin ? (
-          <Link to={"write"}>
-            <ModalButton>글쓰기</ModalButton>
-          </Link>
-        ) : null}
+            <Nav />
+            <WidthAreaSpace>
+                <BoardNav
+                    style={{
+                        width: "50%",
+                        margin: "0 auto",
+                        pointerEvents: "none",
+                        marginBottom: "50px",
+                    }}
+                    name={"자유 게시판"}
+                    summary={
+                        " 운동경험, 운동 팁, 식단 등 자유로운 게시판입니다"
+                    }
+                />
+                {useLogin ? (
+                    <Link to={"write"}>
+                        <ModalButton>글쓰기</ModalButton>
+                    </Link>
+                ) : null}
 
-        <GroupItem category="freepost">
-          <BoardCategory />
-        </GroupItem>
-      </WidthAreaSpace>
-    </>
-  );
+                <GroupItem category="freepost">
+                    <BoardCategory category="freepost" />
+                </GroupItem>
+            </WidthAreaSpace>
+        </>
+    );
 }
 
 function GroupItem({ children }) {
-  return <>{children}</>;
+    return <>{children}</>;
 }

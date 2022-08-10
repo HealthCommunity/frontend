@@ -5,6 +5,7 @@ import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import axios from "axios";
 import { useEffect } from "react";
+import BoardCategory from "../../component/Borad/View/BoardCategory";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -47,6 +48,10 @@ export default function ContentBody() {
                             <div>{myInfo.bigThreePower.sum}</div>
                         </div>
                     )}
+
+                    <>
+                        <BoardCategory category={"user"} />
+                    </>
                 </GroupItem>
                 <GroupItem name="profileModify">
                     {!!myInfo && (
