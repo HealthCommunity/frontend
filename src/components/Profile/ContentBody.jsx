@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import ProfileNav from "./ProfileNav";
 import { ProfileContainer } from "./ProfileLayout";
-import ContentMyinfoInner from "./ContentMyinfoInner";
-import ContentMyinfoMain from "./ContentMyinfoMain";
 import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import axios from "axios";
+import { useEffect } from "react";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -16,20 +15,17 @@ function GroupItem({ children }) {
     return <>{children}</>;
 }
 
-export default function ContentBody({ userDatas = {} }) {
+export default function ContentBody() {
     const [selected, setSelected] = useState("profile");
+    const [myInfo, setMyInfo] = useState(null);
 
-    axios
-        .get("/api/user")
-        .then(function (response) {
-            if (response.status === 200) {
-                console.log("데이터 겟", response.data.data);
-                return response.data.data;
-            }
-        })
-        .catch(function (error) {
-            console.log("회원데이터 불러옴 실패", error);
+    useEffect(() => {
+        axios.get(`/api/user`).then((res) => {
+            setMyInfo(res.data.data);
         });
+    }, []);
+
+    console.log(myInfo);
 
     return (
         <ProfileContainer>
@@ -41,20 +37,30 @@ export default function ContentBody({ userDatas = {} }) {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
-                    <ContentMyinfoMain data="">
-                        <ContentMyinfoInner
-                            id=""
-                            nickname=""
-                            desc=""
-                            imgUrl=""
-                        />
-                    </ContentMyinfoMain>
+                    {!!myInfo && (
+                        <div>
+                            <div>{myInfo.loginId}</div>
+                            <div>{myInfo.nickName}</div>
+                            <div>{myInfo.bigThreePower.bench}</div>
+                            <div>{myInfo.bigThreePower.dead}</div>
+                            <div>{myInfo.bigThreePower.squat}</div>
+                            <div>{myInfo.bigThreePower.sum}</div>
+                        </div>
+                    )}
                 </GroupItem>
                 <GroupItem name="profileModify">
-                    <ContentUserModify></ContentUserModify>
+                    {!!myInfo && (
+                        <ContentUserModify
+                            loginId={myInfo.loginId}
+                        ></ContentUserModify>
+                    )}
                 </GroupItem>
                 <GroupItem name="userDropOut">
-                    <ContentUserDropOut></ContentUserDropOut>
+                    {!!myInfo && (
+                        <ContentUserDropOut
+                            loginId={myInfo.loginId}
+                        ></ContentUserDropOut>
+                    )}
                 </GroupItem>
             </Group>
         </ProfileContainer>

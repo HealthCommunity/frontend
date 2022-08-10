@@ -4,6 +4,7 @@ import InputTextDesc from "../User/InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { UserFormGroup } from "../Login/LoginLayout";
 import { ProfileContainerCenter } from "./ProfileLayout";
+import axios from "axios";
 
 const UserModifyTitle = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -20,14 +21,14 @@ const UserModifyFrom = styled.div`
     align-items: center;
 `;
 
-export default function ContentUserModify({ onSubmit }) {
+export default function ContentUserModify(loginId) {
     const [usrInputs, setUsrInputs] = useState({
         password: "",
         checkPassword: "",
         nickname: "",
     });
 
-    const { password, checkPassword, nickname, isAgree } = usrInputs;
+    const { password, checkPassword, nickname } = usrInputs;
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -82,19 +83,41 @@ export default function ContentUserModify({ onSubmit }) {
         return regExp.test(asValue);
     };
 
+    if (!loginId) {
+        alert("로그인 id가 없습니다!");
+        return <></>;
+    }
+
+    console.log("로그인 id", loginId.loginId);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!isAgree) {
-            return alert("동의 해주세요.");
-        }
 
         if (
             checkValidityPassword(password)[0] &&
             checkDoublePassword(password, checkPassword)[0] &&
             checkValidityNickname(nickname)[0]
         ) {
-            onSubmit(e, usrInputs);
+            const myData = {
+                loginId: loginId.loginId,
+                password: password,
+                nickName: nickname,
+            };
+
+            axios
+                .post("/api/user/edit", myData, {
+                    withCredentials: true,
+                    credentials: "include",
+                })
+                .then(function (response) {
+                    if (response.status === 200) {
+                        console.log(response);
+                        console.log("정보 수정이 완료되었습니다.");
+                    }
+                })
+                .catch(function (error) {
+                    console.log("정보수정 실패", error);
+                });
         }
     };
     return (
