@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import BoardDetail from "../components/Board/BoardPost/BoardDetail";
-import Nav from "../component/Navbar/index";
-import Title from "../components/Title";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import BoardDetail from "../components/Board/BoardDetail";
+import Nav from "../components/Navbar/index";
+import Title from "../utils/Title/Title";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 function ExercisePost() {
   const { id } = useParams();

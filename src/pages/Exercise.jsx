@@ -1,14 +1,9 @@
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
 import { Link } from "react-router-dom";
-import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
-import { RightDiv } from "../components/Main/HomeSeparate";
-import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import ExerciseSlider from "../components/Board/BoardSlider/ExerciseSlider";
 import styled from "styled-components";
-
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
-import BoardFetchItems from "../component/Borad/View/BoardFetchItems";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import BoardFetchItems from "../components/Board/View/BoardFetchItems";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
@@ -35,17 +30,6 @@ export default function Exercise() {
       <Title name="exercise" />
       <Nav />
       <WidthAreaSpace>
-        <ExerciseSlider />
-        <BoardNav
-          style={{
-            width: "50%",
-            margin: "0 auto",
-            marginBottom: "50px",
-            pointerEvents: "none",
-          }}
-          name={"운동 게시판"}
-          summary={" 다른 사람의 운동 경험을 확인해보세요!"}
-        />
         {useLogin ? (
           <Link to={"write"}>
             <ModalButton>글쓰기</ModalButton>

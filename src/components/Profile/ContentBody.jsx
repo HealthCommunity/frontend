@@ -5,7 +5,7 @@ import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import axios from "axios";
 import { useEffect } from "react";
-import BoardFetchItems from "../../component/Borad/View/BoardFetchItems";
+import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 
 function Group({ children, selected }) {
   const elements = React.Children.toArray(children);

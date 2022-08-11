@@ -1,14 +1,10 @@
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
-import { RightDiv } from "../components/Main/HomeSeparate";
-import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
-import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import BoardSlider from "../components/Board/BoardSlider/BoardSlider";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
 
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import BoardFetchItems from "../component/Borad/View/BoardFetchItems";
+import BoardFetchItems from "../components/Board/View/BoardFetchItems";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
@@ -35,17 +31,6 @@ export default function Board() {
       <Title name="Board" />
       <Nav />
       <WidthAreaSpace>
-        <BoardSlider />
-        <BoardNav
-          style={{
-            width: "50%",
-            margin: "0 auto",
-            marginBottom: "50px",
-            pointerEvents: "none",
-          }}
-          name={"3대 운동 게시판"}
-          summary={"다른 사람의 3대 능력을 확인해보세요!"}
-        />
         {useLogin ? (
           <Link to={"write"}>
             <ModalButton>글쓰기</ModalButton>

@@ -1,8 +1,8 @@
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
-import BoardDetail from "../components/Board/BoardPost/BoardDetail";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
+import BoardDetail from "../components/Board/BoardDetail";
 import { useParams } from "react-router-dom";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 function BoardPost() {
   const { id } = useParams();

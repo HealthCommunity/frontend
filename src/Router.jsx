@@ -14,7 +14,6 @@ import FindId from "./pages/FindId";
 import FindPw from "./pages/FindPw";
 import SearchPage from "./pages/Search";
 import NotFoundScene from "./pages/NotFoundScene";
-import IntroducePage from "./pages/IntroducePage";
 import ThreePowerWrite from "./pages/ThreePowerWrite";
 import FreeWrite from "./pages/FreeWrite";
 
@@ -23,7 +22,6 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/introduce" element={<IntroducePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login/find_id" element={<FindId />} />

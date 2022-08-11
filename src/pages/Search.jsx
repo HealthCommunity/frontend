@@ -1,7 +1,7 @@
-import Nav from "../component/Navbar/index";
+import Nav from "../components/Navbar/index";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 const SearchDiv = styled.div`
   box-sizing: border-box;
