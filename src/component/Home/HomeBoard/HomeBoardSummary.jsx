@@ -7,7 +7,7 @@ export default function HomeBoardSummary({ selected }) {
     <CommonTitleArea>
       <BoardStyle>
         <BoardStyleSpan>다른사람의 운동경험을 공유해보세요</BoardStyleSpan>
-        <Link to={`/${selected.replace(/post$/, "")}`}>
+        <Link to={`${selected}`}>
           <BoardStyleSpan>더보기 &gt;</BoardStyleSpan>
         </Link>
       </BoardStyle>

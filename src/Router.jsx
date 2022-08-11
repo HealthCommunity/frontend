@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ThreePower from "./Routes/ThreePower";
 import Exercise from "./Routes/Exercise";
-import Freeboard from "./Routes/Freeboard";
+import Freeboard from "./Routes/Free";
 import Home from "./Routes/Home";
 import Login from "./Routes/Login";
 import Profile from "./Routes/Profile";
@@ -17,7 +17,6 @@ import NotFoundScene from "./Routes/NotFoundScene";
 import IntroducePage from "./Routes/IntroducePage";
 import ThreePowerWrite from "./Routes/ThreePowerWrite";
 import FreeWrite from "./Routes/FreeWrite";
-import Items from "./Routes/Items";
 
 function Router() {
   return (

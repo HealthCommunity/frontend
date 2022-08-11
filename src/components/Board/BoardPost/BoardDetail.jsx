@@ -15,8 +15,6 @@ import {
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useParams } from "react-router";
-
-import styled from "styled-components";
 import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
@@ -29,7 +27,7 @@ function BoardDetail() {
   const [boardData, setBoardData] = useState([]);
   useEffect(() => {
     axios
-      .get(`/api/${boardname}post/${id}`)
+      .get(`/api/${boardname}/${id}`)
       .then((res) => setBoardData(res.data.data));
   }, []);
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
@@ -38,7 +36,6 @@ function BoardDetail() {
     setCommentlist([...commentlist, data]);
     reset();
   };
-  console.log(boardData.content);
   return (
     <InfoDiv>
       <InfoTitle>{`${boardname} : ${boardData.title}`}</InfoTitle>
@@ -49,7 +46,7 @@ function BoardDetail() {
         } `}</InfoTitleWrite>
         <InfoTitleWrite>{`view : ${boardData.view}`}</InfoTitleWrite>
       </InfoTitleDiv>
-      {boardname === "threepower" && <PostThreePower />}
+      {boardname === "threepowerpost" && <PostThreePower />}
       <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
       <BoardSummary>
         {parser(

@@ -1,23 +1,6 @@
 import Nav from "../components/Navigation/Nav";
 import Title from "../components/Title";
-import { HomeDiv, LeftDiv, RightDiv } from "../components/Main/HomeSeparate";
-//import MainSlider from "../components/Main/MainSlider/MainSlider";
-import {
-  MainTitle,
-  MainTitleH1,
-  MainTitleH4,
-} from "../components/Main/MainTitle";
 import React, { useState } from "react";
-import { BoardItem } from "../components/Board/BoardItem/BoardItem";
-import BoardNav from "../components/Board/BoardNavigation/BoardNav";
-import MainChart from "../components/Main/MainChart/MainChart";
-import PullSlider from "../components/Main/PullSlider/SliderMain";
-import {
-  WidthAreaSpace,
-  WidthAreaPull,
-} from "../components/Layout/CommonLayout";
-import { Link } from "react-router-dom";
-
 import {
   // Nav,
   CommonContainer,
@@ -26,31 +9,24 @@ import {
   CommonContentsRight,
   CommonContentsLeft,
   MainSlide,
-  CommonContent,
-  CommonContentSidebar,
   CommonTitleArea,
   CommonTitleTitle,
   CommonTitleText,
-  CommonContentArea,
-  BoardSlide,
-  CommonContentTools,
 } from "../component/common/Layout/Layout";
-import BoardCategory from "../component/Borad/View/BoardCategory";
-import {
-  BoardSelectTab,
-  TabList,
-  TabItem,
-} from "../component/Borad/View/BoardSelectTab";
 
+import FavoriteImage from "../images/figma/board_like_bk_32.svg";
 import SliderMain from "../component/Slider/PullSlider/SliderMain";
 import styled from "styled-components";
-import { IoContrast } from "react-icons/io5";
-import { useEffect } from "react";
+
 import slide1 from "../images/main-slide-img01.png";
 import slide2 from "../images/main-slide-img02.png";
 import slide3 from "../images/main-slide-img03.png";
+import HomeBoardSelect from "../component/Home/HomeBoard/HomeBoardSelect";
+import HomeBoardSummary from "../component/Home/HomeBoard/HomeBoardSummary";
+import HomeBoard from "../component/Home/HomeBoard";
+import HomeChart from "../component/Home/HomeChart/HomeChart";
 
-function Home() {
+export default function Home() {
   const data = [slide1, slide2, slide3];
   const [selected, setSelected] = useState("threepowerpost");
 
@@ -64,48 +40,26 @@ function Home() {
         </MainSlide>
         <CommonContents>
           <CommonContentsHome>
-            <CommonContentsRight>
-              <CommonContent>
-                <CommonTitleArea>
-                  <CommonTitleTitle>
-                    <CommonTitleText>이번주 인기사진</CommonTitleText>
-                  </CommonTitleTitle>
-                </CommonTitleArea>
-                <CommonContentArea>내용물</CommonContentArea>
-              </CommonContent>
-
-              <CommonContent>
-                <CommonTitleArea>
-                  <CommonTitleTitle>
-                    <CommonTitleText>
-                      <BoardSelectTab
-                        onChange={(category) => {
-                          setSelected(category);
-                        }}
-                        typeName={selected}
-                      />
-                    </CommonTitleText>
-                  </CommonTitleTitle>
-                </CommonTitleArea>
-
-                <CommonContentArea style={{ marginTop: "100px" }}>
-                  <Group selected={selected}>
-                    <GroupItem category="threepowerpost">
-                      <BoardCategory category={"threepowerpost"} />
-                    </GroupItem>
-                    <GroupItem category="exercisepost">
-                      <BoardCategory category={"exercisepost"} />
-                    </GroupItem>
-                    <GroupItem category="freepost">
-                      <BoardCategory category={"freepost"} />
-                    </GroupItem>
-                  </Group>
-                </CommonContentArea>
-              </CommonContent>
-            </CommonContentsRight>
             <CommonContentsLeft>
-              <CommonContentSidebar></CommonContentSidebar>
+              {/* 홈화면 인기사진 리스트 시작 */}
+              <CommonTitleArea>
+                <CommonTitleTitle>
+                  <img src={FavoriteImage} alt="favorite" />
+                  <CommonTitleText>이번주 인기사진</CommonTitleText>
+                </CommonTitleTitle>
+                <FavoriteDiv>여기는 이번주 인기사진이 들어갑니다</FavoriteDiv>
+              </CommonTitleArea>
+              {/* 홈화면 인기사진 리스트 끝 */}
+              {/* //////////////////////////////////////////// */}
+              {/* 홈화면 게시판 리스트 시작 */}
+              <HomeBoardSelect selected={selected} setSelected={setSelected} />
+              <HomeBoardSummary selected={selected} />
+              <HomeBoard selected={selected} />
+              {/* 홈화면 게시판 리스트 끝 */}
             </CommonContentsLeft>
+            <CommonContentsRight>
+              <HomeChart />
+            </CommonContentsRight>
           </CommonContentsHome>
         </CommonContents>
       </CommonContainer>
@@ -113,13 +67,11 @@ function Home() {
   );
 }
 
-function Group({ children, selected }) {
-  const elements = React.Children.toArray(children);
-  return <>{elements.find(({ props }) => selected === props.category)}</>;
-}
-
-function GroupItem({ children }) {
-  return <>{children}</>;
-}
-
-export default Home;
+const FavoriteDiv = styled.div`
+  width: 100%;
+  height: 100px;
+  background-color: red;
+  font-size: 36px;
+  color: white;
+  text-align: center;
+`;

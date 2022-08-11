@@ -24,17 +24,15 @@ export const CommonContents = styled.div`
 
 export const CommonContentsHome = styled.div`
   display: flex;
-  flex-wrap: nowrap;
-  position: relative;
 `;
 
 export const CommonContentsRight = styled.div`
-  width: 75%;
+  width: 25%;
+  height: 100vh;
 `;
 
 export const CommonContentsLeft = styled.div`
-  width: 25%;
-  height: 100vh;
+  width: 75%;
 `;
 
 /*슬라이드*/
@@ -62,33 +60,32 @@ export const CommonContentSidebar = styled.div`
 
 /*홈화면 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
-  margin: 20px 0px;
+  margin: 30px 0px;
 `;
 
 export const CommonTitleTitle = styled.div`
   display: flex;
-  height: 28px;
-  font-size: 24px;
+  align-items: center;
   margin-left: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 32px;
   font-family: "GangwonEduPower";
   font-style: normal;
 `;
 
 export const CommonTitleText = styled.div`
-  height: 28px;
   font-size: 24px;
   margin-left: 10px;
-  font-weight: 400;
-  line-height: 32px;
+  font-weight: 600;
   font-family: "GangwonEduPower";
-  font-style: normal;
 `;
 
 /*실제 개별 컴포넌트가가 들어갈 영역*/
 export const CommonContentArea = styled.div`
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 /*게시판 별 광고 슬라이드*/

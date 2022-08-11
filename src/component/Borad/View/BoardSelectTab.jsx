@@ -7,12 +7,12 @@ import ExerciseColorImage from "../../../images/figma/color_dumbbell.svg";
 import FreeImage from "../../../images/figma/dark_free.svg";
 import FreeColorImage from "../../../images/figma/color_free.svg";
 
-export function BoardSelectTab({ onChange, item }) {
+export function BoardSelectTab({ onChange, typeName }) {
   return (
     <TabList>
       <TabItem>
         <TabItemImage
-          src={item === "threepowerpost" ? ThreeColorImage : ThreeImage}
+          src={typeName === "threepowerpost" ? ThreeColorImage : ThreeImage}
           style={{ marginLeft: "25px" }}
         />
         <a
@@ -22,8 +22,8 @@ export function BoardSelectTab({ onChange, item }) {
             onChange("threepowerpost");
           }}
           style={{
-            color: item === "threepowerpost" ? "black" : "#888888",
-            fontWeight: item === "threepowerpost" ? "600" : "400",
+            color: typeName === "threepowerpost" ? "black" : "#888888",
+            fontWeight: typeName === "threepowerpost" ? "600" : "400",
           }}
         >
           3대력게시판
@@ -31,7 +31,7 @@ export function BoardSelectTab({ onChange, item }) {
       </TabItem>
       <TabItem>
         <TabItemImage
-          src={item === "exercisepost" ? ExerciseColorImage : ExerciseImage}
+          src={typeName === "exercisepost" ? ExerciseColorImage : ExerciseImage}
         />
         <a
           href="/#"
@@ -40,15 +40,17 @@ export function BoardSelectTab({ onChange, item }) {
             onChange("exercisepost");
           }}
           style={{
-            color: item === "exercisepost" ? "black" : "#888888",
-            fontWeight: item === "exercisepost" ? "600" : "400",
+            color: typeName === "exercisepost" ? "black" : "#888888",
+            fontWeight: typeName === "exercisepost" ? "600" : "400",
           }}
         >
           운동게시판
         </a>
       </TabItem>
       <TabItem>
-        <TabItemImage src={item === "freepost" ? FreeColorImage : FreeImage} />
+        <TabItemImage
+          src={typeName === "freepost" ? FreeColorImage : FreeImage}
+        />
         <a
           href="/#"
           onClick={(e) => {
@@ -56,8 +58,8 @@ export function BoardSelectTab({ onChange, item }) {
             onChange("freepost");
           }}
           style={{
-            color: item === "freepost" ? "black" : "#888888",
-            fontWeight: item === "freepost" ? "600" : "400",
+            color: typeName === "freepost" ? "black" : "#888888",
+            fontWeight: typeName === "freepost" ? "600" : "400",
           }}
         >
           자유게시판

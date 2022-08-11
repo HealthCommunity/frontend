@@ -8,7 +8,6 @@ export default function HomeBoardSelect({ selected, setSelected }) {
         onChange={(category) => {
           setSelected(category);
         }}
-        item={selected}
         typeName={selected}
       />
     </CommonTitleArea>
