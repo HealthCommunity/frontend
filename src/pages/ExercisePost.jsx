@@ -1,10 +1,10 @@
-import Title from "../components/Title";
-import Nav from "../components/Navigation/Nav";
+import { useParams } from "react-router";
 import BoardDetail from "../components/Board/BoardPost/BoardDetail";
-import { useParams } from "react-router-dom";
+import Nav from "../component/Navbar/index";
+import Title from "../components/Title";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
-function BoardPost() {
+function ExercisePost() {
   const { id } = useParams();
   return (
     <>
@@ -17,4 +17,4 @@ function BoardPost() {
   );
 }
 
-export default BoardPost;
+export default ExercisePost;

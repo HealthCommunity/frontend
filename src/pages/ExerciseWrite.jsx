@@ -1,5 +1,5 @@
-import FreeBoardPost from "../components/Board/BoardPost/FreeBoardPost";
-// import Nav from "../components/Navigation/Nav";
+import ExercisePost from "../components/Board/BoardPost/ExercisePost";
+// import Nav from "../component/Navbar/index";
 import Title from "../components/Title";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 
@@ -24,18 +24,18 @@ import {
 function exerciseWrite() {
   return (
     <>
-      <Title name="freewrite" />
+      <Title name="exerciseWrite" />
       <Nav></Nav>
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            <FreeBoardPost />
+            <ExercisePost />
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>
       {/* <Nav />
             <WidthAreaSpace>
-                <BoardNewWrite />
+                <ExercisePost />
             </WidthAreaSpace> */}
     </>
   );

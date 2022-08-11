@@ -3,7 +3,7 @@ import { RightDiv } from "../components/Main/HomeSeparate";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import BoardNav from "../components/Board/BoardNavigation/BoardNav";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
-import Nav from "../components/Navigation/Nav";
+import Nav from "../component/Navbar/index";
 
 import {
   //Nav

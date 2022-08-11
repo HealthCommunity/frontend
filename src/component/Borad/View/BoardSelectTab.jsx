@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import ThreeImage from "../../../images/figma/dark_arm.svg";
-import ThreeColorImage from "../../../images/figma/color_arm.svg";
-import ExerciseImage from "../../../images/figma/dark_dumbbell.svg";
-import ExerciseColorImage from "../../../images/figma/color_dumbbell.svg";
-import FreeImage from "../../../images/figma/dark_free.svg";
-import FreeColorImage from "../../../images/figma/color_free.svg";
+import ThreeImage from "../../../assets/images/dark_arm.svg";
+import ThreeColorImage from "../../../assets/images/color_arm.svg";
+import ExerciseImage from "../../../assets/images/dark_dumbbell.svg";
+import ExerciseColorImage from "../../../assets/images/color_dumbbell.svg";
+import FreeImage from "../../../assets/images/dark_free.svg";
+import FreeColorImage from "../../../assets/images/color_free.svg";
 
 export function BoardSelectTab({ onChange, typeName }) {
   return (

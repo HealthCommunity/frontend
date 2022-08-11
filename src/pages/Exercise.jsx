@@ -1,5 +1,5 @@
 import Title from "../components/Title";
-import Nav from "../components/Navigation/Nav";
+import Nav from "../component/Navbar/index";
 import { Link } from "react-router-dom";
 import { SoloBoardItem } from "../components/Board/BoardItem/BoardItem";
 import { RightDiv } from "../components/Main/HomeSeparate";

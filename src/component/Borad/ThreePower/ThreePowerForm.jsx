@@ -15,8 +15,8 @@ import {
   SeparataDiv,
   SeparataItem,
 } from "../View/BoardStyle/BoardStyle";
-import NewIcon from "../../../images/figma/badge_new.svg";
-import EyeIcon from "../../../images/figma/common_view_16.svg";
+import NewIcon from "../../../assets/images/badge_new.svg";
+import EyeIcon from "../../../assets/images/common_view_16.svg";
 
 export default function ThreePowerForm({
   id,

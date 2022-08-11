@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import BoardDetail from "../components/Board/BoardPost/BoardDetail";
-// import Nav from "../components/Navigation/Nav";
+// import Nav from "../component/Navbar/index";
 import Title from "../components/Title";
 import { WidthAreaSpace } from "../components/Layout/CommonLayout";
 

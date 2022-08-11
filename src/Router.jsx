@@ -1,22 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ThreePower from "./Routes/ThreePower";
-import Exercise from "./Routes/Exercise";
-import Freeboard from "./Routes/Free";
-import Home from "./Routes/Home";
-import Login from "./Routes/Login";
-import Profile from "./Routes/Profile";
-import Sign from "./Routes/Sign";
-import ThreePowerPost from "./Routes/ThreePowerPost";
-import FreePost from "./Routes/FreePost";
-import ExercisePost from "./Routes/ExercisePost";
-import ExerciseWrite from "./Routes/ExerciseWrite";
-import FindId from "./Routes/FindId";
-import FindPw from "./Routes/FindPw";
-import SearchPage from "./Routes/Search";
-import NotFoundScene from "./Routes/NotFoundScene";
-import IntroducePage from "./Routes/IntroducePage";
-import ThreePowerWrite from "./Routes/ThreePowerWrite";
-import FreeWrite from "./Routes/FreeWrite";
+import ThreePower from "./pages/ThreePower";
+import Exercise from "./pages/Exercise";
+import Freeboard from "./pages/Free";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Sign from "./pages/Sign";
+import ThreePowerPost from "./pages/ThreePowerPost";
+import FreePost from "./pages/FreePost";
+import ExercisePost from "./pages/ExercisePost";
+import ExerciseWrite from "./pages/ExerciseWrite";
+import FindId from "./pages/FindId";
+import FindPw from "./pages/FindPw";
+import SearchPage from "./pages/Search";
+import NotFoundScene from "./pages/NotFoundScene";
+import IntroducePage from "./pages/IntroducePage";
+import ThreePowerWrite from "./pages/ThreePowerWrite";
+import FreeWrite from "./pages/FreeWrite";
 
 function Router() {
   return (

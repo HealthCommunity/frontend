@@ -1,5 +1,5 @@
 import ThreeBoardPost from "../components/Board/BoardPost/ThreeBoardPost";
-// import Nav from "../components/Navigation/Nav";
+// import Nav from "../component/Navbar/index";
 import Title from "../components/Title";
 
 import {
