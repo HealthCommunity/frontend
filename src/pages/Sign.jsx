@@ -31,7 +31,6 @@ function Sign() {
                 <ContentBackgroud>
                     <ContentContainer>
                         <LoginContainerArea>
-                            <ContainerTitle>회원가입</ContainerTitle>
                             <SelectSNSTab
                                 onChange={(name) => {
                                     setSelected(name);

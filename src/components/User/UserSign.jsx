@@ -4,6 +4,7 @@ import styled from "styled-components";
 import InputTextDesc from "./InputTextDesc";
 import { UserFormGroup, InputTextLabel, InputTextGroup } from "./LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
+import Button from "../common/Button";
 
 import axios from "axios";
 
@@ -189,7 +190,10 @@ export default function UserSign() {
                     이용약관 및 개인정보 수집∙이용에 동의합니다.
                 </Label>
             </CheckInput>
-            <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
+            <Button size="lg" type="submit">
+                가입하기
+            </Button>
+            {/* <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple> */}
 
             <LinkGroup>
                 <Link to="/login">

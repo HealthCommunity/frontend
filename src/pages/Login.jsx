@@ -30,7 +30,6 @@ function Login() {
                 <ContentBackgroud>
                     <ContentContainer>
                         <LoginContainerArea>
-                            <ContainerTitle>로그인</ContainerTitle>
                             <SelectSNSTab
                                 onChange={(name) => {
                                     setSelected(name);
