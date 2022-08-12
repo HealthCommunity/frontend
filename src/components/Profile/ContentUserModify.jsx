@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import InputTextDesc from "../User/InputTextDesc";
-import { UserFormGroup } from "../User/LoginLayout";
+import {
+    UserFormGroup,
+    InputTextLabel,
+    InputTextGroup,
+    TextLabel,
+    LinkGroup,
+} from "../User/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import { ProfileContainerCenter } from "./ProfileLayout";
 import axios from "axios";
+import Button from "../common/Button";
 
 const UserModifyTitle = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -123,37 +130,41 @@ export default function ContentUserModify(loginId) {
     return (
         <ProfileContainerCenter>
             <UserModifyFrom>
-                <UserModifyTitle>회원정보 변경</UserModifyTitle>
                 <UserFormGroup onSubmit={handleSubmit}>
-                    <InputTextDesc
-                        type="password"
-                        name="password"
-                        placeholder="비밀번호"
-                        onChange={handleChange}
-                        onValidation={checkValidityPassword}
-                        required
-                    />
+                    <InputTextGroup>
+                        <InputTextLabel>비밀번호</InputTextLabel>
+                        <InputTextDesc
+                            type="password"
+                            name="password"
+                            placeholder="비밀번호"
+                            onChange={handleChange}
+                            onValidation={checkValidityPassword}
+                            required
+                        />
 
-                    <InputTextDesc
-                        type="password"
-                        name="checkPassword"
-                        placeholder="비밀번호 확인"
-                        onChange={handleChange}
-                        onValidation={checkDoublePassword}
-                        required
-                    />
-                    <InputTextDesc
-                        type="text"
-                        name="nickname"
-                        placeholder="닉네임"
-                        onChange={handleChange}
-                        onValidation={checkValidityNickname}
-                        required
-                    />
-                    <ButtonPupple
-                        type="submit"
-                        info={"변경하기"}
-                    ></ButtonPupple>
+                        <InputTextDesc
+                            type="password"
+                            name="checkPassword"
+                            placeholder="비밀번호 확인"
+                            onChange={handleChange}
+                            onValidation={checkDoublePassword}
+                            required
+                        />
+                    </InputTextGroup>
+                    <InputTextGroup>
+                        <InputTextLabel>닉네임</InputTextLabel>
+                        <InputTextDesc
+                            type="text"
+                            name="nickname"
+                            placeholder="닉네임"
+                            onChange={handleChange}
+                            onValidation={checkValidityNickname}
+                            required
+                        />
+                    </InputTextGroup>
+                    <Button size="lg" type="submit">
+                        변경하기
+                    </Button>
                 </UserFormGroup>
             </UserModifyFrom>
         </ProfileContainerCenter>
