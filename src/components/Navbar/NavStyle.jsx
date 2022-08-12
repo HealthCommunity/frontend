@@ -45,4 +45,5 @@ export const NavItem = styled.div`
   font-size: ${(props) => props.theme.fontSizeH5};
   font-weight: 600;
   cursor: pointer;
+  color: ${(props) => props.color};
 `;
