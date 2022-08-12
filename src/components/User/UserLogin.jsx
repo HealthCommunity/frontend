@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import InputTextDesc from "./InputTextDesc";
-import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "./LoginLayout";
-import { useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useNavigate, Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import { isLogin } from "../../atom";
+import {
+    UserFormGroup,
+    InputTextLabel,
+    InputTextGroup,
+    TextLabel,
+    LinkGroup,
+} from "./LoginLayout";
+import Button from "../common/Button";
 
 import axios from "axios";
 
@@ -57,22 +63,36 @@ export default function UserInputForm() {
 
     return (
         <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
-            <InputTextDesc
-                type="text"
-                name="id"
-                placeholder="아이디"
-                onChange={handleChange}
-                required
-            />
+            <InputTextGroup>
+                <InputTextLabel>아이디</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="id"
+                    placeholder="아이디"
+                    onChange={handleChange}
+                    required
+                />
+            </InputTextGroup>
 
-            <InputTextDesc
-                type="password"
-                name="password"
-                placeholder="비밀번호"
-                onChange={handleChange}
-                required
-            />
-            <ButtonPupple type="submit" info={"로그인"}></ButtonPupple>
+            <InputTextGroup>
+                <InputTextLabel>비밀번호</InputTextLabel>
+                <InputTextDesc
+                    type="password"
+                    name="password"
+                    placeholder="비밀번호"
+                    onChange={handleChange}
+                    required
+                />
+            </InputTextGroup>
+
+            <Button size="lg" type="submit">
+                로그인
+            </Button>
+            <LinkGroup>
+                <Link to="/sign">
+                    <TextLabel>회원가입</TextLabel>
+                </Link>
+            </LinkGroup>
         </UserFormGroup>
     );
 }

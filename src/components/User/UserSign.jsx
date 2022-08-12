@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import InputTextDesc from "./InputTextDesc";
-import { UserFormGroup, InputTextLabel, InputTextGroup } from "./LoginLayout";
+import {
+    UserFormGroup,
+    InputTextLabel,
+    InputTextGroup,
+    TextLabel,
+    CheckInput,
+    LinkGroup,
+} from "./LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 import Button from "../common/Button";
 
@@ -186,46 +193,19 @@ export default function UserSign() {
                     name="isAgree"
                     onChange={handleIsAgree}
                 />
-                <Label htmlFor="agree">
+                <TextLabel htmlFor="agree">
                     이용약관 및 개인정보 수집∙이용에 동의합니다.
-                </Label>
+                </TextLabel>
             </CheckInput>
             <Button size="lg" type="submit">
                 가입하기
             </Button>
-            {/* <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple> */}
 
             <LinkGroup>
                 <Link to="/login">
-                    <Label>로그인하기</Label>
+                    <TextLabel>로그인</TextLabel>
                 </Link>
             </LinkGroup>
         </UserFormGroup>
     );
 }
-
-const Label = styled.label`
-    font-size: ${(props) => props.theme.fontSizeH5};
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #888888;
-    cursor: pointer;
-`;
-
-const CheckInput = styled.div`
-    margin: 12px 0 12px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    input {
-        margin: 0 8px 0 0;
-    }
-`;
-
-const LinkGroup = styled.div`
-    margin-top: 24px;
-`;

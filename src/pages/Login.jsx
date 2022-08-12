@@ -3,10 +3,10 @@ import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import UserLogin from "../components/User/UserLogin";
 import {
-    SelectSNSTab,
+    SnsSelectTab,
     SnsLinkList,
     SnsLinkItem,
-} from "../components/User/SelectSNSTab";
+} from "../components/User/SnsLogin/SnsSelectTab";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 import {
@@ -15,6 +15,8 @@ import {
     ContainerTitle,
     LoginContainerArea,
 } from "../components/User/LoginLayout";
+
+import { SnsLogin } from "../components/User/SnsLogin/SnsLogin";
 
 import kakao from "../assets/images/kakao.png";
 import google from "../assets/images/google.png";
@@ -30,7 +32,7 @@ function Login() {
                 <ContentBackgroud>
                     <ContentContainer>
                         <LoginContainerArea>
-                            <SelectSNSTab
+                            <SnsSelectTab
                                 onChange={(name) => {
                                     setSelected(name);
                                 }}
@@ -41,32 +43,7 @@ function Login() {
                                     <UserLogin />
                                 </GroupItem>
                                 <GroupItem name="snslogin">
-                                    <SnsLinkList style={{ height: "300px" }}>
-                                        <SnsLinkItem>
-                                            <a href="/#">
-                                                <img
-                                                    src={naver}
-                                                    alt="네이버 로그인"
-                                                ></img>
-                                            </a>
-                                        </SnsLinkItem>
-                                        <SnsLinkItem>
-                                            <a href="/#">
-                                                <img
-                                                    src={kakao}
-                                                    alt="카카오 로그인"
-                                                ></img>
-                                            </a>
-                                        </SnsLinkItem>
-                                        <SnsLinkItem>
-                                            <a href="/#">
-                                                <img
-                                                    src={google}
-                                                    alt="구글 로그인"
-                                                ></img>
-                                            </a>
-                                        </SnsLinkItem>
-                                    </SnsLinkList>
+                                    <SnsLogin />
                                 </GroupItem>
                             </SNSGroup>
                         </LoginContainerArea>

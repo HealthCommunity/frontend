@@ -67,3 +67,29 @@ export const InputTextGroup = styled.div`
     width: 100%;
     margin-bottom: 14px;
 `;
+
+export const TextLabel = styled.label`
+    font-size: ${(props) => props.theme.fontSizeH5};
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+    cursor: pointer;
+`;
+
+export const CheckInput = styled.div`
+    margin: 12px 0 12px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    input {
+        margin: 0 8px 0 0;
+    }
+`;
+
+export const LinkGroup = styled.div`
+    margin-top: 24px;
+`;
