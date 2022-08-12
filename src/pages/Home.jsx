@@ -1,5 +1,5 @@
-import Nav from "../component/Navbar/index";
-import Title from "../components/Title";
+import Nav from "../components/Navbar/index";
+import Title from "../utils/Title/Title";
 import React, { useState } from "react";
 import {
   // Nav,
@@ -12,19 +12,19 @@ import {
   CommonTitleArea,
   CommonTitleTitle,
   CommonTitleText,
-} from "../component/common/Layout/Layout";
+} from "../components/common/Layout/Layout";
 
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
-import SliderMain from "../component/Slider/PullSlider/SliderMain";
+import SliderMain from "../components/Slider/PullSlider/SliderMain";
 import styled from "styled-components";
 
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
-import HomeBoardSelect from "../component/Home/HomeBoard/HomeBoardSelect";
-import HomeBoardSummary from "../component/Home/HomeBoard/HomeBoardSummary";
-import HomeBoard from "../component/Home/HomeBoard";
-import HomeChart from "../component/Home/HomeChart/HomeChart";
+import HomeBoardSelect from "../components/Home/HomeBoard/HomeBoardSelect";
+import HomeBoardSummary from "../components/Home/HomeBoard/HomeBoardSummary";
+import HomeBoard from "../components/Home/HomeBoard";
+import HomeChart from "../components/Home/HomeChart/HomeChart";
 
 export default function Home() {
   const data = [slide1, slide2, slide3];

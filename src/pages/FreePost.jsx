@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import BoardDetail from "../components/Board/BoardPost/BoardDetail";
-// import Nav from "../component/Navbar/index";
-import Title from "../components/Title";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import BoardDetail from "../components/Board/BoardDetail";
+// import Nav from "../components/Navbar/index";
+import Title from "../utils/Title/Title";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 import {
   Nav,
@@ -20,7 +20,7 @@ import {
   CommonContentArea,
   BoardSlide,
   CommonContentTools,
-} from "../component/common/Layout/Layout";
+} from "../components/common/Layout/Layout";
 
 function FreePost() {
   const { id } = useParams();

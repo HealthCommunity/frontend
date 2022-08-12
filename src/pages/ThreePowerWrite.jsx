@@ -1,6 +1,5 @@
-import ThreeBoardPost from "../components/Board/BoardPost/ThreeBoardPost";
-// import Nav from "../component/Navbar/index";
-import Title from "../components/Title";
+import ThreeBoardPost from "../components/Board/ThreePower/ThreeBoardPost";
+import Title from "../utils/Title/Title";
 
 import {
   Nav,
@@ -18,7 +17,7 @@ import {
   CommonContentArea,
   BoardSlide,
   CommonContentTools,
-} from "../component/common/Layout/Layout";
+} from "../components/common/Layout/Layout";
 
 function exerciseWrite() {
   return (

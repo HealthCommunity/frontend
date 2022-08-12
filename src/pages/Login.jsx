@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
-import styled from "styled-components";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
 import UserLogin from "../components/User/UserLogin";
 import { SnsNav, SnsList, SnsItem } from "../components/Login/SnsNav";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 import {
   ContentBackgroud,

@@ -1,7 +1,5 @@
-import ExercisePost from "../components/Board/BoardPost/ExercisePost";
-// import Nav from "../component/Navbar/index";
-import Title from "../components/Title";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import ExercisePost from "../components/Board/Exercise/ExercisePost";
+import Title from "../utils/Title/Title";
 
 import {
   Nav,
@@ -19,7 +17,7 @@ import {
   CommonContentArea,
   BoardSlide,
   CommonContentTools,
-} from "../component/common/Layout/Layout";
+} from "../components/common/Layout/Layout";
 
 function exerciseWrite() {
   return (

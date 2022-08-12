@@ -1,8 +1,8 @@
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
 import ContentBody from "../components/Profile/ContentBody";
 import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 function Profile() {
   return (

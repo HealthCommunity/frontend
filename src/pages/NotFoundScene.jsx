@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Title from "../components/Title";
-import Nav from "../component/Navbar/index";
-import { WidthAreaSpace } from "../components/Layout/CommonLayout";
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 const NotFoundArea = styled.div`
   box-sizing: border-box;
   width: 100%;
