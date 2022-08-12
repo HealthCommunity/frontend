@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputTextDesc from "./InputTextDesc";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "../Login/LoginLayout";
+import { UserFormGroup } from "./LoginLayout";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { isLogin } from "../../atom";

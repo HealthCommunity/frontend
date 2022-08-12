@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const SignTab = styled.div`
+const SelectTabBar = styled.div`
     display: flex;
     margin-top: 28px;
     width: 100%;
 `;
 
-const SignTabItem = styled.div`
+const SelectTabItem = styled.div`
     flex: 1 1;
     font-size: ${(props) => props.theme.fontSizeH4};
     line-height: 47px;
@@ -32,7 +32,7 @@ const SignTabItem = styled.div`
     }
 `;
 
-export const SnsList = styled.ul`
+export const SnsLinkList = styled.ul`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -40,19 +40,19 @@ export const SnsList = styled.ul`
     justify-content: center;
 `;
 
-export const SnsItem = styled.li`
+export const SnsLinkItem = styled.li`
     img {
         width: 100%;
         height: 70px;
     }
 `;
 
-export function SnsNav({ onChange, typeName }) {
+export function SelectSNSTab({ onChange, typeName }) {
     let navSelect = typeName === "emaillogin";
 
     return (
-        <SignTab>
-            <SignTabItem isActive={navSelect}>
+        <SelectTabBar>
+            <SelectTabItem isActive={navSelect}>
                 <a
                     href="/#"
                     onClick={(e) => {
@@ -60,10 +60,10 @@ export function SnsNav({ onChange, typeName }) {
                         onChange("emaillogin");
                     }}
                 >
-                    이메일
+                    아이디로 가입
                 </a>
-            </SignTabItem>
-            <SignTabItem isActive={!navSelect}>
+            </SelectTabItem>
+            <SelectTabItem isActive={!navSelect}>
                 <a
                     href="/#"
                     onClick={(e) => {
@@ -71,9 +71,9 @@ export function SnsNav({ onChange, typeName }) {
                         onChange("snslogin");
                     }}
                 >
-                    sns
+                    SNS로 가입
                 </a>
-            </SignTabItem>
-        </SignTab>
+            </SelectTabItem>
+        </SelectTabBar>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const InputGroup = styled.div`
+    position: relative;
     width: 100%;
     margin: 8px 0;
 `;
@@ -9,34 +10,45 @@ const InputGroup = styled.div`
 const Input = styled.input`
     box-sizing: border-box;
     width: 100%;
-    height: 45px;
+    height: 50px;
     color: ${(props) => props.theme.fontColor};
-    font-size: ${(props) => props.theme.fontSizeH5};
-    padding: 0 20px;
-    border-radius: ${(props) => props.theme.radiusSize20};
+    padding: 12px 20px;
     background-color: ${(props) => props.theme.bgColorSub};
-    border: 1px solid #ccc;
-    line-height: 45px !important;
     margin-bottom: 2px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+    border: 1px solid #eeeeee;
+    border-radius: 60px;
 
     :active {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #222222;
         outline: none;
         border: 1px solid ${(props) => props.theme.colorPointBlue200};
     }
 
     :focus {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #222222;
         outline: none;
         border: 1px solid ${(props) => props.theme.colorPointBlue200};
     }
 `;
 
 const Span = styled.span`
-    color: ${(props) =>
-        props.isSuccess
-            ? props.theme.colorPointOrange100
-            : props.theme.colorPointBlue200};
-    font-size: ${(props) => props.theme.fontSizeH6};
-    margin-left: 16px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    color: ${(props) => (props.isSuccess ? "#0066FF;" : "#DA0808")};
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
 `;
 
 export default function InputDescText({

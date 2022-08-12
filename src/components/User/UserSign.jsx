@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import InputTextDesc from "./InputTextDesc";
-import { UserFormGroup } from "../Login/LoginLayout";
+import { UserFormGroup, InputTextLabel, InputTextGroup } from "./LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
 
 import axios from "axios";
@@ -38,48 +38,48 @@ export default function UserSign() {
 
     const checkValidityId = (id) => {
         if (id.length < 5) {
-            return [false, "아이디 5~12자 문자입니다."];
+            return [false, "5~12자를 입력하세요"];
         } else if (id.length > 12) {
-            return [false, "아이디 5~12자 문자입니다."];
+            return [false, "5~12자를 입력하세요"];
         } else {
             if (isRuleId(id)) {
-                return [true, "사용 가능 아이디입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않은 아이디입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
     const checkValidityPassword = (password) => {
         if (password.length < 8) {
-            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
+            return [false, "숫자, 특수문자 포함"];
         } else if (password.length > 16) {
-            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
+            return [false, "숫자, 특수문자 포함"];
         } else {
             if (isRulePassword(password)) {
-                return [true, "사용 가능 비밀번호입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않은 비밀번호입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
     const checkDoublePassword = (password) => {
         if (password !== usrInputs.password) {
-            return [false, "비밀번호가 일치하지 않습니다."];
+            return [false, "비밀번호 불일치"];
         } else {
-            return [true, "동일한 비밀번호입니다."];
+            return [true, "사용 가능"];
         }
     };
 
     const checkValidityNickname = (nickname) => {
         if (nickname.length < 2) {
-            return [false, "닉네임은 2~10자 문자입니다."];
+            return [false, "2~10자를 입력하세요"];
         } else if (nickname.length > 10) {
-            return [false, "닉네임은 2~10자 문자입니다."];
+            return [false, "2~10자를 입력하세요"];
         } else {
             if (isRuleNick(nickname)) {
-                return [true, "올바른 닉네임입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않는 닉네임입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
@@ -135,41 +135,48 @@ export default function UserSign() {
     };
 
     return (
-        <UserFormGroup onSubmit={handleSubmit} style={{ height: "450px" }}>
-            <InputTextDesc
-                type="text"
-                name="id"
-                placeholder="아이디"
-                onChange={handleChange}
-                onValidation={checkValidityId}
-                required
-            />
-
-            <InputTextDesc
-                type="password"
-                name="password"
-                placeholder="비밀번호"
-                onChange={handleChange}
-                onValidation={checkValidityPassword}
-                required
-            />
-
-            <InputTextDesc
-                type="password"
-                name="checkPassword"
-                placeholder="비밀번호 확인"
-                onChange={handleChange}
-                onValidation={checkDoublePassword}
-                required
-            />
-            <InputTextDesc
-                type="text"
-                name="nickname"
-                placeholder="닉네임"
-                onChange={handleChange}
-                onValidation={checkValidityNickname}
-                required
-            />
+        <UserFormGroup onSubmit={handleSubmit} style={{ height: "510px" }}>
+            <InputTextGroup>
+                <InputTextLabel>아이디</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="id"
+                    placeholder="아이디 5~12자 입력"
+                    onChange={handleChange}
+                    onValidation={checkValidityId}
+                    required
+                />
+            </InputTextGroup>
+            <InputTextGroup>
+                <InputTextLabel>비밀번호</InputTextLabel>
+                <InputTextDesc
+                    type="password"
+                    name="password"
+                    placeholder="비밀번호 8~16자, 숫자, 특수문자 포함"
+                    onChange={handleChange}
+                    onValidation={checkValidityPassword}
+                    required
+                />
+                <InputTextDesc
+                    type="password"
+                    name="checkPassword"
+                    placeholder="비밀번호 재입력"
+                    onChange={handleChange}
+                    onValidation={checkDoublePassword}
+                    required
+                />
+            </InputTextGroup>
+            <InputTextGroup>
+                <InputTextLabel>닉네임</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="nickname"
+                    placeholder="닉네임 입력"
+                    onChange={handleChange}
+                    onValidation={checkValidityNickname}
+                    required
+                />
+            </InputTextGroup>
             <CheckInput>
                 <input
                     type="checkbox"
@@ -183,35 +190,38 @@ export default function UserSign() {
                 </Label>
             </CheckInput>
             <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
+
+            <LinkGroup>
+                <Link to="/login">
+                    <Label>로그인하기</Label>
+                </Link>
+            </LinkGroup>
         </UserFormGroup>
     );
 }
 
 const Label = styled.label`
-    margin-bottom: 10px;
     font-size: ${(props) => props.theme.fontSizeH5};
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-    @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #888888;
+    cursor: pointer;
 `;
 
 const CheckInput = styled.div`
+    margin: 12px 0 12px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-    margin: 0px 0px;
     input {
         margin: 0 8px 0 0;
     }
-    label {
-        margin-top: 8px;
-    }
+`;
+
+const LinkGroup = styled.div`
+    margin-top: 24px;
 `;

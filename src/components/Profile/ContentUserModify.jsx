@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import InputTextDesc from "../User/InputTextDesc";
+import { UserFormGroup } from "../User/LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "../Login/LoginLayout";
 import { ProfileContainerCenter } from "./ProfileLayout";
 import axios from "axios";
 
