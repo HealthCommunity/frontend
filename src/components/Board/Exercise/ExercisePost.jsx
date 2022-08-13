@@ -72,8 +72,8 @@ function BoardNewWrite() {
       .post(url, formData, config)
       .then((response) => {
         console.log(response);
-        if (response.data.status === "200") {
-          navigate("/exercise");
+        if (response.status === 200) {
+          navigate("/exercisepost");
         }
       })
       .catch((error) =>

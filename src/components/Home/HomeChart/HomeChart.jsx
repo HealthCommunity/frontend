@@ -4,8 +4,7 @@ import { threechart } from "./threechart";
 
 const HomeChartDiv = styled.div`
   height: 70vh;
-  padding-top: 30px;
-  margin: 30px 20px;
+  margin: 100px 20px;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
 `;

@@ -22,7 +22,7 @@ export const NavLogoItem = styled.div`
 
 export const NavBoardDiv = styled.div`
   display: flex;
-  width: 45%;
+  width: 35%;
   justify-content: center;
   font-family: "GangwonEduPower";
   font-weight: 400;
@@ -32,7 +32,7 @@ export const NavBoardDiv = styled.div`
 
 export const NavItemSelect = styled.div`
   display: flex;
-  width: 45%;
+  width: 55%;
   justify-content: flex-end;
   align-items: center;
   margin: 0px 50px;
