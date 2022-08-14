@@ -43,7 +43,7 @@ export default function Home() {
             <CommonContentsLeft>
               {/* 홈화면 인기사진 리스트 시작 */}
               <CommonTitleArea>
-                <CommonTitleTitle>
+                <CommonTitleTitle style={{ marginTop: "100px" }}>
                   <img src={FavoriteImage} alt="favorite" />
                   <CommonTitleText>이번주 인기사진</CommonTitleText>
                 </CommonTitleTitle>

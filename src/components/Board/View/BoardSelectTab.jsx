@@ -75,16 +75,17 @@ const TabList = styled.div`
 `;
 
 const TabItem = styled.div`
-  font-family: "GangwonEduPower";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   display: flex;
   align-items: center;
   margin: 0px 20px;
-
   letter-spacing: 1px;
   cursor: pointer;
+  a {
+    font-family: "GangwonEduPowerExtraBoldA";
+  }
 `;
 
 export const TabItemImage = styled.img`
