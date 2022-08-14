@@ -3,8 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { isDarkAtom } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -27,6 +26,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -64,6 +64,7 @@ a {
 
 function App() {
     const isDark = useRecoilValue(isDarkAtom);
+
     return (
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
             <GlobalStyle />
