@@ -141,8 +141,7 @@ export default function UserSign() {
                     }
                 })
                 .catch(function (error) {
-                    console.log(error);
-                    console.log("회원가입 실패", error);
+                    alert("회원가입이 실패하였습니다.");
                 });
         }
     };
