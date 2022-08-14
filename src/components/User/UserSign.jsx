@@ -130,15 +130,13 @@ export default function UserSign() {
             axios
                 .post("/api/user/join", myData)
                 .then(function (response) {
-                    console.log(response);
-
                     if (response.data.status === "0002") {
                         alert(response.data.message);
                     } else if (response.data.status === "0003") {
                         alert(response.data.message);
                     } else {
                         alert(response.data.message);
-                        console.log("회원가입 성공");
+                        alert("회원가입 성공");
                         navigate("/login");
                     }
                 })
