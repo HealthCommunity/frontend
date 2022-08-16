@@ -167,7 +167,7 @@ export default function Nav() {
             <Circle toggle={toggle} />
           </ToggleBtn>
         </NavItem>
-        {useLogin === false ? (
+        {!userData ? (
           <>
             <Link to="/login">
               <NavItem>로그인</NavItem>

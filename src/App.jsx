@@ -5,7 +5,6 @@ import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
 import React from "react";
 import "./assets/font/font.css";
-import React, { useEffect, useState } from "react";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
