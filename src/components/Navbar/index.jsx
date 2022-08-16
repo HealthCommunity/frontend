@@ -13,10 +13,10 @@ import {
 import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import useGetUserData from "../../api/useGetUserData";
+import useUserData from "../../api/useUserData";
 
 export default function Nav() {
-    const [userData, refetch] = useGetUserData(); //로그인 상태 유저 데이터 가져옴
+    const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
     let navigate = useNavigate();
     let { pathname } = useLocation();
     const [toggle, setToggle] = useState(false);

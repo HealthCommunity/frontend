@@ -17,11 +17,11 @@ import NotFoundScene from "./pages/NotFoundScene";
 import ThreePowerWrite from "./pages/ThreePowerWrite";
 import FreeWrite from "./pages/FreeWrite";
 
-import useGetUserData from "./api/useGetUserData";
+import useUserData from "./api/useUserData";
 import { useEffect } from "react";
 
 function Router() {
-    const [, reFetch] = useGetUserData();
+    const [, reFetch] = useUserData();
 
     useEffect(() => {
         reFetch();

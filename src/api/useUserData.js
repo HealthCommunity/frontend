@@ -7,7 +7,7 @@ const currentUserData = atom({
     default: null,
 });
 
-export default function useGetUserData() {
+export default function useUserData() {
     const [userData, setUserData] = useRecoilState(currentUserData);
 
     const reFetch = useCallback(() => {
@@ -15,12 +15,12 @@ export default function useGetUserData() {
             .get(`/api/user`)
             .then(({ data }) => {
                 setUserData(data.data);
-                console.log("useGetUserData의 data", data);
+                console.log("useUserData의 data", data);
             })
             .catch((error) => {
                 setUserData(null);
                 console.log(
-                    "useGetUserData의 로그인 없어서 회원 데이터 가져오지 못함",
+                    "useUserData의 로그인 없어서 회원 데이터 가져오지 못함",
                     error
                 );
             });

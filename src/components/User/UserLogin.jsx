@@ -10,10 +10,10 @@ import {
 } from "./LoginLayout";
 import axios from "axios";
 import Button from "../common/Button";
-import useGetUserData from "../../api/useGetUserData";
+import useUserData from "../../api/useUserData";
 
 export default function UserInputForm() {
-    const [, refetch] = useGetUserData();
+    const [, refetch] = useUserData();
 
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
