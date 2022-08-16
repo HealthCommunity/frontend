@@ -1,15 +1,17 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Nav from "../components/Navbar/index";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import axios from "axios";
+import { useEffect } from "react";
 
 function SearchPage() {
   const { state } = useLocation();
   useEffect(() => {
-    console.log(state);
+    console.log("전달하는데이터", state);
     axios
-      .get("/search", { state })
+      .get("/api/search", {
+        params: { select: state.select, keyword: state.keyword },
+      })
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -17,9 +19,10 @@ function SearchPage() {
         }
       })
       .catch(function (error) {
-        console.log("로그아웃 실패", error);
+        console.log("검색결과 없음", error);
       });
-  }, []);
+  });
+
   return (
     <>
       <Nav />
