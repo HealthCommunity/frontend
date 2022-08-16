@@ -6,7 +6,7 @@ import ContentUserDropOut from "./ContentUserDropOut";
 import axios from "axios";
 import { useEffect } from "react";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
-import { useUserId } from "../../api/useUserId";
+import { currentUserState } from "../../api/useUserData";
 import { useRecoilValue } from "recoil";
 
 function Group({ children, selected }) {
@@ -21,8 +21,8 @@ function GroupItem({ children }) {
 export default function ContentBody() {
     const [selected, setSelected] = useState("profile");
     const [myInfo, setMyInfo] = useState(null);
-    const userId = useRecoilValue(useUserId);
-    console.log("nav", userId);
+    const userId = useRecoilValue(currentUserState);
+    console.log("마이페이지 회원데이터 읽어는 올수있음", userId);
 
     // useEffect(() => {
     //     axios.get(`/api/user`).then((res) => {

@@ -1,5 +1,5 @@
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom, isLogin } from "../../atom";
 import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
@@ -16,8 +16,10 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { currentUserState } from "../../api/useUserData";
+import useGetUserData from "../../api/useGetUserData";
 
 export default function Nav() {
+    const [userData, refetch] = useGetUserData(); //로그인 상태 유저 데이터 가져옴
     let navigate = useNavigate();
     let { pathname } = useLocation();
     const [toggle, setToggle] = useState(false);
@@ -30,8 +32,7 @@ export default function Nav() {
     const clickedToggle = () => {
         setToggle((prev) => !prev);
     };
-    const setLogin = useSetRecoilState(isLogin);
-    const useLogin = useRecoilValue(isLogin);
+
     const isLoginChange = () => {
         axios
             .post("/api/user/logout")
@@ -39,11 +40,12 @@ export default function Nav() {
                 console.log(response);
                 if (response.status === 200) {
                     console.log("로그아웃 성공");
+                    refetch();
                     navigate("/");
-                    setLogin((prev) => !prev);
                 }
             })
             .catch(function (error) {
+                refetch();
                 console.log("로그아웃 실패", error);
             });
     };
@@ -61,9 +63,8 @@ export default function Nav() {
             window.removeEventListener("scroll", handleFollow); // addEventListener 함수를 삭제
         };
     });
-    const currentUser = useRecoilValue(currentUserState);
-    console.log(currentUser);
-    // 스크롤
+    const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
+    console.log();
     return (
         <NavDiv
             scroll={ScrollY === 0 ? "#222222" : "white"}
@@ -107,7 +108,7 @@ export default function Nav() {
                         <Circle toggle={toggle} />
                     </ToggleBtn>
                 </NavItem>
-                {!currentUser ? (
+                {!userData ? (
                     <>
                         <NavItem>
                             <Link to="/login">로그인</Link>

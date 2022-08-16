@@ -1,5 +1,6 @@
 // import { ReactComponent as ArrowIcon } from "../../../assets/icons/ic_arrow.svg";
 import styled, { css } from "styled-components";
+import ArrowIcon from "../../../assets/images/board_prev.svg";
 
 const BtnSlideControl = styled.button`
     position: absolute;
@@ -27,8 +28,7 @@ const BtnSlideControl = styled.button`
 export default function SliderButton({ direction, onClick }) {
     return (
         <BtnSlideControl onClick={onClick} direction={direction ? 1 : 0}>
-            {/* <ArrowIcon width="16" height="16" fill="#333" /> */}
-            {/* <button></button> */}
+            <img src={ArrowIcon} alt="슬라이드버튼"></img>
         </BtnSlideControl>
     );
 }

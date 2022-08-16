@@ -50,8 +50,6 @@ export default function BoardFetchItems({ category = "" }) {
         };
     }, [page]);
 
-    console.log(itemList);
-
     return (
         <>
             {isLoading ? (
