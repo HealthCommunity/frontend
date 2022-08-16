@@ -3,11 +3,8 @@ import ProfileNav from "./ProfileNav";
 import { ProfileContainer } from "./ProfileLayout";
 import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
-import axios from "axios";
-import { useEffect } from "react";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
-import { currentUserState } from "../../api/useUserData";
-import { useRecoilValue } from "recoil";
+import useGetUserData from "../../api/useGetUserData";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -20,17 +17,10 @@ function GroupItem({ children }) {
 
 export default function ContentBody() {
     const [selected, setSelected] = useState("profile");
-    const [myInfo, setMyInfo] = useState(null);
-    const userId = useRecoilValue(currentUserState);
-    console.log("마이페이지 회원데이터 읽어는 올수있음", userId);
+    const [userData, refetch] = useGetUserData(); //로그인 상태 유저 데이터 가져옴
 
-    // useEffect(() => {
-    //     axios.get(`/api/user`).then((res) => {
-    //         setMyInfo(res.data.data);
-    //     });
-    // }, []);
-
-    //console.log(myInfo);
+    const { nickName, loginId, bigThreePower } = userData;
+    const { bench, dead, squat, sum } = bigThreePower;
 
     return (
         <ProfileContainer>
@@ -42,30 +32,30 @@ export default function ContentBody() {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
-                    {!!myInfo && (
+                    {!!userData && (
                         <div>
-                            <div>{myInfo.loginId}</div>
-                            <div>{myInfo.nickName}</div>
-                            <div>{myInfo.bigThreePower.bench}</div>
-                            <div>{myInfo.bigThreePower.dead}</div>
-                            <div>{myInfo.bigThreePower.squat}</div>
-                            <div>{myInfo.bigThreePower.sum}</div>
+                            <div>{loginId}</div>
+                            <div>{nickName}</div>
+                            <div>{bench}</div>
+                            <div>{dead}</div>
+                            <div>{squat}</div>
+                            <div>{sum}</div>
                         </div>
                     )}
 
-                    <>{!!myInfo && <BoardFetchItems category={"user"} />}</>
+                    <>{!!userData && <BoardFetchItems category={"user"} />}</>
                 </GroupItem>
                 <GroupItem name="profileModify">
-                    {!!myInfo && (
+                    {!!userData && (
                         <ContentUserModify
-                            loginId={myInfo.loginId}
+                            loginId={loginId}
                         ></ContentUserModify>
                     )}
                 </GroupItem>
                 <GroupItem name="userDropOut">
-                    {!!myInfo && (
+                    {!!userData && (
                         <ContentUserDropOut
-                            loginId={myInfo.loginId}
+                            loginId={loginId}
                         ></ContentUserDropOut>
                     )}
                 </GroupItem>

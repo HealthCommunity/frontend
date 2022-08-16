@@ -25,7 +25,6 @@ function Router() {
 
     useEffect(() => {
         reFetch();
-        console.log("라우터 실행");
     }, [reFetch]);
 
     return (

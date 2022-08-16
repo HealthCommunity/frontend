@@ -19,7 +19,10 @@ export default function useGetUserData() {
             })
             .catch((error) => {
                 setUserData(null);
-                console.log("useGetUserData의 에러", error);
+                console.log(
+                    "useGetUserData의 로그인 없어서 회원 데이터 가져오지 못함",
+                    error
+                );
             });
     }, []);
 

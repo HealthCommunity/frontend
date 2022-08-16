@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import InputTextDesc from "./InputTextDesc";
 import { useNavigate, Link } from "react-router-dom";
-import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
-import { isLogin } from "../../atom";
 import {
     UserFormGroup,
     InputTextLabel,
@@ -12,20 +10,13 @@ import {
 } from "./LoginLayout";
 import axios from "axios";
 import Button from "../common/Button";
-import { currentUserState } from "../../api/useUserData";
 import useGetUserData from "../../api/useGetUserData";
 
 export default function UserInputForm() {
     const [, refetch] = useGetUserData();
-    // const [, setCurrentUser] = useRecoilState(currentUserState);
-
-    //const currentUser = useRecoilValue(currentUserState);
 
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
-
-    //const setLogin = useSetRecoilState(isLogin);
-    const userId = useSetRecoilState(currentUserState);
 
     const [usrInputs, setUsrInputs] = useState({
         id: "",
@@ -57,12 +48,9 @@ export default function UserInputForm() {
                 credentials: "include",
             })
             .then(function (response) {
-                console.log(response);
                 console.log("로그인 성공");
                 refetch();
                 navigate("/");
-                //setLogin(true);
-                // userId();
             })
             .catch(function (error) {
                 console.log("로그인 실패", error);

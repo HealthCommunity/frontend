@@ -1,6 +1,4 @@
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { isDarkAtom, isLogin } from "../../atom";
 import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
 import SearchImage from "../../assets/images/common_search_bk_24.svg";
@@ -15,7 +13,6 @@ import {
 import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { currentUserState } from "../../api/useUserData";
 import useGetUserData from "../../api/useGetUserData";
 
 export default function Nav() {
@@ -63,8 +60,7 @@ export default function Nav() {
             window.removeEventListener("scroll", handleFollow); // addEventListener 함수를 삭제
         };
     });
-    const [currentUser, setCurrentUser] = useRecoilState(currentUserState);
-    console.log();
+
     return (
         <NavDiv
             scroll={ScrollY === 0 ? "#222222" : "white"}
