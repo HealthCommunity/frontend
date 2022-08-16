@@ -71,8 +71,8 @@ function BoardNewWrite() {
     axios
       .post(url, formData, config)
       .then((response) => {
-        if (response.data.status === "200") {
-          navigate("/free");
+        if (response.status === 200) {
+          navigate("/freepost");
         }
       })
       .catch((error) =>

@@ -11,10 +11,6 @@ export function BoardSelectTab({ onChange, typeName }) {
   return (
     <TabList>
       <TabItem>
-        <TabItemImage
-          src={typeName === "threepowerpost" ? ThreeColorImage : ThreeImage}
-          style={{ marginLeft: "25px" }}
-        />
         <a
           href="/#"
           onClick={(e) => {
@@ -26,13 +22,14 @@ export function BoardSelectTab({ onChange, typeName }) {
             fontWeight: typeName === "threepowerpost" ? "600" : "400",
           }}
         >
+          <TabItemImage
+            src={typeName === "threepowerpost" ? ThreeColorImage : ThreeImage}
+            style={{ marginLeft: "25px" }}
+          />
           3대력게시판
         </a>
       </TabItem>
       <TabItem>
-        <TabItemImage
-          src={typeName === "exercisepost" ? ExerciseColorImage : ExerciseImage}
-        />
         <a
           href="/#"
           onClick={(e) => {
@@ -44,13 +41,15 @@ export function BoardSelectTab({ onChange, typeName }) {
             fontWeight: typeName === "exercisepost" ? "600" : "400",
           }}
         >
+          <TabItemImage
+            src={
+              typeName === "exercisepost" ? ExerciseColorImage : ExerciseImage
+            }
+          />
           운동게시판
         </a>
       </TabItem>
       <TabItem>
-        <TabItemImage
-          src={typeName === "freepost" ? FreeColorImage : FreeImage}
-        />
         <a
           href="/#"
           onClick={(e) => {
@@ -62,6 +61,9 @@ export function BoardSelectTab({ onChange, typeName }) {
             fontWeight: typeName === "freepost" ? "600" : "400",
           }}
         >
+          <TabItemImage
+            src={typeName === "freepost" ? FreeColorImage : FreeImage}
+          />
           자유게시판
         </a>
       </TabItem>
@@ -75,16 +77,13 @@ const TabList = styled.div`
 `;
 
 const TabItem = styled.div`
-  font-family: "GangwonEduPower";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  display: flex;
-  align-items: center;
   margin: 0px 20px;
-
   letter-spacing: 1px;
   cursor: pointer;
+  font-family: "GangwonEduPowerExtraBoldA";
 `;
 
 export const TabItemImage = styled.img`

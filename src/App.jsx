@@ -4,6 +4,7 @@ import { isDarkAtom } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
 import React from "react";
+import "./assets/font/font.css";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -63,13 +64,13 @@ a {
 `;
 
 function App() {
-    const isDark = useRecoilValue(isDarkAtom);
+  const isDark = useRecoilValue(isDarkAtom);
 
-    return (
-        <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-            <GlobalStyle />
-            <Router />
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <GlobalStyle />
+      <Router />
+    </ThemeProvider>
+  );
 }
 export default App;
