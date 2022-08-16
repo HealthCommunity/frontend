@@ -97,19 +97,27 @@ export default function Nav() {
           : `${70 + ScrollY / 100}px`
       }
     >
-      <NavLogoItem scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
-        <Link to="/">헬쓰리</Link>
-      </NavLogoItem>
+      <Link to="/">
+        <NavLogoItem scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
+          헬쓰리
+        </NavLogoItem>
+      </Link>
       <NavBoardDiv>
-        <NavItem color={pathname.includes("threepowerpost") ? "#0066FF" : ""}>
-          <Link to="/threepowerpost">3대력 게시판</Link>
-        </NavItem>
-        <NavItem color={pathname.includes("exercisepost") ? "#0066FF" : ""}>
-          <Link to="/exercisepost">운동 게시판</Link>
-        </NavItem>
-        <NavItem color={pathname.includes("freepost") ? "#0066FF" : ""}>
-          <Link to="/freepost">자유 게시판</Link>
-        </NavItem>
+        <Link to="/threepowerpost">
+          <NavItem color={pathname.includes("threepowerpost") ? "#0066FF" : ""}>
+            3대력 게시판
+          </NavItem>
+        </Link>
+        <Link to="/exercisepost">
+          <NavItem color={pathname.includes("exercisepost") ? "#0066FF" : ""}>
+            운동 게시판
+          </NavItem>
+        </Link>
+        <Link to="/freepost">
+          <NavItem color={pathname.includes("freepost") ? "#0066FF" : ""}>
+            자유 게시판
+          </NavItem>
+        </Link>
       </NavBoardDiv>
       <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
         <NavItem>
@@ -161,12 +169,12 @@ export default function Nav() {
         </NavItem>
         {useLogin === false ? (
           <>
-            <NavItem>
-              <Link to="/login">로그인</Link>
-            </NavItem>
-            <NavItem>
-              <Link to="/sign">회원가입</Link>
-            </NavItem>
+            <Link to="/login">
+              <NavItem>로그인</NavItem>
+            </Link>
+            <Link to="/sign">
+              <NavItem>회원가입</NavItem>
+            </Link>
           </>
         ) : (
           <>

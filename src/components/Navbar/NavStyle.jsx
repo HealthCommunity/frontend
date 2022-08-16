@@ -15,15 +15,14 @@ export const NavLogoItem = styled.p`
   font-family: "GangwonEduPowerExtraBoldA";
   color: ${(props) => props.scroll};
   text-align: center;
-  font-size: 32px;
   height: 30px;
-  width: 10%;
+  width: 150px;
   font-size: 40px;
 `;
 
 export const NavBoardDiv = styled.div`
   display: flex;
-  width: 35%;
+  width: 25%;
   justify-content: center;
 
   font-weight: 400;

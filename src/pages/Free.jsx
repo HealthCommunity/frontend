@@ -46,9 +46,9 @@ export default function Freeboard() {
       <Nav />
       <WidthAreaSpace>
         {useLogin ? (
-          <Link to={"write"}>
-            <ModalButton>글쓰기</ModalButton>
-          </Link>
+          <ModalButton>
+            <Link to={"write"}>글쓰기</Link>
+          </ModalButton>
         ) : null}
 
         <GroupItem category="freepost">

@@ -9,19 +9,12 @@ import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
 const ModalButton = styled.button`
-  height: 45px;
-  background: #fcfcfd;
-  border: 1px solid #e8eaee;
   box-sizing: border-box;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  min-width: 200px;
-  padding: 0 10px;
-  transition: all 0.4s;
+  height: 48px;
+  width: 10%;
+  background: #ffffff;
+  border: 1px solid #0066ff;
+  border-radius: 48px;
 `;
 
 export default function Board() {
@@ -32,9 +25,9 @@ export default function Board() {
       <Nav />
       <WidthAreaSpace>
         {useLogin ? (
-          <Link to={"write"}>
-            <ModalButton>글쓰기</ModalButton>
-          </Link>
+          <ModalButton>
+            <Link to={"write"}>글쓰기 </Link>
+          </ModalButton>
         ) : null}
 
         <GroupItem category="threepowerpost">
