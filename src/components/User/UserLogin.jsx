@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import InputTextDesc from "./InputTextDesc";
-import { ButtonPupple } from "../Share/ButtonPupple";
-import { UserFormGroup } from "../Login/LoginLayout";
-import { useNavigate } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { isLogin } from "../../atom";
-
+import { useNavigate, Link } from "react-router-dom";
+import {
+    UserFormGroup,
+    InputTextLabel,
+    InputTextGroup,
+    TextLabel,
+    LinkGroup,
+} from "./LoginLayout";
 import axios from "axios";
+import Button from "../common/Button";
+import useUserData from "../../api/useUserData";
 
 export default function UserInputForm() {
+    const [, refetch] = useUserData();
+
     axios.defaults.withCredentials = true;
     let navigate = useNavigate();
-
-    const setLogin = useSetRecoilState(isLogin);
 
     const [usrInputs, setUsrInputs] = useState({
         id: "",
@@ -44,35 +48,48 @@ export default function UserInputForm() {
                 credentials: "include",
             })
             .then(function (response) {
-                if (response.status === 200) {
-                    console.log("로그인 성공");
-                    navigate("/");
-                    setLogin(true);
-                }
+                console.log("로그인 성공");
+                refetch();
+                navigate("/");
             })
             .catch(function (error) {
                 console.log("로그인 실패", error);
+                refetch();
             });
     };
 
     return (
         <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
-            <InputTextDesc
-                type="text"
-                name="id"
-                placeholder="아이디"
-                onChange={handleChange}
-                required
-            />
+            <InputTextGroup>
+                <InputTextLabel>아이디</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="id"
+                    placeholder="아이디"
+                    onChange={handleChange}
+                    required
+                />
+            </InputTextGroup>
 
-            <InputTextDesc
-                type="password"
-                name="password"
-                placeholder="비밀번호"
-                onChange={handleChange}
-                required
-            />
-            <ButtonPupple type="submit" info={"로그인"}></ButtonPupple>
+            <InputTextGroup>
+                <InputTextLabel>비밀번호</InputTextLabel>
+                <InputTextDesc
+                    type="password"
+                    name="password"
+                    placeholder="비밀번호"
+                    onChange={handleChange}
+                    required
+                />
+            </InputTextGroup>
+
+            <Button size="lg" type="submit">
+                로그인
+            </Button>
+            <LinkGroup>
+                <Link to="/sign">
+                    <TextLabel>회원가입</TextLabel>
+                </Link>
+            </LinkGroup>
         </UserFormGroup>
     );
 }

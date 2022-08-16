@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import InputTextDesc from "./InputTextDesc";
-import { UserFormGroup } from "../Login/LoginLayout";
+import {
+    UserFormGroup,
+    InputTextLabel,
+    InputTextGroup,
+    TextLabel,
+    CheckInput,
+    LinkGroup,
+} from "./LoginLayout";
 import { ButtonPupple } from "../Share/ButtonPupple";
+import Button from "../common/Button";
 
 import axios from "axios";
 
@@ -38,48 +46,48 @@ export default function UserSign() {
 
     const checkValidityId = (id) => {
         if (id.length < 5) {
-            return [false, "아이디 5~12자 문자입니다."];
+            return [false, "5~12자를 입력하세요"];
         } else if (id.length > 12) {
-            return [false, "아이디 5~12자 문자입니다."];
+            return [false, "5~12자를 입력하세요"];
         } else {
             if (isRuleId(id)) {
-                return [true, "사용 가능 아이디입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않은 아이디입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
     const checkValidityPassword = (password) => {
         if (password.length < 8) {
-            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
+            return [false, "숫자, 특수문자 포함"];
         } else if (password.length > 16) {
-            return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
+            return [false, "숫자, 특수문자 포함"];
         } else {
             if (isRulePassword(password)) {
-                return [true, "사용 가능 비밀번호입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않은 비밀번호입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
     const checkDoublePassword = (password) => {
         if (password !== usrInputs.password) {
-            return [false, "비밀번호가 일치하지 않습니다."];
+            return [false, "비밀번호 불일치"];
         } else {
-            return [true, "동일한 비밀번호입니다."];
+            return [true, "사용 가능"];
         }
     };
 
     const checkValidityNickname = (nickname) => {
         if (nickname.length < 2) {
-            return [false, "닉네임은 2~10자 문자입니다."];
+            return [false, "2~10자를 입력하세요"];
         } else if (nickname.length > 10) {
-            return [false, "닉네임은 2~10자 문자입니다."];
+            return [false, "2~10자를 입력하세요"];
         } else {
             if (isRuleNick(nickname)) {
-                return [true, "올바른 닉네임입니다."];
+                return [true, "사용 가능"];
             }
-            return [false, "유효하지 않는 닉네임입니다."];
+            return [false, "사용 불가능"];
         }
     };
 
@@ -122,54 +130,66 @@ export default function UserSign() {
             axios
                 .post("/api/user/join", myData)
                 .then(function (response) {
-                    if (response.status === 200) {
-                        console.log(response);
-                        console.log("회원가입 성공");
+                    if (response.data.status === "0002") {
+                        alert(response.data.message);
+                    } else if (response.data.status === "0003") {
+                        alert(response.data.message);
+                    } else {
+                        alert(response.data.message);
+                        alert("회원가입 성공");
                         navigate("/login");
                     }
                 })
                 .catch(function (error) {
-                    console.log("회원가입 실패", error);
+                    console.log(error);
+                    alert("회원가입이 실패하였습니다.");
                 });
         }
     };
 
     return (
-        <UserFormGroup onSubmit={handleSubmit} style={{ height: "450px" }}>
-            <InputTextDesc
-                type="text"
-                name="id"
-                placeholder="아이디"
-                onChange={handleChange}
-                onValidation={checkValidityId}
-                required
-            />
-
-            <InputTextDesc
-                type="password"
-                name="password"
-                placeholder="비밀번호"
-                onChange={handleChange}
-                onValidation={checkValidityPassword}
-                required
-            />
-
-            <InputTextDesc
-                type="password"
-                name="checkPassword"
-                placeholder="비밀번호 확인"
-                onChange={handleChange}
-                onValidation={checkDoublePassword}
-                required
-            />
-            <InputTextDesc
-                type="text"
-                name="nickname"
-                placeholder="닉네임"
-                onChange={handleChange}
-                onValidation={checkValidityNickname}
-                required
-            />
+        <UserFormGroup onSubmit={handleSubmit} style={{ height: "510px" }}>
+            <InputTextGroup>
+                <InputTextLabel>아이디</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="id"
+                    placeholder="아이디 5~12자 입력"
+                    onChange={handleChange}
+                    onValidation={checkValidityId}
+                    required
+                />
+            </InputTextGroup>
+            <InputTextGroup>
+                <InputTextLabel>비밀번호</InputTextLabel>
+                <InputTextDesc
+                    type="password"
+                    name="password"
+                    placeholder="비밀번호 8~16자, 숫자, 특수문자 포함"
+                    onChange={handleChange}
+                    onValidation={checkValidityPassword}
+                    required
+                />
+                <InputTextDesc
+                    type="password"
+                    name="checkPassword"
+                    placeholder="비밀번호 재입력"
+                    onChange={handleChange}
+                    onValidation={checkDoublePassword}
+                    required
+                />
+            </InputTextGroup>
+            <InputTextGroup>
+                <InputTextLabel>닉네임</InputTextLabel>
+                <InputTextDesc
+                    type="text"
+                    name="nickname"
+                    placeholder="닉네임 입력"
+                    onChange={handleChange}
+                    onValidation={checkValidityNickname}
+                    required
+                />
+            </InputTextGroup>
             <CheckInput>
                 <input
                     type="checkbox"
@@ -178,40 +198,19 @@ export default function UserSign() {
                     name="isAgree"
                     onChange={handleIsAgree}
                 />
-                <Label htmlFor="agree">
+                <TextLabel htmlFor="agree">
                     이용약관 및 개인정보 수집∙이용에 동의합니다.
-                </Label>
+                </TextLabel>
             </CheckInput>
-            <ButtonPupple type="submit" info={"가입하기"}></ButtonPupple>
+            <Button size="lg" type="submit">
+                가입하기
+            </Button>
+
+            <LinkGroup>
+                <Link to="/login">
+                    <TextLabel>로그인</TextLabel>
+                </Link>
+            </LinkGroup>
         </UserFormGroup>
     );
 }
-
-const Label = styled.label`
-    margin-bottom: 10px;
-    font-size: ${(props) => props.theme.fontSizeH5};
-    @media all and (min-width: 480px) and (max-width: 767px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-    @media all and (max-width: 479px) {
-        font-size: ${(props) => props.theme.fontSizeH6};
-        white-space: nowrap;
-        letter-spacing: -1px;
-    }
-`;
-
-const CheckInput = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 0px 0px;
-    input {
-        margin: 0 8px 0 0;
-    }
-    label {
-        margin-top: 8px;
-    }
-`;
