@@ -5,27 +5,27 @@ import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import axios from "axios";
 
 function SearchPage() {
-  const { state } = useLocation();
-  useEffect(() => {
-    console.log(state);
-    axios
-      .get("/search", { state })
-      .then(function (response) {
-        console.log(response);
-        if (response.status === 200) {
-          console.log("데이터를 올바르게 가져왔습니다");
-        }
-      })
-      .catch(function (error) {
-        console.log("로그아웃 실패", error);
-      });
-  }, []);
-  return (
-    <>
-      <Nav />
-      <WidthAreaSpace></WidthAreaSpace>
-    </>
-  );
+    const { state } = useLocation();
+    useEffect(() => {
+        console.log(state);
+        axios
+            .get("/api/search", { state })
+            .then(function (response) {
+                console.log(response);
+                if (response.status === 200) {
+                    console.log("데이터를 올바르게 가져왔습니다");
+                }
+            })
+            .catch(function (error) {
+                console.log("검색 실패", error);
+            });
+    }, []);
+    return (
+        <>
+            <Nav />
+            <WidthAreaSpace></WidthAreaSpace>
+        </>
+    );
 }
 
 export default SearchPage;

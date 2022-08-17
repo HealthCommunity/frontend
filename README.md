@@ -1,26 +1,58 @@
-1. Router
+# 📡 헬쓰리
 
-   로그인 : Loing
-   회원가입: Sign
-   메인페이지 : Home
-   내정보페이지 : Profile #(Link를 이용하면 어떨까 싶습니다! 따로 router로 안만들고! )
-   -- 내정보 수정 : Profile/edit
-   -- 내정보 삭제 : Profile/delete
-   -- 회원 탈퇴 : Profile/remove
-   자유 게시판: FreeBoard
-   --자유게시판 보기 : FreePost
-   운동 게시판 : exercise
-   --운동게시판 보기 : exercisePost
-   3대력관련 : Board
-   --3대력게시판: BoardPost
+## 💁‍♂️ Introducing Project
 
-2. Skills
+> -   이용자에게 3대 운동인 스쿼트, 데드리프트, 벤치프레스 무게 3대 점수를 부여하고 순위를 매기는 것을 주제로한 운동 커뮤니티
 
-   -- useParams를 이용해 url로 넘어온 id값 받아옴
-   -- react Helmet 이용해서 title 변경
-   -- styled components , react-router-dom , react 설치
+## 📅 Date / Developer
 
-3. Folder Settings
-   components => 차후에 Routes 에서 작업한 내용들중 styled-components가 중복되면 component을 이용해 중복값 처리
-   FakeD => 게시판 Form 구현에 있어서 양식을 만들기위해 Fake Data를 사용할 경우 폴더에 저장 / Back-end API 가져오면 차후에 삭제
-   funcSkilss => 프로젝트 구현에 있어 중복된 function 중복값 처리
+> -   개발 기간 : 2022.06.22 ~ (진행 중)
+> -   팀 구성 : Frontend(2명), Backend(2명), Designer(1명)
+
+## 🛠 Using Skill
+
+> -   React
+> -   Styled Component
+> -   Recoil
+> -   axios
+> -   Nginx
+> -   Jenkins
+
+## 🧩 develop
+
+> -   메인화면
+> -   회원가입, 로그인, 마이페이지
+> -   삼대력게시판
+> -   운동게시판
+> -   자유게시판
+> -   게시글 검색
+> -   삼대력 부여
+> -   삼대력 순위
+
+## 🌐 배포
+
+> -   http://health-community.site/
+
+## 🔧 How To Use?
+
+#### start
+
+```
+npm install
+npm run start
+```
+
+build
+
+```
+npm run build
+```
+
+## 👓 Screen
+
+<p>운동커뮤니티 헬스리 메인화면</p>
+<center>
+  <img
+    src="./src/assets/images/readme_img.PNG"
+  />
+</center>
