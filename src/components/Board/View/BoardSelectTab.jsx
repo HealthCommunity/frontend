@@ -20,6 +20,8 @@ export function BoardSelectTab({ onChange, typeName }) {
           style={{
             color: typeName === "threepowerpost" ? "black" : "#888888",
             fontWeight: typeName === "threepowerpost" ? "600" : "400",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <TabItemImage
@@ -39,6 +41,8 @@ export function BoardSelectTab({ onChange, typeName }) {
           style={{
             color: typeName === "exercisepost" ? "black" : "#888888",
             fontWeight: typeName === "exercisepost" ? "600" : "400",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <TabItemImage
@@ -59,6 +63,8 @@ export function BoardSelectTab({ onChange, typeName }) {
           style={{
             color: typeName === "freepost" ? "black" : "#888888",
             fontWeight: typeName === "freepost" ? "600" : "400",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <TabItemImage
@@ -77,13 +83,12 @@ const TabList = styled.div`
 `;
 
 const TabItem = styled.div`
-  font-style: normal;
   font-weight: 400;
   font-size: 24px;
   margin: 0px 20px;
   letter-spacing: 1px;
   cursor: pointer;
-  font-family: "GangwonEduPowerExtraBoldA";
+  font-family: "GangwonEduPower";
 `;
 
 export const TabItemImage = styled.img`

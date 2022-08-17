@@ -36,6 +36,7 @@ function BoardDetail() {
     setCommentlist([...commentlist, data]);
     reset();
   };
+  console.log(boardData);
   return (
     <InfoDiv>
       <InfoTitle>{`${boardname} : ${boardData.title}`}</InfoTitle>

@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { atom, useRecoilState } from "recoil";
 
 const customStyles = {
   content: {
@@ -14,9 +15,14 @@ const customStyles = {
     margin: "0 auto",
   },
 };
+const currentUserData = atom({
+  key: "currentUserData",
+  default: null,
+});
 
 export default function PostThreePower() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [userData] = useRecoilState(currentUserData);
   const modalIsOpen = () => {
     setModalOpen(true);
   };
@@ -29,8 +35,9 @@ export default function PostThreePower() {
     reset: modalreset,
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
     axios
-      .post("/api/user/bigthreepower", data)
+      .post(`/api/user/${userData.loginId}/bigthreepower`, data)
       .then(function (response) {
         console.log("성공", response);
         alert("3대력이 저장되었습니다.");
