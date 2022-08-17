@@ -99,8 +99,8 @@ const BoardItemList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+    grid-column-gap: 32px;
+    grid-row-gap: 28px;
 `;
 
 const LodingScreen = styled.div`
