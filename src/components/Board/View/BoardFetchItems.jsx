@@ -9,7 +9,7 @@ import BoardForm from "./BoardForm";
 export default function BoardFetchItems({ category = "" }) {
     const { pathname } = useLocation();
     const [itemList, setItemList] = useState([]);
-    const [page, setPage] = useState(1); //현재 페이지
+    const [page, setPage] = useState(0); //현재 페이지
     const target = useRef();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -39,11 +39,14 @@ export default function BoardFetchItems({ category = "" }) {
 
     useEffect(() => {
         const observer = new IntersectionObserver(onIntersect, {
-            threshold: 0.4,
+            threshold: 0.5,
         });
         getRequest(page).then((items) => {
-            setItemList((prevItems) => [...prevItems, ...items]);
-            observer.observe(target.current); // 타겟 엘리먼트 지정
+            console.log("어레이", items);
+            if (items.length > 0) {
+                setItemList((prevItems) => [...prevItems, ...items]);
+                observer.observe(target.current); // 타겟 엘리먼트 지정
+            }
         });
         return () => {
             observer.disconnect();
@@ -99,8 +102,8 @@ const BoardItemList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+    grid-column-gap: 32px;
+    grid-row-gap: 28px;
 `;
 
 const LodingScreen = styled.div`

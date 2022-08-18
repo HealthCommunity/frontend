@@ -17,7 +17,7 @@ function GroupItem({ children }) {
 
 export default function ContentBody() {
     const [selected, setSelected] = useState("profile");
-    const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
+    const [userData, reFetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
 
     const { nickName, loginId, bigThreePower } = userData;
     const { bench, dead, squat, sum } = bigThreePower;
