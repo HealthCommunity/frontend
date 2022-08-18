@@ -1,7 +1,23 @@
 import styled from "styled-components";
 import SliderMain from "../PullSlider/SliderMain";
 
-const SliderBackground = styled.div`
+export default function AdverSlider({ data }) {
+    return (
+        <AdverBackground>
+            <SliderBackMain>
+                <SliderTest>
+                    다른 사람들의 3대 능력을
+                    <br /> 확인해보세요
+                </SliderTest>
+                <SliderContent>
+                    <SliderMain data={data} />
+                </SliderContent>
+            </SliderBackMain>
+        </AdverBackground>
+    );
+}
+
+const AdverBackground = styled.div`
     width: 1440px;
     height: 266px;
     padding: 22px 12px;
@@ -41,19 +57,3 @@ const SliderContent = styled.div`
     height: 226px;
     background-color: #ff81df;
 `;
-
-export default function AdverSlider({ data }) {
-    return (
-        <SliderBackground>
-            <SliderBackMain>
-                <SliderTest>
-                    다른 사람들의 3대 능력을
-                    <br /> 확인해보세요
-                </SliderTest>
-                <SliderContent>
-                    <SliderMain data={data} />
-                </SliderContent>
-            </SliderBackMain>
-        </SliderBackground>
-    );
-}

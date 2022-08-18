@@ -5,10 +5,10 @@ import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import BoardFetchItems from "../components/Board/View/BoardFetchItems";
-import AdverSlider from "../components/Slider/AdverSlider/AdverSlider";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
 
+import AdverSlider from "../components/Slider/AdverSlider/AdverSlider";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
