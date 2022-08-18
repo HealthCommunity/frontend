@@ -5,9 +5,13 @@ import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import BoardFetchItems from "../components/Board/View/BoardFetchItems";
-import AdverSliderMain from "../components/Slider/AdverSlider/AdverSliderMain";
+import AdverSlider from "../components/Slider/AdverSlider/AdverSlider";
 import { useRecoilValue } from "recoil";
 import { isLogin } from "../atom";
+
+import slide1 from "../assets/images/main-slide-img01.png";
+import slide2 from "../assets/images/main-slide-img02.png";
+import slide3 from "../assets/images/main-slide-img03.png";
 
 const ModalButton = styled.button`
     box-sizing: border-box;
@@ -19,13 +23,15 @@ const ModalButton = styled.button`
 `;
 
 export default function Board() {
+    const data = [slide1, slide2, slide3];
+
     const useLogin = useRecoilValue(isLogin);
     return (
         <>
             <Title name="Board" />
             <Nav />
             <WidthAreaSpace>
-                <AdverSliderMain />
+                <AdverSlider data={data} />
                 {useLogin ? (
                     <ModalButton>
                         <Link to={"write"}>글쓰기 </Link>
