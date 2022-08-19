@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
+import EyeIcon from "../../assets/images/common_view_16.svg";
 
 function BoardDetail() {
   const { id } = useParams();
@@ -36,25 +37,36 @@ function BoardDetail() {
     setCommentlist([...commentlist, data]);
     reset();
   };
-  console.log(boardData);
+  console.log("전체데이터", boardData);
+  console.log("현재 로그인 유저", boardData.sessionUserResponse);
+  console.log("글 작성자", boardData.userPostResponse);
   return (
     <InfoDiv>
-      <InfoTitle>{`${boardname} : ${boardData.title}`}</InfoTitle>
       <InfoTitleDiv>
-        <InfoTitleWrite>{`작성자 : ${boardData.nickName} `}</InfoTitleWrite>
-        <InfoTitleWrite>{`작성일 : ${
-          boardData.createdDate | "오늘씀"
-        } `}</InfoTitleWrite>
-        <InfoTitleWrite>{`view : ${boardData.view}`}</InfoTitleWrite>
+        <InfoTitle>{boardData?.title}</InfoTitle>
+        <InfoTitleWrite>
+          <img src={EyeIcon} alt="eye" />
+          {boardData?.view}
+        </InfoTitleWrite>
       </InfoTitleDiv>
-      {boardname === "threepowerpost" && <PostThreePower />}
-      <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
+      <div
+        style={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "#EEEEEE",
+          margin: "20px 0px",
+        }}
+      />
+      <InfoTitleDiv>
+        <InfoTitleWrite>{boardData?.userPostResponse?.nickName}</InfoTitleWrite>
+        <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
+      </InfoTitleDiv>
+      {(boardname === "threepowerpost") &
+        (boardData?.sessionUserResponse?.role === "MASTER") && (
+        <PostThreePower />
+      )}
       <BoardSummary>
-        {parser(
-          boardData.content === undefined
-            ? "<h1>빈공간입니다</h1>"
-            : boardData.content
-        )}
+        {parser(typeof boardData === String ? boardData?.content : "")}
       </BoardSummary>
       <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
