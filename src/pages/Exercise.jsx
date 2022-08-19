@@ -41,8 +41,8 @@ export default function Exercise() {
             <Link to={"write"}>글쓰기</Link>
           </ModalButton>
         ) : null}
-        <GroupItem category="threepowerpost">
-          <BoardFetchItems category="threepowerpost" />
+        <GroupItem category="exercisepost">
+          <BoardFetchItems category="exercisepost" />
         </GroupItem>
       </WidthAreaSpace>
     </>

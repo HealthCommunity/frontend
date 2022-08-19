@@ -29,7 +29,6 @@ export default function BoardFetchItems({ category = "" }) {
   }
 
   const getRequest = async (page) => {
-    console.log(page);
     setIsLoading(true);
     return axios
       .get(

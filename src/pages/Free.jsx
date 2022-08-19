@@ -57,8 +57,8 @@ export default function Freeboard() {
             <Link to={"write"}>글쓰기</Link>
           </ModalButton>
         ) : null}
-        <GroupItem category="threepowerpost">
-          <BoardFetchItems category="threepowerpost" />
+        <GroupItem category="freepost">
+          <BoardFetchItems category="freepost" />
         </GroupItem>
       </WidthAreaSpace>
     </>
