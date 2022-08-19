@@ -27,6 +27,7 @@ export const ProfileContainer = styled.section`
 export const ProfileContainerMyInfo = styled.section`
     box-sizing: border-box;
     width: 100%;
+    height: 500px;
     margin: 0 auto;
     padding: 32px;
     border-radius: ${(props) => props.theme.radiusSize20};

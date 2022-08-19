@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProfileNav from "./ProfileNav";
-import { ProfileContainer } from "./ProfileLayout";
+import { ProfileContainer, ProfileContainerMyInfo } from "./ProfileLayout";
 import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
+import DonutWithText from "../Chart/DonutWithText";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -19,6 +20,14 @@ export default function ContentBody() {
     const [selected, setSelected] = useState("profile");
     const [userData, reFetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
 
+    useEffect(() => {
+        reFetch();
+    }, []);
+
+    if (!userData) {
+        return <></>;
+    }
+
     const { nickName, loginId, bigThreePower } = userData;
     const { bench, dead, squat, sum } = bigThreePower;
 
@@ -32,6 +41,10 @@ export default function ContentBody() {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
+                    <ProfileContainerMyInfo>
+                        <DonutWithText></DonutWithText>
+                    </ProfileContainerMyInfo>
+
                     {!!userData && (
                         <div>
                             <div>{loginId}</div>
