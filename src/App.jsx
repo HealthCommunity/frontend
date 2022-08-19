@@ -4,7 +4,6 @@ import { isDarkAtom } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./theme";
 import React from "react";
-import "./assets/font/font.css";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,

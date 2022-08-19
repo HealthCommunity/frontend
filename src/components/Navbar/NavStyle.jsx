@@ -12,10 +12,9 @@ export const NavDiv = styled.div`
   z-index: 2;
 `;
 export const NavLogoItem = styled.p`
-  font-family: "GangwonEduPowerExtraBoldA";
+  font-family: "GangwonEduPower";
   color: ${(props) => props.scroll};
   text-align: center;
-  height: 30px;
   width: 150px;
   font-size: 40px;
 `;
@@ -24,7 +23,6 @@ export const NavBoardDiv = styled.div`
   display: flex;
   width: 25%;
   justify-content: center;
-
   font-weight: 400;
   font-size: 18px;
   color: #cccccc;
@@ -44,7 +42,7 @@ export const NavItem = styled.div`
   text-align: center;
   font-size: ${(props) => props.theme.fontSizeH5};
   font-weight: 600;
-  font-family: "GangwonEduPowerExtraBoldA";
+  font-family: "GangwonEduPower";
   cursor: pointer;
   color: ${(props) => props.color};
 `;
