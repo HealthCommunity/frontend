@@ -14,15 +14,17 @@ import {
 } from "./BoardDetailStyle";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
 import EyeIcon from "../../assets/images/common_view_16.svg";
+import { Navigate } from "react-router";
 
 function BoardDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
@@ -36,6 +38,11 @@ function BoardDetail() {
   const onSubmitValid = (data) => {
     setCommentlist([...commentlist, data]);
     reset();
+  };
+  const onDelete = () => {
+    axios.post(`/api/${boardname}/${id}/delete`).then((res) => {
+      navigate(`/${boardname}`);
+    });
   };
   console.log("전체데이터", boardData);
   console.log("현재 로그인 유저", boardData.sessionUserResponse);
@@ -68,7 +75,16 @@ function BoardDetail() {
       <BoardSummary>
         {parser(typeof boardData === String ? boardData?.content : "")}
       </BoardSummary>
-      <InfoExplanationDiv>
+      <div>
+        {boardData?.sessionUserResponse?.userId ===
+        boardData?.userPostResponse?.userId ? (
+          <button onClick={onDelete}>Delete</button>
+        ) : (
+          ""
+        )}
+      </div>
+      {/* 
+            <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
           댓글
         </InfoExplanationTitle>
@@ -88,6 +104,7 @@ function BoardDetail() {
           ))}
         </CommentList>
       </InfoExplanationDiv>
+      */}
     </InfoDiv>
   );
 }
