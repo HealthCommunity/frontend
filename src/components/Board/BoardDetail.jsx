@@ -44,6 +44,9 @@ function BoardDetail() {
       navigate(`/${boardname}`);
     });
   };
+  const onEdit = () => {
+    console.log("수정");
+  };
   console.log("전체데이터", boardData);
   console.log("현재 로그인 유저", boardData.sessionUserResponse);
   console.log("글 작성자", boardData.userPostResponse);
@@ -75,14 +78,17 @@ function BoardDetail() {
       <BoardSummary>
         {parser(typeof boardData === String ? boardData?.content : "")}
       </BoardSummary>
-      <div>
-        {boardData?.sessionUserResponse?.userId ===
-        boardData?.userPostResponse?.userId ? (
+
+      {boardData?.sessionUserResponse?.userId ===
+      boardData?.userPostResponse?.userId ? (
+        <div>
           <button onClick={onDelete}>Delete</button>
-        ) : (
-          ""
-        )}
-      </div>
+          <button onClick={onEdit}>Edit</button>
+        </div>
+      ) : (
+        ""
+      )}
+
       {/* 
             <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
