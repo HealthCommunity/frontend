@@ -31,10 +31,6 @@ function exerciseWrite() {
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>
-      {/* <Nav />
-            <WidthAreaSpace>
-                <ExercisePost />
-            </WidthAreaSpace> */}
     </>
   );
 }

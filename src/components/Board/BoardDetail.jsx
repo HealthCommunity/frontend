@@ -29,9 +29,10 @@ function BoardDetail() {
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
   useEffect(() => {
-    axios
-      .get(`/api/${boardname}/${id}`)
-      .then((res) => setBoardData(res.data.data));
+    axios.get(`/api/${boardname}/${id}`).then((res) => {
+      console.log("res", res);
+      setBoardData(res.data.data);
+    });
   }, []);
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const [commentlist, setCommentlist] = useState([]);
@@ -45,7 +46,7 @@ function BoardDetail() {
     });
   };
   const onEdit = () => {
-    console.log("수정");
+    navigate("edit");
   };
   console.log("전체데이터", boardData);
   console.log("현재 로그인 유저", boardData.sessionUserResponse);
@@ -72,12 +73,12 @@ function BoardDetail() {
         <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
       </InfoTitleDiv>
       {(boardname === "threepowerpost") &
-        (boardData?.sessionUserResponse?.role === "MASTER") && (
-        <PostThreePower />
+      (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
+        <PostThreePower item={boardData?.sessionUserResponse?.userId} />
+      ) : (
+        ""
       )}
-      <BoardSummary>
-        {parser(typeof boardData === String ? boardData?.content : "")}
-      </BoardSummary>
+      <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
 
       {boardData?.sessionUserResponse?.userId ===
       boardData?.userPostResponse?.userId ? (
