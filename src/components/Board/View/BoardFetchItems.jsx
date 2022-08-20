@@ -41,7 +41,6 @@ export default function BoardFetchItems({ category = "" }) {
             threshold: 0.5,
         });
         getRequest(page).then((items) => {
-            console.log("어레이", items);
             if (items.length > 0) {
                 setItemList((prevItems) => [...prevItems, ...items]);
                 observer.observe(target.current); // 타겟 엘리먼트 지정

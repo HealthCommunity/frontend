@@ -5,7 +5,6 @@ import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
-import DonutWithText from "../Chart/DonutWithText";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -41,9 +40,7 @@ export default function ContentBody() {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
-                    <ProfileContainerMyInfo>
-                        <DonutWithText></DonutWithText>
-                    </ProfileContainerMyInfo>
+                    <ProfileContainerMyInfo></ProfileContainerMyInfo>
 
                     {!!userData && (
                         <div>
