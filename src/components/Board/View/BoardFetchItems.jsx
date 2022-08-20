@@ -56,16 +56,18 @@ export default function BoardFetchItems({ category = "" }) {
     <>
       {isLoading ? (
         <BoardItemList>
-          {itemList.map(({ id, title, createdDate, nickname, view }) => (
+          {itemList.map(({ postId, title, createdDate, nickname, view }) => (
             <Link
-              key={`${categoryPath}${id}`}
-              to={`./${category === pathname.slice(1) ? "." : category}/${id}`}
+              key={`${categoryPath}${postId}`}
+              to={`./${
+                category === pathname.slice(1) ? "." : category
+              }/${postId}`}
             >
               <li>
                 {(category === "threepowerpost") |
                 (pathname === "threepowerpost") ? (
                   <BoardItemBox
-                    id={id}
+                    id={postId}
                     title={title}
                     createdDate={createdDate}
                     nickname={nickname}
@@ -73,7 +75,7 @@ export default function BoardFetchItems({ category = "" }) {
                   />
                 ) : (
                   <BoardForm
-                    id={id}
+                    id={postId}
                     title={title}
                     createdDate={createdDate}
                     nickname={nickname}

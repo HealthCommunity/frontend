@@ -14,21 +14,25 @@ import {
 } from "./BoardDetailStyle";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
+import EyeIcon from "../../assets/images/common_view_16.svg";
+import { Navigate } from "react-router";
 
 function BoardDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
   useEffect(() => {
-    axios
-      .get(`/api/${boardname}/${id}`)
-      .then((res) => setBoardData(res.data.data));
+    axios.get(`/api/${boardname}/${id}`).then((res) => {
+      console.log("res", res);
+      setBoardData(res.data.data);
+    });
   }, []);
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const [commentlist, setCommentlist] = useState([]);
@@ -36,27 +40,58 @@ function BoardDetail() {
     setCommentlist([...commentlist, data]);
     reset();
   };
-  console.log(boardData);
+  const onDelete = () => {
+    axios.post(`/api/${boardname}/${id}/delete`).then((res) => {
+      navigate(`/${boardname}`);
+    });
+  };
+  const onEdit = () => {
+    navigate("edit");
+  };
+  console.log("전체데이터", boardData);
+  console.log("현재 로그인 유저", boardData.sessionUserResponse);
+  console.log("글 작성자", boardData.userPostResponse);
   return (
     <InfoDiv>
-      <InfoTitle>{`${boardname} : ${boardData.title}`}</InfoTitle>
       <InfoTitleDiv>
-        <InfoTitleWrite>{`작성자 : ${boardData.nickName} `}</InfoTitleWrite>
-        <InfoTitleWrite>{`작성일 : ${
-          boardData.createdDate | "오늘씀"
-        } `}</InfoTitleWrite>
-        <InfoTitleWrite>{`view : ${boardData.view}`}</InfoTitleWrite>
+        <InfoTitle>{boardData?.title}</InfoTitle>
+        <InfoTitleWrite>
+          <img src={EyeIcon} alt="eye" />
+          {boardData?.view}
+        </InfoTitleWrite>
       </InfoTitleDiv>
-      {boardname === "threepowerpost" && <PostThreePower />}
-      <InfoExplanationTitle>게시글 내용</InfoExplanationTitle>
-      <BoardSummary>
-        {parser(
-          boardData.content === undefined
-            ? "<h1>빈공간입니다</h1>"
-            : boardData.content
-        )}
-      </BoardSummary>
-      <InfoExplanationDiv>
+      <div
+        style={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "#EEEEEE",
+          margin: "20px 0px",
+        }}
+      />
+      <InfoTitleDiv>
+        <InfoTitleWrite>{boardData?.userPostResponse?.nickName}</InfoTitleWrite>
+        <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
+      </InfoTitleDiv>
+      {(boardname === "threepowerpost") &
+      (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
+        <PostThreePower item={boardData?.sessionUserResponse?.userId} />
+      ) : (
+        <></>
+      )}
+      <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
+
+      {boardData?.sessionUserResponse?.userId ===
+      boardData?.userPostResponse?.userId ? (
+        <div>
+          <button onClick={onDelete}>Delete</button>
+          <button onClick={onEdit}>Edit</button>
+        </div>
+      ) : (
+        ""
+      )}
+
+      {/* 
+            <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
           댓글
         </InfoExplanationTitle>
@@ -76,6 +111,7 @@ function BoardDetail() {
           ))}
         </CommentList>
       </InfoExplanationDiv>
+      */}
     </InfoDiv>
   );
 }
