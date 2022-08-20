@@ -76,7 +76,7 @@ function BoardDetail() {
       (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
         <PostThreePower item={boardData?.sessionUserResponse?.userId} />
       ) : (
-        ""
+        <></>
       )}
       <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
 
