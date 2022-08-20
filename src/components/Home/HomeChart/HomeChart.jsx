@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ApexCharts from "react-apexcharts";
-import { threechart } from "./threechart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

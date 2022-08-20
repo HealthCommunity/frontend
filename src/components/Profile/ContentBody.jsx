@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import ProfileNav from "./ProfileNav";
 import { ProfileContainer, ProfileContainerMyInfo } from "./ProfileLayout";
 import ContentUserModify from "./ContentUserModify";
 import ContentUserDropOut from "./ContentUserDropOut";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
+import ProfileChart from "./ProfileChart";
 
 function Group({ children, selected }) {
     const elements = React.Children.toArray(children);
@@ -28,7 +30,12 @@ export default function ContentBody() {
     }
 
     const { nickName, loginId, bigThreePower } = userData;
-    const { bench, dead, squat, sum } = bigThreePower;
+    const myPowerData = [
+        bigThreePower.bench,
+        bigThreePower.dead,
+        bigThreePower.squat,
+    ];
+    console.log(myPowerData);
 
     return (
         <ProfileContainer>
@@ -40,18 +47,17 @@ export default function ContentBody() {
             />
             <Group selected={selected}>
                 <GroupItem name="profile">
-                    <ProfileContainerMyInfo></ProfileContainerMyInfo>
-
-                    {!!userData && (
-                        <div>
-                            <div>{loginId}</div>
-                            <div>{nickName}</div>
-                            <div>{bench}</div>
-                            <div>{dead}</div>
-                            <div>{squat}</div>
-                            <div>{sum}</div>
-                        </div>
-                    )}
+                    <ProfileContainerMyInfo>
+                        {!!userData && (
+                            <ProfileContent>
+                                <ProfileChart
+                                    PowerData={myPowerData}
+                                ></ProfileChart>
+                                <div>{loginId}</div>
+                                <div>{nickName}</div>
+                            </ProfileContent>
+                        )}
+                    </ProfileContainerMyInfo>
 
                     <>{!!userData && <BoardFetchItems category={"user"} />}</>
                 </GroupItem>
@@ -73,3 +79,8 @@ export default function ContentBody() {
         </ProfileContainer>
     );
 }
+
+export const ProfileContent = styled.div`
+    display: flex;
+    margin: auto;
+`;
