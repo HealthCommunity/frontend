@@ -4,30 +4,13 @@ import Modal from "../Share/Modal";
 
 import axios from "axios";
 
-const UserDropOut = styled.div`
-  margin: auto;
-`;
-
-const DropOutButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  color: #888888;
-`;
-
-export default function ContentUserDropOut() {
+export default function UserDropOut() {
   const [modalState, setModalState] = useState(false);
   const [isAgree, setIsAgree] = useState(false);
 
   useEffect(() => {
     if (modalState) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; //모달 배경 스크롤 방지
     }
 
     return () => {
@@ -46,7 +29,6 @@ export default function ContentUserDropOut() {
   const withdrawUser = () => {
     setModalState(false);
     setIsAgree(true);
-    console.log(isAgree);
     console.log("회원탈퇴 동의완료");
 
     axios
@@ -54,16 +36,16 @@ export default function ContentUserDropOut() {
         withCredentials: true,
         credentials: "include",
       })
-      .then(function (response) {
-        console.log("회원탈퇴");
+      .then((response) => {
+        console.log("회원탈퇴 완료");
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log("회원탈퇴 실패", error);
       });
   };
 
   return (
-    <UserDropOut>
+    <DropOut>
       <DropOutButton onClick={openModal}>탈퇴하기</DropOutButton>
       <Modal
         open={modalState}
@@ -76,6 +58,23 @@ export default function ContentUserDropOut() {
         글, 댓글은 사라지지 않습니다. <br />
         동의하십니까?
       </Modal>
-    </UserDropOut>
+    </DropOut>
   );
 }
+
+const DropOut = styled.div`
+  margin: auto;
+`;
+
+const DropOutButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #888888;
+`;

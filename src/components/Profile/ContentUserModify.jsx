@@ -12,7 +12,7 @@ import { ButtonPupple } from "../Share/ButtonPupple";
 import { ProfileContainerCenter } from "./ProfileLayout";
 import axios from "axios";
 import Button from "../common/Button";
-import ContentUserDropOut from "./ContentUserDropOut";
+import UserDropOut from "./UserDropOut";
 
 const UserModifyTitle = styled.div`
   color: ${(props) => props.theme.fontColor};
@@ -167,7 +167,7 @@ export default function ContentUserModify(loginId) {
             변경하기
           </Button>
         </UserFormGroup>
-        <ContentUserDropOut />
+        <UserDropOut />
       </UserModifyFrom>
     </ProfileContainerCenter>
   );

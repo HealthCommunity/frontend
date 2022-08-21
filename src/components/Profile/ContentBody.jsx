@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProfileNav from "./ProfileNav";
 import { ProfileContainer, ProfileContainerMyInfo } from "./ProfileLayout";
 import ContentUserModify from "./ContentUserModify";
-import ContentUserDropOut from "./ContentUserDropOut";
+import UserDropOut from "./UserDropOut";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
 import ProfileChart from "./ProfileChart";
@@ -66,7 +66,7 @@ export default function ContentBody() {
         </GroupItem>
         {/* <GroupItem name="userDropOut">
           {!!userData && (
-            <ContentUserDropOut loginId={loginId}></ContentUserDropOut>
+            <UserDropOut loginId={loginId}></UserDropOut>
           )}
         </GroupItem> */}
       </Group>
