@@ -3,39 +3,17 @@ import BoardDetail from "../components/Board/BoardDetail";
 // import Nav from "../components/Navbar/index";
 import Title from "../utils/Title/Title";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
-
-import {
-  Nav,
-  CommonContainer,
-  CommonContents,
-  CommonContentsHome,
-  CommonContentsRight,
-  CommonContentsLeft,
-  MainSlide,
-  CommonContent,
-  CommonContentSidebar,
-  CommonTitleArea,
-  CommonTitleTitle,
-  CommonTitleText,
-  CommonContentArea,
-  BoardSlide,
-  CommonContentTools,
-} from "../components/common/Layout/Layout";
+import Nav from "../components/Navbar";
 
 function FreePost() {
   const { id } = useParams();
   return (
     <>
       <Title name={`${id}`} />
-      <Nav></Nav>
+      <Nav />
       <WidthAreaSpace>
         <BoardDetail />
       </WidthAreaSpace>
-
-      {/* <Nav />
-            <WidthAreaSpace>
-                <BoardDetail />
-            </WidthAreaSpace> */}
     </>
   );
 }

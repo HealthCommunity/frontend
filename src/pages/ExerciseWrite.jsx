@@ -2,7 +2,6 @@ import ExercisePost from "../components/Board/Exercise/ExercisePost";
 import Title from "../utils/Title/Title";
 
 import {
-  Nav,
   CommonContainer,
   CommonContents,
   CommonContentsHome,
@@ -18,12 +17,13 @@ import {
   BoardSlide,
   CommonContentTools,
 } from "../components/common/Layout/Layout";
+import Nav from "../components/Navbar";
 
 function exerciseWrite() {
   return (
     <>
       <Title name="exerciseWrite" />
-      <Nav></Nav>
+      <Nav />
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
@@ -31,10 +31,6 @@ function exerciseWrite() {
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>
-      {/* <Nav />
-            <WidthAreaSpace>
-                <ExercisePost />
-            </WidthAreaSpace> */}
     </>
   );
 }
