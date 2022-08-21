@@ -17,6 +17,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
+import userLogout from "../User/userLogout";
 
 const FormStyle = styled.form`
   display: flex;
@@ -37,7 +38,7 @@ const SearchInput = styled.input`
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   let { pathname } = useLocation();
   const [searchOpen, setSearchOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -52,21 +53,19 @@ export default function Nav() {
   };
 
   const isLoginChange = () => {
-    axios
-      .post("/api/user/logout")
-      .then(function (response) {
-        console.log(response);
-        if (response.status === 200) {
-          console.log("로그아웃 성공");
-          refetch();
-          navigate("/");
-        }
-      })
-      .catch(function (error) {
+    userLogout({
+      onSuccess: (response) => {
+        console.log("로그아웃 성공");
+        refetch();
+        navigate("/login");
+      },
+      onError: (error) => {
         refetch();
         console.log("로그아웃 실패", error);
-      });
+      },
+    });
   };
+
   //스크롤 기능 구현
   const [ScrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
   const handleFollow = () => {

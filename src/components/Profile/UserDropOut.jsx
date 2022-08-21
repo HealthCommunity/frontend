@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../Share/Modal";
 
 import axios from "axios";
+import userLogout from "../User/userLogout";
+import useUserData from "../../api/useUserData";
 
 export default function UserDropOut() {
   const [modalState, setModalState] = useState(false);
-  const [isAgree, setIsAgree] = useState(false);
+  const [, reFetch] = useUserData();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (modalState) {
@@ -26,9 +30,8 @@ export default function UserDropOut() {
     setModalState(false);
   };
 
-  const withdrawUser = () => {
+  const submitDropOut = () => {
     setModalState(false);
-    setIsAgree(true);
     console.log("회원탈퇴 동의완료");
 
     axios
@@ -38,6 +41,17 @@ export default function UserDropOut() {
       })
       .then((response) => {
         console.log("회원탈퇴 완료");
+        userLogout({
+          onSuccess: (response) => {
+            console.log("로그아웃 성공");
+            reFetch();
+            navigate("/login");
+          },
+          onError: (error) => {
+            reFetch();
+            console.log("로그아웃 실패", error);
+          },
+        });
       })
       .catch((error) => {
         console.log("회원탈퇴 실패", error);
@@ -52,7 +66,7 @@ export default function UserDropOut() {
         close={closeModal}
         header={"회원탈퇴"}
         footerDesc={"동의"}
-        isAgree={withdrawUser}
+        isAgree={submitDropOut}
       >
         회원 탈퇴를 하게 되면 보유하신 프로필, 삼대력 등이 모두 사라지며, 작성한
         글, 댓글은 사라지지 않습니다. <br />
