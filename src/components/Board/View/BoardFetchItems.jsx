@@ -20,6 +20,37 @@ export default function BoardFetchItems({ category = "" }) {
     }
   };
 
+  let categoryPath = "";
+
+  if (category === "user") {
+    categoryPath = `${category}/post`;
+  } else {
+    categoryPath = `${category}`;
+  }
+
+  const getRequest = async (page) => {
+    setIsLoading(true);
+    return axios
+      .get(
+        `/api/${categoryPath}?page=${page}&size=${process.env.REACT_APP_PAGE_SIZE}`
+      )
+      .then(({ data }) => data.data);
+  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(onIntersect, {
+      threshold: 0.5,
+    });
+    getRequest(page).then((items) => {
+      if (items.length > 0) {
+        setItemList((prevItems) => [...prevItems, ...items]);
+        observer.observe(target.current); // 타겟 엘리먼트 지정
+      }
+    });
+    return () => {
+      observer.disconnect();
+    };
+  }, [page]);
+
   return (
     <>
       {isLoading ? (
