@@ -64,11 +64,11 @@ export default function ContentBody() {
             <ContentUserModify loginId={loginId}></ContentUserModify>
           )}
         </GroupItem>
-        <GroupItem name="userDropOut">
+        {/* <GroupItem name="userDropOut">
           {!!userData && (
             <ContentUserDropOut loginId={loginId}></ContentUserDropOut>
           )}
-        </GroupItem>
+        </GroupItem> */}
       </Group>
     </ProfileContainer>
   );

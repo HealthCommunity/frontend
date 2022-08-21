@@ -34,7 +34,7 @@ function setChartOption() {
         enabled: true,
         y: {
           formatter: function (val) {
-            return val + "kg";
+            return val !== 1 ? val + "kg" : val - 1 + "kg";
           },
           title: {
             formatter: function (seriesName) {
@@ -53,6 +53,13 @@ function setChartOption() {
 }
 
 export default function ProfileChart({ PowerData }) {
+  //삼대력 정보가 없는 경우 1로 처리해서 동등한 비율로 그래프 보여주기
+  if (PowerData[3] === 0) {
+    PowerData[0] = 1;
+    PowerData[1] = 1;
+    PowerData[2] = 1;
+  }
+
   return (
     <ChartsBox>
       <ApexCharts
@@ -62,7 +69,7 @@ export default function ProfileChart({ PowerData }) {
         width="300"
         height="300"
       />
-      <>
+      <InnerInfo>
         <InnerTop>
           <InfoSumTitle>3대력</InfoSumTitle>
           <InfoSumValue>{PowerData[3]}</InfoSumValue>
@@ -71,36 +78,43 @@ export default function ProfileChart({ PowerData }) {
           <div>
             <InfoPowerTitle>벤치프레스</InfoPowerTitle>
             <InfoPowerValue style={{ color: "#0066ff" }}>
-              {PowerData[0]}
+              {PowerData[0] !== 1 ? PowerData[0] : PowerData[0] - 1}
             </InfoPowerValue>
           </div>
           <div>
             <InfoPowerTitle>데드리프트</InfoPowerTitle>
             <InfoPowerValue style={{ color: "#7affbf" }}>
-              {PowerData[1]}
+              {PowerData[1] !== 1 ? PowerData[1] : PowerData[1] - 1}
             </InfoPowerValue>
           </div>
           <div>
             <InfoPowerTitle>스쿼트</InfoPowerTitle>
             <InfoPowerValue style={{ color: "#00d1ff" }}>
-              {PowerData[2]}
+              {PowerData[2] !== 1 ? PowerData[2] : PowerData[2] - 1}
             </InfoPowerValue>
           </div>
         </InnderBottom>
-      </>
+      </InnerInfo>
     </ChartsBox>
   );
 }
 
 const ChartsBox = styled.div`
   position: relative;
-  width: 300px;
+`;
+
+const InnerInfo = styled.div`
+  position: absolute;
+  top: 60px;
+  left: 46px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const InnerTop = styled.div`
-  position: absolute;
-  top: 66px;
-  left: 110px;
+  margin-bottom: 30px;
 `;
 
 const InfoSumTitle = styled.p`
@@ -124,10 +138,7 @@ const InfoSumValue = styled.p`
 `;
 
 const InnderBottom = styled.div`
-  position: absolute;
-  top: 166px;
-  left: 60px;
-  width: 180px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
