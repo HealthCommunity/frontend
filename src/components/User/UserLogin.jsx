@@ -49,7 +49,6 @@ export default function UserInputForm() {
             })
             .then(function (response) {
                 console.log("로그인 성공");
-                console.log(response);
                 refetch();
                 navigate("/");
             })

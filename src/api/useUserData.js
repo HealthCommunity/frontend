@@ -19,10 +19,6 @@ export default function useUserData() {
             })
             .catch((error) => {
                 setUserData(null);
-                console.log(
-                    "useUserData의 로그인 없어서 회원 데이터 가져오지 못함",
-                    error
-                );
             });
     }, []);
 
