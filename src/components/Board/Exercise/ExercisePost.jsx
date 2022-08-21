@@ -67,6 +67,9 @@ function BoardNewWrite() {
       headers: {
         "content-type": "multipart/form-data",
       },
+      body: {
+        formData,
+      },
     };
     axios
       .post(url, formData, config)

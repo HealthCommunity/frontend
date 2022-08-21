@@ -100,7 +100,7 @@ const BoardItemList = styled.ul`
   grid-row-gap: 28px;
 `;
 
-const LodingScreen = styled.div`
+export const LodingScreen = styled.div`
   width: 100%;
   height: 800px;
   background-color: yellow;

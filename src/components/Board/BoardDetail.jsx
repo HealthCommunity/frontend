@@ -1,26 +1,18 @@
 import {
-  InfoCommentInputSubmit,
-  InfoCommentInputText,
   InfoDiv,
-  InfoExplanationDiv,
-  InfoExplanationTitle,
   InfoTitle,
   InfoTitleDiv,
   InfoTitleWrite,
-  InfoCommentForm,
-  CommentList,
-  CommentListitem,
   BoardSummary,
 } from "./BoardDetailStyle";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+//import { useForm } from "react-hook-form";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
 import EyeIcon from "../../assets/images/common_view_16.svg";
-import { Navigate } from "react-router";
 
 function BoardDetail() {
   const { id } = useParams();
@@ -28,18 +20,24 @@ function BoardDetail() {
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    axios.get(`/api/${boardname}/${id}`).then((res) => {
-      console.log("res", res);
-      setBoardData(res.data.data);
-    });
+    const fetchData = async () => {
+      setLoading(true);
+      const result = await axios(`/api/${boardname}/${id}`);
+      setBoardData(result.data.data);
+      setLoading(false);
+    };
+    fetchData();
   }, []);
+  /*
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const [commentlist, setCommentlist] = useState([]);
   const onSubmitValid = (data) => {
     setCommentlist([...commentlist, data]);
     reset();
   };
+  */
   const onDelete = () => {
     axios.post(`/api/${boardname}/${id}/delete`).then((res) => {
       navigate(`/${boardname}`);
@@ -49,48 +47,67 @@ function BoardDetail() {
     navigate("edit");
   };
   console.log("전체데이터", boardData);
-  console.log("현재 로그인 유저", boardData.sessionUserResponse);
-  console.log("글 작성자", boardData.userPostResponse);
   return (
-    <InfoDiv>
-      <InfoTitleDiv>
-        <InfoTitle>{boardData?.title}</InfoTitle>
-        <InfoTitleWrite>
-          <img src={EyeIcon} alt="eye" />
-          {boardData?.view}
-        </InfoTitleWrite>
-      </InfoTitleDiv>
-      <div
-        style={{
-          width: "100%",
-          height: "1px",
-          backgroundColor: "#EEEEEE",
-          margin: "20px 0px",
-        }}
-      />
-      <InfoTitleDiv>
-        <InfoTitleWrite>{boardData?.userPostResponse?.nickName}</InfoTitleWrite>
-        <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
-      </InfoTitleDiv>
-      {(boardname === "threepowerpost") &
-      (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
-        <PostThreePower item={boardData?.sessionUserResponse?.userId} />
+    <>
+      {loading ? (
+        <div>로딩중입니다</div>
       ) : (
-        <></>
-      )}
-      <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
+        <InfoDiv>
+          <InfoTitleDiv>
+            <InfoTitle>{boardData?.title}</InfoTitle>
+            <InfoTitleWrite>
+              <img src={EyeIcon} alt="eye" />
+              {boardData?.view}
+            </InfoTitleWrite>
+          </InfoTitleDiv>
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "#EEEEEE",
+              margin: "20px 0px",
+            }}
+          />
+          <InfoTitleDiv>
+            <InfoTitleWrite>
+              {boardData?.userPostResponse?.nickName}
+            </InfoTitleWrite>
+            <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
+          </InfoTitleDiv>
+          {(boardname === "threepowerpost") &
+          (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
+            <PostThreePower item={boardData?.sessionUserResponse?.userId} />
+          ) : (
+            <></>
+          )}
+          {boardData.urls && (
+            <>
+              <div>
+                <video controls>
+                  <source src={`${boardData?.urls[0]}`} type="video/mp4" />
+                </video>
+                <video controls>
+                  <source src={`${boardData?.urls[1]}`} type="video/mp4" />
+                </video>
+                <video controls>
+                  <source src={`${boardData?.urls[2]}`} type="video/mp4" />
+                </video>
+              </div>
+            </>
+          )}
 
-      {boardData?.sessionUserResponse?.userId ===
-      boardData?.userPostResponse?.userId ? (
-        <div>
-          <button onClick={onDelete}>Delete</button>
-          <button onClick={onEdit}>Edit</button>
-        </div>
-      ) : (
-        ""
-      )}
+          <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
+          {boardData?.sessionUserResponse?.userId ===
+          boardData?.userPostResponse?.userId ? (
+            <div>
+              <button onClick={onDelete}>Delete</button>
+              <button onClick={onEdit}>Edit</button>
+            </div>
+          ) : (
+            ""
+          )}
 
-      {/* 
+          {/* 
             <InfoExplanationDiv>
         <InfoExplanationTitle style={{ marginTop: "50px" }}>
           댓글
@@ -112,7 +129,9 @@ function BoardDetail() {
         </CommentList>
       </InfoExplanationDiv>
       */}
-    </InfoDiv>
+        </InfoDiv>
+      )}
+    </>
   );
 }
 
