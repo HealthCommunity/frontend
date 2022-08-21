@@ -46,7 +46,6 @@ function BoardDetail() {
   const onEdit = () => {
     navigate("edit");
   };
-  console.log("전체데이터", boardData);
   return (
     <>
       {loading ? (
@@ -80,21 +79,20 @@ function BoardDetail() {
           ) : (
             <></>
           )}
-          {boardData.urls && (
-            <>
-              <div>
-                <video controls>
-                  <source src={`${boardData?.urls[0]}`} type="video/mp4" />
-                </video>
-                <video controls>
-                  <source src={`${boardData?.urls[1]}`} type="video/mp4" />
-                </video>
-                <video controls>
-                  <source src={`${boardData?.urls[2]}`} type="video/mp4" />
-                </video>
-              </div>
-            </>
-          )}
+          {boardData.urls &&
+            boardData.urls.map((x) =>
+              x.split("/")[3] === "VIDEO" ? (
+                <div key={Math.random()}>
+                  <video controls>
+                    <source src={x} type="video/mp4" />
+                  </video>
+                </div>
+              ) : (
+                <div key={Math.random()}>
+                  <img src={x} />
+                </div>
+              )
+            )}
 
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
           {boardData?.sessionUserResponse?.userId ===
