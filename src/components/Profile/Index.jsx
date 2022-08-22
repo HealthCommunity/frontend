@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import useUserData from "../../api/useUserData";
 import ProfileSelector from "./ProfileSelector";
+import UserModify from "./UserModify";
+import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
+import UserPowerChart from "./UserPowerChart";
 import {
   ProfileContainer,
   ProfileMyinfo,
@@ -8,10 +11,6 @@ import {
   MyInfoId,
   MyInfoNickname,
 } from "./ProfileLayout";
-import UserModify from "./UserModify";
-import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
-import useUserData from "../../api/useUserData";
-import UserPowerChart from "./UserPowerChart";
 
 function SelectGroup({ children, selected }) {
   const elements = React.Children.toArray(children);
