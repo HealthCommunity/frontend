@@ -3,8 +3,8 @@ import styled from "styled-components";
 import ProfileSelector from "./ProfileSelector";
 import {
   ProfileContainer,
-  ProfileContainerCenter,
-  ProfileContent,
+  ProfileMyinfo,
+  ProfileMyInfoGroup,
   MyInfoId,
   MyInfoNickname,
 } from "./ProfileLayout";
@@ -13,12 +13,12 @@ import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
 import UserPowerChart from "./UserPowerChart";
 
-function Group({ children, selected }) {
+function SelectGroup({ children, selected }) {
   const elements = React.Children.toArray(children);
   return <>{elements.find(({ props }) => selected === props.name)}</>;
 }
 
-function GroupItem({ children }) {
+function SlectItem({ children }) {
   return <>{children}</>;
 }
 
@@ -50,22 +50,21 @@ export default function ContentBody() {
         }}
         typeName={selected}
       />
-      <Group selected={selected}>
-        <GroupItem name="profile">
-          <ProfileContainerCenter>
-            <ProfileContent>
+      <SelectGroup selected={selected}>
+        <SlectItem name="profile">
+          <ProfileMyinfo>
+            <ProfileMyInfoGroup>
               <UserPowerChart PowerData={myPowerData}></UserPowerChart>
               <MyInfoId>{loginId}</MyInfoId>
               <MyInfoNickname>{nickName}</MyInfoNickname>
-            </ProfileContent>
-          </ProfileContainerCenter>
-
+            </ProfileMyInfoGroup>
+          </ProfileMyinfo>
           <BoardFetchItems category={"user"} />
-        </GroupItem>
-        <GroupItem name="profileModify">
+        </SlectItem>
+        <SlectItem name="profileModify">
           <UserModify loginId={loginId}></UserModify>
-        </GroupItem>
-      </Group>
+        </SlectItem>
+      </SelectGroup>
     </ProfileContainer>
   );
 }

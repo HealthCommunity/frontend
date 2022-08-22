@@ -6,7 +6,7 @@ import {
   InputTextLabel,
   InputTextGroup,
 } from "../User/LoginLayout";
-import { ProfileContainerCenter } from "./ProfileLayout";
+import { ProfileMyinfo } from "./ProfileLayout";
 import axios from "axios";
 import Button from "../common/Button";
 import UserDropOut from "./UserDropOut";
@@ -115,7 +115,7 @@ export default function ContentUserModify(loginId) {
     }
   };
   return (
-    <ProfileContainerCenter>
+    <ProfileMyinfo>
       <UserModifyFrom>
         <UserFormGroup onSubmit={handleSubmit}>
           <InputTextGroup>
@@ -155,6 +155,6 @@ export default function ContentUserModify(loginId) {
           <UserDropOut />
         </UserFormGroup>
       </UserModifyFrom>
-    </ProfileContainerCenter>
+    </ProfileMyinfo>
   );
 }

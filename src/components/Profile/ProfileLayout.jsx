@@ -23,7 +23,7 @@ export const ProfileContainer = styled.section`
   }
 `;
 
-export const ProfileContainerCenter = styled.section`
+export const ProfileMyinfo = styled.section`
   box-sizing: border-box;
   width: 470px;
   height: 90%;
@@ -42,7 +42,7 @@ export const ProfileContainerCenter = styled.section`
   }
 `;
 
-export const ProfileContent = styled.div`
+export const ProfileMyInfoGroup = styled.div`
   display: flex;
   margin: auto;
 `;
