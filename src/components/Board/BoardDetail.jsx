@@ -13,8 +13,9 @@ import axios from "axios";
 import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
 import EyeIcon from "../../assets/images/common_view_16.svg";
+import styled from "styled-components";
 
-function BoardDetail() {
+export default function BoardDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -79,21 +80,22 @@ function BoardDetail() {
           ) : (
             <></>
           )}
-          {boardData.urls &&
-            boardData.urls.map((x) =>
-              x.split("/")[3] === "VIDEO" ? (
-                <div key={Math.random()}>
-                  <video controls>
-                    <source src={x} type="video/mp4" />
-                  </video>
-                </div>
-              ) : (
-                <div key={Math.random()}>
-                  <img src={x} />
-                </div>
-              )
-            )}
-
+          <BoardSession>
+            {boardData.urls &&
+              boardData.urls.map((x) =>
+                x.split("/")[3] === "VIDEO" ? (
+                  <div key={Math.random()}>
+                    <BoardVideo controls>
+                      <source src={x} type="video/mp4" />
+                    </BoardVideo>
+                  </div>
+                ) : (
+                  <div key={Math.random()}>
+                    <BoardImg src={x} />
+                  </div>
+                )
+              )}
+          </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
@@ -133,4 +135,21 @@ function BoardDetail() {
   );
 }
 
-export default BoardDetail;
+const BoardSession = styled.section`
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const BoardVideo = styled.video`
+  width: 400px;
+  height: 250px;
+  margin-right: 30px;
+  margin-top: 30px;
+`;
+
+const BoardImg = styled.img`
+  width: 500px;
+  height: 500px;
+  margin-right: 30px;
+  margin-top: 30px;
+`;
