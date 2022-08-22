@@ -10,7 +10,7 @@ function selectorNav(typeName, navSelect) {
   }
 }
 
-export default function ProfileNav({ onChange, typeName = "profile" }) {
+export default function ProfileSelector({ onChange, typeName = "profile" }) {
   const navSelect = {
     isProfile: false,
     isModify: false,
@@ -49,6 +49,8 @@ export default function ProfileNav({ onChange, typeName = "profile" }) {
 }
 
 const ProfileDiv = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
 `;
 

@@ -13,7 +13,6 @@ export const ProfileBackgroud = styled.div`
 export const ProfileContainer = styled.section`
   width: 970px;
   height: 500px;
-
   @media all and (min-width: 480px) and (max-width: 767px) {
     font-size: ${(props) => props.theme.fontSizeH4};
     width: 90%;
@@ -21,22 +20,6 @@ export const ProfileContainer = styled.section`
   @media all and (max-width: 479px) {
     font-size: ${(props) => props.theme.fontSizeH4};
     width: 90%;
-  }
-`;
-
-export const ProfileContainerMyInfo = styled.section`
-  box-sizing: border-box;
-  width: 100%;
-  height: 500px;
-  margin: 0 auto;
-  padding: 32px;
-
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    padding: 24px 8px;
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    padding: 24px 8px;
   }
 `;
 
@@ -57,4 +40,28 @@ export const ProfileContainerCenter = styled.section`
   @media all and (max-width: 479px) {
     width: 90%;
   }
+`;
+
+export const ProfileContent = styled.div`
+  display: flex;
+  margin: auto;
+`;
+
+export const MyInfoId = styled.span`
+  font-family: "GangwonEduPower";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  color: #222222;
+`;
+
+export const MyInfoNickname = styled.span`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #888888;
 `;

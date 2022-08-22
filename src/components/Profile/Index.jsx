@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import ProfileNav from "./ProfileNav";
-import { ProfileContainer, ProfileContainerMyInfo } from "./ProfileLayout";
+import ProfileSelector from "./ProfileSelector";
+import {
+  ProfileContainer,
+  ProfileContainerCenter,
+  ProfileContent,
+  MyInfoId,
+  MyInfoNickname,
+} from "./ProfileLayout";
 import UserModify from "./UserModify";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
-import MyPowerChart from "./MyPowerChart";
+import UserPowerChart from "./UserPowerChart";
 
 function Group({ children, selected }) {
   const elements = React.Children.toArray(children);
@@ -38,7 +44,7 @@ export default function ContentBody() {
 
   return (
     <ProfileContainer>
-      <ProfileNav
+      <ProfileSelector
         onChange={(name) => {
           setSelected(name);
         }}
@@ -46,13 +52,13 @@ export default function ContentBody() {
       />
       <Group selected={selected}>
         <GroupItem name="profile">
-          <ProfileContainerMyInfo>
+          <ProfileContainerCenter>
             <ProfileContent>
-              <MyPowerChart PowerData={myPowerData}></MyPowerChart>
+              <UserPowerChart PowerData={myPowerData}></UserPowerChart>
               <MyInfoId>{loginId}</MyInfoId>
               <MyInfoNickname>{nickName}</MyInfoNickname>
             </ProfileContent>
-          </ProfileContainerMyInfo>
+          </ProfileContainerCenter>
 
           <BoardFetchItems category={"user"} />
         </GroupItem>
@@ -63,27 +69,3 @@ export default function ContentBody() {
     </ProfileContainer>
   );
 }
-
-const ProfileContent = styled.div`
-  display: flex;
-  margin: auto;
-`;
-
-const MyInfoId = styled.span`
-  font-family: "GangwonEduPower";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 36px;
-  text-align: center;
-  color: #222222;
-`;
-
-const MyInfoNickname = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #888888;
-`;
