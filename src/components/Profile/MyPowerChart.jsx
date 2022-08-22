@@ -52,7 +52,7 @@ function setChartOption() {
   return ChartOptions.options;
 }
 
-export default function ProfileChart({ PowerData }) {
+export default function MyPowerChart({ PowerData }) {
   //삼대력 정보가 없는 경우 1로 처리해서 동등한 비율로 그래프 보여주기
   if (PowerData[3] === 0) {
     PowerData[0] = 1;

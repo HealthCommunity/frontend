@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProfileNav from "./ProfileNav";
 import { ProfileContainer, ProfileContainerMyInfo } from "./ProfileLayout";
-import ContentUserModify from "./ContentUserModify";
-import UserDropOut from "./UserDropOut";
+import UserModify from "./UserModify";
 import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
 import useUserData from "../../api/useUserData";
-import ProfileChart from "./ProfileChart";
+import MyPowerChart from "./MyPowerChart";
 
 function Group({ children, selected }) {
   const elements = React.Children.toArray(children);
@@ -48,33 +47,43 @@ export default function ContentBody() {
       <Group selected={selected}>
         <GroupItem name="profile">
           <ProfileContainerMyInfo>
-            {!!userData && (
-              <ProfileContent>
-                <ProfileChart PowerData={myPowerData}></ProfileChart>
-                <div>{loginId}</div>
-                <div>{nickName}</div>
-              </ProfileContent>
-            )}
+            <ProfileContent>
+              <MyPowerChart PowerData={myPowerData}></MyPowerChart>
+              <MyInfoId>{loginId}</MyInfoId>
+              <MyInfoNickname>{nickName}</MyInfoNickname>
+            </ProfileContent>
           </ProfileContainerMyInfo>
 
-          <>{!!userData && <BoardFetchItems category={"user"} />}</>
+          <BoardFetchItems category={"user"} />
         </GroupItem>
         <GroupItem name="profileModify">
-          {!!userData && (
-            <ContentUserModify loginId={loginId}></ContentUserModify>
-          )}
+          <UserModify loginId={loginId}></UserModify>
         </GroupItem>
-        {/* <GroupItem name="userDropOut">
-          {!!userData && (
-            <UserDropOut loginId={loginId}></UserDropOut>
-          )}
-        </GroupItem> */}
       </Group>
     </ProfileContainer>
   );
 }
 
-export const ProfileContent = styled.div`
+const ProfileContent = styled.div`
   display: flex;
   margin: auto;
+`;
+
+const MyInfoId = styled.span`
+  font-family: "GangwonEduPower";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  color: #222222;
+`;
+
+const MyInfoNickname = styled.span`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #888888;
 `;
