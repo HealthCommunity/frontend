@@ -1,6 +1,5 @@
 import { useLocation, useNavigate } from "react-router";
 import Tiptap from "../../../utils/Editor/Tiptap";
-import "../../../utils/Editor/TiptapStyle.css";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -43,71 +42,85 @@ const TitleLabel = styled.label`
   font-weight: 500;
 `;
 
-export default function BoardEditPost() {
+export default function ThreeBoardEditPost() {
   let navigate = useNavigate();
   const { pathname } = useLocation();
   const url = `/api${pathname}`;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [editData, setEditData] = useState([]);
+  const [, setEditData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
+
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setEditData(res.data.data);
-    });
+    const fetchData = async () => {
+      setLoading(true);
+      const result = await axios(url);
+      setEditData(result.data.data);
+      setTitle(result.data.data.title);
+      setDescription(result.data.data.content);
+      setLoading(false);
+    };
+    fetchData();
   }, []);
-  console.log("수정하는데이터", editData);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData(editData);
-    let files = e.target.inputfile.files;
+    let benchFile = e.target.bench.files[0];
+    let deadFile = e.target.dead.files[0];
+    let squatFile = e.target.squat.files[0];
+    const formData = new FormData();
     formData.append("title", title);
     formData.append("content", description);
-    for (let i = 0; i < files.length; i++) {
-      formData.append(files, editData.urls);
-    }
+    formData.append("bench", benchFile);
+    formData.append("squat", squatFile);
+    formData.append("dead", deadFile);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
       },
     };
+
     axios
       .post(url, formData, config)
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          navigate("/exercisepost");
+          navigate("/threepowerpost");
         }
       })
       .catch((error) =>
         alert(
-          `${error.response.status}번 error 입니다. 입력  정보를 확인해주세요`
+          `${error.response.status}번 error 입니다. 입력정보를 확인해주세요`
         )
       );
   };
 
   return (
-    <PostWrapper>
-      <TitleLabel Htmlfor="input-title">제목</TitleLabel>
-      <form onSubmit={handleSubmit}>
-        <PostTitleTitle
-          id="input-title"
-          placeholder="글 제목을 입력해주세요!"
-          value={title}
-          onChange={handleChange}
-          autoComplete="off"
-        ></PostTitleTitle>
-        <input
-          type="file"
-          multiple
-          name="inputfile"
-          accept="video/* , image/*"
-        />
-        <Tiptap setDescription={setDescription} />
-        <button type="submit">제출하기</button>
-      </form>
-    </PostWrapper>
+    <>
+      {loading ? (
+        <div>로딩중입니다</div>
+      ) : (
+        <PostWrapper>
+          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
+          <form onSubmit={handleSubmit}>
+            <PostTitleTitle
+              id="input-title"
+              placeholder="글 제목을 입력해주세요!"
+              value={"" || title}
+              onChange={handleChange}
+              autoComplete="off"
+              required
+            />
+            <input type="file" name="bench" accept="video/*" />
+            <input type="file" name="squat" accept="video/*" />
+            <input type="file" name="dead" accept="video/*" />
+            <Tiptap setDescription={setDescription} description={description} />
+            <button type="submit">제출하기</button>
+          </form>
+        </PostWrapper>
+      )}
+    </>
   );
 }

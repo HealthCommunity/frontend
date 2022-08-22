@@ -93,7 +93,7 @@ function BoardNewWrite() {
           onChange={handleChange}
           autoComplete="off"
           required
-        ></PostTitleTitle>
+        />
         <input
           type="file"
           multiple

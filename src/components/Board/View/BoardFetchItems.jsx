@@ -12,7 +12,6 @@ export default function BoardFetchItems({ category = "" }) {
   const [page, setPage] = useState(0); //현재 페이지
   const target = useRef();
   const [isLoading, setIsLoading] = useState(false);
-
   const onIntersect = async ([entry], observer) => {
     if (entry.isIntersecting) {
       observer.unobserve(entry.target);
@@ -50,40 +49,43 @@ export default function BoardFetchItems({ category = "" }) {
       observer.disconnect();
     };
   }, [page]);
-
   return (
     <>
       {isLoading ? (
         <BoardItemList>
-          {itemList.map(({ postId, title, createdDate, nickname, view }) => (
-            <Link
-              key={`${categoryPath}${postId}`}
-              to={`./${
-                category === pathname.slice(1) ? "." : category
-              }/${postId}`}
-            >
-              <li>
-                {(category === "threepowerpost") |
-                (pathname === "threepowerpost") ? (
-                  <BoardItemBox
-                    id={postId}
-                    title={title}
-                    createdDate={createdDate}
-                    nickname={nickname}
-                    view={view}
-                  />
-                ) : (
-                  <BoardForm
-                    id={postId}
-                    title={title}
-                    createdDate={createdDate}
-                    nickname={nickname}
-                    view={view}
-                  />
-                )}
-              </li>
-            </Link>
-          ))}
+          {itemList.map(
+            ({ postId, title, createdDate, nickname, view, urls }) => (
+              <Link
+                key={`${categoryPath}${postId}`}
+                to={`./${
+                  category === pathname.slice(1) ? "." : category
+                }/${postId}`}
+              >
+                <li>
+                  {(category === "threepowerpost") |
+                  (pathname === "threepowerpost") ? (
+                    <BoardItemBox
+                      id={postId}
+                      title={title}
+                      createdDate={createdDate}
+                      nickname={nickname}
+                      view={view}
+                      urls={urls}
+                    />
+                  ) : (
+                    <BoardForm
+                      id={postId}
+                      title={title}
+                      createdDate={createdDate}
+                      nickname={nickname}
+                      view={view}
+                      urls={urls}
+                    />
+                  )}
+                </li>
+              </Link>
+            )
+          )}
           <div ref={target} />
         </BoardItemList>
       ) : (
@@ -100,7 +102,7 @@ const BoardItemList = styled.ul`
   grid-row-gap: 28px;
 `;
 
-const LodingScreen = styled.div`
+export const LodingScreen = styled.div`
   width: 100%;
   height: 800px;
   background-color: yellow;

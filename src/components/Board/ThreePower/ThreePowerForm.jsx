@@ -24,13 +24,20 @@ export default function ThreePowerForm({
   createdDate,
   nickname,
   view,
+  urls,
 }) {
   return (
     <BoardDiv>
-      <BoardVideoOne />
+      <BoardVideoOne autoplay>
+        <source src={urls[0]} type="video/mp4" />
+      </BoardVideoOne>
       <BoardVideoDiv>
-        <BoardVideoTwo />
-        <BoardVideoThree />
+        <BoardVideoTwo autoplay>
+          <source src={urls[1]} type="video/mp4" />
+        </BoardVideoTwo>
+        <BoardVideoThree autoplay>
+          <source src={urls[2]} type="video/mp4" />
+        </BoardVideoThree>
       </BoardVideoDiv>
       <BoardTextDiv>
         <BoardText>{title}</BoardText>

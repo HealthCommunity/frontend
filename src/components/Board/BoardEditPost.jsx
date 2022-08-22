@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../../../utils/Editor/Tiptap";
-import "../../../utils/Editor/TiptapStyle.css";
+import Tiptap from "../../utils/Editor/Tiptap";
+import "../../utils/Editor/TiptapStyle.css";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -43,22 +43,34 @@ const TitleLabel = styled.label`
   font-weight: 500;
 `;
 
-export default function FreeEditPost() {
+export default function BoardEditPost() {
   let navigate = useNavigate();
   const { pathname } = useLocation();
   const url = `/api${pathname}`;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [, setEditData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const result = await axios(url);
+      setEditData(result.data.data);
+      setTitle(result.data.data.title);
+      setDescription(result.data.data.content);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData();
     let files = e.target.inputfile.files;
     formData.append("title", title);
     formData.append("content", description);
-    formData.append("postId", pathname.split("/")[2]);
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
@@ -72,7 +84,7 @@ export default function FreeEditPost() {
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
-          navigate("/freepost");
+          navigate(`/${pathname.split("/")[1]}`);
         }
       })
       .catch((error) =>
@@ -81,27 +93,32 @@ export default function FreeEditPost() {
         )
       );
   };
-
   return (
-    <PostWrapper>
-      <TitleLabel Htmlfor="input-title">제목</TitleLabel>
-      <form onSubmit={handleSubmit}>
-        <PostTitleTitle
-          id="input-title"
-          placeholder="글 제목을 입력해주세요!"
-          value={title}
-          onChange={handleChange}
-          autoComplete="off"
-        ></PostTitleTitle>
-        <input
-          type="file"
-          multiple
-          name="inputfile"
-          accept="video/* , image/*"
-        />
-        <Tiptap setDescription={setDescription} />
-        <button type="submit">제출하기</button>
-      </form>
-    </PostWrapper>
+    <>
+      {loading ? (
+        <div>로딩중입니다</div>
+      ) : (
+        <PostWrapper>
+          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
+          <form onSubmit={handleSubmit}>
+            <PostTitleTitle
+              id="input-title"
+              placeholder="글 제목을 입력해주세요!"
+              value={"" || title}
+              onChange={handleChange}
+              autoComplete="off"
+            />
+            <input
+              type="file"
+              multiple
+              name="inputfile"
+              accept="video/* , image/*"
+            />
+            <Tiptap setDescription={setDescription} description={description} />
+            <button type="submit">제출하기</button>
+          </form>
+        </PostWrapper>
+      )}
+    </>
   );
 }

@@ -19,8 +19,8 @@ import FreeWrite from "./pages/FreeWrite";
 
 import useUserData from "./api/useUserData";
 import { useEffect } from "react";
-import ExerciseEdit from "./pages/ExerciseEdit";
-import FreeEditPost from "./components/Board/Free/FreeBoardEditPost";
+import BoardEditPost from "./components/Board/BoardEditPost";
+import ThreeBoardEditPost from "./components/Board/ThreePower/ThreeBoardEditPost";
 
 function Router() {
   const [, reFetch] = useUserData();
@@ -42,13 +42,17 @@ function Router() {
         <Route path="/freepost" element={<Freeboard />} />
         <Route path="/freepost/:id" element={<FreePost />} />
         <Route path="/freepost/write" element={<FreeWrite />} />
-        <Route path="/freepost/:id/edit" element={<FreeEditPost />} />
+        <Route path="/freepost/:id/edit" element={<BoardEditPost />} />
         <Route path="/threepowerpost" element={<ThreePower />} />
         <Route path="/threepowerpost/:id" element={<ThreePowerPost />} />
+        <Route
+          path="/threepowerpost/:id/edit"
+          element={<ThreeBoardEditPost />}
+        />
         <Route path="/threepowerpost/write" element={<ThreePowerWrite />} />
         <Route path="/exercisepost" element={<Exercise />} />
         <Route path="/exercisepost/:id" element={<ExercisePost />} />
-        <Route path="/exercisepost/:id/edit" element={<ExerciseEdit />} />
+        <Route path="/exercisepost/:id/edit" element={<BoardEditPost />} />
         <Route path="/exercisepost/write" element={<ExerciseWrite />} />
         <Route path="*" element={<NotFoundScene />} />
       </Routes>

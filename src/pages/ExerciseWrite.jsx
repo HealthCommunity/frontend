@@ -4,18 +4,7 @@ import Title from "../utils/Title/Title";
 import {
   CommonContainer,
   CommonContents,
-  CommonContentsHome,
-  CommonContentsRight,
-  CommonContentsLeft,
-  MainSlide,
-  CommonContent,
-  CommonContentSidebar,
-  CommonTitleArea,
-  CommonTitleTitle,
-  CommonTitleText,
   CommonContentArea,
-  BoardSlide,
-  CommonContentTools,
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
 
