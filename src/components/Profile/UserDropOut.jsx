@@ -77,10 +77,10 @@ export default function UserDropOut() {
 }
 
 const DropOut = styled.div`
-  margin: auto;
+  margin: 24px auto 0;
 `;
 
-const DropOutButton = styled.button`
+const DropOutButton = styled.p`
   background-color: transparent;
   border: none;
   cursor: pointer;

@@ -40,7 +40,7 @@ export default function ProfileNav({ onChange, typeName = "profile" }) {
               onChange("profileModify");
             }}
           >
-            정보변경
+            정보수정
           </a>
         </ProfileItem>
       </ProfileItemDiv>

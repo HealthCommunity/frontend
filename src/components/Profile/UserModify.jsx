@@ -152,8 +152,8 @@ export default function ContentUserModify(loginId) {
           <Button size="lg" type="submit">
             변경하기
           </Button>
+          <UserDropOut />
         </UserFormGroup>
-        <UserDropOut />
       </UserModifyFrom>
     </ProfileContainerCenter>
   );
