@@ -65,11 +65,11 @@ export default function UserDropOut() {
         open={modalState}
         close={closeModal}
         header={"회원탈퇴"}
-        footerDesc={"동의"}
+        footerDesc={"동의하고 탈퇴하기"}
         isAgree={submitDropOut}
       >
-        회원 탈퇴를 하게 되면 보유하신 프로필, 삼대력 등이 모두 사라지며, 작성한
-        글, 댓글은 사라지지 않습니다. <br />
+        회원탈퇴를 하게되면 보유하신 프로필, 삼대력 등이 모두 사라지지만, 작성한
+        글 및 댓글은 사라지지 않습니다. <br />
         동의하십니까?
       </Modal>
     </DropOut>
@@ -77,10 +77,10 @@ export default function UserDropOut() {
 }
 
 const DropOut = styled.div`
-  margin: auto;
+  margin: 24px auto 0;
 `;
 
-const DropOutButton = styled.button`
+const DropOutButton = styled.p`
   background-color: transparent;
   border: none;
   cursor: pointer;

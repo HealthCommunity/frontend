@@ -5,21 +5,11 @@ import {
   UserFormGroup,
   InputTextLabel,
   InputTextGroup,
-  TextLabel,
-  LinkGroup,
 } from "../User/LoginLayout";
-import { ButtonPupple } from "../Share/ButtonPupple";
-import { ProfileContainerCenter } from "./ProfileLayout";
+import { ProfileMyinfo } from "./ProfileLayout";
 import axios from "axios";
 import Button from "../common/Button";
 import UserDropOut from "./UserDropOut";
-
-const UserModifyTitle = styled.div`
-  color: ${(props) => props.theme.fontColor};
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 32px;
-`;
 
 const UserModifyFrom = styled.div`
   width: 100%;
@@ -96,8 +86,6 @@ export default function ContentUserModify(loginId) {
     return <></>;
   }
 
-  console.log("로그인 id", loginId.loginId);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -117,19 +105,17 @@ export default function ContentUserModify(loginId) {
           withCredentials: true,
           credentials: "include",
         })
-        .then(function (response) {
-          if (response.status === 200) {
-            console.log(response);
-            console.log("정보 수정이 완료되었습니다.");
-          }
+        .then((response) => {
+          console.log(response);
+          console.log("정보 수정이 완료되었습니다.");
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("정보수정 실패", error);
         });
     }
   };
   return (
-    <ProfileContainerCenter>
+    <ProfileMyinfo>
       <UserModifyFrom>
         <UserFormGroup onSubmit={handleSubmit}>
           <InputTextGroup>
@@ -166,9 +152,9 @@ export default function ContentUserModify(loginId) {
           <Button size="lg" type="submit">
             변경하기
           </Button>
+          <UserDropOut />
         </UserFormGroup>
-        <UserDropOut />
       </UserModifyFrom>
-    </ProfileContainerCenter>
+    </ProfileMyinfo>
   );
 }

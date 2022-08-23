@@ -1,6 +1,6 @@
 import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
-import ContentBody from "../components/Profile/ContentBody";
+import ContentBody from "../components/Profile/Index";
 import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
