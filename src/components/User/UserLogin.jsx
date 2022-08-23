@@ -2,94 +2,97 @@ import React, { useState } from "react";
 import InputTextDesc from "./InputTextDesc";
 import { useNavigate, Link } from "react-router-dom";
 import {
-    UserFormGroup,
-    InputTextLabel,
-    InputTextGroup,
-    TextLabel,
-    LinkGroup,
+  UserFormGroup,
+  InputTextLabel,
+  InputTextGroup,
+  TextLabel,
+  LinkGroup,
 } from "./LoginLayout";
 import axios from "axios";
 import Button from "../common/Button";
 import useUserData from "../../api/useUserData";
 
 export default function UserInputForm() {
-    const [, refetch] = useUserData();
+  const [, refetch] = useUserData();
 
-    axios.defaults.withCredentials = true;
-    let navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+  let navigate = useNavigate();
 
-    const [usrInputs, setUsrInputs] = useState({
-        id: "",
-        password: "",
+  const [usrInputs, setUsrInputs] = useState({
+    id: "",
+    password: "",
+  });
+
+  const { id, password } = usrInputs;
+
+  const handleChange = (e) => {
+    const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
+    setUsrInputs({
+      ...usrInputs, // 기존의 input 객체를 복사한 뒤
+      [name]: value, // name 키를 가진 값을 value 로 설정
     });
+  };
 
-    const { id, password } = usrInputs;
+  const handleSubmit = (e) => {
+    e.preventDefault(); //새로고침 방지
+    e.stopPropagation();
 
-    const handleChange = (e) => {
-        const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-        setUsrInputs({
-            ...usrInputs, // 기존의 input 객체를 복사한 뒤
-            [name]: value, // name 키를 가진 값을 value 로 설정
-        });
+    const myData = {
+      username: id,
+      password: password,
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); //새로고침 방지
-        e.stopPropagation();
+    axios
+      .post("/api/user/login", myData, {
+        withCredentials: true,
+        credentials: "include",
+      })
+      .then(function (response) {
+        if (response.data.status === "0402") {
+          alert(response.data.message);
+        } else {
+          refetch();
+          navigate("/");
+        }
+      })
+      .catch(function (error) {
+        console.log("로그인 API 요청 실패", error);
+        refetch();
+      });
+  };
 
-        const myData = {
-            username: id,
-            password: password,
-        };
+  return (
+    <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
+      <InputTextGroup>
+        <InputTextLabel>아이디</InputTextLabel>
+        <InputTextDesc
+          type="text"
+          name="id"
+          placeholder="아이디"
+          onChange={handleChange}
+          required
+        />
+      </InputTextGroup>
 
-        axios
-            .post("/api/user/login", myData, {
-                withCredentials: true,
-                credentials: "include",
-            })
-            .then(function (response) {
-                console.log("로그인 성공");
-                refetch();
-                navigate("/");
-            })
-            .catch(function (error) {
-                console.log("로그인 실패", error);
-                refetch();
-            });
-    };
+      <InputTextGroup>
+        <InputTextLabel>비밀번호</InputTextLabel>
+        <InputTextDesc
+          type="password"
+          name="password"
+          placeholder="비밀번호"
+          onChange={handleChange}
+          required
+        />
+      </InputTextGroup>
 
-    return (
-        <UserFormGroup onSubmit={handleSubmit} style={{ height: "300px" }}>
-            <InputTextGroup>
-                <InputTextLabel>아이디</InputTextLabel>
-                <InputTextDesc
-                    type="text"
-                    name="id"
-                    placeholder="아이디"
-                    onChange={handleChange}
-                    required
-                />
-            </InputTextGroup>
-
-            <InputTextGroup>
-                <InputTextLabel>비밀번호</InputTextLabel>
-                <InputTextDesc
-                    type="password"
-                    name="password"
-                    placeholder="비밀번호"
-                    onChange={handleChange}
-                    required
-                />
-            </InputTextGroup>
-
-            <Button size="lg" type="submit">
-                로그인
-            </Button>
-            <LinkGroup>
-                <Link to="/sign">
-                    <TextLabel>회원가입</TextLabel>
-                </Link>
-            </LinkGroup>
-        </UserFormGroup>
-    );
+      <Button size="lg" type="submit">
+        로그인
+      </Button>
+      <LinkGroup>
+        <Link to="/sign">
+          <TextLabel>회원가입</TextLabel>
+        </Link>
+      </LinkGroup>
+    </UserFormGroup>
+  );
 }

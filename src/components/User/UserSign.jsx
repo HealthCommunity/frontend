@@ -130,12 +130,14 @@ export default function UserSign() {
       axios
         .post("/api/user/join", myData)
         .then(function (response) {
-          if (response.data.status === "0002") {
-            alert(response.data.message);
-          } else if (response.data.status === "0003") {
+          console.log("예외처리", response);
+          if (
+            response.data.status === "0500" || //서버에서 예외처리 작업 후 제거예정
+            response.data.status === "0403" ||
+            response.data.status === "0404"
+          ) {
             alert(response.data.message);
           } else {
-            alert(response.data.message);
             alert("회원가입 성공");
             navigate("/login");
           }
