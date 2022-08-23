@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import InputTextDesc from "../User/InputTextDesc";
 import {
@@ -9,6 +10,8 @@ import {
 import { ProfileMyinfo } from "./ProfileLayout";
 import axios from "axios";
 import Button from "../common/Button";
+import userLogout from "../../utils/User/userLogout";
+import useUserData from "../../api/useUserData";
 import UserDropOut from "./UserDropOut";
 
 const UserModifyFrom = styled.div`
@@ -20,6 +23,8 @@ const UserModifyFrom = styled.div`
 `;
 
 export default function ContentUserModify(loginId) {
+  const [, reFetch] = useUserData();
+  const navigate = useNavigate();
   const [usrInputs, setUsrInputs] = useState({
     password: "",
     checkPassword: "",
@@ -106,8 +111,18 @@ export default function ContentUserModify(loginId) {
           credentials: "include",
         })
         .then((response) => {
-          console.log(response);
-          console.log("정보 수정이 완료되었습니다.");
+          alert("정보 수정이 완료되었습니다. 다시 로그인해주세요.");
+          userLogout({
+            onSuccess: (response) => {
+              console.log("로그아웃 성공");
+              reFetch();
+              navigate("/login");
+            },
+            onError: (error) => {
+              reFetch();
+              console.log("로그아웃 실패", error);
+            },
+          });
         })
         .catch((error) => {
           console.log("정보수정 실패", error);
