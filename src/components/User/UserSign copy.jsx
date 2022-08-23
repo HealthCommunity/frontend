@@ -13,7 +13,6 @@ import Button from "../common/Button";
 import {
   checkValidityId,
   checkValidityPassword,
-  checkDoublePassword,
   checkValidityNickname,
 } from "../../utils/User/userValidation";
 
@@ -49,6 +48,17 @@ export default function UserSign() {
     });
   };
 
+  const checkDoublePassword = (value = checkPassword, target = password) => {
+    //console.log(password, usrInputs.password);
+    console.log(value, target);
+
+    if (password !== usrInputs.password) {
+      return [false, "비밀번호 불일치"];
+    } else {
+      return [true, "사용 가능"];
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -59,7 +69,7 @@ export default function UserSign() {
     if (
       checkValidityId(id)[0] &&
       checkValidityPassword(password)[0] &&
-      checkDoublePassword(password, checkPassword)[0] &&
+      checkDoublePassword()[0] &&
       checkValidityNickname(nickname)[0]
     ) {
       const myData = {
@@ -119,7 +129,7 @@ export default function UserSign() {
           name="checkPassword"
           placeholder="비밀번호 재입력"
           onChange={handleChange}
-          onValidation={(value) => checkDoublePassword(value, password)}
+          onValidation={checkDoublePassword}
           required
         />
       </InputTextGroup>

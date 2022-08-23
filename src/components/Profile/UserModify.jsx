@@ -15,6 +15,7 @@ import useUserData from "../../api/useUserData";
 import UserDropOut from "./UserDropOut";
 import {
   checkValidityPassword,
+  checkDoublePassword,
   checkValidityNickname,
 } from "../../utils/User/userValidation";
 
@@ -35,14 +36,6 @@ export default function ContentUserModify(loginId) {
       ...usrInputs,
       [name]: value,
     });
-  };
-
-  const checkDoublePassword = (password) => {
-    if (password !== usrInputs.password) {
-      return [false, "비밀번호가 일치하지 않습니다."];
-    } else {
-      return [true, "동일한 비밀번호입니다."];
-    }
   };
 
   if (!loginId) {
@@ -108,7 +101,7 @@ export default function ContentUserModify(loginId) {
               name="checkPassword"
               placeholder="비밀번호 확인"
               onChange={handleChange}
-              onValidation={checkDoublePassword}
+              onValidation={(value) => checkDoublePassword(value, password)}
               required
             />
           </InputTextGroup>

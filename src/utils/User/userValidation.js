@@ -24,6 +24,14 @@ export const checkValidityPassword = (password) => {
   }
 };
 
+export const checkDoublePassword = (target, value) => {
+  if (value !== target) {
+    return [false, "비밀번호 불일치"];
+  } else {
+    return [true, "사용 가능"];
+  }
+};
+
 export const checkValidityNickname = (nickname) => {
   if (nickname.length < 2) {
     return [false, "2~10자를 입력하세요"];
