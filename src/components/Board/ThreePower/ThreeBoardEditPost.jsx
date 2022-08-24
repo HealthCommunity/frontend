@@ -3,6 +3,7 @@ import Tiptap from "../../../utils/Editor/Tiptap";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import Nav from "../../Navbar";
 
 const PostWrapper = styled.div`
   max-width: 1040px;
@@ -50,6 +51,7 @@ export default function ThreeBoardEditPost() {
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [pending, setPending] = useState(false);
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -81,14 +83,16 @@ export default function ThreeBoardEditPost() {
         "content-type": "multipart/form-data",
       },
     };
-
+    setPending(true);
     axios
       .post(url, formData, config)
-      .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          navigate("/threepowerpost");
+      .then((res) => {
+        if (res.data.status === "0452") {
+          setPending(false);
+          alert("3대력 게시글 수정은 동영상을 변경해주셔야합니다");
+          return;
         }
+        navigate("/threepowerpost");
       })
       .catch((error) =>
         alert(
@@ -99,8 +103,11 @@ export default function ThreeBoardEditPost() {
 
   return (
     <>
-      {loading ? (
-        <div>로딩중입니다</div>
+      <Nav />
+      {loading | pending ? (
+        <div style={{ marginTop: "200px" }}>
+          {pending ? "게시글 업로드중입니다" : "로딩중입니다"}
+        </div>
       ) : (
         <PostWrapper>
           <TitleLabel Htmlfor="input-title">제목</TitleLabel>

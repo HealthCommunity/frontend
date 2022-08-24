@@ -73,6 +73,7 @@ function BoardNewWrite() {
       .post(url, formData, config)
       .then((response) => {
         if (response.data.status === "0452") {
+          setPending(false);
           alert("본문에 내용을 넣어주세요!");
           return;
         }
