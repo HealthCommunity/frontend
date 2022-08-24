@@ -44,8 +44,7 @@ const TitleLabel = styled.label`
 
 function BoardNewWrite() {
   let navigate = useNavigate();
-  const { pathname } = useLocation();
-  const boardname = pathname.split("/")[1];
+  const [pending, setPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const handleChange = (e) => {
@@ -69,7 +68,7 @@ function BoardNewWrite() {
         "content-type": "multipart/form-data",
       },
     };
-
+    setPending(true);
     axios
       .post(url, formData, config)
       .then((response) => {
@@ -86,24 +85,30 @@ function BoardNewWrite() {
   };
 
   return (
-    <PostWrapper>
-      <TitleLabel Htmlfor="input-title">제목</TitleLabel>
-      <form onSubmit={handleSubmit}>
-        <PostTitleTitle
-          id="input-title"
-          placeholder="글 제목을 입력해주세요!"
-          value={title}
-          onChange={handleChange}
-          autoComplete="off"
-          required
-        ></PostTitleTitle>
-        <input type="file" name="bench" accept="video/*" />
-        <input type="file" name="squat" accept="video/*" />
-        <input type="file" name="dead" accept="video/*" />
-        <Tiptap setDescription={setDescription} />
-        <button type="submit">제출하기</button>
-      </form>
-    </PostWrapper>
+    <>
+      {!pending ? (
+        <PostWrapper>
+          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
+          <form onSubmit={handleSubmit}>
+            <PostTitleTitle
+              id="input-title"
+              placeholder="글 제목을 입력해주세요!"
+              value={title}
+              onChange={handleChange}
+              autoComplete="off"
+              required
+            ></PostTitleTitle>
+            <input type="file" name="bench" accept="video/*" required />
+            <input type="file" name="squat" accept="video/*" required />
+            <input type="file" name="dead" accept="video/*" required />
+            <Tiptap setDescription={setDescription} />
+            <button type="submit">제출하기</button>
+          </form>
+        </PostWrapper>
+      ) : (
+        <div>대기상태입니다</div>
+      )}
+    </>
   );
 }
 

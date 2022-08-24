@@ -102,7 +102,6 @@ const Tiptap = ({ setDescription, description }) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     content: description || "",
-
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       setDescription(html);
