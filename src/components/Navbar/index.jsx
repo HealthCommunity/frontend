@@ -17,7 +17,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
-import userLogout from "../User/userLogout";
+import userLogout from "../../utils/User/userLogout";
 
 const FormStyle = styled.form`
   display: flex;

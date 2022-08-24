@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Modal from "../Share/Modal";
 
 import axios from "axios";
-import userLogout from "../User/userLogout";
+import userLogout from "../../utils/User/userLogout";
 import useUserData from "../../api/useUserData";
 
 export default function UserDropOut() {

@@ -10,8 +10,6 @@ import ThreePowerPost from "./pages/ThreePowerPost";
 import FreePost from "./pages/FreePost";
 import ExercisePost from "./pages/ExercisePost";
 import ExerciseWrite from "./pages/ExerciseWrite";
-import FindId from "./pages/FindId";
-import FindPw from "./pages/FindPw";
 import SearchPage from "./pages/Search";
 import NotFoundScene from "./pages/NotFoundScene";
 import ThreePowerWrite from "./pages/ThreePowerWrite";
@@ -35,8 +33,6 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login/find_id" element={<FindId />} />
-        <Route path="/login/find_pw" element={<FindPw />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/freepost" element={<Freeboard />} />

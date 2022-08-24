@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import InputTextDesc from "../User/InputTextDesc";
 import {
@@ -9,17 +10,18 @@ import {
 import { ProfileMyinfo } from "./ProfileLayout";
 import axios from "axios";
 import Button from "../common/Button";
+import userLogout from "../../utils/User/userLogout";
+import useUserData from "../../api/useUserData";
 import UserDropOut from "./UserDropOut";
-
-const UserModifyFrom = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import {
+  checkValidityPassword,
+  checkDoublePassword,
+  checkValidityNickname,
+} from "../../utils/User/userValidation";
 
 export default function ContentUserModify(loginId) {
+  const [, reFetch] = useUserData();
+  const navigate = useNavigate();
   const [usrInputs, setUsrInputs] = useState({
     password: "",
     checkPassword: "",
@@ -34,51 +36,6 @@ export default function ContentUserModify(loginId) {
       ...usrInputs,
       [name]: value,
     });
-  };
-
-  const checkValidityPassword = (password) => {
-    if (password.length < 8) {
-      return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
-    } else if (password.length > 16) {
-      return [false, "비밀번호 8~16자, 숫자, 문자, 특수문자입니다."];
-    } else {
-      if (isRulePassword(password)) {
-        return [true, "사용 가능 비밀번호입니다."];
-      }
-      return [false, "유효하지 않은 비밀번호입니다."];
-    }
-  };
-
-  const checkDoublePassword = (password) => {
-    if (password !== usrInputs.password) {
-      return [false, "비밀번호가 일치하지 않습니다."];
-    } else {
-      return [true, "동일한 비밀번호입니다."];
-    }
-  };
-
-  const checkValidityNickname = (nickname) => {
-    if (nickname.length < 2) {
-      return [false, "닉네임은 2~10자 문자입니다."];
-    } else if (nickname.length > 10) {
-      return [false, "닉네임은 2~10자 문자입니다."];
-    } else {
-      if (isRuleNick(nickname)) {
-        return [true, "올바른 닉네임입니다."];
-      }
-      return [false, "유효하지 않는 닉네임입니다."];
-    }
-  };
-
-  const isRulePassword = (asValue) => {
-    const regExp =
-      /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
-    return regExp.test(asValue);
-  };
-
-  const isRuleNick = (asValue) => {
-    const regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]*$/;
-    return regExp.test(asValue);
   };
 
   if (!loginId) {
@@ -106,8 +63,18 @@ export default function ContentUserModify(loginId) {
           credentials: "include",
         })
         .then((response) => {
-          console.log(response);
-          console.log("정보 수정이 완료되었습니다.");
+          alert("정보 수정이 완료되었습니다. 다시 로그인해주세요.");
+          userLogout({
+            onSuccess: (response) => {
+              console.log("로그아웃 성공");
+              reFetch();
+              navigate("/login");
+            },
+            onError: (error) => {
+              reFetch();
+              console.log("로그아웃 실패", error);
+            },
+          });
         })
         .catch((error) => {
           console.log("정보수정 실패", error);
@@ -134,7 +101,7 @@ export default function ContentUserModify(loginId) {
               name="checkPassword"
               placeholder="비밀번호 확인"
               onChange={handleChange}
-              onValidation={checkDoublePassword}
+              onValidation={(value) => checkDoublePassword(value, password)}
               required
             />
           </InputTextGroup>
@@ -158,3 +125,11 @@ export default function ContentUserModify(loginId) {
     </ProfileMyinfo>
   );
 }
+
+const UserModifyFrom = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
