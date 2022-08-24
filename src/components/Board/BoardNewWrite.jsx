@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../../../utils/Editor/Tiptap";
-import "../../../utils/Editor/TiptapStyle.css";
+import Tiptap from "../../utils/Editor/Tiptap";
+import "../../utils/Editor/TiptapStyle.css";
 import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -45,6 +45,7 @@ const TitleLabel = styled.label`
 
 function BoardNewWrite() {
   let navigate = useNavigate();
+  const [pending, setPending] = useState(false);
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [title, setTitle] = useState("");
@@ -52,10 +53,9 @@ function BoardNewWrite() {
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = "/api/freepost";
+    const url = `/api/${boardname}`;
     let files = e.target.inputfile.files;
     const formData = new FormData();
     formData.append("title", title);
@@ -68,12 +68,15 @@ function BoardNewWrite() {
         "content-type": "multipart/form-data",
       },
     };
+    setPending(true);
     axios
       .post(url, formData, config)
       .then((response) => {
-        if (response.status === 200) {
-          navigate("/freepost");
+        if (response.data.status === "0452") {
+          alert("본문에 내용을 넣어주세요!");
+          return;
         }
+        navigate(`/${boardname}`);
       })
       .catch((error) =>
         alert(
@@ -81,29 +84,34 @@ function BoardNewWrite() {
         )
       );
   };
-
   return (
-    <PostWrapper>
-      <TitleLabel Htmlfor="input-title">제목</TitleLabel>
-      <form onSubmit={handleSubmit}>
-        <PostTitleTitle
-          id="input-title"
-          placeholder="글 제목을 입력해주세요!"
-          value={title}
-          onChange={handleChange}
-          autoComplete="off"
-          required
-        />
-        <input
-          type="file"
-          multiple
-          name="inputfile"
-          accept="video/* , image/*"
-        />
-        <Tiptap setDescription={setDescription} />
-        <button type="submit">제출하기</button>
-      </form>
-    </PostWrapper>
+    <>
+      {!pending ? (
+        <PostWrapper>
+          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
+          <form onSubmit={handleSubmit}>
+            <PostTitleTitle
+              id="input-title"
+              placeholder="글 제목을 입력해주세요!"
+              value={title}
+              onChange={handleChange}
+              autoComplete="off"
+              required
+            />
+            <input
+              type="file"
+              multiple
+              name="inputfile"
+              accept="video/* , image/*"
+            />
+            <Tiptap setDescription={setDescription} />
+            <button type="submit">제출하기</button>
+          </form>
+        </PostWrapper>
+      ) : (
+        <div>대기상태입니다</div>
+      )}
+    </>
   );
 }
 
