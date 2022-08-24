@@ -18,29 +18,13 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
 import userLogout from "../../utils/User/userLogout";
-
-const FormStyle = styled.form`
-  display: flex;
-  align-items: center;
-`;
-
-const SelectForm = styled.select`
-  margin-right: 5px;
-`;
-
-const SearchInput = styled.input`
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: transparent;
-  color: ${(props) => props.color};
-`;
+import NavSearch from "./NavSearch";
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
   const navigate = useNavigate();
   let { pathname } = useLocation();
-  const [searchOpen, setSearchOpen] = useState(false);
+
   const [toggle, setToggle] = useState(false);
   let navdata =
     pathname.includes("freepost") ||
@@ -81,10 +65,6 @@ export default function Nav() {
     };
   });
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    navigate("/search", { state: data });
-  };
   return (
     <NavDiv
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
@@ -120,40 +100,7 @@ export default function Nav() {
       </NavBoardDiv>
       <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
         <NavItem>
-          {searchOpen ? (
-            <FormStyle onSubmit={handleSubmit(onSubmit)}>
-              <SelectForm {...register("select")}>
-                <option value="통합검색">통합검색</option>
-                <option value="작성자">작성자</option>
-                <option value="내용">내용</option>
-              </SelectForm>
-              <SearchInput
-                {...register("keyword")}
-                type="text"
-                style={{
-                  outline: "none",
-                  width: "100px",
-                  borderBottom: `3px solid ${(props) => props.color}`,
-                }}
-                color={navdata ? "black" : "white"}
-              />
-              <SearchInput
-                type="submit"
-                style={{
-                  border: "none",
-                  cursor: "pointer",
-                  borderBottom: "none",
-                }}
-                color={navdata ? "black" : "white"}
-              />
-            </FormStyle>
-          ) : (
-            <img
-              src={!navdata && ScrollY === 0 ? SearchColorImage : SearchImage}
-              alt="search"
-              onClick={() => setSearchOpen((prev) => !prev)}
-            />
-          )}
+          <NavSearch />
         </NavItem>
         <NavItem>
           <img
