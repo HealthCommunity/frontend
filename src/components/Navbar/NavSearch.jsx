@@ -1,33 +1,30 @@
 import { useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import SearchImage from "../../assets/images/common_search_bk_24.svg";
 
-export default function NavSearch() {
-  const navigate = useNavigate();
-  const [searchOpen, setSearchOpen] = useState(false);
-  let { pathname } = useLocation();
-  const [ScrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
-
+export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
+  let navigate = useNavigate();
+  const [searchOpen, setSearchOpen] = useState(isSearchOpen);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     navigate("/search", { state: data });
   };
 
-  let navdata =
-    pathname.includes("freepost") ||
-    pathname.includes("exercisepost") ||
-    pathname.includes("threepowerpost")
-      ? true
-      : false;
-
   return (
     <NavSearchDiv>
       {searchOpen ? (
         <FormStyle onSubmit={handleSubmit(onSubmit)}>
-          <SelectForm {...register("select")}>
+          <SelectForm
+            {...register("select")}
+            style={{
+              backgroundColor:
+                !navdata && ScrollY === 0 ? "#21242E" : "#FEFEFE",
+              color: !navdata && ScrollY === 0 ? "#FEFEFE" : "#21242E",
+            }}
+          >
             <option value="titleandcontent">통합검색</option>
             <option value="title">제목</option>
             <option value="content">내용</option>
@@ -36,22 +33,14 @@ export default function NavSearch() {
           <SearchInput
             {...register("keyword")}
             type="text"
-            style={{
-              outline: "none",
-              width: "100px",
-              borderBottom: `3px solid ${(props) => props.color}`,
-            }}
-            color={navdata ? "black" : "white"}
+            color={!navdata && ScrollY === 0 ? "white" : "black"}
           />
-          <SearchInput
-            type="submit"
-            style={{
-              border: "none",
-              cursor: "pointer",
-              borderBottom: "none",
-            }}
-            color={navdata ? "black" : "white"}
-          />
+          <SearchButton type="submit" color={navdata ? "white" : "black"}>
+            <img
+              src={!navdata && ScrollY === 0 ? SearchColorImage : SearchImage}
+              alt="search"
+            />
+          </SearchButton>
         </FormStyle>
       ) : (
         <img
@@ -67,18 +56,51 @@ export default function NavSearch() {
 const NavSearchDiv = styled.div``;
 
 const FormStyle = styled.form`
+  position: relative;
   display: flex;
   align-items: center;
 `;
 
 const SelectForm = styled.select`
+  position: absolute;
+  margin: 0 20px 0 10px;
   margin-right: 5px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  outline: 0 none;
+  border: none;
+  padding: 2px;
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
 `;
 
 const SearchInput = styled.input`
+  width: 100px;
   border-top: none;
   border-left: none;
   border-right: none;
   background-color: transparent;
   color: ${(props) => props.color};
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  height: 40px;
+  border: 1px solid #eeeeee;
+  border-radius: 60px;
+  padding: 0 40px 0 90px;
+`;
+
+const SearchButton = styled.button`
+  position: absolute;
+  right: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 `;
