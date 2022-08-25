@@ -5,15 +5,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import BoardFetchItems from "../components/Board/View/BoardFetchItems";
 import useUserData from "../api/useUserData";
+import WriteIcon from "../assets/images/board_write_bl_24.svg";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
 
 export const ModalButton = styled.button`
-  box-sizing: border-box;
   height: 48px;
-  width: 10%;
+  display: flex;
+  margin: 10px 0px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
   background: #ffffff;
+  color: #0066ff;
   border: 1px solid #0066ff;
   border-radius: 48px;
   cursor: pointer;
@@ -29,7 +34,10 @@ export default function Board() {
       <WidthAreaSpace>
         {userData ? (
           <Link to={"write"}>
-            <ModalButton>글쓰기</ModalButton>
+            <ModalButton>
+              <img src={WriteIcon} style={{ marginRight: "5px" }} />
+              글쓰기
+            </ModalButton>
           </Link>
         ) : null}
 

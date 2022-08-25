@@ -6,7 +6,7 @@ import BoardItemBox from "../ThreePower/ThreePowerForm";
 import axios from "axios";
 import BoardForm from "./BoardForm";
 
-export default function BoardFetchItems({ category = "" }) {
+export default function BoardFetchItems({ category = "", center }) {
   const { pathname } = useLocation();
   const [itemList, setItemList] = useState([]);
   const [page, setPage] = useState(0); //현재 페이지
@@ -52,7 +52,7 @@ export default function BoardFetchItems({ category = "" }) {
   return (
     <>
       {isLoading ? (
-        <BoardItemList>
+        <BoardItemList style={center && { justifyContent: "center" }}>
           {itemList.map(
             ({ postId, title, createdDate, nickname, view, urls }) => (
               <Link
@@ -97,7 +97,6 @@ export default function BoardFetchItems({ category = "" }) {
 const BoardItemList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   grid-column-gap: 32px;
   grid-row-gap: 28px;
 `;

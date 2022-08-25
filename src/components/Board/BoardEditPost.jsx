@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Nav from "../Navbar/index";
+import { FileBtn, FileBtnDiv, FileList, PostLabel } from "./BoardWriteStyle";
+import FileAdd from "../../assets/images/board_write_picture_24.svg";
 
 const PostWrapper = styled.div`
   max-width: 1040px;
@@ -47,14 +49,28 @@ const TitleLabel = styled.label`
 export default function BoardEditPost() {
   let navigate = useNavigate();
   const { pathname } = useLocation();
+  const boardname = pathname.split("/")[1];
   const url = `/api${pathname}`;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pending, setPending] = useState(false);
+  const [file, setFile] = useState([]);
   const handleChange = (e) => {
     setTitle(e.target.value);
+  };
+  const goList = () => {
+    navigate(`/${boardname}`);
+  };
+  const changeInputFile = (e) => {
+    const fileArr = e.target.files;
+    const filelist = [];
+    for (let i = 0; i < fileArr.length; i++) {
+      if (fileArr.length > 5) return;
+      filelist.push(fileArr[i]);
+    }
+    setFile(filelist);
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -102,7 +118,6 @@ export default function BoardEditPost() {
         </div>
       ) : (
         <PostWrapper>
-          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
           <form onSubmit={handleSubmit}>
             <PostTitleTitle
               id="input-title"
@@ -111,17 +126,42 @@ export default function BoardEditPost() {
               onChange={handleChange}
               autoComplete="off"
             />
-            <input
-              type="file"
-              multiple
-              name="inputfile"
-              accept="video/* , image/*"
-            />
-            <span style={{ color: "red" }}>
-              (파일변경시 기존 파일은 삭제됩니다)
-            </span>
             <Tiptap setDescription={setDescription} description={description} />
-            <button type="submit">제출하기</button>
+            <FileList>
+              <PostLabel>
+                <img src={FileAdd} style={{ marginRight: "5px" }} />
+                파일 첨부
+                <input
+                  type="file"
+                  multiple
+                  name="inputfile"
+                  accept="video/* , image/*"
+                  style={{ display: "none" }}
+                  onChange={changeInputFile}
+                />
+                <span style={{ color: "red" }}>
+                  (파일변경시 기존 파일은 삭제됩니다)
+                </span>
+              </PostLabel>
+              {file.map((x) => (
+                <span
+                  key={x.name}
+                  style={{ margin: "0px 10px" }}
+                >{` ${x.name} `}</span>
+              ))}
+            </FileList>
+
+            <FileBtnDiv>
+              <FileBtn type="button" onClick={goList}>
+                취소
+              </FileBtn>
+              <FileBtn
+                type="submit"
+                style={{ color: "white", backgroundColor: "#0066FF" }}
+              >
+                제출하기
+              </FileBtn>
+            </FileBtnDiv>
           </form>
         </PostWrapper>
       )}
