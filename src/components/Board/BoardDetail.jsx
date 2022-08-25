@@ -14,6 +14,10 @@ import PostThreePower from "./ThreePower/PostThreePower";
 import EyeIcon from "../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { FileBtn, FileBtnDiv } from "./BoardWriteStyle";
+import useUserData from "../../api/useUserData";
+import { Link } from "react-router-dom";
+import { ModalButton } from "../../pages/ThreePower";
+import WriteIcon from "../../assets/images/board_write_bl_24.svg";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -22,6 +26,7 @@ export default function BoardDetail() {
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [userData] = useUserData();
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -57,7 +62,7 @@ export default function BoardDetail() {
           <InfoTitleDiv>
             <InfoTitle>{boardData?.title}</InfoTitle>
             <InfoTitleWrite>
-              <img src={EyeIcon} alt="eye" />
+              <img src={EyeIcon} alt="eye" style={{ marginRight: "5px" }} />
               {boardData?.view}
             </InfoTitleWrite>
           </InfoTitleDiv>
@@ -108,6 +113,23 @@ export default function BoardDetail() {
             ""
           )}
         </InfoDiv>
+      )}
+      {userData ? (
+        <div style={{ display: "flex" }}>
+          <Link to={`/${boardname}/write`}>
+            <ModalButton>
+              <img src={WriteIcon} style={{ marginRight: "5px" }} />
+              글쓰기
+            </ModalButton>
+          </Link>
+          <Link to={`/${boardname}`}>
+            <ModalButton>글목록</ModalButton>
+          </Link>
+        </div>
+      ) : (
+        <Link to={`/${boardname}`}>
+          <ModalButton>글목록</ModalButton>
+        </Link>
       )}
     </>
   );

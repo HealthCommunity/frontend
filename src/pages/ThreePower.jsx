@@ -18,6 +18,7 @@ export const ModalButton = styled.button`
   align-items: center;
   padding: 15px 30px;
   background: #ffffff;
+  margin-right: 10px;
   color: #0066ff;
   border: 1px solid #0066ff;
   border-radius: 48px;
