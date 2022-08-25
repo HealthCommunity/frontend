@@ -2,74 +2,16 @@ import { useLocation, useNavigate } from "react-router";
 import Tiptap from "../../utils/Editor/Tiptap";
 import "../../utils/Editor/TiptapStyle.css";
 import { useState } from "react";
-import styled from "styled-components";
+import {
+  PostWrapper,
+  PostTitleTitle,
+  PostLabel,
+  FileList,
+  FileBtnDiv,
+  FileBtn,
+} from "./BoardWriteStyle";
 import axios from "axios";
 import FileAdd from "../../assets/images/board_write_picture_24.svg";
-
-const PostWrapper = styled.div`
-  max-width: 1040px;
-  width: 1024px;
-  color: #333;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-`;
-
-const PostTitleTitle = styled.input`
-  width: 100%;
-  height: 56px;
-  min-height: 56px;
-  border: none;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  border-bottom: 1px solid #eeeeee;
-  margin-bottom: 20px;
-  :focus {
-    outline: none;
-  }
-`;
-
-const PostLabel = styled.label`
-  border: 1px solid #0066ff;
-  border-radius: 60px;
-  color: #0066ff;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  padding: 16px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: "Pretendard";
-`;
-
-const FileList = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const FileBtnDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #eeeeee;
-  margin-top: 20px;
-  padding-top: 20px;
-  margin-bottom: 50px;
-`;
-
-const FileBtn = styled.button`
-  width: 100px;
-  height: 50px;
-  border-radius: 40px;
-  margin: 0px 10px;
-  border: 1px solid #eeeeee;
-  background-color: transparent;
-  text-align: center;
-  font-family: "Pretendard";
-`;
 
 function BoardNewWrite() {
   let navigate = useNavigate();

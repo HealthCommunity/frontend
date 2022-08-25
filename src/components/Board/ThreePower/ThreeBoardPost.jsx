@@ -1,56 +1,40 @@
 import { useLocation, useNavigate } from "react-router";
 import Tiptap from "../../../utils/Editor/Tiptap";
 import { useState } from "react";
-import styled from "styled-components";
+import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 import axios from "axios";
-
-const PostWrapper = styled.div`
-  max-width: 1040px;
-  padding: 60px 16px;
-  width: 1024px;
-  margin: 0 auto;
-  color: #333;
-  grid-gap: 50px;
-  gap: 50px px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 150px;
-`;
-
-const PostTitleTitle = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 56px;
-  min-height: 56px;
-  line-height: 44px;
-  box-shadow: none;
-  padding-left: 16px;
-  padding-right: 52px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-`;
-
-const TitleLabel = styled.label`
-  display: inline-block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: 500;
-`;
+import {
+  PostWrapper,
+  PostTitleTitle,
+  PostLabel,
+  FileList,
+  FileBtnDiv,
+  FileBtn,
+} from "../BoardWriteStyle";
 
 function BoardNewWrite() {
   let navigate = useNavigate();
   const [pending, setPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [bench, setBench] = useState("");
+  const [squat, setSquat] = useState("");
+  const [dead, setDead] = useState("");
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
-
+  const goList = () => {
+    navigate("/threepowerpost");
+  };
+  const changeBench = (e) => {
+    setBench(e.target.files[0].name);
+  };
+  const changeDead = (e) => {
+    setDead(e.target.files[0].name);
+  };
+  const changeSqaut = (e) => {
+    setSquat(e.target.files[0].name);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = "/api/threepowerpost";
@@ -88,7 +72,6 @@ function BoardNewWrite() {
     <>
       {!pending ? (
         <PostWrapper>
-          <TitleLabel Htmlfor="input-title">제목</TitleLabel>
           <form onSubmit={handleSubmit}>
             <PostTitleTitle
               id="input-title"
@@ -97,16 +80,71 @@ function BoardNewWrite() {
               onChange={handleChange}
               autoComplete="off"
               required
-            ></PostTitleTitle>
-            <input type="file" name="bench" accept="video/*" required />
-            <input type="file" name="squat" accept="video/*" required />
-            <input type="file" name="dead" accept="video/*" required />
+            />
             <Tiptap setDescription={setDescription} />
-            <button type="submit">제출하기</button>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <FileList>
+                <PostLabel>
+                  <img src={VideoIcon} style={{ marginRight: "5px" }} />
+                  벤치프레스 영상
+                  <input
+                    style={{ display: "none" }}
+                    type="file"
+                    name="bench"
+                    accept="video/*"
+                    required
+                    onChange={changeBench}
+                  />
+                </PostLabel>
+                <span style={{ margin: "0px 10px" }}>{bench}</span>
+              </FileList>
+              <FileList>
+                <PostLabel>
+                  <img src={VideoIcon} style={{ marginRight: "5px" }} />
+                  데드리프트 영상
+                  <input
+                    onChange={changeDead}
+                    style={{ display: "none" }}
+                    type="file"
+                    name="squat"
+                    accept="video/*"
+                    required
+                  />
+                </PostLabel>
+                <span style={{ margin: "0px 10px" }}>{dead}</span>
+              </FileList>
+              <FileList>
+                <PostLabel>
+                  <img src={VideoIcon} style={{ marginRight: "5px" }} />
+                  스쿼트 영상
+                  <input
+                    onChange={changeSqaut}
+                    style={{ display: "none" }}
+                    type="file"
+                    name="dead"
+                    accept="video/*"
+                    required
+                  />
+                </PostLabel>
+                <span style={{ margin: "0px 10px" }}>{squat}</span>
+              </FileList>
+            </div>
+
+            <FileBtnDiv>
+              <FileBtn type="button" onClick={goList}>
+                취소
+              </FileBtn>
+              <FileBtn
+                type="submit"
+                style={{ color: "white", backgroundColor: "#0066FF" }}
+              >
+                제출하기
+              </FileBtn>
+            </FileBtnDiv>
           </form>
         </PostWrapper>
       ) : (
-        <div>대기상태입니다</div>
+        <div>게시글을 업로드중입니다</div>
       )}
     </>
   );
