@@ -10,7 +10,7 @@ export default function SearchPage() {
   const { state } = useLocation();
   const [itemList, setItemList] = useState([]);
   const serchOption = {
-    titleandcontent: "통합검색",
+    titleandcontent: "전체",
     title: "제목",
     content: "내용",
     user: "작성자",
@@ -41,14 +41,10 @@ export default function SearchPage() {
     <>
       <Nav />
       <WidthAreaSpace>
-        <div>
-          <span>{serchOption[state.select]}</span>
-          <span>{`'${state.keyword}'`}</span>
-        </div>
-        <div>
-          <span>검색결과</span>
-          <span>{itemList.length}건</span>
-        </div>
+        <SearchResultInfo>
+          <SearchSelector>{`${serchOption[state.select]} 검색`}</SearchSelector>
+          <SearchResult>{`'${state.keyword}' 검색 결과 ${itemList.length}건`}</SearchResult>
+        </SearchResultInfo>
         <BoardItemList>
           {itemList.map(
             ({ postId, title, createdDate, nickname, view, urls }) => (
@@ -76,4 +72,34 @@ const BoardItemList = styled.ul`
   justify-content: center;
   grid-column-gap: 32px;
   grid-row-gap: 28px;
+`;
+
+const SearchResultInfo = styled.div`
+  margin: 50px 0px 48px 0px;
+`;
+
+const SearchSelector = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height, or 144% */
+
+  /* Basic/02 */
+
+  color: #888888;
+`;
+
+const SearchResult = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height, or 122% */
+
+  /* Basic/01 */
+
+  color: #222222;
 `;

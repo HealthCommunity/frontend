@@ -25,7 +25,7 @@ export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
               color: !navdata && ScrollY === 0 ? "#FEFEFE" : "#21242E",
             }}
           >
-            <option value="titleandcontent">통합검색</option>
+            <option value="titleandcontent">전체</option>
             <option value="title">제목</option>
             <option value="content">내용</option>
             <option value="user">작성자</option>
@@ -34,6 +34,7 @@ export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
             {...register("keyword")}
             type="text"
             color={!navdata && ScrollY === 0 ? "white" : "black"}
+            autocomplete="off"
           />
           <SearchButton type="submit" color={navdata ? "white" : "black"}>
             <img
@@ -76,6 +77,7 @@ const SelectForm = styled.select`
   -webkit-appearance: none; /* 네이티브 외형 감추기 */
   -moz-appearance: none;
   appearance: none;
+  background-color: transparent;
 `;
 
 const SearchInput = styled.input`
@@ -92,8 +94,7 @@ const SearchInput = styled.input`
   line-height: 24px;
 
   height: 40px;
-  border: 1px solid #eeeeee;
-  border-radius: 60px;
+  border-bottom: 1px solid #eeeeee;
   padding: 0 40px 0 90px;
 
   &:focus {
