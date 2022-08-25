@@ -47,6 +47,7 @@ const Input = styled.input`
   color: #888888;
   border: 1px solid #eeeeee;
   border-radius: 60px;
+  padding-right: 155px;
 
   :active {
     font-weight: 400;
@@ -70,7 +71,7 @@ const Input = styled.input`
 const Span = styled.span`
   position: absolute;
   right: 20px;
-  top: 16px;
+  top: 14px;
   color: ${(props) => (props.isSuccess ? "#0066FF;" : "#DA0808")};
   font-weight: 400;
   font-size: 14px;
