@@ -95,6 +95,11 @@ const SearchInput = styled.input`
   border: 1px solid #eeeeee;
   border-radius: 60px;
   padding: 0 40px 0 90px;
+
+  &:focus {
+    outline: none;
+    background-color: transparent;
+  }
 `;
 
 const SearchButton = styled.button`
