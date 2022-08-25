@@ -12,7 +12,7 @@ import {
   FileBtn,
 } from "../BoardWriteStyle";
 
-function BoardNewWrite() {
+export default function ThreeBoardPost() {
   let navigate = useNavigate();
   const [pending, setPending] = useState(false);
   const [title, setTitle] = useState("");
@@ -149,5 +149,3 @@ function BoardNewWrite() {
     </>
   );
 }
-
-export default BoardNewWrite;

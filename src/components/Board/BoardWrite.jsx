@@ -1,4 +1,4 @@
-import BoardNewWrite from "../components/Board/BoardNewWrite";
+import ThreeBoardPost from "../components/Board/ThreePower/ThreeBoardPost";
 import Title from "../utils/Title/Title";
 
 import {
@@ -8,20 +8,16 @@ import {
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
 
-function exerciseWrite() {
+export default function BoardWrite({ child }) {
   return (
     <>
-      <Title name="exerciseWrite" />
+      <Title name={child} />
       <Nav />
       <CommonContainer>
         <CommonContents>
-          <CommonContentArea>
-            <BoardNewWrite />
-          </CommonContentArea>
+          <CommonContentArea>{child}</CommonContentArea>
         </CommonContents>
       </CommonContainer>
     </>
   );
 }
-
-export default exerciseWrite;

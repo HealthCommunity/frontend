@@ -7,25 +7,24 @@ import {
   CommonContentArea,
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
+import ThreeBoardPost from "../components/Board/ThreePower/ThreeBoardPost";
 
-function exerciseWrite() {
+export default function BoardWrite({ item }) {
   return (
     <>
-      <Title name="freewrite" />
+      <Title name={`${item}`} />
       <Nav />
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            <BoardNewWrite />
+            {item === "freeWrite" || item === "exerciseWrite" ? (
+              <BoardNewWrite />
+            ) : (
+              <ThreeBoardPost />
+            )}
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>
-      {/* <Nav />
-            <WidthAreaSpace>
-                <BoardNewWrite />
-            </WidthAreaSpace> */}
     </>
   );
 }
-
-export default exerciseWrite;

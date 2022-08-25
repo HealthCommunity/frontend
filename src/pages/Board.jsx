@@ -1,15 +1,25 @@
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import Nav from "../components/Navbar/index";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import BoardFetchItems from "../components/Board/View/BoardFetchItems";
 import useUserData from "../api/useUserData";
 import WriteIcon from "../assets/images/board_write_bl_24.svg";
 import styled from "styled-components";
+import Title from "../utils/Title/Title";
 
 export default function Board({ props }) {
   const [userData] = useUserData();
   return (
     <>
+      <Title
+        name={
+          props === "threepowerpost"
+            ? "3대력게시판"
+            : props === "exercisepost"
+            ? "운동게시판"
+            : "자유게시판"
+        }
+      />
       <Nav />
       <WidthAreaSpace>
         {userData ? (
