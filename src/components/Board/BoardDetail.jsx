@@ -40,11 +40,20 @@ export default function BoardDetail() {
   };
   */
   const onDelete = () => {
-    axios.post(`/api/${boardname}/${id}/delete`).then((res) => {
-      navigate(`/${boardname}`);
-    });
+    if (window.confirm("삭제하시겠습니까?") == true) {
+      axios.post(`/api/${boardname}/${id}/delete`).then(() => {
+        navigate(`/${boardname}`);
+      });
+    }
+    return;
   };
   const onEdit = () => {
+    if (boardname === "threepowerpost") {
+      if (window.confirm("3대력은 동영상 3개를 모두 변경해야합니다!") == true) {
+        navigate("edit");
+      }
+      return;
+    }
     navigate("edit");
   };
   return (

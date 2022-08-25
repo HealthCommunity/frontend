@@ -11,22 +11,7 @@ import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
 import useUserData from "../api/useUserData";
-
-const ModalButton = styled.button`
-  height: 45px;
-  background: #fcfcfd;
-  border: 1px solid #e8eaee;
-  box-sizing: border-box;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  cursor: pointer;
-  min-width: 200px;
-  padding: 0 10px;
-  transition: all 0.4s;
-`;
+import { ModalButton } from "./ThreePower";
 
 export default function Exercise() {
   const data = [slide1, slide2, slide3];
@@ -37,9 +22,9 @@ export default function Exercise() {
       <Nav />
       <WidthAreaSpace>
         {userData ? (
-          <ModalButton>
-            <Link to={"write"}>글쓰기</Link>
-          </ModalButton>
+          <Link to={"write"}>
+            <ModalButton>글쓰기</ModalButton>
+          </Link>
         ) : null}
         <GroupItem category="exercisepost">
           <BoardFetchItems category="exercisepost" />

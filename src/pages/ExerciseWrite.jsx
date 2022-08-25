@@ -1,4 +1,4 @@
-import ExercisePost from "../components/Board/Exercise/ExercisePost";
+import BoardNewWrite from "../components/Board/BoardNewWrite";
 import Title from "../utils/Title/Title";
 
 import {
@@ -16,7 +16,7 @@ function exerciseWrite() {
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            <ExercisePost />
+            <BoardNewWrite />
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>

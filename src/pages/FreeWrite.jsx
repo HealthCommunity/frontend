@@ -1,21 +1,10 @@
-import FreeBoardPost from "../components/Board/Free/FreeBoardPost";
+import BoardNewWrite from "../components/Board/BoardNewWrite";
 import Title from "../utils/Title/Title";
 
 import {
   CommonContainer,
   CommonContents,
-  CommonContentsHome,
-  CommonContentsRight,
-  CommonContentsLeft,
-  MainSlide,
-  CommonContent,
-  CommonContentSidebar,
-  CommonTitleArea,
-  CommonTitleTitle,
-  CommonTitleText,
   CommonContentArea,
-  BoardSlide,
-  CommonContentTools,
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
 
@@ -27,7 +16,7 @@ function exerciseWrite() {
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            <FreeBoardPost />
+            <BoardNewWrite />
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>

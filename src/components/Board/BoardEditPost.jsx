@@ -4,6 +4,7 @@ import "../../utils/Editor/TiptapStyle.css";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import Nav from "../Navbar/index";
 
 const PostWrapper = styled.div`
   max-width: 1040px;
@@ -51,6 +52,7 @@ export default function BoardEditPost() {
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [pending, setPending] = useState(false);
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -79,13 +81,11 @@ export default function BoardEditPost() {
         "content-type": "multipart/form-data",
       },
     };
+    setPending(true);
     axios
       .post(url, formData, config)
-      .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          navigate(`/${pathname.split("/")[1]}`);
-        }
+      .then(() => {
+        navigate(`/${pathname.split("/")[1]}`);
       })
       .catch((error) =>
         alert(
@@ -95,8 +95,11 @@ export default function BoardEditPost() {
   };
   return (
     <>
-      {loading ? (
-        <div>로딩중입니다</div>
+      <Nav />
+      {loading | pending ? (
+        <div style={{ marginTop: "200px" }}>
+          {pending ? "게시글 업로드중입니다" : "로딩중입니다"}
+        </div>
       ) : (
         <PostWrapper>
           <TitleLabel Htmlfor="input-title">제목</TitleLabel>
@@ -114,6 +117,9 @@ export default function BoardEditPost() {
               name="inputfile"
               accept="video/* , image/*"
             />
+            <span style={{ color: "red" }}>
+              (파일변경시 기존 파일은 삭제됩니다)
+            </span>
             <Tiptap setDescription={setDescription} description={description} />
             <button type="submit">제출하기</button>
           </form>
