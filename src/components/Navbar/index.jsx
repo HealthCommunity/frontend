@@ -17,7 +17,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
-import userLogout from "../../utils/User/userLogout";
+import NavSearch from "./NavSearch";
 
 const FormStyle = styled.form`
   display: flex;
@@ -38,9 +38,9 @@ const SearchInput = styled.input`
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   let { pathname } = useLocation();
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
   let navdata =
     pathname.includes("freepost") ||
@@ -53,19 +53,21 @@ export default function Nav() {
   };
 
   const isLoginChange = () => {
-    userLogout({
-      onSuccess: (response) => {
-        console.log("로그아웃 성공");
-        refetch();
-        navigate("/login");
-      },
-      onError: (error) => {
+    axios
+      .post("/api/user/logout")
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          console.log("로그아웃 성공");
+          refetch();
+          navigate("/");
+        }
+      })
+      .catch((error) => {
         refetch();
         console.log("로그아웃 실패", error);
-      },
-    });
+      });
   };
-
   //스크롤 기능 구현
   const [ScrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
   const handleFollow = () => {
@@ -81,10 +83,10 @@ export default function Nav() {
     };
   });
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    navigate("/search", { state: data });
-  };
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = (data) => {
+  //   navigate("/search", { state: data });
+  // };
   return (
     <NavDiv
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
@@ -120,12 +122,18 @@ export default function Nav() {
       </NavBoardDiv>
       <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
         <NavItem>
-          {searchOpen ? (
+          <NavSearch
+            isSearchOpen={isSearchOpen}
+            navdata={navdata}
+            ScrollY={ScrollY}
+          />
+          {/* {searchOpen ? (
             <FormStyle onSubmit={handleSubmit(onSubmit)}>
               <SelectForm {...register("select")}>
-                <option value="통합검색">통합검색</option>
-                <option value="작성자">작성자</option>
-                <option value="내용">내용</option>
+                <option value="titleandcontent">통합검색</option>
+                <option value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="user">작성자</option>
               </SelectForm>
               <SearchInput
                 {...register("keyword")}
@@ -153,7 +161,7 @@ export default function Nav() {
               alt="search"
               onClick={() => setSearchOpen((prev) => !prev)}
             />
-          )}
+          )} */}
         </NavItem>
         <NavItem>
           <img
