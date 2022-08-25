@@ -17,7 +17,7 @@ export const CommonContainer = styled.div`
 
 export const CommonContents = styled.div`
   margin: 0 auto;
-  box-shadow: 5px 5px 10px -5px;
+
   margin-top: 100px;
 `;
 
