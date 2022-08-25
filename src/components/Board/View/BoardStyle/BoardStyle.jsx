@@ -75,13 +75,13 @@ export const BoardDivWrite = styled.span`
 
 export const SeparataDivLeft = styled.div`
   display: flex;
-  width: 40%;
+  width: 30%;
   align-items: center;
 `;
 
 export const SeparataDiv = styled.div`
   display: flex;
-  width: 60%;
+  width: 70%;
   justify-content: flex-end;
   margin: 0px 10px;
   font-family: "Pretendard";

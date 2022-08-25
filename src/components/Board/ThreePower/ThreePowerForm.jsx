@@ -17,6 +17,7 @@ import {
 } from "../View/BoardStyle/BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
+import { useEffect, useState } from "react";
 
 export default function ThreePowerForm({
   id,
@@ -26,6 +27,20 @@ export default function ThreePowerForm({
   view,
   urls,
 }) {
+  const [day, setDay] = useState([]);
+  function getToday() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    const dayList = [];
+    for (let i = 0; i < 3; i++) {
+      dayList.push(year + "-" + month + "-" + (day - i));
+    }
+    setDay(dayList);
+  }
+  useEffect(getToday, []);
+
   return (
     <BoardDiv>
       <BoardVideoOne autoplay>
@@ -41,7 +56,9 @@ export default function ThreePowerForm({
       </BoardVideoDiv>
       <BoardTextDiv>
         <BoardText>{title}</BoardText>
-        <img src={NewIcon} style={{ margin: "0px 5px" }} />
+        {day.includes(`${createdDate.slice(0, 10)}`) && (
+          <img src={NewIcon} style={{ margin: "0px 5px" }} />
+        )}
       </BoardTextDiv>
       <BoardDivBottom>
         <SeparataDivLeft>
@@ -54,7 +71,10 @@ export default function ThreePowerForm({
             <SeparataSpan>{view}</SeparataSpan>
           </SeparataItem>
           <SeparataItem>
-            <SeparataSpan>{`작성일 : ${createdDate}`}</SeparataSpan>
+            <SeparataSpan>{`작성일 : ${createdDate.slice(
+              0,
+              10
+            )}`}</SeparataSpan>
           </SeparataItem>
         </SeparataDiv>
       </BoardDivBottom>

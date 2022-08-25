@@ -75,10 +75,6 @@ export const CommonTitleTitle = styled.div`
 `;
 
 export const CommonTitleText = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 40px;
-  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 400;
   font-family: "GangwonEduPower";
