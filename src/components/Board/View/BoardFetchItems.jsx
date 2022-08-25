@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import BoardItemBox from "../ThreePower/ThreePowerForm";
-
 import axios from "axios";
 import BoardForm from "./BoardForm";
 
@@ -48,7 +47,7 @@ export default function BoardFetchItems({ category = "", center }) {
     return () => {
       observer.disconnect();
     };
-  }, [page]);
+  }, [page, category]);
   return (
     <>
       {isLoading ? (

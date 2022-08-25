@@ -1,7 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ThreePower from "./pages/ThreePower";
-import Exercise from "./pages/Exercise";
-import Freeboard from "./pages/Free";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -19,6 +16,7 @@ import useUserData from "./api/useUserData";
 import { useEffect } from "react";
 import BoardEditPost from "./components/Board/BoardEditPost";
 import ThreeBoardEditPost from "./components/Board/ThreePower/ThreeBoardEditPost";
+import Board from "./pages/Board";
 
 function Router() {
   const [, reFetch] = useUserData();
@@ -35,18 +33,42 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/freepost" element={<Freeboard />} />
+        <Route
+          path="/freepost"
+          element={
+            <Board
+              key={new Date().getTime() + Math.random()}
+              props={"freepost"}
+            />
+          }
+        />
         <Route path="/freepost/:id" element={<FreePost />} />
         <Route path="/freepost/write" element={<FreeWrite />} />
         <Route path="/freepost/:id/edit" element={<BoardEditPost />} />
-        <Route path="/threepowerpost" element={<ThreePower />} />
+        <Route
+          path="/threepowerpost"
+          element={
+            <Board
+              key={new Date().getTime() + Math.random()}
+              props={"threepowerpost"}
+            />
+          }
+        />
         <Route path="/threepowerpost/:id" element={<ThreePowerPost />} />
         <Route
           path="/threepowerpost/:id/edit"
           element={<ThreeBoardEditPost />}
         />
         <Route path="/threepowerpost/write" element={<ThreePowerWrite />} />
-        <Route path="/exercisepost" element={<Exercise />} />
+        <Route
+          path="/exercisepost"
+          element={
+            <Board
+              key={new Date().getTime() + Math.random()}
+              props={"exercisepost"}
+            />
+          }
+        />
         <Route path="/exercisepost/:id" element={<ExercisePost />} />
         <Route path="/exercisepost/:id/edit" element={<BoardEditPost />} />
         <Route path="/exercisepost/write" element={<ExerciseWrite />} />

@@ -15,8 +15,8 @@ import EyeIcon from "../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { FileBtn, FileBtnDiv } from "./BoardWriteStyle";
 import useUserData from "../../api/useUserData";
+import { ModalButton } from "../../pages/Board";
 import { Link } from "react-router-dom";
-import { ModalButton } from "../../pages/ThreePower";
 import WriteIcon from "../../assets/images/board_write_bl_24.svg";
 
 export default function BoardDetail() {
