@@ -23,23 +23,7 @@ export const InfoTitleWrite = styled.div`
 export const InfoExplanationDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: 80%;
   flex-direction: column;
-  align-items: center;
-`;
-
-export const InfoExplanationTitle = styled.div`
-  font-size: ${(props) => props.theme.fontSizeH1};
-  font-weight: bold;
-  color: ${(props) => props.theme.fontColor};
-  background-color: ${(props) => props.theme.infoBgColor};
-  margin: 40px 0px;
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    font-size: ${(props) => props.theme.fontSizeH2};
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH2};
-  }
 `;
 
 export const InfoCommentForm = styled.form`
@@ -112,8 +96,7 @@ export const CommentList = styled.div`
 
 export const BoardSummary = styled.div`
   width: 90%;
-  height: 500px;
-  margin-top: 30px;
+  margin: 50px 0px;
 `;
 
 export const CommentListitem = styled.div`

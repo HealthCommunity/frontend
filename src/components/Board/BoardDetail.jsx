@@ -6,7 +6,6 @@ import {
   BoardSummary,
 } from "./BoardDetailStyle";
 import { useState } from "react";
-//import { useForm } from "react-hook-form";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
@@ -14,6 +13,7 @@ import parser from "html-react-parser";
 import PostThreePower from "./ThreePower/PostThreePower";
 import EyeIcon from "../../assets/images/common_view_16.svg";
 import styled from "styled-components";
+import { FileBtn, FileBtnDiv } from "./BoardWriteStyle";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -31,14 +31,6 @@ export default function BoardDetail() {
     };
     fetchData();
   }, []);
-  /*
-  const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
-  const [commentlist, setCommentlist] = useState([]);
-  const onSubmitValid = (data) => {
-    setCommentlist([...commentlist, data]);
-    reset();
-  };
-  */
   const onDelete = () => {
     if (window.confirm("삭제하시겠습니까?") == true) {
       axios.post(`/api/${boardname}/${id}/delete`).then(() => {
@@ -108,36 +100,13 @@ export default function BoardDetail() {
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
-            <div>
-              <button onClick={onDelete}>Delete</button>
-              <button onClick={onEdit}>Edit</button>
-            </div>
+            <FileBtnDiv style={{ border: "none" }}>
+              <FileBtn onClick={onDelete}>Delete</FileBtn>
+              <FileBtn onClick={onEdit}>Edit</FileBtn>
+            </FileBtnDiv>
           ) : (
             ""
           )}
-
-          {/* 
-            <InfoExplanationDiv>
-        <InfoExplanationTitle style={{ marginTop: "50px" }}>
-          댓글
-        </InfoExplanationTitle>
-        <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
-          <InfoCommentInputText
-            {...register("comment", {
-              required: "댓글을 입력해주세요",
-            })}
-            type="text"
-            placeholder="댓글을 입력해주세요"
-          />
-          <InfoCommentInputSubmit type="submit" value="댓글등록" />
-        </InfoCommentForm>
-        <CommentList>
-          {commentlist.map((x) => (
-            <CommentListitem key={Math.random()}>{x.comment}</CommentListitem>
-          ))}
-        </CommentList>
-      </InfoExplanationDiv>
-      */}
         </InfoDiv>
       )}
     </>
@@ -145,8 +114,8 @@ export default function BoardDetail() {
 }
 
 const BoardSession = styled.section`
+  flex-wrap: wrap;
   display: flex;
-  justify-content: flex-start;
 `;
 
 const BoardVideo = styled.video`
@@ -157,8 +126,8 @@ const BoardVideo = styled.video`
 `;
 
 const BoardImg = styled.img`
-  width: 500px;
-  height: 500px;
+  width: 560px;
+  height: 560px;
   margin-right: 30px;
   margin-top: 30px;
 `;
