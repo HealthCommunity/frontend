@@ -1,5 +1,5 @@
 import React from "react";
-import BoardFetchItems from "../../Board/View/BoardFetchItems";
+import BoardFetchItems from "../../Board/BoardFetchItems";
 import { CommonContentArea } from "../../common/Layout/Layout";
 
 export default function HomeBoard({ selected }) {

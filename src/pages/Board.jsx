@@ -1,7 +1,7 @@
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import Nav from "../components/Navbar/index";
-import { Link, useLocation, useParams } from "react-router-dom";
-import BoardFetchItems from "../components/Board/View/BoardFetchItems";
+import { Link } from "react-router-dom";
+import BoardFetchItems from "../components/Board/BoardFetchItems";
 import useUserData from "../api/useUserData";
 import WriteIcon from "../assets/images/board_write_bl_24.svg";
 import styled from "styled-components";
@@ -25,7 +25,11 @@ export default function Board({ props }) {
         {userData ? (
           <Link to={"write"}>
             <ModalButton>
-              <img src={WriteIcon} style={{ marginRight: "5px" }} />
+              <img
+                src={WriteIcon}
+                style={{ marginRight: "5px" }}
+                alt="writeicon"
+              />
               글쓰기
             </ModalButton>
           </Link>

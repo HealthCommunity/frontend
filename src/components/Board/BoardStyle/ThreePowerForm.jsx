@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import {
   BoardDiv,
   BoardVideoOne,
@@ -14,7 +13,7 @@ import {
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
-} from "../View/BoardStyle/BoardStyle";
+} from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import { useEffect, useState } from "react";
@@ -57,7 +56,7 @@ export default function ThreePowerForm({
       <BoardTextDiv>
         <BoardText>{title}</BoardText>
         {day.includes(`${createdDate.slice(0, 10)}`) && (
-          <img src={NewIcon} style={{ margin: "0px 5px" }} />
+          <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
         )}
       </BoardTextDiv>
       <BoardDivBottom>
@@ -67,7 +66,7 @@ export default function ThreePowerForm({
         </SeparataDivLeft>
         <SeparataDiv>
           <SeparataItem>
-            <img src={EyeIcon} />
+            <img src={EyeIcon} alt="eyeicon" />
             <SeparataSpan>{view}</SeparataSpan>
           </SeparataItem>
           <SeparataItem>

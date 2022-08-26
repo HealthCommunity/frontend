@@ -10,14 +10,14 @@ import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import axios from "axios";
 import parser from "html-react-parser";
-import PostThreePower from "./ThreePower/PostThreePower";
-import EyeIcon from "../../assets/images/common_view_16.svg";
+import PostThreePower from "../ThreePower/ManagerThreePower";
+import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
-import { FileBtn, FileBtnDiv } from "./BoardWriteStyle";
-import useUserData from "../../api/useUserData";
-import { ModalButton } from "../../pages/Board";
+import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
+import useUserData from "../../../api/useUserData";
+import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
-import WriteIcon from "../../assets/images/board_write_bl_24.svg";
+import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -35,9 +35,9 @@ export default function BoardDetail() {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [boardname, id]);
   const onDelete = () => {
-    if (window.confirm("삭제하시겠습니까?") == true) {
+    if (window.confirm("삭제하시겠습니까?") === true) {
       axios.post(`/api/${boardname}/${id}/delete`).then(() => {
         navigate(`/${boardname}`);
       });
@@ -46,7 +46,9 @@ export default function BoardDetail() {
   };
   const onEdit = () => {
     if (boardname === "threepowerpost") {
-      if (window.confirm("3대력은 동영상 3개를 모두 변경해야합니다!") == true) {
+      if (
+        window.confirm("3대력은 동영상 3개를 모두 변경해야합니다!") === true
+      ) {
         navigate("edit");
       }
       return;
@@ -118,7 +120,11 @@ export default function BoardDetail() {
         <div style={{ display: "flex" }}>
           <Link to={`/${boardname}/write`}>
             <ModalButton>
-              <img src={WriteIcon} style={{ marginRight: "5px" }} />
+              <img
+                src={WriteIcon}
+                style={{ marginRight: "5px" }}
+                alt="writeicon"
+              />
               글쓰기
             </ModalButton>
           </Link>

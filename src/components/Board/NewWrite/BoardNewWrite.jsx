@@ -1,28 +1,28 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../../utils/Editor/Tiptap";
-import "../../utils/Editor/TiptapStyle.css";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import Nav from "../Navbar/index";
-import { FileBtn, FileBtnDiv, FileList, PostLabel } from "./BoardWriteStyle";
-import FileAdd from "../../assets/images/board_write_picture_24.svg";
-import { PostWrapper, PostTitleTitle } from "./BoardWriteStyle";
 
-export default function BoardEditPost() {
+import Tiptap from "../../../utils/Editor/Tiptap";
+import "../../../utils/Editor/TiptapStyle.css";
+import { useState } from "react";
+import {
+  PostWrapper,
+  PostTitleTitle,
+  PostLabel,
+  FileList,
+  FileBtnDiv,
+  FileBtn,
+} from "./BoardWriteStyle";
+import axios from "axios";
+import FileAdd from "../../../assets/images/board_write_picture_24.svg";
+
+function BoardNewWrite() {
   let navigate = useNavigate();
+  const [pending, setPending] = useState(false);
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
-  const url = `/api${pathname}`;
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [, setEditData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [pending, setPending] = useState(false);
   const [file, setFile] = useState([]);
-  const handleChange = (e) => {
-    setTitle(e.target.value);
-  };
+  const [description, setDescription] = useState("");
+
   const goList = () => {
     navigate(`/${boardname}`);
   };
@@ -35,26 +35,23 @@ export default function BoardEditPost() {
     }
     setFile(filelist);
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const result = await axios(url);
-      setEditData(result.data.data);
-      setTitle(result.data.data.title);
-      setDescription(result.data.data.content);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData();
+    const url = `/api/${boardname}`;
     let files = e.target.inputfile.files;
+    const formData = new FormData();
     formData.append("title", title);
-    formData.append("content", description);
     for (let i = 0; i < files.length; i++) {
+      if (files.length >= 5) {
+        alert("파일은 최대 5개까지만 업로드 할 수 있습니다");
+        return;
+      }
       formData.append("files", files[i]);
     }
+    formData.append("content", description);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
@@ -63,36 +60,41 @@ export default function BoardEditPost() {
     setPending(true);
     axios
       .post(url, formData, config)
-      .then(() => {
-        navigate(`/${pathname.split("/")[1]}`);
+      .then((response) => {
+        if (response.data.status === "0452") {
+          setPending(false);
+          alert("본문에 내용을 넣어주세요!");
+          return;
+        }
+        navigate(`/${boardname}`);
       })
       .catch((error) =>
         alert(
-          `${error.response.status}번 error 입니다. 입력  정보를 확인해주세요`
+          `${error.response.status}번 error 입니다. 입력정보를 확인해주세요`
         )
       );
   };
   return (
     <>
-      <Nav />
-      {loading | pending ? (
-        <div style={{ marginTop: "200px" }}>
-          {pending ? "게시글 업로드중입니다" : "로딩중입니다"}
-        </div>
-      ) : (
+      {!pending ? (
         <PostWrapper>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} style={{ height: "100%" }}>
             <PostTitleTitle
               id="input-title"
               placeholder="글 제목을 입력해주세요!"
-              value={"" || title}
+              value={title}
               onChange={handleChange}
               autoComplete="off"
+              required
             />
-            <Tiptap setDescription={setDescription} description={description} />
+            <Tiptap setDescription={setDescription} />
             <FileList>
               <PostLabel>
-                <img src={FileAdd} style={{ marginRight: "5px" }} />
+                <img
+                  src={FileAdd}
+                  style={{ marginRight: "5px" }}
+                  alt="videoicon"
+                />
                 파일 첨부
                 <input
                   type="file"
@@ -102,9 +104,6 @@ export default function BoardEditPost() {
                   style={{ display: "none" }}
                   onChange={changeInputFile}
                 />
-                <span style={{ color: "red" }}>
-                  (파일변경시 기존 파일은 삭제됩니다)
-                </span>
               </PostLabel>
               {file.map((x) => (
                 <span
@@ -113,7 +112,6 @@ export default function BoardEditPost() {
                 >{` ${x.name} `}</span>
               ))}
             </FileList>
-
             <FileBtnDiv>
               <FileBtn type="button" onClick={goList}>
                 취소
@@ -127,7 +125,11 @@ export default function BoardEditPost() {
             </FileBtnDiv>
           </form>
         </PostWrapper>
+      ) : (
+        <div>게시글을 업로드중입니다</div>
       )}
     </>
   );
 }
+
+export default BoardNewWrite;

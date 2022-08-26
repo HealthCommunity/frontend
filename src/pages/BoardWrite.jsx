@@ -1,13 +1,12 @@
-import BoardNewWrite from "../components/Board/BoardNewWrite";
+import BoardNewWrite from "../components/Board/NewWrite/BoardNewWrite";
 import Title from "../utils/Title/Title";
-
 import {
   CommonContainer,
   CommonContents,
   CommonContentArea,
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
-import ThreeBoardPost from "../components/Board/ThreePower/ThreeBoardPost";
+import ThreeBoardPost from "../components/Board/NewWrite/ThreeNewWrite";
 
 export default function BoardWrite({ item }) {
   return (

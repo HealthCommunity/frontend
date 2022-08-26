@@ -8,14 +8,13 @@ import {
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
-} from "../View/BoardStyle/BoardStyle";
+} from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 export default function BoardForm({
-  id,
   title,
   createdDate,
   nickname,
@@ -49,7 +48,7 @@ export default function BoardForm({
         <BoardTextDiv>
           <BoardText>{title}</BoardText>
           {day.includes(`${createdDate.slice(0, 10)}`) && (
-            <img src={NewIcon} style={{ margin: "0px 5px" }} />
+            <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
         </BoardTextDiv>
       </BoardTitle>
