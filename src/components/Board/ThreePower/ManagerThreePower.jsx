@@ -29,12 +29,13 @@ export default function PostThreePower({ item }) {
     handleSubmit: modalsubmit,
     reset: modalreset,
   } = useForm();
+
   const onSubmit = (data) => {
     axios
       .post(`/api/user/${item}/bigthreepower`, {
-        dead: +data.dead,
-        bench: +data.bench,
-        squat: +data.squat,
+        bench: data.bench,
+        dead: data.dead,
+        squat: data.squat,
       })
       .then(function (response) {
         console.log("성공", response);

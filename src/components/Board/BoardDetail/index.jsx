@@ -84,7 +84,7 @@ export default function BoardDetail() {
           </InfoTitleDiv>
           {(boardname === "threepowerpost") &
           (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
-            <PostThreePower item={boardData?.sessionUserResponse?.userId} />
+            <PostThreePower item={boardData?.userPostResponse?.userId} />
           ) : (
             <></>
           )}
