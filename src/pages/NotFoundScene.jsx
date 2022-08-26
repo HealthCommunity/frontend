@@ -1,28 +1,30 @@
-import styled from "styled-components";
+import { useLocation, Link } from "react-router-dom";
 import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
-const NotFoundArea = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: 100vh;
+import { FileBtn } from "../components/Board/NewWrite/BoardWriteStyle";
+import styled from "styled-components";
+
+const WrongDiv = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding-top: 150px;
-  background: ${(props) => props.theme.colorPointPupple200};
-  color: ${(props) => props.theme.constPointWhite100};
+  justify-content: center;
 `;
 
 function NotFoundScene() {
+  const { pathname } = useLocation();
   return (
     <>
       <Title name="NotFoundScene" />
       <Nav />
       <WidthAreaSpace>
-        <NotFoundArea>
-          <h1>찾을 수없는 페이지 입니다.</h1>
-        </NotFoundArea>
+        <WrongDiv>
+          <h1>{`${pathname} 은 잘못된 경로입니다`}</h1>
+
+          <Link to={"/"}>
+            <FileBtn>되돌아가기</FileBtn>
+          </Link>
+        </WrongDiv>
       </WidthAreaSpace>
     </>
   );

@@ -62,4 +62,8 @@ export const FileBtn = styled.button`
   background-color: transparent;
   text-align: center;
   font-family: "Pretendard";
+  :hover {
+    background-color: #0066ff;
+    cursor: pointer;
+  }
 `;
