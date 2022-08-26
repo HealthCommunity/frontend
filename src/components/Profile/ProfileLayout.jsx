@@ -1,50 +1,26 @@
 import styled from "styled-components";
 
-export const ProfileBackgroud = styled.div`
-  box-sizing: border-box;
+export const ProfileTopWapper = styled.div`
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding-top: 150px;
-  margin-bottom: 150px;
+  height: 440px;
 `;
 
-export const ProfileContainer = styled.section`
-  width: 970px;
-  height: 500px;
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 90%;
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 90%;
-  }
-`;
-
-export const ProfileMyinfo = styled.section`
+export const ProfileMyinfo = styled.div`
   box-sizing: border-box;
   width: 470px;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
   margin: 0 auto;
-  padding: 20px;
-
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    width: 90%;
-  }
-  @media all and (max-width: 479px) {
-    width: 90%;
-  }
 `;
 
 export const ProfileMyInfoGroup = styled.div`
+  width: 100%;
   display: flex;
-  margin: auto;
+  padding-top: 16px;
+`;
+
+export const MyInfoIdGroup = styled.div`
+  margin: auto 0;
+  margin-left: 10px;
 `;
 
 export const MyInfoId = styled.span`
@@ -64,4 +40,15 @@ export const MyInfoNickname = styled.span`
   font-size: 16px;
   line-height: 24px;
   color: #888888;
+  margin-left: 12px;
+`;
+
+export const UserModifyButton = styled.div`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+  color: #0066ff;
 `;

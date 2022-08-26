@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
-import ProfileSelector from "./ProfileSelector";
+import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
 import BoardFetchItems from "../../components/Board/BoardFetchItems";
 import UserPowerChart from "./UserPowerChart";
 import {
-  ProfileContainer,
   ProfileMyinfo,
+  ProfileTopWapper,
   ProfileMyInfoGroup,
   MyInfoId,
   MyInfoNickname,
+  MyInfoIdGroup,
+  UserModifyButton,
 } from "./ProfileLayout";
 
-function SelectGroup({ children, selected }) {
-  const elements = React.Children.toArray(children);
-  return <>{elements.find(({ props }) => selected === props.name)}</>;
-}
-
-function SlectItem({ children }) {
-  return <>{children}</>;
-}
-
-export default function ContentBody() {
+export default function ProfileContnet() {
   const [selected, setSelected] = useState("profile");
   const [userData, reFetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
 
@@ -42,7 +35,7 @@ export default function ContentBody() {
   ];
 
   return (
-    <ProfileContainer>
+    <>
       <ProfileSelector
         onChange={(name) => {
           setSelected(name);
@@ -51,19 +44,33 @@ export default function ContentBody() {
       />
       <SelectGroup selected={selected}>
         <SlectItem name="profile">
-          <ProfileMyinfo>
-            <ProfileMyInfoGroup>
-              <UserPowerChart PowerData={myPowerData}></UserPowerChart>
-              <MyInfoId>{loginId}</MyInfoId>
-              <MyInfoNickname>{nickName}</MyInfoNickname>
-            </ProfileMyInfoGroup>
-          </ProfileMyinfo>
+          <ProfileTopWapper>
+            <ProfileMyinfo>
+              <ProfileMyInfoGroup>
+                <UserPowerChart PowerData={myPowerData}></UserPowerChart>
+                <MyInfoIdGroup>
+                  <MyInfoId>{loginId}</MyInfoId>
+                  <MyInfoNickname>{nickName}</MyInfoNickname>
+                  <UserModifyButton
+                    onClick={() => {
+                      setSelected("profileModify");
+                    }}
+                  >
+                    정보수정
+                  </UserModifyButton>
+                </MyInfoIdGroup>
+              </ProfileMyInfoGroup>
+            </ProfileMyinfo>
+          </ProfileTopWapper>
           <BoardFetchItems category={"user"} />
         </SlectItem>
+
         <SlectItem name="profileModify">
-          <UserModify loginId={loginId}></UserModify>
+          <ProfileTopWapper>
+            <UserModify loginId={loginId}></UserModify>
+          </ProfileTopWapper>
         </SlectItem>
       </SelectGroup>
-    </ProfileContainer>
+    </>
   );
 }
