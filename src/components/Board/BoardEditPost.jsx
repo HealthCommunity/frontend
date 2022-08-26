@@ -7,44 +7,7 @@ import axios from "axios";
 import Nav from "../Navbar/index";
 import { FileBtn, FileBtnDiv, FileList, PostLabel } from "./BoardWriteStyle";
 import FileAdd from "../../assets/images/board_write_picture_24.svg";
-
-const PostWrapper = styled.div`
-  max-width: 1040px;
-  padding: 60px 16px;
-  width: 1024px;
-  margin: 0 auto;
-  color: #333;
-  grid-gap: 50px;
-  gap: 50px px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 150px;
-`;
-
-const PostTitleTitle = styled.input`
-  box-sizing: border-box;
-  width: 100%;
-  height: 56px;
-  min-height: 56px;
-  line-height: 44px;
-  box-shadow: none;
-  padding-left: 16px;
-  padding-right: 52px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-`;
-
-const TitleLabel = styled.label`
-  display: inline-block;
-  margin-bottom: 5px;
-  color: #333;
-  font-weight: 500;
-`;
+import { PostWrapper, PostTitleTitle } from "./BoardWriteStyle";
 
 export default function BoardEditPost() {
   let navigate = useNavigate();

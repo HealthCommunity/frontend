@@ -152,7 +152,7 @@ export default function HomeChart() {
       />
       <InnerInfo>
         {threeData.map((item, rank) => (
-          <InfoGroup>
+          <InfoGroup key={rank}>
             <TopRankLabel>{rank + 1}</TopRankLabel>
             <TopNickLabel>{item.userNickName}</TopNickLabel>
             <TopPowerLabel>{`${item.bigThreePower.dead} / ${item.bigThreePower.bench} / ${item.bigThreePower.squat}`}</TopPowerLabel>
