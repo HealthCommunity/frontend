@@ -4,7 +4,7 @@ import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import BoardForm from "../components/Board/View/BoardForm";
+import BoardForm from "../components/Board/BoardStyle/BoardForm";
 
 export default function SearchPage() {
   const { state } = useLocation();
@@ -30,7 +30,7 @@ export default function SearchPage() {
       .catch((error) => {
         console.log("검색결과 없음", error);
       });
-  }, []);
+  }, [state]);
 
   if (!itemList) {
     return <></>;

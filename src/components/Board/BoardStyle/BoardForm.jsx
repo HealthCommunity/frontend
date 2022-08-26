@@ -8,19 +8,32 @@ import {
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
-} from "../View/BoardStyle/BoardStyle";
+} from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 export default function BoardForm({
-  id,
   title,
   createdDate,
   nickname,
   view,
   urls,
 }) {
+  const [day, setDay] = useState([]);
+  function getToday() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+    const dayList = [];
+    for (let i = 0; i < 3; i++) {
+      dayList.push(year + "-" + month + "-" + (day - i));
+    }
+    setDay(dayList);
+  }
+  useEffect(getToday, []);
   return (
     <Board>
       <BoardTitle>
@@ -34,7 +47,9 @@ export default function BoardForm({
 
         <BoardTextDiv>
           <BoardText>{title}</BoardText>
-          <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newIcon" />
+          {day.includes(`${createdDate.slice(0, 10)}`) && (
+            <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
+          )}
         </BoardTextDiv>
       </BoardTitle>
       <BoardDivBottom>

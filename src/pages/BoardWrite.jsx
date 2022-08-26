@@ -1,31 +1,29 @@
-import BoardNewWrite from "../components/Board/BoardNewWrite";
+import BoardNewWrite from "../components/Board/NewWrite/BoardNewWrite";
 import Title from "../utils/Title/Title";
-
 import {
   CommonContainer,
   CommonContents,
   CommonContentArea,
 } from "../components/common/Layout/Layout";
 import Nav from "../components/Navbar";
+import ThreeBoardPost from "../components/Board/NewWrite/ThreeNewWrite";
 
-function exerciseWrite() {
+export default function BoardWrite({ item }) {
   return (
     <>
-      <Title name="freewrite" />
+      <Title name={`${item}`} />
       <Nav />
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            <BoardNewWrite />
+            {item === "freeWrite" || item === "exerciseWrite" ? (
+              <BoardNewWrite />
+            ) : (
+              <ThreeBoardPost />
+            )}
           </CommonContentArea>
         </CommonContents>
       </CommonContainer>
-      {/* <Nav />
-            <WidthAreaSpace>
-                <BoardNewWrite />
-            </WidthAreaSpace> */}
     </>
   );
 }
-
-export default exerciseWrite;

@@ -99,22 +99,13 @@ export default function PostThreePower({ item }) {
 }
 
 const ModalButton = styled.button`
-  width: 200px;
-  min-width: 150px;
-  height: 56px;
-  border: none;
-  background-color: ${(props) => props.theme.navBgColor};
-  border-radius: ${(props) => props.theme.radiusSize20};
-  font-size: ${(props) => props.theme.fontSizeH4};
-  line-height: 1.42857;
-  font-weight: 700;
-  -webkit-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s;
-  cursor: pointer;
-  :hover {
-    background: ${(props) => props.theme.colorPointPupple300};
-  }
+  width: 150px;
+  height: 50px;
+  border-radius: 40px;
+  border: 1px solid #eeeeee;
+  background-color: transparent;
+  text-align: center;
+  font-family: "Pretendard";
 `;
 const ModalForm = styled.form`
   display: flex;

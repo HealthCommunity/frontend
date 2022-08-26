@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
 import ProfileSelector from "./ProfileSelector";
 import UserModify from "./UserModify";
-import BoardFetchItems from "../../components/Board/View/BoardFetchItems";
+import BoardFetchItems from "../../components/Board/BoardFetchItems";
 import UserPowerChart from "./UserPowerChart";
 import {
   ProfileContainer,
@@ -27,7 +27,7 @@ export default function ContentBody() {
 
   useEffect(() => {
     reFetch();
-  }, []);
+  }, [reFetch]);
 
   if (!userData) {
     return <></>;

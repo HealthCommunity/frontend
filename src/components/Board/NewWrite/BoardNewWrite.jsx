@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../../utils/Editor/Tiptap";
-import "../../utils/Editor/TiptapStyle.css";
+
+import Tiptap from "../../../utils/Editor/Tiptap";
+import "../../../utils/Editor/TiptapStyle.css";
 import { useState } from "react";
 import {
   PostWrapper,
@@ -11,7 +12,7 @@ import {
   FileBtn,
 } from "./BoardWriteStyle";
 import axios from "axios";
-import FileAdd from "../../assets/images/board_write_picture_24.svg";
+import FileAdd from "../../../assets/images/board_write_picture_24.svg";
 
 function BoardNewWrite() {
   let navigate = useNavigate();
@@ -89,7 +90,11 @@ function BoardNewWrite() {
             <Tiptap setDescription={setDescription} />
             <FileList>
               <PostLabel>
-                <img src={FileAdd} style={{ marginRight: "5px" }} />
+                <img
+                  src={FileAdd}
+                  style={{ marginRight: "5px" }}
+                  alt="videoicon"
+                />
                 파일 첨부
                 <input
                   type="file"
