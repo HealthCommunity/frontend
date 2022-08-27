@@ -17,7 +17,6 @@ import {
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
 import SliderMain from "../components/Slider/PullSlider/SliderMain";
 import styled from "styled-components";
-
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
@@ -42,7 +41,7 @@ export default function Home() {
           <CommonContentsHome>
             <CommonContentsLeft>
               <CommonTitleArea>
-                <CommonTitleTitle style={{ marginTop: "100px" }}>
+                <CommonTitleTitle>
                   <img
                     src={FavoriteImage}
                     alt="favorite"

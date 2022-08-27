@@ -56,9 +56,10 @@ export default function ThreeBoardPost() {
     axios
       .post(url, formData, config)
       .then((response) => {
-        console.log(response);
-        if (response.status === 200) {
-          navigate("/threepowerpost");
+        if (response.data.status === "0452") {
+          setPending(false);
+          alert("본문에 내용을 넣어주세요!");
+          return;
         }
       })
       .catch((error) =>
@@ -92,7 +93,7 @@ export default function ThreeBoardPost() {
                   />
                   벤치프레스 영상
                   <input
-                    style={{ display: "none" }}
+                    style={{ opacity: "0", width: "1px" }}
                     type="file"
                     name="bench"
                     accept="video/*"
@@ -111,8 +112,8 @@ export default function ThreeBoardPost() {
                   />
                   데드리프트 영상
                   <input
+                    style={{ opacity: "0", width: "1px" }}
                     onChange={changeDead}
-                    style={{ display: "none" }}
                     type="file"
                     name="squat"
                     accept="video/*"
@@ -131,7 +132,7 @@ export default function ThreeBoardPost() {
                   스쿼트 영상
                   <input
                     onChange={changeSqaut}
-                    style={{ display: "none" }}
+                    style={{ opacity: "0", width: "1px" }}
                     type="file"
                     name="dead"
                     accept="video/*"

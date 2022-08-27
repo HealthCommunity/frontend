@@ -15,7 +15,6 @@ import BoardWrite from "./pages/BoardWrite";
 
 function Router() {
   const [, reFetch] = useUserData();
-
   useEffect(() => {
     reFetch();
   }, [reFetch]);

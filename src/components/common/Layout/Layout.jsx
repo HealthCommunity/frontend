@@ -17,7 +17,7 @@ export const CommonContainer = styled.div`
 
 export const CommonContents = styled.div`
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 60px;
 `;
 
 export const CommonContentsHome = styled.div`
@@ -59,7 +59,8 @@ export const CommonContentSidebar = styled.div`
 
 /*홈화면 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
-  margin: 30px 0px;
+  width: 85%;
+  margin: 30px auto;
 `;
 
 export const CommonTitleTitle = styled.div`
