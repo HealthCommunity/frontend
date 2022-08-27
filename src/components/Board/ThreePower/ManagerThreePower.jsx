@@ -39,6 +39,7 @@ export default function PostThreePower({ userId }) {
         squat: data.squat,
       })
       .then((response) => {
+        console.log(response);
         if (response.data.status === "0452") {
           alert(response.data.message);
         } else {
