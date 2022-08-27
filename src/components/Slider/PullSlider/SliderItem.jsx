@@ -6,7 +6,8 @@ const SliderItemInner = styled.li`
 
 const SliderItemImg = styled.img`
     width: 100vw;
-    height: 480px;
+    height: 450px;
+    object-fit: cover;
 `;
 
 export default function SliderItem({ item, style }) {

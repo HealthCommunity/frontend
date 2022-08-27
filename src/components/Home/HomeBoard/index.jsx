@@ -1,5 +1,5 @@
 import React from "react";
-import BoardFetchItems from "../../Board/View/BoardFetchItems";
+import BoardFetchItems from "../../Board/BoardFetchItems";
 import { CommonContentArea } from "../../common/Layout/Layout";
 
 export default function HomeBoard({ selected }) {
@@ -7,13 +7,13 @@ export default function HomeBoard({ selected }) {
     <CommonContentArea>
       <Group selected={selected}>
         <GroupItem category="threepowerpost">
-          <BoardFetchItems category={"threepowerpost"} />
+          <BoardFetchItems category={"threepowerpost"} center={true} />
         </GroupItem>
         <GroupItem category="exercisepost">
-          <BoardFetchItems category={"exercisepost"} />
+          <BoardFetchItems category={"exercisepost"} center={true} />
         </GroupItem>
         <GroupItem category="freepost">
-          <BoardFetchItems category={"freepost"} />
+          <BoardFetchItems category={"freepost"} center={true} />
         </GroupItem>
       </Group>
     </CommonContentArea>

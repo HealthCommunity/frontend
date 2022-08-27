@@ -17,6 +17,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
+import NavSearch from "./NavSearch";
 
 const FormStyle = styled.form`
   display: flex;
@@ -39,7 +40,7 @@ export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
   let navigate = useNavigate();
   let { pathname } = useLocation();
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
   let navdata =
     pathname.includes("freepost") ||
@@ -54,7 +55,7 @@ export default function Nav() {
   const isLoginChange = () => {
     axios
       .post("/api/user/logout")
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
         if (response.status === 200) {
           console.log("로그아웃 성공");
@@ -62,7 +63,7 @@ export default function Nav() {
           navigate("/");
         }
       })
-      .catch(function (error) {
+      .catch((error) => {
         refetch();
         console.log("로그아웃 실패", error);
       });
@@ -82,10 +83,10 @@ export default function Nav() {
     };
   });
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    navigate("/search", { state: data });
-  };
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = (data) => {
+  //   navigate("/search", { state: data });
+  // };
   return (
     <NavDiv
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
@@ -121,12 +122,18 @@ export default function Nav() {
       </NavBoardDiv>
       <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
         <NavItem>
-          {searchOpen ? (
+          <NavSearch
+            isSearchOpen={isSearchOpen}
+            navdata={navdata}
+            ScrollY={ScrollY}
+          />
+          {/* {searchOpen ? (
             <FormStyle onSubmit={handleSubmit(onSubmit)}>
               <SelectForm {...register("select")}>
-                <option value="통합검색">통합검색</option>
-                <option value="작성자">작성자</option>
-                <option value="내용">내용</option>
+                <option value="titleandcontent">통합검색</option>
+                <option value="title">제목</option>
+                <option value="content">내용</option>
+                <option value="user">작성자</option>
               </SelectForm>
               <SearchInput
                 {...register("keyword")}
@@ -154,7 +161,7 @@ export default function Nav() {
               alt="search"
               onClick={() => setSearchOpen((prev) => !prev)}
             />
-          )}
+          )} */}
         </NavItem>
         <NavItem>
           <img

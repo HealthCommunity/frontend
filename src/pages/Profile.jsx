@@ -1,7 +1,6 @@
 import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
-import ContentBody from "../components/Profile/ContentBody";
-import { ProfileBackgroud } from "../components/Profile/ProfileLayout";
+import ProfileContnet from "../components/Profile/Index";
 import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
 
 function Profile() {
@@ -10,9 +9,7 @@ function Profile() {
       <Title name="Profile" />
       <Nav />
       <WidthAreaSpace>
-        <ProfileBackgroud>
-          <ContentBody />
-        </ProfileBackgroud>
+        <ProfileContnet />
       </WidthAreaSpace>
     </>
   );

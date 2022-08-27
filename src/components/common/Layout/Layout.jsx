@@ -17,8 +17,7 @@ export const CommonContainer = styled.div`
 
 export const CommonContents = styled.div`
   margin: 0 auto;
-  box-shadow: 5px 5px 10px -5px;
-  margin-top: 100px;
+  margin-top: 60px;
 `;
 
 export const CommonContentsHome = styled.div`
@@ -37,10 +36,11 @@ export const CommonContentsLeft = styled.div`
 /*슬라이드*/
 export const MainSlide = styled.div`
   box-sizing: border-box;
+  margin-top: 70px;
   width: 100%;
   height: 450px;
-  background-color: tan;
   margin-bottom: 20px;
+  background-color: gold;
 `;
 
 /*메인화면 공통*/
@@ -59,7 +59,8 @@ export const CommonContentSidebar = styled.div`
 
 /*홈화면 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
-  margin: 30px 0px;
+  width: 85%;
+  margin: 30px auto;
 `;
 
 export const CommonTitleTitle = styled.div`
@@ -75,10 +76,8 @@ export const CommonTitleTitle = styled.div`
 
 export const CommonTitleText = styled.div`
   font-size: 24px;
-  margin-left: 10px;
-  font-weight: 600;
-  font-family: "GangwonEduPowerExtraBoldA";
-  height: 10px;
+  font-weight: 400;
+  font-family: "GangwonEduPower";
 `;
 
 /*실제 개별 컴포넌트가가 들어갈 영역*/

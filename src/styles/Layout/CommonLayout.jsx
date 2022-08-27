@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WidthAreaSpace = styled.section`
-  width: 100%;
+  width: 1440px;
   margin: 0 auto;
   margin-top: 100px;
 `;

@@ -1,35 +1,43 @@
 import React from "react";
-import styled from "styled-components";
 
 import { SelectTabBar, SelectTabItem } from "./SnsLoginStyle";
 
-export function SnsSelectTab({ onChange, typeName }) {
-    let navSelect = typeName === "emaillogin";
+export function SNSGroup({ children, selected }) {
+  const elements = React.Children.toArray(children);
+  return <>{elements.find(({ props }) => selected === props.name)}</>;
+}
 
-    return (
-        <SelectTabBar>
-            <SelectTabItem isActive={navSelect}>
-                <a
-                    href="/#"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        onChange("emaillogin");
-                    }}
-                >
-                    아이디로 가입
-                </a>
-            </SelectTabItem>
-            <SelectTabItem isActive={!navSelect}>
-                <a
-                    href="/#"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        onChange("snslogin");
-                    }}
-                >
-                    SNS로 가입
-                </a>
-            </SelectTabItem>
-        </SelectTabBar>
-    );
+export function GroupItem({ children }) {
+  return <>{children}</>;
+}
+
+export function SnsSelectTab({ onChange, typeName, text }) {
+  let navSelect = typeName === "emaillogin";
+
+  return (
+    <SelectTabBar>
+      <SelectTabItem isActive={navSelect}>
+        <a
+          href="/#"
+          onClick={(e) => {
+            e.preventDefault();
+            onChange("emaillogin");
+          }}
+        >
+          {`아이디로 ${text}`}
+        </a>
+      </SelectTabItem>
+      <SelectTabItem isActive={!navSelect}>
+        <a
+          href="/#"
+          onClick={(e) => {
+            e.preventDefault();
+            onChange("snslogin");
+          }}
+        >
+          {`SNS로 ${text}`}
+        </a>
+      </SelectTabItem>
+    </SelectTabBar>
+  );
 }
