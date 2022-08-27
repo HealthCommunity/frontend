@@ -1,29 +1,30 @@
-import { useState } from "react";
-import Modal from "react-modal";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Modal from "../../Share/Modal";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    transform: "translate(-50%, -50%)",
-    margin: "0 auto",
-  },
-};
+export default function PostThreePower({ userId }) {
+  const [modalState, setModalState] = useState(false);
 
-export default function PostThreePower({ item }) {
-  const [modalOpen, setModalOpen] = useState(false);
+  useEffect(() => {
+    if (modalState) {
+      document.body.style.overflow = "hidden"; //모달 배경 스크롤 방지
+    }
 
-  const modalIsOpen = () => {
-    setModalOpen(true);
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [modalState]);
+
+  const openModal = () => {
+    setModalState(true);
   };
+
   const closeModal = () => {
-    setModalOpen(false);
+    setModalState(false);
   };
+
   const {
     register: modalregister,
     handleSubmit: modalsubmit,
@@ -32,16 +33,20 @@ export default function PostThreePower({ item }) {
 
   const onSubmit = (data) => {
     axios
-      .post(`/api/user/${item}/bigthreepower`, {
+      .post(`/api/user/${userId}/bigthreepower`, {
         bench: data.bench,
         dead: data.dead,
         squat: data.squat,
       })
-      .then(function (response) {
-        console.log("성공", response);
-        alert("3대력이 저장되었습니다.");
+      .then((response) => {
+        if (response.data.status === "0452") {
+          alert(response.data.message);
+        } else {
+          console.log("성공", response);
+          alert("3대력이 저장되었습니다.");
+        }
       })
-      .catch(function (error) {
+      .catch((error) => {
         // 오류발생시 실행
         console.log("실패", error);
       });
@@ -51,12 +56,13 @@ export default function PostThreePower({ item }) {
 
   return (
     <>
-      <ModalButton onClick={modalIsOpen}>관리자 3대력 부여</ModalButton>
+      <ModalButton onClick={openModal}>관리자 3대력 부여</ModalButton>
       <Modal
-        isOpen={modalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        ariaHideApp={false}
+        open={modalState}
+        close={closeModal}
+        header={"삼대력 부여"}
+        footerDesc={"삼대력 부여 완료"}
+        isAgree={modalsubmit(onSubmit)}
       >
         <ModalForm onSubmit={modalsubmit(onSubmit)}>
           <p style={{ textAlign: "center", margin: "10px 0px" }}>
@@ -83,16 +89,6 @@ export default function PostThreePower({ item }) {
             })}
             placeholder="스쿼트"
           />
-          <input
-            style={{
-              fontWeight: "600",
-              width: "100%",
-              border: "none",
-              cursor: "pointer",
-              marginTop: "10px",
-            }}
-            type="submit"
-          />
         </ModalForm>
       </Modal>
     </>
@@ -115,14 +111,16 @@ const ModalForm = styled.form`
     box-sizing: border-box;
     text-align: center;
     width: 100%;
-    height: 45px;
-    color: #21242e;
-    font-size: 16px;
-    padding: 0 20px;
-    border-radius: 10px;
+    height: 50px;
+    color: #888888;
+    padding: 12px 20px;
+    border-radius: 60px;
     background-color: #f3f4f7;
-    border: 1px solid #ccc;
+    border: 1px solid #eeeeee;
     line-height: 45px !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
     margin: 10px 0px;
     :focus {
       outline: none;
