@@ -81,14 +81,12 @@ const ModalHeader = styled.div`
   background: #ffffff;
   padding: 28px 0px 20px 24px;
   margin-bottom: 0;
-
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   color: #222222;
-
   z-index: 99;
 `;
 
