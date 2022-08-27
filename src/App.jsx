@@ -23,7 +23,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 
@@ -36,7 +35,7 @@ body {
 	line-height: 1;
 	background-color: ${(props) => props.theme.bgColor};
 	color: ${(props) => props.theme.fontColor};
-	font-family: 'Open Sans', sans-serif ;
+	font-family: 'Pretendard';
 }
 ol, ul {
 	list-style: none;
