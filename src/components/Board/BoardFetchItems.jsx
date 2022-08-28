@@ -53,12 +53,24 @@ export default function BoardFetchItems({ category = "", center }) {
       {isLoading ? (
         <BoardItemList style={center && { justifyContent: "center" }}>
           {itemList.map(
-            ({ postId, title, createdDate, nickname, view, urls }) => (
+            ({
+              postId,
+              title,
+              createdDate,
+              nickname,
+              view,
+              urls,
+              postCategory,
+            }) => (
               <Link
                 key={`${categoryPath}${postId}`}
-                to={`./${
-                  category === pathname.slice(1) ? "." : category
-                }/${postId}`}
+                to={
+                  category === "user"
+                    ? `/${postCategory}/${postId}`
+                    : `./${
+                        category === pathname.slice(1) ? "." : category
+                      }/${postId}`
+                }
               >
                 <li>
                   {(category === "threepowerpost") |

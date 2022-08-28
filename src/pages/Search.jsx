@@ -17,7 +17,6 @@ export default function SearchPage() {
   };
 
   useEffect(() => {
-    console.log("전달하는데이터", state);
     axios
       .get("/api/search", {
         params: { select: state.select, keyword: state.keyword },
@@ -35,8 +34,6 @@ export default function SearchPage() {
   if (!itemList) {
     return <></>;
   }
-  console.log("검색 아이템", itemList);
-
   return (
     <>
       <Nav />
@@ -47,8 +44,16 @@ export default function SearchPage() {
         </SearchResultInfo>
         <BoardItemList>
           {itemList.map(
-            ({ postId, title, createdDate, nickname, view, urls }) => (
-              <Link key={postId} to={"/"}>
+            ({
+              postId,
+              title,
+              createdDate,
+              nickname,
+              view,
+              urls,
+              postCategory,
+            }) => (
+              <Link key={postId} to={`/${postCategory}/${postId}`}>
                 <BoardForm
                   id={postId}
                   title={title}
