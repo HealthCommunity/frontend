@@ -23,16 +23,18 @@ export default function Board({ props }) {
       <Nav />
       <WidthAreaSpace>
         {userData ? (
-          <Link to={"write"}>
-            <ModalButton>
-              <img
-                src={WriteIcon}
-                style={{ marginRight: "5px" }}
-                alt="writeicon"
-              />
-              글쓰기
-            </ModalButton>
-          </Link>
+          <div style={{ width: "145px" }}>
+            <Link to={"write"}>
+              <ModalButton>
+                <img
+                  src={WriteIcon}
+                  style={{ marginRight: "5px" }}
+                  alt="writeicon"
+                />
+                글쓰기
+              </ModalButton>
+            </Link>
+          </div>
         ) : null}
         <GroupItem category={`${props}`}>
           <BoardFetchItems category={`${props}`} />
