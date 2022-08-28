@@ -18,6 +18,7 @@ import useUserData from "../../../api/useUserData";
 import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
 import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
+import { useForm } from "react-hook-form";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -27,6 +28,16 @@ export default function BoardDetail() {
   const [boardData, setBoardData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userData] = useUserData();
+  const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  const onSubmitValid = (data) => {
+    axios.post(`/api/post/${boardData.postId}/comments`, data, config);
+    reset();
+  };
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -105,6 +116,26 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
+          <InfoExplanationDiv>
+            <InfoExplanationTitle style={{ marginTop: "50px" }}>
+              댓글
+            </InfoExplanationTitle>
+            <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
+              <InfoCommentInputText
+                {...register("comment", {
+                  required: "댓글을 입력해주세요",
+                })}
+                type="text"
+                placeholder="댓글을 입력해주세요"
+              />
+              <InfoCommentInputSubmit type="submit" value="댓글등록" />
+            </InfoCommentForm>
+            <CommentList>
+              {boardData?.comments?.map((x) => (
+                <li key={x?.id}>{x?.comment}</li>
+              ))}
+            </CommentList>
+          </InfoExplanationDiv>
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
@@ -158,4 +189,50 @@ const BoardImg = styled.img`
   height: 560px;
   margin-right: 30px;
   margin-top: 30px;
+`;
+const InfoExplanationDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eeeeee;
+`;
+
+const InfoExplanationTitle = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 40px 0px;
+`;
+const InfoCommentForm = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: 30px;
+`;
+const InfoCommentInputText = styled.input`
+  border-radius: 20px;
+  padding: 20px;
+  width: 50vw;
+  height: 100px;
+  font-size: ${(props) => props.theme.fontSizeH2};
+  margin: 20px 0px;
+`;
+const InfoCommentInputSubmit = styled.input`
+  display: flex;
+  justify-content: center;
+  padding: 1px 6px;
+  width: 150px;
+  height: 70px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: transparent;
+`;
+
+const CommentList = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+`;
+
+const CommentListitem = styled.div`
+  font-size: ${(props) => props.theme.fontSizeH2};
+  margin: 20px 0px;
 `;
