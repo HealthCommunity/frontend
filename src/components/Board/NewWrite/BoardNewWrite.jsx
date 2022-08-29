@@ -96,14 +96,25 @@ function BoardNewWrite() {
                   alt="videoicon"
                 />
                 파일 첨부
-                <input
-                  type="file"
-                  multiple
-                  name="inputfile"
-                  accept="video/* , image/*"
-                  style={{ display: "none" }}
-                  onChange={changeInputFile}
-                />
+                {boardname === "exercisepost" ? (
+                  <input
+                    type="file"
+                    multiple
+                    name="inputfile"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={changeInputFile}
+                  />
+                ) : (
+                  <input
+                    type="file"
+                    multiple
+                    name="inputfile"
+                    accept="video/* , image/*"
+                    style={{ display: "none" }}
+                    onChange={changeInputFile}
+                  />
+                )}
               </PostLabel>
               {file.map((x) => (
                 <span

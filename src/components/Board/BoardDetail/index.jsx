@@ -117,22 +117,26 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
-          <InfoExplanationDiv>
-            <InfoExplanationTitle style={{ marginTop: "50px" }}>
-              댓글
-            </InfoExplanationTitle>
-            <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
-              <InfoCommentInputText
-                {...register("comment", {
-                  required: "댓글을 입력해주세요",
-                })}
-                type="text"
-                placeholder="댓글을 입력해주세요"
-              />
-              <InfoCommentInputSubmit type="submit" value="댓글등록" />
-            </InfoCommentForm>
-            <BoardComment />
-          </InfoExplanationDiv>
+          {!userData ? (
+            ""
+          ) : (
+            <InfoExplanationDiv>
+              <InfoExplanationTitle style={{ marginTop: "50px" }}>
+                댓글
+              </InfoExplanationTitle>
+              <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
+                <InfoCommentInputText
+                  {...register("comment", {
+                    required: "댓글을 입력해주세요",
+                  })}
+                  type="text"
+                  placeholder="댓글을 입력해주세요"
+                />
+                <InfoCommentInputSubmit type="submit" value="댓글등록" />
+              </InfoCommentForm>
+            </InfoExplanationDiv>
+          )}
+          <BoardComment />
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
