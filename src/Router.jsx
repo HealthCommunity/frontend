@@ -12,6 +12,7 @@ import ThreeBoardEditPost from "./pages/ThreeBoardEditPost";
 import Board from "./pages/Board";
 import BoardPost from "./pages/BoardPost";
 import BoardWrite from "./pages/BoardWrite";
+import Introduce from "pages/Introduce";
 
 function Router() {
   const [, reFetch] = useUserData();
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/introduce" element={<Introduce />} />
         <Route
           path="/freepost"
           element={

@@ -1,10 +1,5 @@
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { isLogin } from "../../atom";
-import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
-import SearchImage from "../../assets/images/common_search_bk_24.svg";
 import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
 import {
   NavBoardDiv,
@@ -19,28 +14,11 @@ import { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
 import NavSearch from "./NavSearch";
 
-const FormStyle = styled.form`
-  display: flex;
-  align-items: center;
-`;
-
-const SelectForm = styled.select`
-  margin-right: 5px;
-`;
-
-const SearchInput = styled.input`
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: transparent;
-  color: ${(props) => props.color};
-`;
-
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
   let navigate = useNavigate();
   let { pathname } = useLocation();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
   let navdata =
     pathname.includes("freepost") ||
@@ -82,11 +60,6 @@ export default function Nav() {
       window.removeEventListener("scroll", handleFollow); // addEventListener 함수를 삭제
     };
   });
-
-  // const { register, handleSubmit } = useForm();
-  // const onSubmit = (data) => {
-  //   navigate("/search", { state: data });
-  // };
   return (
     <NavDiv
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
@@ -127,47 +100,14 @@ export default function Nav() {
             navdata={navdata}
             ScrollY={ScrollY}
           />
-          {/* {searchOpen ? (
-            <FormStyle onSubmit={handleSubmit(onSubmit)}>
-              <SelectForm {...register("select")}>
-                <option value="titleandcontent">통합검색</option>
-                <option value="title">제목</option>
-                <option value="content">내용</option>
-                <option value="user">작성자</option>
-              </SelectForm>
-              <SearchInput
-                {...register("keyword")}
-                type="text"
-                style={{
-                  outline: "none",
-                  width: "100px",
-                  borderBottom: `3px solid ${(props) => props.color}`,
-                }}
-                color={navdata ? "black" : "white"}
-              />
-              <SearchInput
-                type="submit"
-                style={{
-                  border: "none",
-                  cursor: "pointer",
-                  borderBottom: "none",
-                }}
-                color={navdata ? "black" : "white"}
-              />
-            </FormStyle>
-          ) : (
-            <img
-              src={!navdata && ScrollY === 0 ? SearchColorImage : SearchImage}
-              alt="search"
-              onClick={() => setSearchOpen((prev) => !prev)}
-            />
-          )} */}
         </NavItem>
         <NavItem>
-          <img
-            src={!navdata && ScrollY === 0 ? RocketColorImage : RocketImage}
-            alt="rocket"
-          />
+          <Link to="/introduce">
+            <img
+              src={!navdata && ScrollY === 0 ? RocketColorImage : RocketImage}
+              alt="rocket"
+            />
+          </Link>
         </NavItem>
         <NavItem>
           <ToggleBtn onClick={clickedToggle} toggle={toggle}>
