@@ -19,6 +19,7 @@ import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
 import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
 import { useForm } from "react-hook-form";
+import BoardComment from "./BoardComment";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -130,11 +131,7 @@ export default function BoardDetail() {
               />
               <InfoCommentInputSubmit type="submit" value="댓글등록" />
             </InfoCommentForm>
-            <CommentList>
-              {boardData?.comments?.map((x) => (
-                <li key={x?.id}>{x?.comment}</li>
-              ))}
-            </CommentList>
+            <BoardComment />
           </InfoExplanationDiv>
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
