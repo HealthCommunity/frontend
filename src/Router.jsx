@@ -40,7 +40,6 @@ function Router() {
         fallback={
           <>
             <LoadingSpinner></LoadingSpinner>
-            <p>사용자 정보 로딩중...</p>
           </>
         }
       >

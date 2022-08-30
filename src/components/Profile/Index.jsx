@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import useUserData from "../../api/useUserData";
 import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
