@@ -114,14 +114,25 @@ export default function BoardEditPost() {
                         alt="fileAdd"
                       />
                       파일 첨부
-                      <input
-                        type="file"
-                        multiple
-                        name="inputfile"
-                        accept="video/* , image/*"
-                        style={{ display: "none" }}
-                        onChange={changeInputFile}
-                      />
+                      {boardname === "exercisepost" ? (
+                        <input
+                          type="file"
+                          multiple
+                          name="inputfile"
+                          accept="image/*"
+                          style={{ display: "none" }}
+                          onChange={changeInputFile}
+                        />
+                      ) : (
+                        <input
+                          type="file"
+                          multiple
+                          name="inputfile"
+                          accept="video/* , image/*"
+                          style={{ display: "none" }}
+                          onChange={changeInputFile}
+                        />
+                      )}
                       <span style={{ color: "red" }}>
                         (파일변경시 기존 파일은 삭제됩니다)
                       </span>
