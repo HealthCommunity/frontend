@@ -19,6 +19,7 @@ import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
 import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
 import { useForm } from "react-hook-form";
+import BoardComment from "./BoardComment";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -116,26 +117,26 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
-          <InfoExplanationDiv>
-            <InfoExplanationTitle style={{ marginTop: "50px" }}>
-              댓글
-            </InfoExplanationTitle>
-            <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
-              <InfoCommentInputText
-                {...register("comment", {
-                  required: "댓글을 입력해주세요",
-                })}
-                type="text"
-                placeholder="댓글을 입력해주세요"
-              />
-              <InfoCommentInputSubmit type="submit" value="댓글등록" />
-            </InfoCommentForm>
-            <CommentList>
-              {boardData?.comments?.map((x) => (
-                <li key={x?.id}>{x?.comment}</li>
-              ))}
-            </CommentList>
-          </InfoExplanationDiv>
+          {!userData ? (
+            ""
+          ) : (
+            <InfoExplanationDiv>
+              <InfoExplanationTitle style={{ marginTop: "50px" }}>
+                댓글
+              </InfoExplanationTitle>
+              <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
+                <InfoCommentInputText
+                  {...register("comment", {
+                    required: "댓글을 입력해주세요",
+                  })}
+                  type="text"
+                  placeholder="댓글을 입력해주세요"
+                />
+                <InfoCommentInputSubmit type="submit" value="댓글등록" />
+              </InfoCommentForm>
+            </InfoExplanationDiv>
+          )}
+          <BoardComment />
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
