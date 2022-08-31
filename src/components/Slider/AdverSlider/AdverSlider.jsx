@@ -28,8 +28,6 @@ export default function AdverSlider({ category, data }) {
   const backgroundStyle = PointColor[category];
   const backgroundText = CategoryText[category];
 
-  console.log("백그라운드 컬러", backgroundStyle);
-
   return (
     <AdverBackground>
       <SliderBackMain backgroundStyle={backgroundStyle}>
