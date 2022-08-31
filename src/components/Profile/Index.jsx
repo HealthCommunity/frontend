@@ -49,7 +49,9 @@ export default function ProfileContnet() {
               <ProfileMyInfoGroup>
                 <UserPowerChart PowerData={myPowerData}></UserPowerChart>
                 <MyInfoIdGroup>
-                  <MyInfoId>{loginId}</MyInfoId>
+                  <MyInfoId>
+                    {loginId.includes("_") ? loginId.split("_")[0] : loginId}
+                  </MyInfoId>
                   <MyInfoNickname>{nickName}</MyInfoNickname>
                   <UserModifyButton
                     onClick={() => {

@@ -154,7 +154,11 @@ export default function HomeChart() {
         {threeData.map((item, rank) => (
           <InfoGroup key={rank}>
             <TopRankLabel>{rank + 1}</TopRankLabel>
-            <TopNickLabel>{item.userNickName}</TopNickLabel>
+            <TopNickLabel>
+              {item.userNickName.includes("_")
+                ? item.userNickName.split("_")[1]
+                : item.userNickName}
+            </TopNickLabel>
             <TopPowerLabel>{`${item.bigThreePower.dead} / ${item.bigThreePower.bench} / ${item.bigThreePower.squat}`}</TopPowerLabel>
           </InfoGroup>
         ))}
