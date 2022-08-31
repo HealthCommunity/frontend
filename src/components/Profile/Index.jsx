@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import useUserData from "../../api/useUserData";
 import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
@@ -49,7 +49,9 @@ export default function ProfileContnet() {
               <ProfileMyInfoGroup>
                 <UserPowerChart PowerData={myPowerData}></UserPowerChart>
                 <MyInfoIdGroup>
-                  <MyInfoId>{loginId}</MyInfoId>
+                  <MyInfoId>
+                    {loginId.includes("_") ? loginId.split("_")[0] : loginId}
+                  </MyInfoId>
                   <MyInfoNickname>{nickName}</MyInfoNickname>
                   <UserModifyButton
                     onClick={() => {
