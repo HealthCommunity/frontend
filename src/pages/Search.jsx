@@ -27,7 +27,7 @@ export default function Search() {
         }
       })
       .catch((error) => {
-        console.log("검색결과 없음", error);
+        alert("검색을 실패했습니다.");
       });
   }, [state]);
 
