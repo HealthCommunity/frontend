@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import Spinner from "../../assets/images/spinner.gif";
 
-export default function LoadingSpinner() {
+function LoadingSpinner({ text }) {
   return (
     <Background>
-      <img src={Spinner} alt="로딩중" width="5%" />
-      <LoadingText>잠시만 기다려 주세요.</LoadingText>
+      <img src={Spinner} alt="로딩중" width="10%" />
+      <LoadingText>
+        {text === undefined ? "잠시만 기다려 주세요." : text}
+      </LoadingText>
     </Background>
   );
 }
+
+export default LoadingSpinner;
 
 const Background = styled.div`
   position: absolute;
@@ -16,7 +20,7 @@ const Background = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
-  background: #ffffffb7;
+  background: #fcfcfcb7;
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -25,6 +29,5 @@ const Background = styled.div`
 `;
 
 const LoadingText = styled.div`
-  font: 1rem "Noto Sans KR";
   text-align: center;
 `;

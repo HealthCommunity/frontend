@@ -105,6 +105,7 @@ const ModalButton = styled.button`
   text-align: center;
   font-family: "Pretendard";
 `;
+
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;

@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
 import { useForm } from "react-hook-form";
 import BoardComment from "./BoardComment";
+import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -27,7 +28,7 @@ export default function BoardDetail() {
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [boardData, setBoardData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [userData] = useUserData();
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const config = {
@@ -41,10 +42,10 @@ export default function BoardDetail() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setIsLoading(true);
       const result = await axios(`/api/${boardname}/${id}`);
       setBoardData(result.data.data);
-      setLoading(false);
+      setIsLoading(false);
     };
     fetchData();
   }, [boardname, id]);
@@ -69,8 +70,8 @@ export default function BoardDetail() {
   };
   return (
     <>
-      {loading ? (
-        <div>로딩중입니다</div>
+      {isLoading ? (
+        <LoadingSpinner />
       ) : (
         <InfoDiv>
           <InfoTitleDiv>

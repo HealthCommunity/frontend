@@ -1,12 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
-import Nav from "../components/Navbar/index";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
+import axios from "axios";
 
-export default function SearchPage() {
+export default function Search() {
   const { state } = useLocation();
   const [itemList, setItemList] = useState([]);
   const serchOption = {
@@ -84,27 +84,17 @@ const SearchResultInfo = styled.div`
 `;
 
 const SearchSelector = styled.p`
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  /* identical to box height, or 144% */
-
-  /* Basic/02 */
-
   color: #888888;
 `;
 
 const SearchResult = styled.p`
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
-  /* identical to box height, or 122% */
-
-  /* Basic/01 */
-
   color: #222222;
 `;
