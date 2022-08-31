@@ -47,16 +47,17 @@ export default function UserInputForm() {
         withCredentials: true,
         credentials: "include",
       })
-      .then(function (response) {
+      .then((response) => {
         if (response.data.status === "0402") {
           alert(response.data.message);
         } else {
           refetch();
           navigate("/");
+          alert("로그인에 성공하였습니다.");
         }
       })
-      .catch(function (error) {
-        console.log("로그인 API 요청 실패", error);
+      .catch((error) => {
+        alert("로그인에 실패하였습니다.");
         refetch();
       });
   };

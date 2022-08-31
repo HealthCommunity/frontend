@@ -19,7 +19,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Sign = lazy(() => import("./pages/Sign"));
-const SearchPage = lazy(() => import("./pages/Search"));
+const Search = lazy(() => import("./pages/Search"));
 const NotFoundScene = lazy(() => import("./pages/NotFoundScene"));
 const BoardEditPost = lazy(() => import("./pages/BoardEditPost"));
 const ThreeBoardEditPost = lazy(() => import("./pages/ThreeBoardEditPost"));
@@ -36,16 +36,10 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <Suspense
-        fallback={
-          <>
-            <LoadingSpinner></LoadingSpinner>
-          </>
-        }
-      >
+      <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign" element={<Sign />} />
           <Route path="/profile" element={<Profile />} />
