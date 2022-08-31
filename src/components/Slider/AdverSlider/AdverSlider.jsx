@@ -1,14 +1,39 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import SliderMain from "../PullSlider/SliderMain";
 
-export default function AdverSlider({ data }) {
+const PointColor = {
+  exercisepost: css`
+    --bg-start-color: #60c6ff;
+    --bg-end-color: #1dc895;
+  `,
+
+  freepost: css`
+    --bg-start-color: #60c6ff;
+    --bg-end-color: #7affbf;
+  `,
+
+  threepowerpost: css`
+    --bg-start-color: #00d1ff;
+    --bg-end-color: #0066ff;
+  `,
+};
+
+const CategoryText = {
+  exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
+  threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
+  freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
+};
+
+export default function AdverSlider({ category, data }) {
+  const backgroundStyle = PointColor[category];
+  const backgroundText = CategoryText[category];
+
+  console.log("백그라운드 컬러", backgroundStyle);
+
   return (
     <AdverBackground>
-      <SliderBackMain>
-        <SliderTest>
-          다른 사람들의 3대 능력을
-          <br /> 확인해보세요
-        </SliderTest>
+      <SliderBackMain backgroundStyle={backgroundStyle}>
+        <SliderTest>{backgroundText}</SliderTest>
         {/* <SliderContent>
                     <SliderMain data={data} /> 
                 </SliderContent> */}
@@ -24,22 +49,25 @@ const AdverBackground = styled.div`
 `;
 
 const SliderBackMain = styled.div`
+  ${(p) => p.backgroundStyle}
+
   position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to left, #60c6ff, #1dc895);
+  background: linear-gradient(
+    to left,
+    var(--bg-start-color),
+    var(--bg-end-color)
+  );
   border-radius: 8px;
 `;
 
 const SliderTest = styled.span`
   position: absolute;
-  width: 534px;
+  width: 370px;
   height: 88px;
   left: 36px;
   top: 138px;
-
-  /* Tilte2/01_Bold */
-
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
