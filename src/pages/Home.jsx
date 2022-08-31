@@ -35,7 +35,6 @@ export default function Home() {
       .get(`/api/exercisepost/popular`)
       .then(({ data }) => setPopular(data.data));
   }, []);
-  console.log(popular);
   return (
     <>
       <Title name="Home" />

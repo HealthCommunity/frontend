@@ -34,16 +34,15 @@ export default function Nav() {
     axios
       .post("/api/user/logout")
       .then((response) => {
-        console.log(response);
         if (response.status === 200) {
-          console.log("로그아웃 성공");
+          alert("로그아웃 성공하였습니다.");
           refetch();
           navigate("/");
         }
       })
       .catch((error) => {
         refetch();
-        console.log("로그아웃 실패", error);
+        alert("로그아웃 실패했습니다.");
       });
   };
   //스크롤 기능 구현

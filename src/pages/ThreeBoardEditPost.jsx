@@ -7,6 +7,7 @@ import {
   PostWrapper,
   PostTitleTitle,
 } from "../components/Board/NewWrite/BoardWriteStyle";
+import LoadingSpinner from "components/Loding/LoadingSpinner";
 
 export default function ThreeBoardEditPost() {
   let navigate = useNavigate();
@@ -15,20 +16,20 @@ export default function ThreeBoardEditPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [pending, setPending] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setIsLoading(true);
       const result = await axios(url);
       setEditData(result.data.data);
       setTitle(result.data.data.title);
       setDescription(result.data.data.content);
-      setLoading(false);
+      setIsLoading(false);
     };
     fetchData();
   }, [url]);
@@ -48,12 +49,12 @@ export default function ThreeBoardEditPost() {
         "content-type": "multipart/form-data",
       },
     };
-    setPending(true);
+    setIsPending(true);
     axios
       .post(url, formData, config)
       .then((res) => {
         if (res.data.status === "0452") {
-          setPending(false);
+          setIsPending(false);
           alert("3대력 게시글 수정은 동영상을 변경해주셔야합니다");
           return;
         }
@@ -69,11 +70,7 @@ export default function ThreeBoardEditPost() {
   return (
     <>
       <Nav />
-      {loading | pending ? (
-        <div style={{ marginTop: "200px" }}>
-          {pending ? "게시글 업로드중입니다" : "로딩중입니다"}
-        </div>
-      ) : (
+      {isLoading | isPending ? (
         <PostWrapper>
           <form onSubmit={handleSubmit}>
             <PostTitleTitle
@@ -91,6 +88,10 @@ export default function ThreeBoardEditPost() {
             <button type="submit">제출하기</button>
           </form>
         </PostWrapper>
+      ) : isPending ? (
+        <LoadingSpinner text={"게시글 업로드중입니다"} />
+      ) : (
+        <LoadingSpinner />
       )}
     </>
   );

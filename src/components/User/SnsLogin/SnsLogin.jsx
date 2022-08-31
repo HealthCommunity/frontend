@@ -9,15 +9,13 @@ import { SnsLinkList, SnsLinkItem, RowGroup } from "./SnsLoginStyle";
 
 export function SnsLogin() {
   const onClick = () => {
-    console.log("서브밋 클릭");
-
     axios
       .get("http://health-community.site:8080/oauth2/authorization/google")
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        alert("로그인을 성공했습니다.");
       })
-      .catch(function (error) {
-        console.log("로그인 API 요청 실패", error);
+      .catch((error) => {
+        alert("로그인을 실패했습니다.");
       });
   };
 

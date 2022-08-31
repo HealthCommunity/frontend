@@ -66,18 +66,17 @@ export default function ContentUserModify(loginId) {
           alert("정보 수정이 완료되었습니다. 다시 로그인해주세요.");
           userLogout({
             onSuccess: (response) => {
-              console.log("로그아웃 성공");
               reFetch();
               navigate("/login");
             },
             onError: (error) => {
               reFetch();
-              console.log("로그아웃 실패", error);
+              alert("정보 수정이 실패했습니다.");
             },
           });
         })
         .catch((error) => {
-          console.log("정보수정 실패", error);
+          alert("정보 수정이 실패했습니다.");
         });
     }
   };
