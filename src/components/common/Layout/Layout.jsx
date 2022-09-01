@@ -40,7 +40,7 @@ export const MainSlide = styled.div`
   width: 100%;
   height: 450px;
   margin-bottom: 20px;
-  background-color: gold;
+  background-color: tomato;
 `;
 
 /*메인화면 공통*/

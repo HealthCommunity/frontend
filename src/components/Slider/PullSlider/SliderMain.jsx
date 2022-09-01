@@ -4,69 +4,7 @@ import SliderButton from "./SliderButton";
 
 import React, { useRef, useEffect, useState } from "react";
 
-const SliderArea = styled.div`
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-`;
-
-const Slider = styled.div`
-  overflow: hidden;
-`;
-
-const SliderLists = styled.ul`
-  position: relative;
-  display: flex;
-  list-style: none;
-  padding: 0px;
-  height: 450px;
-`;
-
-const SliderPagenation = styled.ul`
-  position: absolute;
-  top: auto;
-  right: auto;
-  bottom: 16px;
-  left: 0;
-  display: block;
-  width: 100%;
-  white-space: nowrap;
-  text-align: center;
-`;
-
-const SliderPagenationList = styled.li`
-  display: flex;
-  justify-content: center;
-  vertical-align: top;
-`;
-
-const SliderPageButton = styled.button`
-  border: 0;
-  display: block;
-  width: 8px;
-  height: 8px;
-  color: transparent;
-  border-radius: 4px;
-  background: #fff;
-  font-size: 0;
-  opacity: 0.8;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin: 0 0 0 12px;
-
-  ${(props) =>
-    props.isActive &&
-    css`
-      width: 36px;
-      opacity: 1;
-    `};
-`;
-
-export default function SliderMain({ data }) {
+export default function SliderMain({ data, categories }) {
   const [width, setWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
 
@@ -133,9 +71,18 @@ export default function SliderMain({ data }) {
   return (
     <SliderArea ref={ref}>
       <Slider className="slider">
-        <SliderButton direction={true} onClick={() => handleSwipe(-1)} />
-        <SliderButton direction={false} onClick={() => handleSwipe(1)} />
+        <SliderButton
+          direction={true}
+          onClick={() => handleSwipe(-1)}
+          categories={categories}
+        />
+        <SliderButton
+          direction={false}
+          onClick={() => handleSwipe(1)}
+          categories={categories}
+        />
         <SliderLists
+          categories={categories}
           className="slider-list"
           style={{
             transform: `translate3d(${-currentIndex * width}px, 0px, 0px)`,
@@ -150,6 +97,7 @@ export default function SliderMain({ data }) {
                 width,
                 left: (currentIndex - 3 + idx) * width,
               }}
+              categories={categories}
             ></SliderItem>
           ))}
           <SliderItem
@@ -159,6 +107,7 @@ export default function SliderMain({ data }) {
               width,
               left: currentIndex * width,
             }}
+            categories={categories}
           ></SliderItem>
           {endSlides.map((item, idx) => (
             <SliderItem
@@ -168,6 +117,7 @@ export default function SliderMain({ data }) {
                 width,
                 left: (currentIndex + idx + 1) * width,
               }}
+              categories={categories}
             ></SliderItem>
           ))}
         </SliderLists>
@@ -193,3 +143,66 @@ export default function SliderMain({ data }) {
     </SliderArea>
   );
 }
+
+const SliderArea = styled.div`
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+`;
+
+const Slider = styled.div`
+  overflow: hidden;
+`;
+
+const SliderLists = styled.ul`
+  position: relative;
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  height: 450px;
+  height: ${(props) => (props.categories ? "450px" : "225px")};
+`;
+
+const SliderPagenation = styled.ul`
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 16px;
+  left: 0;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+`;
+
+const SliderPagenationList = styled.li`
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+`;
+
+const SliderPageButton = styled.button`
+  border: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  color: transparent;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0;
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin: 0 0 0 12px;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      width: 36px;
+      opacity: 1;
+    `};
+`;

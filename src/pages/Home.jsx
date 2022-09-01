@@ -41,7 +41,7 @@ export default function Home() {
       <Nav />
       <CommonContainer>
         <MainSlide>
-          <SliderMain data={data} />
+          <SliderMain data={data} categories={"home"} />
         </MainSlide>
         <CommonContents>
           <CommonContentsHome>
