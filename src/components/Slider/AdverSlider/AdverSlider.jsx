@@ -4,7 +4,7 @@ import youtubeData from "./youtubeData";
 import healthData from "./healthData";
 import commercialData from "./commercialData";
 
-const PointColor = {
+const pointColor = {
   exercisepost: css`
     --bg-start-color: #60c6ff;
     --bg-end-color: #1dc895;
@@ -21,22 +21,28 @@ const PointColor = {
   `,
 };
 
-const CategoryText = {
+const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
   freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
 };
 
+const categoryData = {
+  exercisepost: healthData.data,
+  threepowerpost: youtubeData.data,
+  freepost: commercialData.data,
+};
+
 export default function AdverSlider({ category }) {
-  const backgroundStyle = PointColor[category];
-  const backgroundText = CategoryText[category];
+  const backgroundStyle = pointColor[category];
+  const backgroundText = categoryText[category];
 
   return (
     <AdverBackground>
       <SliderBackMain backgroundStyle={backgroundStyle}>
         <SliderText>{backgroundText}</SliderText>
         <SliderContent>
-          <SliderMain data={youtubeData.data} categories={category} />
+          <SliderMain data={categoryData[category]} categories={category} />
         </SliderContent>
       </SliderBackMain>
     </AdverBackground>

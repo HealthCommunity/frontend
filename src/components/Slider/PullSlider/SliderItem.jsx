@@ -4,6 +4,8 @@ export default function SliderItem({ item, style, categories }) {
   const slectSlide = {
     home: <HomeItem item={item} categories={categories} />,
     threepowerpost: <YoutubeInfoItem item={item} />,
+    exercisepost: <CommercialInfoItem item={item} />,
+    freepost: <CommercialInfoItem item={item} />,
   };
 
   return (
@@ -36,6 +38,22 @@ function YoutubeInfoItem({ item }) {
               <YoutubeSubscription>{subscription}</YoutubeSubscription>
             </CardTopInfo>
           </SlideCardTop>
+          <YoutubeText>{text}</YoutubeText>
+        </a>
+      </CardInner>
+    </SlideItemBackground>
+  );
+}
+
+function CommercialInfoItem({ item }) {
+  const { link, subTitle, text, title } = item;
+
+  return (
+    <SlideItemBackground>
+      <CardInner>
+        <a href={link}>
+          <TitleText>{title}</TitleText>
+          <SubText>{subTitle}</SubText>
           <YoutubeText>{text}</YoutubeText>
         </a>
       </CardInner>
@@ -104,4 +122,19 @@ const CardTopInfo = styled.div`
 const CardInner = styled.div`
   width: 450px;
   padding: 40px 60px;
+`;
+
+const TitleText = styled.div`
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  color: #ffffff;
+  margin-bottom: 20px;
+`;
+const SubText = styled.div`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+  margin-bottom: 8px;
 `;
