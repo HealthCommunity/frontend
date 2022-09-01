@@ -18,6 +18,7 @@ import {
   CommonContentArea,
   CommonContents,
 } from "../components/common/Layout/Layout";
+import LoadingSpinner from "components/Loding/LoadingSpinner";
 
 export default function BoardEditPost() {
   let navigate = useNavigate();
@@ -27,8 +28,8 @@ export default function BoardEditPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [pending, setPending] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [file, setFile] = useState([]);
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -47,12 +48,12 @@ export default function BoardEditPost() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setIsLoading(true);
       const result = await axios(url);
       setEditData(result.data.data);
       setTitle(result.data.data.title);
       setDescription(result.data.data.content);
-      setLoading(false);
+      setIsLoading(false);
     };
     fetchData();
   }, [url]);
@@ -70,7 +71,7 @@ export default function BoardEditPost() {
         "content-type": "multipart/form-data",
       },
     };
-    setPending(true);
+    setIsPending(true);
     axios
       .post(url, formData, config)
       .then(() => {
@@ -88,11 +89,7 @@ export default function BoardEditPost() {
       <CommonContainer>
         <CommonContents>
           <CommonContentArea>
-            {loading | pending ? (
-              <div style={{ marginTop: "200px" }}>
-                {pending ? "게시글 업로드중입니다" : "로딩중입니다"}
-              </div>
-            ) : (
+            {isLoading | isPending ? (
               <PostWrapper>
                 <form onSubmit={handleSubmit}>
                   <PostTitleTitle
@@ -114,14 +111,25 @@ export default function BoardEditPost() {
                         alt="fileAdd"
                       />
                       파일 첨부
-                      <input
-                        type="file"
-                        multiple
-                        name="inputfile"
-                        accept="video/* , image/*"
-                        style={{ display: "none" }}
-                        onChange={changeInputFile}
-                      />
+                      {boardname === "exercisepost" ? (
+                        <input
+                          type="file"
+                          multiple
+                          name="inputfile"
+                          accept="image/*"
+                          style={{ display: "none" }}
+                          onChange={changeInputFile}
+                        />
+                      ) : (
+                        <input
+                          type="file"
+                          multiple
+                          name="inputfile"
+                          accept="video/* , image/*"
+                          style={{ display: "none" }}
+                          onChange={changeInputFile}
+                        />
+                      )}
                       <span style={{ color: "red" }}>
                         (파일변경시 기존 파일은 삭제됩니다)
                       </span>
@@ -146,6 +154,10 @@ export default function BoardEditPost() {
                   </FileBtnDiv>
                 </form>
               </PostWrapper>
+            ) : isPending ? (
+              <LoadingSpinner text={"게시글 업로드중입니다"} />
+            ) : (
+              <LoadingSpinner />
             )}
           </CommonContentArea>
         </CommonContents>

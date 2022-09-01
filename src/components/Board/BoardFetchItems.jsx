@@ -4,6 +4,7 @@ import styled from "styled-components";
 import BoardItemBox from "./BoardStyle/ThreePowerForm";
 import axios from "axios";
 import BoardForm from "./BoardStyle/BoardForm";
+import LoadingSpinner from "../Loding/LoadingSpinner";
 
 export default function BoardFetchItems({ category = "", center }) {
   const { pathname } = useLocation();
@@ -53,12 +54,24 @@ export default function BoardFetchItems({ category = "", center }) {
       {isLoading ? (
         <BoardItemList style={center && { justifyContent: "center" }}>
           {itemList.map(
-            ({ postId, title, createdDate, nickname, view, urls }) => (
+            ({
+              postId,
+              title,
+              createdDate,
+              nickname,
+              view,
+              urls,
+              postCategory,
+            }) => (
               <Link
                 key={`${categoryPath}${postId}`}
-                to={`./${
-                  category === pathname.slice(1) ? "." : category
-                }/${postId}`}
+                to={
+                  category === "user"
+                    ? `/${postCategory}/${postId}`
+                    : `./${
+                        category === pathname.slice(1) ? "." : category
+                      }/${postId}`
+                }
               >
                 <li>
                   {(category === "threepowerpost") |
@@ -88,7 +101,7 @@ export default function BoardFetchItems({ category = "", center }) {
           <div ref={target} />
         </BoardItemList>
       ) : (
-        <LodingScreen>로딩중입니다</LodingScreen>
+        <LoadingSpinner />
       )}
     </>
   );
@@ -98,10 +111,4 @@ const BoardItemList = styled.ul`
   flex-wrap: wrap;
   grid-column-gap: 32px;
   grid-row-gap: 28px;
-`;
-
-export const LodingScreen = styled.div`
-  width: 100%;
-  height: 800px;
-  background-color: yellow;
 `;

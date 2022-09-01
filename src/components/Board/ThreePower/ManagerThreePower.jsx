@@ -39,17 +39,14 @@ export default function PostThreePower({ userId }) {
         squat: data.squat,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.status === "0452") {
           alert(response.data.message);
         } else {
-          console.log("성공", response);
-          alert("3대력이 저장되었습니다.");
+          alert("3대력 저장이 성공했습니다.");
         }
       })
       .catch((error) => {
-        // 오류발생시 실행
-        console.log("실패", error);
+        alert("3대력 저장이 실패했습니다.");
       });
     closeModal();
     modalreset();
@@ -105,6 +102,7 @@ const ModalButton = styled.button`
   text-align: center;
   font-family: "Pretendard";
 `;
+
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;

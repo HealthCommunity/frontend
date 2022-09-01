@@ -1,8 +1,7 @@
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-
 import Tiptap from "../../../utils/Editor/Tiptap";
 import "../../../utils/Editor/TiptapStyle.css";
-import { useState } from "react";
 import {
   PostWrapper,
   PostTitleTitle,
@@ -12,11 +11,12 @@ import {
   FileBtn,
 } from "./BoardWriteStyle";
 import axios from "axios";
+import LoadingSpinner from "../../Loding/LoadingSpinner";
 import FileAdd from "../../../assets/images/board_write_picture_24.svg";
 
 function BoardNewWrite() {
   let navigate = useNavigate();
-  const [pending, setPending] = useState(false);
+  const [ispending, setIsPending] = useState(false);
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const [title, setTitle] = useState("");
@@ -57,12 +57,12 @@ function BoardNewWrite() {
         "content-type": "multipart/form-data",
       },
     };
-    setPending(true);
+    setIsPending(true);
     axios
       .post(url, formData, config)
       .then((response) => {
         if (response.data.status === "0452") {
-          setPending(false);
+          setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
           return;
         }
@@ -76,7 +76,7 @@ function BoardNewWrite() {
   };
   return (
     <>
-      {!pending ? (
+      {!ispending ? (
         <PostWrapper>
           <form onSubmit={handleSubmit} style={{ height: "100%" }}>
             <PostTitleTitle
@@ -96,14 +96,25 @@ function BoardNewWrite() {
                   alt="videoicon"
                 />
                 파일 첨부
-                <input
-                  type="file"
-                  multiple
-                  name="inputfile"
-                  accept="video/* , image/*"
-                  style={{ display: "none" }}
-                  onChange={changeInputFile}
-                />
+                {boardname === "exercisepost" ? (
+                  <input
+                    type="file"
+                    multiple
+                    name="inputfile"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={changeInputFile}
+                  />
+                ) : (
+                  <input
+                    type="file"
+                    multiple
+                    name="inputfile"
+                    accept="video/* , image/*"
+                    style={{ display: "none" }}
+                    onChange={changeInputFile}
+                  />
+                )}
               </PostLabel>
               {file.map((x) => (
                 <span
@@ -126,7 +137,7 @@ function BoardNewWrite() {
           </form>
         </PostWrapper>
       ) : (
-        <div>게시글을 업로드중입니다</div>
+        <LoadingSpinner />
       )}
     </>
   );

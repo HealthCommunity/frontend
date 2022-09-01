@@ -1,6 +1,6 @@
 import Nav from "../components/Navbar/index";
 import Title from "../utils/Title/Title";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   // Nav,
   CommonContainer,
@@ -24,18 +24,24 @@ import HomeBoardSelect from "../components/Home/HomeBoard/HomeBoardSelect";
 import HomeBoardSummary from "../components/Home/HomeBoard/HomeBoardSummary";
 import HomeBoard from "../components/Home/HomeBoard";
 import HomeChart from "../components/Home/HomeChart/HomeChart";
+import axios from "axios";
 
 export default function Home() {
   const data = [slide1, slide2, slide3];
   const [selected, setSelected] = useState("threepowerpost");
-
+  const [popular, setPopular] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`/api/exercisepost/popular`)
+      .then(({ data }) => setPopular(data.data));
+  }, []);
   return (
     <>
       <Title name="Home" />
       <Nav />
       <CommonContainer>
         <MainSlide>
-          <SliderMain data={data} />
+          <SliderMain data={data} categories={"home"} />
         </MainSlide>
         <CommonContents>
           <CommonContentsHome>

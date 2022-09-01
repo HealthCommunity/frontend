@@ -33,7 +33,6 @@ export default function UserSign() {
 
   const handleChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    console.log(value, name);
     setUsrInputs({
       ...usrInputs, // 기존의 input 객체를 복사한 뒤
       [name]: value, // name 키를 가진 값을 value 로 설정
@@ -72,7 +71,6 @@ export default function UserSign() {
       axios
         .post("/api/user/join", myData)
         .then(function (response) {
-          console.log("예외처리", response);
           if (
             response.data.status === "0500" || //서버에서 예외처리 작업 후 제거예정
             response.data.status === "0403" ||
@@ -85,7 +83,6 @@ export default function UserSign() {
           }
         })
         .catch(function (error) {
-          console.log(error);
           alert("회원가입이 실패하였습니다.");
         });
     }

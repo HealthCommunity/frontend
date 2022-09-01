@@ -6,6 +6,7 @@ import useUserData from "../api/useUserData";
 import WriteIcon from "../assets/images/board_write_bl_24.svg";
 import styled from "styled-components";
 import Title from "../utils/Title/Title";
+import AdverSlider from "../components/Slider/AdverSlider/AdverSlider";
 
 export default function Board({ props }) {
   const [userData] = useUserData();
@@ -22,17 +23,20 @@ export default function Board({ props }) {
       />
       <Nav />
       <WidthAreaSpace>
+        <AdverSlider category={props} />
         {userData ? (
-          <Link to={"write"}>
-            <ModalButton>
-              <img
-                src={WriteIcon}
-                style={{ marginRight: "5px" }}
-                alt="writeicon"
-              />
-              글쓰기
-            </ModalButton>
-          </Link>
+          <div style={{ width: "145px" }}>
+            <Link to={"write"}>
+              <ModalButton>
+                <img
+                  src={WriteIcon}
+                  style={{ marginRight: "5px" }}
+                  alt="writeicon"
+                />
+                글쓰기
+              </ModalButton>
+            </Link>
+          </div>
         ) : null}
         <GroupItem category={`${props}`}>
           <BoardFetchItems category={`${props}`} />

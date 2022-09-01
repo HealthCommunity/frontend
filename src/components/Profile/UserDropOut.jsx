@@ -32,29 +32,26 @@ export default function UserDropOut() {
 
   const submitDropOut = () => {
     setModalState(false);
-    console.log("회원탈퇴 동의완료");
-
     axios
       .post("/api/user/delete", {
         withCredentials: true,
         credentials: "include",
       })
       .then((response) => {
-        console.log("회원탈퇴 완료");
+        alert("회원 탈퇴룰 성공하였습니다.");
         userLogout({
           onSuccess: (response) => {
-            console.log("로그아웃 성공");
             reFetch();
             navigate("/login");
           },
           onError: (error) => {
             reFetch();
-            console.log("로그아웃 실패", error);
+            alert("회원 탈퇴 실패하였습니다.");
           },
         });
       })
       .catch((error) => {
-        console.log("회원탈퇴 실패", error);
+        alert("회원 탈퇴 실패하였습니다.");
       });
   };
 

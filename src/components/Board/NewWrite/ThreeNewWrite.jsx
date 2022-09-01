@@ -11,10 +11,11 @@ import {
   FileBtnDiv,
   FileBtn,
 } from "./BoardWriteStyle";
+import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 export default function ThreeBoardPost() {
   let navigate = useNavigate();
-  const [pending, setPending] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [bench, setBench] = useState("");
@@ -52,12 +53,12 @@ export default function ThreeBoardPost() {
         "content-type": "multipart/form-data",
       },
     };
-    setPending(true);
+    setIsPending(true);
     axios
       .post(url, formData, config)
       .then((response) => {
         if (response.data.status === "0452") {
-          setPending(false);
+          setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
           return;
         }
@@ -71,7 +72,7 @@ export default function ThreeBoardPost() {
 
   return (
     <>
-      {!pending ? (
+      {!isPending ? (
         <PostWrapper>
           <form onSubmit={handleSubmit}>
             <PostTitleTitle
@@ -157,7 +158,7 @@ export default function ThreeBoardPost() {
           </form>
         </PostWrapper>
       ) : (
-        <div>게시글을 업로드중입니다</div>
+        <LoadingSpinner text={"게시글을 등록하는 중입니다."} />
       )}
     </>
   );

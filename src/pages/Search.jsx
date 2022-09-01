@@ -1,12 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
-import Nav from "../components/Navbar/index";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
+import axios from "axios";
 
-export default function SearchPage() {
+export default function Search() {
   const { state } = useLocation();
   const [itemList, setItemList] = useState([]);
   const serchOption = {
@@ -17,7 +17,6 @@ export default function SearchPage() {
   };
 
   useEffect(() => {
-    console.log("전달하는데이터", state);
     axios
       .get("/api/search", {
         params: { select: state.select, keyword: state.keyword },
@@ -28,15 +27,13 @@ export default function SearchPage() {
         }
       })
       .catch((error) => {
-        console.log("검색결과 없음", error);
+        alert("검색을 실패했습니다.");
       });
   }, [state]);
 
   if (!itemList) {
     return <></>;
   }
-  console.log("검색 아이템", itemList);
-
   return (
     <>
       <Nav />
@@ -47,8 +44,16 @@ export default function SearchPage() {
         </SearchResultInfo>
         <BoardItemList>
           {itemList.map(
-            ({ postId, title, createdDate, nickname, view, urls }) => (
-              <Link key={postId} to={"/"}>
+            ({
+              postId,
+              title,
+              createdDate,
+              nickname,
+              view,
+              urls,
+              postCategory,
+            }) => (
+              <Link key={postId} to={`/${postCategory}/${postId}`}>
                 <BoardForm
                   id={postId}
                   title={title}
@@ -79,27 +84,17 @@ const SearchResultInfo = styled.div`
 `;
 
 const SearchSelector = styled.p`
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  /* identical to box height, or 144% */
-
-  /* Basic/02 */
-
   color: #888888;
 `;
 
 const SearchResult = styled.p`
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
-  /* identical to box height, or 122% */
-
-  /* Basic/01 */
-
   color: #222222;
 `;
