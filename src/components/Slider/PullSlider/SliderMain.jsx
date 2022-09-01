@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import SliderItem from "./SliderItem";
 import SliderButton from "./SliderButton";
+import indecator from "../../../assets/images/indecator.svg";
 
 import React, { useRef, useEffect, useState } from "react";
 
@@ -134,7 +135,7 @@ export default function SliderMain({ data, categories }) {
                   }}
                   className={num === target ? "active" : ""}
                   isActive={num === target}
-                ></SliderPageButton>
+                />
               );
             })}
           </SliderPagenationList>
