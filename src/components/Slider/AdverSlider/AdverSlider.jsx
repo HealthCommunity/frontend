@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import SliderMain from "../PullSlider/SliderMain";
+import youtubeData from "./youtubeData";
 
 const PointColor = {
   exercisepost: css`
@@ -24,17 +25,17 @@ const CategoryText = {
   freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
 };
 
-export default function AdverSlider({ category, data }) {
+export default function AdverSlider({ category }) {
   const backgroundStyle = PointColor[category];
   const backgroundText = CategoryText[category];
+
+  console.log(youtubeData);
 
   return (
     <AdverBackground>
       <SliderBackMain backgroundStyle={backgroundStyle}>
-        <SliderTest>{backgroundText}</SliderTest>
-        {/* <SliderContent>
-                    <SliderMain data={data} /> 
-                </SliderContent> */}
+        <SliderText>{backgroundText}</SliderText>
+        <SliderContent>{/* <SliderMain data={data} />  */}</SliderContent>
       </SliderBackMain>
     </AdverBackground>
   );
@@ -60,7 +61,7 @@ const SliderBackMain = styled.div`
   border-radius: 8px;
 `;
 
-const SliderTest = styled.span`
+const SliderText = styled.span`
   position: absolute;
   width: 370px;
   height: 88px;
@@ -81,5 +82,5 @@ const SliderContent = styled.div`
   right: 54px;
   width: 530px;
   height: 226px;
-  background-color: #ff81df;
+  background-color: #8067ff;
 `;

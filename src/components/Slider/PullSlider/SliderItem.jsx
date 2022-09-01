@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
+export default function SliderItem({ item, style }) {
+  return (
+    <SliderItemInner style={style}>
+      <a href="#/">
+        <SliderItemImg src={item} alt=""></SliderItemImg>
+      </a>
+    </SliderItemInner>
+  );
+}
+
 const SliderItemInner = styled.li`
-    position: absolute;
+  position: absolute;
 `;
 
 const SliderItemImg = styled.img`
-    width: 100vw;
-    height: 450px;
-    object-fit: cover;
+  width: 100vw;
+  height: 450px;
+  object-fit: cover;
 `;
-
-export default function SliderItem({ item, style }) {
-    return (
-        <SliderItemInner style={style}>
-            <a href="#/">
-                <SliderItemImg src={item} alt=""></SliderItemImg>
-            </a>
-        </SliderItemInner>
-    );
-}
