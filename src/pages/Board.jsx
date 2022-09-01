@@ -9,7 +9,6 @@ import Title from "../utils/Title/Title";
 import AdverSlider from "../components/Slider/AdverSlider/AdverSlider";
 
 export default function Board({ props }) {
-  console.log("보드", props);
   const [userData] = useUserData();
   return (
     <>
