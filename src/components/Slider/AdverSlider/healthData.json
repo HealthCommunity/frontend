@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "title": "국민건강지식센터",
+      "subTitle": "건강정보",
+      "text": "서울대학교 의과대학과 함께 만들어가는 국민건강",
+      "link": "http://hqcenter.snu.ac.kr/front/info/3000.php"
+    },
+    {
+      "title": "농총진흥청 국립농업과학원",
+      "subTitle": "식품 영양정보",
+      "text": "우리가 먹는 식품 영양정보를 확인하고 먹어요",
+      "link": "http://koreanfood.rda.go.kr/kfi/fct/fctFoodSrch/list"
+    },
+    {
+      "title": "지피티",
+      "subTitle": "운동정보",
+      "text": "운동정보와 대리만족을 드리는 지피티입니다:)",
+      "link": "https://www.youtube.com/c/MrRagoona88/about"
+    },
+    {
+      "title": "다이어트신",
+      "subTitle": "다이어트 정보",
+      "text": "다이어터를 위한 종합 다이어트 사이트",
+      "link": "https://www.dietshin.com/main.asp"
+    },
+    {
+      "title": "트레이너강 피트니스월드",
+      "subTitle": "운동정보",
+      "text": "운동 자세, 스트레칭 정보를 확인해봐요",
+      "link": "https://trainerkang.com/"
+    }
+    ]
+}

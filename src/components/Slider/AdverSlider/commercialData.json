@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "title": "몬스터짐",
+      "subTitle": "헬스보조식품",
+      "text": "영양, 건강을 모두 챙기는 건강식품",
+      "link": "https://www.monsterzym.com/"
+    },
+    {
+      "title": "허닭",
+      "subTitle": "닭가슴살",
+      "text": "맛없는 닭가슴살을 맛있게 먹자",
+      "link": "http://www.heodak.com/"
+    },
+    {
+      "title": "다짐",
+      "subTitle": "쇼핑몰",
+      "text": "헬스장, PT, 요가, 필라테스, 크로스핏 등 50개 종목의 체육시설 가격",
+      "link": "https://www.da-gym.co.kr/dagym-list"
+    },
+    {
+      "title": "슬림쿡",
+      "subTitle": "쇼핑몰",
+      "text": "연예인 컴백식단, 단기 몸매관리 식단 프로그램, 매일 생산 샐러드",
+      "link": "http://www.slimcook.co.kr/"
+    },
+    {
+      "title": "헬스앤뷰티",
+      "subTitle": "쇼핑몰",
+      "text": "단·헬스용품·의류·뷰티 상품을 한번에 만나보세요!",
+      "link": "https://www.hnbclub.co.kr/"
+    }
+    ]
+}

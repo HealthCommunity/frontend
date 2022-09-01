@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import SliderMain from "../PullSlider/SliderMain";
 import youtubeData from "./youtubeData";
+import healthData from "./healthData";
+import commercialData from "./commercialData";
 
 const PointColor = {
   exercisepost: css`
@@ -29,13 +31,13 @@ export default function AdverSlider({ category }) {
   const backgroundStyle = PointColor[category];
   const backgroundText = CategoryText[category];
 
-  console.log(youtubeData);
-
   return (
     <AdverBackground>
       <SliderBackMain backgroundStyle={backgroundStyle}>
         <SliderText>{backgroundText}</SliderText>
-        <SliderContent>{/* <SliderMain data={data} />  */}</SliderContent>
+        <SliderContent>
+          <SliderMain data={youtubeData.data} categories={category} />
+        </SliderContent>
       </SliderBackMain>
     </AdverBackground>
   );
@@ -67,12 +69,9 @@ const SliderText = styled.span`
   height: 88px;
   left: 36px;
   top: 138px;
-  font-family: "Pretendard";
-  font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
-
   color: #ffffff;
 `;
 
@@ -82,5 +81,5 @@ const SliderContent = styled.div`
   right: 54px;
   width: 530px;
   height: 226px;
-  background-color: #8067ff;
+  border-radius: 8px;
 `;
