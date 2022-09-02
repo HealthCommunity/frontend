@@ -1,23 +1,29 @@
 import styled from "styled-components";
 
 export default function SliderItem({ item, style }) {
+  if (!item) {
+    return <></>;
+  }
+
+  console.log("개별", item);
+
   return (
     <SliderItemInner style={style}>
       <a href="/">
-        <ItemImg src={item} alt=""></ItemImg>
+        <ItemImg src={item.urls[0]} alt=""></ItemImg>
       </a>
     </SliderItemInner>
   );
 }
 
 const SliderItemInner = styled.li`
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   position: absolute;
 `;
 
 const ItemImg = styled.img`
-  width: 100vw;
-  height: 450px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 `;

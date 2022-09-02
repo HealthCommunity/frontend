@@ -101,10 +101,12 @@ const SliderArea = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
+  background-color: tomato;
 `;
 
 const Slider = styled.div`
   overflow: hidden;
+  background-color: #ff9602;
 `;
 
 const SliderLists = styled.ul`
@@ -112,6 +114,6 @@ const SliderLists = styled.ul`
   display: flex;
   list-style: none;
   padding: 0px;
-  height: 450px;
-  height: ${(props) => (props.categories ? "450px" : "225px")};
+  height: 200px;
+  background-color: #58ffb4;
 `;

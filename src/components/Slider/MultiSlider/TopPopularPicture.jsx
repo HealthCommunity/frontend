@@ -4,18 +4,20 @@ import axios from "axios";
 import SliderMultiMain from "./SliderMultiMain";
 
 export default function TopPopularPicture() {
-  const [popular, setPopular] = useState([]);
+  const [popularData, setPopularData] = useState([]);
   useEffect(() => {
     axios
       .get(`/api/exercisepost/popular`)
-      .then(({ data }) => setPopular(data.data));
+      .then(({ data }) => setPopularData(data.data));
   }, []);
 
-  console.log(popular);
+  if (!popularData) {
+    return <></>;
+  }
 
   return (
     <>
-      <SliderMultiMain data={popular} categories={"home"} />
+      <SliderMultiMain data={popularData} />
     </>
   );
 }
