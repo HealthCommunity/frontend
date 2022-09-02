@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import SliderMain from "../PullSlider/SliderMain";
-import youtubeData from "./youtubeData";
-import healthData from "./healthData";
-import commercialData from "./commercialData";
+import SliderSingleMain from "./SliderSingleMain";
+import youtubeData from "../data/youtubeData";
+import healthData from "../data/healthData";
+import commercialData from "../data/commercialData";
 
 const pointColor = {
   exercisepost: css`
@@ -33,29 +33,32 @@ const categoryData = {
   freepost: commercialData.data,
 };
 
-export default function AdverSlider({ category }) {
+export default function CategorySlider({ category }) {
   const backgroundStyle = pointColor[category];
   const backgroundText = categoryText[category];
 
   return (
-    <AdverBackground>
-      <SliderBackMain backgroundStyle={backgroundStyle}>
-        <SliderText>{backgroundText}</SliderText>
+    <CategorySliderWapper>
+      <CategorySliderBg backgroundStyle={backgroundStyle}>
+        <SliderBgText>{backgroundText}</SliderBgText>
         <SliderContent>
-          <SliderMain data={categoryData[category]} categories={category} />
+          <SliderSingleMain
+            data={categoryData[category]}
+            categories={category}
+          />
         </SliderContent>
-      </SliderBackMain>
-    </AdverBackground>
+      </CategorySliderBg>
+    </CategorySliderWapper>
   );
 }
 
-const AdverBackground = styled.div`
+const CategorySliderWapper = styled.div`
   width: 1440px;
   height: 266px;
   padding: 22px 12px;
 `;
 
-const SliderBackMain = styled.div`
+const CategorySliderBg = styled.div`
   ${(p) => p.backgroundStyle}
 
   position: relative;
@@ -69,7 +72,7 @@ const SliderBackMain = styled.div`
   border-radius: 8px;
 `;
 
-const SliderText = styled.span`
+const SliderBgText = styled.span`
   position: absolute;
   width: 370px;
   height: 88px;
