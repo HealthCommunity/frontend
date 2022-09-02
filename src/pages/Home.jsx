@@ -16,6 +16,8 @@ import {
 
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
 import SliderSingleMain from "../components/Slider/SingleSlider/SliderSingleMain";
+import SliderMultiMain from "../components/Slider/MultiSlider/SliderMultiMain";
+import TopPopularPicture from "../components/Slider/MultiSlider/TopPopularPicture";
 import styled from "styled-components";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
@@ -24,17 +26,11 @@ import HomeBoardSelect from "../components/Home/HomeBoard/HomeBoardSelect";
 import HomeBoardSummary from "../components/Home/HomeBoard/HomeBoardSummary";
 import HomeBoard from "../components/Home/HomeBoard";
 import HomeChart from "../components/Home/HomeChart/HomeChart";
-import axios from "axios";
 
 export default function Home() {
   const data = [slide1, slide2, slide3];
   const [selected, setSelected] = useState("threepowerpost");
-  const [popular, setPopular] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`/api/exercisepost/popular`)
-      .then(({ data }) => setPopular(data.data));
-  }, []);
+
   return (
     <>
       <Title name="Home" />
@@ -55,7 +51,7 @@ export default function Home() {
                   />
                   <CommonTitleText>이번주 인기사진</CommonTitleText>
                 </CommonTitleTitle>
-                <FavoriteDiv>여기는 이번주 인기사진이 들어갑니다</FavoriteDiv>
+                <TopPopularPicture />
               </CommonTitleArea>
               <HomeBoardSelect selected={selected} setSelected={setSelected} />
               <HomeBoardSummary selected={selected} />
