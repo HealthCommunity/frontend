@@ -8,7 +8,7 @@ import {
   CommonContentsLeft,
   MainSlide,
   CommonTitleArea,
-  CommonTitleTitle,
+  CommonTitleTGroup,
   CommonTitleText,
 } from "../styles/Layout/Layout";
 
@@ -39,16 +39,17 @@ export default function Home() {
           {/* 홈화면 오른쪽 인기사진, 게시판 목록 */}
           <CommonContentsLeft>
             <CommonTitleArea>
-              <CommonTitleTitle>
+              <CommonTitleTGroup>
                 <img
                   src={FavoriteImage}
                   alt="favorite"
-                  style={{ marginRight: "10px" }}
+                  style={{ marginRight: "12px" }}
                 />
                 <CommonTitleText>이번주 인기사진</CommonTitleText>
-              </CommonTitleTitle>
+              </CommonTitleTGroup>
             </CommonTitleArea>
             <TopPopularPicture />
+
             <HomeBoardSelect selected={selected} setSelected={setSelected} />
             <HomeBoardSummary selected={selected} />
             <HomeBoard selected={selected} />

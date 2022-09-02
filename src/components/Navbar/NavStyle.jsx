@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const NavDiv = styled.div`
   height: ${(props) => props.height};
   display: flex;
@@ -17,6 +18,7 @@ export const NavLogoItem = styled.p`
   text-align: center;
   width: 150px;
   font-size: 40px;
+  white-space: nowrap;
 `;
 
 export const NavBoardDiv = styled.div`
@@ -26,6 +28,7 @@ export const NavBoardDiv = styled.div`
   font-weight: 400;
   font-size: 18px;
   color: #cccccc;
+  white-space: nowrap;
 `;
 
 export const NavItemSelect = styled.div`
@@ -42,7 +45,7 @@ export const NavItem = styled.div`
   text-align: center;
   font-size: ${(props) => props.theme.fontSizeH5};
   font-weight: 600;
-  font-family: "GangwonEduPower";
+  white-space: nowrap;
   cursor: pointer;
   color: ${(props) => props.color};
 `;
