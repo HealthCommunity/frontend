@@ -29,6 +29,7 @@ export const NavBoardDiv = styled.div`
   font-size: 18px;
   color: #cccccc;
   white-space: nowrap;
+  font-family: "GangwonEduPower";
 `;
 
 export const NavItemSelect = styled.div`
