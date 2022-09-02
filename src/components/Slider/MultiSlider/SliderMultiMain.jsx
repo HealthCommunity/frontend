@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import SliderItem from "./SliderItem";
 import SliderButton from "./SliderButton";
 
@@ -7,6 +7,7 @@ import React, { useRef, useEffect, useState } from "react";
 export default function SliderSingleMain({ data }) {
   const [width, setWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
+  const ItemWidth = 340;
 
   const handleSwipe = (direction) => {
     setCurrentIndex((prev) => prev + direction);
@@ -14,7 +15,7 @@ export default function SliderSingleMain({ data }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setWidth(ref.current.clientWidth);
+      setWidth(ItemWidth);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -28,7 +29,7 @@ export default function SliderSingleMain({ data }) {
 
   const ref = useRef();
   const idx = Math.floor(currentIndex % data.length);
-  const startSlides = [3, 2, 1] //보여줘야할 currrentIndex보다 얼마나 멀리 떨어져 있는 지 나타냄
+  const startSlides = [5, 4, 3, 2, 1] //보여줘야할 currrentIndex보다 얼마나 멀리 떨어져 있는 지 나타냄
     .map((num) => {
       const nextIdx = idx >= 0 ? idx - num : data.length + idx - num;
       if (nextIdx < 0) {
@@ -38,7 +39,7 @@ export default function SliderSingleMain({ data }) {
     })
     .map((num) => data[isOver(num)]);
 
-  const endSlides = [1, 2, 3]
+  const endSlides = [1, 2, 3, 4, 5]
     .map((num) => {
       const nextIdx = idx >= 0 ? idx + num : data.length + idx + num;
       if (nextIdx < data.length) {
