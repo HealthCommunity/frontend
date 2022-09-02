@@ -69,6 +69,7 @@ const SliderItemInner = styled.li`
 const ItemImg = styled.img`
   /* width: 100vw; */
   display: flex;
+
   margin: 0 auto;
   height: 450px;
   object-fit: cover;

@@ -53,9 +53,8 @@ export default function CategoryCommercial({ category }) {
 }
 
 const CategoryCommercialWapper = styled.div`
-  width: 1440px;
+  width: 100%;
   height: 266px;
-  padding: 22px 12px;
 `;
 
 const CategoryCommercialBg = styled.div`

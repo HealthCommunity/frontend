@@ -171,7 +171,7 @@ const HomeChartBox = styled.div`
   position: relative;
   width: 350px;
   height: 900px;
-  margin: 100px 20px;
+  margin: 20px auto;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;

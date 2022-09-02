@@ -1,5 +1,5 @@
 import { BoardSelectTab } from "./BoardSelectTab";
-import { CommonTitleArea } from "../../common/Layout/Layout";
+import { CommonTitleArea } from "../../../styles/Layout/Layout";
 
 export default function HomeBoardSelect({ selected, setSelected }) {
   return (

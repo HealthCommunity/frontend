@@ -2,7 +2,7 @@ import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import BoardDetail from "../components/Board/BoardDetail";
 import { useLocation, useParams } from "react-router-dom";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 
 function BoardPost() {
   const { id } = useParams();
