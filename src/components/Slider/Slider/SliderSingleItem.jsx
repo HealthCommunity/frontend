@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function SliderItem({ item, style, categories }) {
+export default function SliderSingleItem({ item, style, categories }) {
   const slectSlide = {
     home: <HomeItem item={item} categories={categories} />,
     threepowerpost: <YoutubeItem item={item} />,
@@ -130,6 +130,7 @@ const TitleText = styled.div`
   color: #ffffff;
   margin-bottom: 20px;
 `;
+
 const SubText = styled.div`
   font-weight: 700;
   font-size: 18px;

@@ -1,8 +1,7 @@
+import React, { useState } from "react";
 import Nav from "../components/Navbar/index";
 import Title from "../utils/Title/Title";
-import React, { useEffect, useState } from "react";
 import {
-  // Nav,
   CommonContainer,
   CommonContents,
   CommonContentsHome,
@@ -15,10 +14,8 @@ import {
 } from "../components/common/Layout/Layout";
 
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
-import SliderSingleMain from "../components/Slider/SingleSlider/SliderSingleMain";
-import SliderMultiMain from "../components/Slider/MultiSlider/SliderMultiMain";
-import TopPopularPicture from "../components/Slider/MultiSlider/TopPopularPicture";
-import styled from "styled-components";
+import SliderSingleMain from "../components/Slider/Slider/SliderSingleMain";
+import TopPopularPicture from "../components/Slider/TopPopularPicture";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
 import slide3 from "../assets/images/main-slide-img03.png";
@@ -66,12 +63,3 @@ export default function Home() {
     </>
   );
 }
-
-const FavoriteDiv = styled.div`
-  width: 100%;
-  height: 100px;
-  background-color: red;
-  font-size: 36px;
-  color: white;
-  text-align: center;
-`;
