@@ -29,7 +29,7 @@ const SliderTrack = styled.div`
   text-align: left;
 `;
 
-export default function SliderMain({ data }) {
+export default function SliderSingleMain({ data }) {
   const [width, setWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
 

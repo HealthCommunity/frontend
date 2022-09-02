@@ -15,7 +15,7 @@ import {
 } from "../components/common/Layout/Layout";
 
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
-import SliderMain from "../components/Slider/PullSlider/SliderMain";
+import SliderSingleMain from "../components/Slider/SingleSlider/SliderSingleMain";
 import styled from "styled-components";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";
@@ -41,7 +41,7 @@ export default function Home() {
       <Nav />
       <CommonContainer>
         <MainSlide>
-          <SliderMain data={data} categories={"home"} />
+          <SliderSingleMain data={data} categories={"home"} />
         </MainSlide>
         <CommonContents>
           <CommonContentsHome>
