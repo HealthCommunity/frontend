@@ -1,4 +1,4 @@
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 import Nav from "../components/Navbar/index";
 import { Link } from "react-router-dom";
 import BoardFetchItems from "../components/Board/BoardFetchItems";

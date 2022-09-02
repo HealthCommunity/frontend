@@ -13,12 +13,8 @@ import {
   PostTitleTitle,
 } from "../components/Board/NewWrite/BoardWriteStyle";
 import FileAdd from "../assets/images/board_write_picture_24.svg";
-import {
-  CommonContainer,
-  CommonContentArea,
-  CommonContents,
-} from "../components/common/Layout/Layout";
 import LoadingSpinner from "components/Loding/LoadingSpinner";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 
 export default function BoardEditPost() {
   let navigate = useNavigate();
@@ -86,82 +82,78 @@ export default function BoardEditPost() {
   return (
     <>
       <Nav />
-      <CommonContainer>
-        <CommonContents>
-          <CommonContentArea>
-            {isLoading | isPending ? (
-              <PostWrapper>
-                <form onSubmit={handleSubmit}>
-                  <PostTitleTitle
-                    id="input-title"
-                    placeholder="글 제목을 입력해주세요!"
-                    value={"" || title}
-                    onChange={handleChange}
-                    autoComplete="off"
+      <WidthAreaSpace>
+        {isLoading | isPending ? (
+          <PostWrapper>
+            <form onSubmit={handleSubmit}>
+              <PostTitleTitle
+                id="input-title"
+                placeholder="글 제목을 입력해주세요!"
+                value={"" || title}
+                onChange={handleChange}
+                autoComplete="off"
+              />
+              <Tiptap
+                setDescription={setDescription}
+                description={description}
+              />
+              <FileList>
+                <PostLabel>
+                  <img
+                    src={FileAdd}
+                    style={{ marginRight: "5px" }}
+                    alt="fileAdd"
                   />
-                  <Tiptap
-                    setDescription={setDescription}
-                    description={description}
-                  />
-                  <FileList>
-                    <PostLabel>
-                      <img
-                        src={FileAdd}
-                        style={{ marginRight: "5px" }}
-                        alt="fileAdd"
-                      />
-                      파일 첨부
-                      {boardname === "exercisepost" ? (
-                        <input
-                          type="file"
-                          multiple
-                          name="inputfile"
-                          accept="image/*"
-                          style={{ display: "none" }}
-                          onChange={changeInputFile}
-                        />
-                      ) : (
-                        <input
-                          type="file"
-                          multiple
-                          name="inputfile"
-                          accept="video/* , image/*"
-                          style={{ display: "none" }}
-                          onChange={changeInputFile}
-                        />
-                      )}
-                      <span style={{ color: "red" }}>
-                        (파일변경시 기존 파일은 삭제됩니다)
-                      </span>
-                    </PostLabel>
-                    {file.map((x) => (
-                      <span
-                        key={x.name}
-                        style={{ margin: "0px 10px" }}
-                      >{` ${x.name} `}</span>
-                    ))}
-                  </FileList>
-                  <FileBtnDiv>
-                    <FileBtn type="button" onClick={goList}>
-                      취소
-                    </FileBtn>
-                    <FileBtn
-                      type="submit"
-                      style={{ color: "white", backgroundColor: "#0066FF" }}
-                    >
-                      제출하기
-                    </FileBtn>
-                  </FileBtnDiv>
-                </form>
-              </PostWrapper>
-            ) : isPending ? (
-              <LoadingSpinner text={"게시글 업로드중입니다"} />
-            ) : (
-              <LoadingSpinner />
-            )}
-          </CommonContentArea>
-        </CommonContents>
-      </CommonContainer>
+                  파일 첨부
+                  {boardname === "exercisepost" ? (
+                    <input
+                      type="file"
+                      multiple
+                      name="inputfile"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={changeInputFile}
+                    />
+                  ) : (
+                    <input
+                      type="file"
+                      multiple
+                      name="inputfile"
+                      accept="video/* , image/*"
+                      style={{ display: "none" }}
+                      onChange={changeInputFile}
+                    />
+                  )}
+                  <span style={{ color: "red" }}>
+                    (파일변경시 기존 파일은 삭제됩니다)
+                  </span>
+                </PostLabel>
+                {file.map((x) => (
+                  <span
+                    key={x.name}
+                    style={{ margin: "0px 10px" }}
+                  >{` ${x.name} `}</span>
+                ))}
+              </FileList>
+              <FileBtnDiv>
+                <FileBtn type="button" onClick={goList}>
+                  취소
+                </FileBtn>
+                <FileBtn
+                  type="submit"
+                  style={{ color: "white", backgroundColor: "#0066FF" }}
+                >
+                  제출하기
+                </FileBtn>
+              </FileBtnDiv>
+            </form>
+          </PostWrapper>
+        ) : isPending ? (
+          <LoadingSpinner text={"게시글 업로드중입니다"} />
+        ) : (
+          <LoadingSpinner />
+        )}
+      </WidthAreaSpace>
     </>
   );
 }

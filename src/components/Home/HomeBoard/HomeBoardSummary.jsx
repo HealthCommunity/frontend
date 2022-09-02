@@ -1,4 +1,4 @@
-import { CommonTitleArea } from "../../common/Layout/Layout";
+import { CommonTitleArea } from "../../../styles/Layout/Layout";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 

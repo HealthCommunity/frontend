@@ -7,7 +7,7 @@ import {
   SNSGroup,
   GroupItem,
 } from "../components/User/SnsLogin/SnsSelectTab";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 import { SnsLogin } from "../components/User/SnsLogin/SnsLogin";
 import {
   ContentBackgroud,

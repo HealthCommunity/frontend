@@ -1,7 +1,7 @@
 import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import ProfileContnet from "../components/Profile/Index";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 
 function Profile() {
   return (
