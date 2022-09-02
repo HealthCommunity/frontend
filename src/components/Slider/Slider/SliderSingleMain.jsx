@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import SliderItem from "./SliderItem";
+import SliderSingleItem from "./SliderSingleItem";
 import SliderButton from "./SliderButton";
 
 import React, { useRef, useEffect, useState } from "react";
@@ -81,7 +81,7 @@ export default function SliderSingleMain({ data, categories }) {
           }}
         >
           {startSlides.map((item, idx) => (
-            <SliderItem
+            <SliderSingleItem
               key={currentIndex - 3 + idx}
               item={item}
               style={{
@@ -89,9 +89,9 @@ export default function SliderSingleMain({ data, categories }) {
                 left: (currentIndex - 3 + idx) * width,
               }}
               categories={categories}
-            ></SliderItem>
+            ></SliderSingleItem>
           ))}
-          <SliderItem
+          <SliderSingleItem
             key={currentIndex}
             item={data[idx >= 0 ? idx : data.length + idx]}
             style={{
@@ -99,9 +99,9 @@ export default function SliderSingleMain({ data, categories }) {
               left: currentIndex * width,
             }}
             categories={categories}
-          ></SliderItem>
+          ></SliderSingleItem>
           {endSlides.map((item, idx) => (
-            <SliderItem
+            <SliderSingleItem
               key={currentIndex + idx + 1}
               item={item}
               style={{
@@ -109,7 +109,7 @@ export default function SliderSingleMain({ data, categories }) {
                 left: (currentIndex + idx + 1) * width,
               }}
               categories={categories}
-            ></SliderItem>
+            ></SliderSingleItem>
           ))}
         </SliderLists>
 

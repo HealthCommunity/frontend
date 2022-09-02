@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
-import SliderMultiMain from "./SliderMultiMain";
+import SliderMultiMain from "./Slider/SliderMultiMain";
 
 export default function TopPopularPicture() {
   const [popularData, setPopularData] = useState([]);
