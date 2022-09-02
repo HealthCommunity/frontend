@@ -26,4 +26,5 @@ const ItemImg = styled.img`
   width: 200px;
   height: 200px;
   object-fit: cover;
+  background-color: teal;
 `;
