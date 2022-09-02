@@ -26,7 +26,6 @@ export function BoardSelectTab({ onChange, typeName }) {
         >
           <TabItemImage
             src={typeName === "threepowerpost" ? ThreeColorImage : ThreeImage}
-            style={{ marginLeft: "25px" }}
           />
           3대력게시판
         </a>
@@ -85,14 +84,15 @@ const TabList = styled.div`
 const TabItem = styled.div`
   font-weight: 400;
   font-size: 24px;
-  margin: 0px 20px;
+  margin-right: 50px;
   letter-spacing: 1px;
   cursor: pointer;
+  white-space: nowrap;
   font-family: "GangwonEduPower";
 `;
 
 export const TabItemImage = styled.img`
   width: 30px;
   height: 30px;
-  margin-right: 5px;
+  margin-right: 12px;
 `;

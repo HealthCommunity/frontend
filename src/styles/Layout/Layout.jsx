@@ -41,24 +41,20 @@ export const MainSlide = styled.div`
 /*메인화면 공통*/
 /*홈화면, 카테고리 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
-  width: 75%;
+  width: 1100px;
   margin: 30px auto;
 `;
 
-export const CommonTitleTitle = styled.div`
+export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 40px;
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 400;
-  font-family: "GangwonEduPower";
-  font-style: normal;
 `;
 
 export const CommonTitleText = styled.div`
   font-size: 24px;
   font-weight: 400;
+  letter-spacing: 1px;
+  white-space: nowrap;
   font-family: "GangwonEduPower";
 `;
 
