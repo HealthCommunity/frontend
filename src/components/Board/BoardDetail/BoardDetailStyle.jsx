@@ -6,6 +6,7 @@ export const InfoDiv = styled.div`
 export const InfoTitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 20px;
 `;
 
 export const InfoTitle = styled.div`
@@ -96,7 +97,7 @@ export const CommentList = styled.div`
 
 export const BoardSummary = styled.div`
   width: 90%;
-  margin: 50px 0px;
+  margin: 50px 20px;
 `;
 
 export const CommentListitem = styled.div`
