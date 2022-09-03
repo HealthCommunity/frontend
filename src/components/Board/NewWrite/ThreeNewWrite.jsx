@@ -62,6 +62,7 @@ export default function ThreeBoardPost() {
           alert("본문에 내용을 넣어주세요!");
           return;
         }
+        navigate("/threepowerpost");
       })
       .catch((error) =>
         alert(
@@ -69,7 +70,6 @@ export default function ThreeBoardPost() {
         )
       );
   };
-
   return (
     <>
       {!isPending ? (
