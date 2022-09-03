@@ -1,6 +1,7 @@
 {
     "name": "healthapp",
     "version": "0.1.0",
+    "homepage": ".",
     "private": true,
     "dependencies": {
         "@tiptap/extension-underline": "^2.0.0-beta.25",
@@ -52,6 +53,5 @@
     "devDependencies": {
         "eslint": "^8.18.0",
         "prettier": "^2.7.1"
-    },
-    "homepage": "."
+    }
 }
