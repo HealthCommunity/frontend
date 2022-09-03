@@ -33,8 +33,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: ${(props) => props.theme.bgColor};
-	color: ${(props) => props.theme.fontColor};
+	background-color: ${(props) => props.theme.backGroundColor};
+	color: ${(props) => props.theme.reverseFontColor};
 	font-family: 'Pretendard';
 }
 ol, ul {

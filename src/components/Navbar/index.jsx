@@ -1,6 +1,11 @@
+import { useEffect, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
-import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
+
+import { useSetRecoilState } from "recoil";
+import axios from "axios";
+import styled from "styled-components";
+import { isDarkAtom } from "../../atom";
+
 import {
   NavBoardDiv,
   NavDiv,
@@ -8,9 +13,9 @@ import {
   NavItemSelect,
   NavLogoItem,
 } from "./NavStyle";
-import axios from "axios";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
+import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
+import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
+
 import useUserData from "../../api/useUserData";
 import NavSearch from "./NavSearch";
 
@@ -19,17 +24,23 @@ export default function Nav() {
   let navigate = useNavigate();
   let { pathname } = useLocation();
   const [isSearchOpen] = useState(false);
-  const [toggle, setToggle] = useState(false);
+
   let navdata =
     pathname.includes("freepost") ||
     pathname.includes("exercisepost") ||
     pathname.includes("threepowerpost")
       ? true
       : false;
-  const clickedToggle = () => {
-    setToggle((prev) => !prev);
+
+  //다크모드, 라이트모드
+  const setDarkMode = useSetRecoilState(isDarkAtom);
+  const [darkToggle, setDarkToggle] = useState(false);
+  const isModeChange = () => {
+    setDarkMode((prev) => !prev);
+    setDarkToggle((prev) => !prev);
   };
 
+  //네비게이션 바를 이용한 로그아웃
   const isLoginChange = () => {
     axios
       .post("/api/user/logout")
@@ -45,7 +56,8 @@ export default function Nav() {
         alert("로그아웃 실패했습니다.");
       });
   };
-  //스크롤 기능 구현
+
+  //스크롤 이동시 네비게이션 색 변경
   const [ScrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
   const handleFollow = () => {
     setScrollY(window.pageYOffset); // window 스크롤 값을 ScrollY에 저장
@@ -59,6 +71,7 @@ export default function Nav() {
       window.removeEventListener("scroll", handleFollow); // addEventListener 함수를 삭제
     };
   });
+
   return (
     <NavDiv
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
@@ -109,8 +122,8 @@ export default function Nav() {
           </Link>
         </NavItem>
         <NavItem>
-          <ToggleBtn onClick={clickedToggle} toggle={toggle}>
-            <Circle toggle={toggle} />
+          <ToggleBtn onClick={isModeChange} darkToggle={darkToggle}>
+            <Circle darkToggle={darkToggle} />
           </ToggleBtn>
         </NavItem>
         {!userData ? (
@@ -143,7 +156,8 @@ const ToggleBtn = styled.button`
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  background-color: ${(props) => (!props.toggle ? "none" : "rgb(51,30,190)")};
+  background-color: ${(props) =>
+    !props.darkToggle ? "none" : props.theme.emphasisColorOrange};
   position: relative;
   display: flex;
   justify-content: center;
@@ -159,7 +173,7 @@ const Circle = styled.div`
   left: 5%;
   transition: all 0.5s ease-in-out;
   ${(props) =>
-    props.toggle &&
+    props.darkToggle &&
     `
       transform: translate(30px, 0);
       transition: all 0.5s ease-in-out;
