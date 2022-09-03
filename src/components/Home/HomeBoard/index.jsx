@@ -1,10 +1,10 @@
 import React from "react";
 import BoardFetchItems from "../../Board/BoardFetchItems";
-import { CommonContentArea } from "../../common/Layout/Layout";
+import { WidthAreaHome } from "../../../styles/Layout/Layout";
 
 export default function HomeBoard({ selected }) {
   return (
-    <CommonContentArea>
+    <WidthAreaHome>
       <Group selected={selected}>
         <GroupItem category="threepowerpost">
           <BoardFetchItems category={"threepowerpost"} center={true} />
@@ -16,7 +16,7 @@ export default function HomeBoard({ selected }) {
           <BoardFetchItems category={"freepost"} center={true} />
         </GroupItem>
       </Group>
-    </CommonContentArea>
+    </WidthAreaHome>
   );
 }
 

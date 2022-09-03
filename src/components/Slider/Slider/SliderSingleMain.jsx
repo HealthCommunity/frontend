@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
-import SliderItem from "./SliderItem";
+import SliderSingleItem from "./SliderSingleItem";
 import SliderButton from "./SliderButton";
 
 import React, { useRef, useEffect, useState } from "react";
 
-export default function SliderMain({ data, categories }) {
+export default function SliderSingleMain({ data, categories }) {
   const [width, setWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
 
@@ -23,18 +23,9 @@ export default function SliderMain({ data, categories }) {
     };
   }, []);
 
-  //idx가 0보다 작은 경우
-  // - 0이거나, data.length
-  // idx임
   const isOver = (idx) =>
     idx < 0 ? 0 : idx >= data.length ? data.length - 1 : idx;
 
-  // const isOver = (idx) => {
-  //     if(idx < 0) {
-  //         return 0
-  //     }
-  //     return idx >= data.length ? data.length - 1 : idx;
-  // }
   useEffect(() => {
     // setInterval 삽입하여 2초마다 setCurrentIndex 실행
     const timer = setInterval(() => {
@@ -90,7 +81,7 @@ export default function SliderMain({ data, categories }) {
           }}
         >
           {startSlides.map((item, idx) => (
-            <SliderItem
+            <SliderSingleItem
               key={currentIndex - 3 + idx}
               item={item}
               style={{
@@ -98,9 +89,9 @@ export default function SliderMain({ data, categories }) {
                 left: (currentIndex - 3 + idx) * width,
               }}
               categories={categories}
-            ></SliderItem>
+            ></SliderSingleItem>
           ))}
-          <SliderItem
+          <SliderSingleItem
             key={currentIndex}
             item={data[idx >= 0 ? idx : data.length + idx]}
             style={{
@@ -108,9 +99,9 @@ export default function SliderMain({ data, categories }) {
               left: currentIndex * width,
             }}
             categories={categories}
-          ></SliderItem>
+          ></SliderSingleItem>
           {endSlides.map((item, idx) => (
-            <SliderItem
+            <SliderSingleItem
               key={currentIndex + idx + 1}
               item={item}
               style={{
@@ -118,7 +109,7 @@ export default function SliderMain({ data, categories }) {
                 left: (currentIndex + idx + 1) * width,
               }}
               categories={categories}
-            ></SliderItem>
+            ></SliderSingleItem>
           ))}
         </SliderLists>
 
@@ -134,7 +125,7 @@ export default function SliderMain({ data, categories }) {
                   }}
                   className={num === target ? "active" : ""}
                   isActive={num === target}
-                ></SliderPageButton>
+                />
               );
             })}
           </SliderPagenationList>

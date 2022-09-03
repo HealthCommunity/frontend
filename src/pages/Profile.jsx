@@ -1,7 +1,7 @@
 import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import ProfileContnet from "../components/Profile/Index";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
 
 function Profile() {
   return (
@@ -9,7 +9,9 @@ function Profile() {
       <Title name="Profile" />
       <Nav />
       <WidthAreaSpace>
-        <ProfileContnet />
+        <WidthAreaInner>
+          <ProfileContnet />
+        </WidthAreaInner>
       </WidthAreaSpace>
     </>
   );

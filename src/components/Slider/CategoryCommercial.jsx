@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
-import SliderMain from "../PullSlider/SliderMain";
-import youtubeData from "./youtubeData";
-import healthData from "./healthData";
-import commercialData from "./commercialData";
+import SliderSingleMain from "./Slider/SliderSingleMain";
+import youtubeData from "./data/youtubeData";
+import healthData from "./data/healthData";
+import commercialData from "./data/commercialData";
 
-const PointColor = {
+const pointColor = {
   exercisepost: css`
     --bg-start-color: #60c6ff;
     --bg-end-color: #1dc895;
@@ -21,35 +21,43 @@ const PointColor = {
   `,
 };
 
-const CategoryText = {
+const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
   freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
 };
 
-export default function AdverSlider({ category }) {
-  const backgroundStyle = PointColor[category];
-  const backgroundText = CategoryText[category];
+const categoryData = {
+  exercisepost: healthData.data,
+  threepowerpost: youtubeData.data,
+  freepost: commercialData.data,
+};
+
+export default function CategoryCommercial({ category }) {
+  const backgroundStyle = pointColor[category];
+  const backgroundText = categoryText[category];
 
   return (
-    <AdverBackground>
-      <SliderBackMain backgroundStyle={backgroundStyle}>
-        <SliderText>{backgroundText}</SliderText>
+    <CategoryCommercialWapper>
+      <CategoryCommercialBg backgroundStyle={backgroundStyle}>
+        <SliderBgText>{backgroundText}</SliderBgText>
         <SliderContent>
-          <SliderMain data={youtubeData.data} categories={category} />
+          <SliderSingleMain
+            data={categoryData[category]}
+            categories={category}
+          />
         </SliderContent>
-      </SliderBackMain>
-    </AdverBackground>
+      </CategoryCommercialBg>
+    </CategoryCommercialWapper>
   );
 }
 
-const AdverBackground = styled.div`
-  width: 1440px;
+const CategoryCommercialWapper = styled.div`
+  width: 100%;
   height: 266px;
-  padding: 22px 12px;
 `;
 
-const SliderBackMain = styled.div`
+const CategoryCommercialBg = styled.div`
   ${(p) => p.backgroundStyle}
 
   position: relative;
@@ -63,7 +71,7 @@ const SliderBackMain = styled.div`
   border-radius: 8px;
 `;
 
-const SliderText = styled.span`
+const SliderBgText = styled.span`
   position: absolute;
   width: 370px;
   height: 88px;

@@ -1,12 +1,20 @@
-import { CommonTitleArea } from "../../common/Layout/Layout";
+import { CommonTitleArea } from "../../../styles/Layout/Layout";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const categoryText = {
+  exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
+  threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
+  freepost: "다른 사람들과 자유롭게 이야기를 나눠보세요",
+};
+
 export default function HomeBoardSummary({ selected }) {
+  const SummaryText = categoryText[selected];
+
   return (
     <CommonTitleArea>
       <BoardStyle>
-        <BoardStyleSpan>다른사람의 운동경험을 공유해보세요</BoardStyleSpan>
+        <BoardStyleSpan>{SummaryText}</BoardStyleSpan>
         <Link to={`${selected}`}>
           <BoardStyleSpan>더보기 &gt;</BoardStyleSpan>
         </Link>

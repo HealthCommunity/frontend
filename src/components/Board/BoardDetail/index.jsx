@@ -30,6 +30,7 @@ export default function BoardDetail() {
   const [boardData, setBoardData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userData] = useUserData();
+
   const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const config = {
     headers: {
@@ -86,7 +87,7 @@ export default function BoardDetail() {
               width: "100%",
               height: "1px",
               backgroundColor: "#EEEEEE",
-              margin: "20px 0px",
+              margin: "20px",
             }}
           />
           <InfoTitleDiv>
@@ -118,26 +119,36 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
+          <BoardComment />
+          <div
+            style={{
+              width: "100%",
+              height: "1px",
+              backgroundColor: "#EEEEEE",
+              margin: "20px 0px",
+            }}
+          />
           {!userData ? (
             ""
           ) : (
             <InfoExplanationDiv>
-              <InfoExplanationTitle style={{ marginTop: "50px" }}>
-                댓글
-              </InfoExplanationTitle>
               <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
-                <InfoCommentInputText
-                  {...register("comment", {
-                    required: "댓글을 입력해주세요",
-                  })}
-                  type="text"
-                  placeholder="댓글을 입력해주세요"
-                />
-                <InfoCommentInputSubmit type="submit" value="댓글등록" />
+                <InfoNickname>{userData.nickName}</InfoNickname>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <InfoCommentInputText
+                    {...register("comment", {
+                      required: "댓글을 입력해주세요",
+                    })}
+                    type="text"
+                    placeholder="댓글을 입력해주세요"
+                  />
+                  <InfoCommentInputSubmit type="submit" value="댓글등록" />
+                </div>
               </InfoCommentForm>
             </InfoExplanationDiv>
           )}
-          <BoardComment />
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
@@ -195,35 +206,36 @@ const BoardImg = styled.img`
 const InfoExplanationDiv = styled.div`
   display: flex;
   flex-direction: column;
-  border-top: 1px solid #eeeeee;
+  margin: 10px 15px;
 `;
 
-const InfoExplanationTitle = styled.div`
-  font-size: 24px;
-  font-weight: bold;
-  margin: 40px 0px;
+export const InfoNickname = styled.div`
+  font-size: 18px;
+  font-weight: 800;
+  margin: 20px;
 `;
+
 const InfoCommentForm = styled.form`
-  display: flex;
   flex-wrap: wrap;
-
+  border-radius: 10px;
   margin-bottom: 30px;
+  border: 1px solid rgb(238, 238, 238); ;
 `;
 const InfoCommentInputText = styled.input`
-  border-radius: 20px;
-  padding: 20px;
-  width: 50vw;
-  height: 100px;
-  font-size: ${(props) => props.theme.fontSizeH2};
-  margin: 20px 0px;
+  margin: 15px;
+  width: 90%;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  padding: 0px 10px;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
 `;
 const InfoCommentInputSubmit = styled.input`
-  display: flex;
-  justify-content: center;
-  padding: 1px 6px;
-  width: 150px;
-  height: 70px;
-  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin: 0 10px;
   cursor: pointer;
   background-color: transparent;
 `;
