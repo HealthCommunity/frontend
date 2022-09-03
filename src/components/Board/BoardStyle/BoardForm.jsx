@@ -21,7 +21,7 @@ export default function BoardForm({
   view,
   urls,
 }) {
-  const [day, setDay] = useState([]);
+  const [nowday, setNowDay] = useState([]);
   function getToday() {
     var date = new Date();
     var year = date.getFullYear();
@@ -29,9 +29,11 @@ export default function BoardForm({
     var day = ("0" + date.getDate()).slice(-2);
     const dayList = [];
     for (let i = 0; i < 3; i++) {
-      dayList.push(year + "-" + month + "-" + (day - i));
+      dayList.push(
+        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
+      );
     }
-    setDay(dayList);
+    setNowDay(dayList);
   }
   useEffect(getToday, []);
   return (
@@ -47,7 +49,7 @@ export default function BoardForm({
 
         <BoardTextDiv>
           <BoardText>{title}</BoardText>
-          {day.includes(`${createdDate.slice(0, 10)}`) && (
+          {nowday.includes(`${createdDate.slice(0, 10)}`) && (
             <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
         </BoardTextDiv>
