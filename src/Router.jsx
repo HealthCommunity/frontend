@@ -1,5 +1,6 @@
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { retryLazy } from "utils/lazyUtil";
 // import Home from "./pages/Home";
 // import Login from "./pages/Login";
 // import Profile from "./pages/Profile";
@@ -15,18 +16,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useUserData from "./api/useUserData";
 import LoadingSpinner from "./components/Loding/LoadingSpinner";
 
-const Home = lazy(() => import("./pages/Home"));
-const Login = lazy(() => import("./pages/Login"));
-const Profile = lazy(() => import("./pages/Profile"));
-const Sign = lazy(() => import("./pages/Sign"));
-const Search = lazy(() => import("./pages/Search"));
-const NotFoundScene = lazy(() => import("./pages/NotFoundScene"));
-const BoardEditPost = lazy(() => import("./pages/BoardEditPost"));
-const ThreeBoardEditPost = lazy(() => import("./pages/ThreeBoardEditPost"));
-const Board = lazy(() => import("./pages/Board"));
-const BoardPost = lazy(() => import("./pages/BoardPost"));
-const BoardWrite = lazy(() => import("./pages/BoardWrite"));
-const Introduce = lazy(() => import("./pages/Introduce"));
+const Home = retryLazy(() => import("./pages/Home"));
+const Login = retryLazy(() => import("./pages/Login"));
+const Profile = retryLazy(() => import("./pages/Profile"));
+const Sign = retryLazy(() => import("./pages/Sign"));
+const Search = retryLazy(() => import("./pages/Search"));
+const NotFoundScene = retryLazy(() => import("./pages/NotFoundScene"));
+const BoardEditPost = retryLazy(() => import("./pages/BoardEditPost"));
+const ThreeBoardEditPost = retryLazy(() =>
+  import("./pages/ThreeBoardEditPost")
+);
+const Board = retryLazy(() => import("./pages/Board"));
+const BoardPost = retryLazy(() => import("./pages/BoardPost"));
+const BoardWrite = retryLazy(() => import("./pages/BoardWrite"));
+const Introduce = retryLazy(() => import("./pages/Introduce"));
 
 function Router() {
   const [, reFetch] = useUserData();
