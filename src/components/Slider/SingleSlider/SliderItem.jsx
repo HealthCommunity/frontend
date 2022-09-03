@@ -3,9 +3,9 @@ import styled from "styled-components";
 export default function SliderItem({ item, style, categories }) {
   const slectSlide = {
     home: <HomeItem item={item} categories={categories} />,
-    threepowerpost: <YoutubeInfoItem item={item} />,
-    exercisepost: <CommercialInfoItem item={item} />,
-    freepost: <CommercialInfoItem item={item} />,
+    threepowerpost: <YoutubeItem item={item} />,
+    exercisepost: <CommercialItem item={item} />,
+    freepost: <CommercialItem item={item} />,
   };
 
   return (
@@ -23,41 +23,40 @@ function HomeItem({ item }) {
   );
 }
 
-function YoutubeInfoItem({ item }) {
-  console.log(item);
+function YoutubeItem({ item }) {
   const { link, subscription, text, title, thumbnail } = item;
 
   return (
-    <SlideItemBackground>
-      <CardInner>
+    <ItemInnerWrapper>
+      <InnerBox>
         <a href={link}>
-          <SlideCardTop>
+          <InnderBoxTop>
             <ThumbnailImg src={thumbnail} alt="유튜브 이미지 썸네일" />
-            <CardTopInfo>
+            <BoxTopInfo>
               <YoutubeTitle>{title}</YoutubeTitle>
               <YoutubeSubscription>{subscription}</YoutubeSubscription>
-            </CardTopInfo>
-          </SlideCardTop>
-          <YoutubeText>{text}</YoutubeText>
+            </BoxTopInfo>
+          </InnderBoxTop>
+          <DescText>{text}</DescText>
         </a>
-      </CardInner>
-    </SlideItemBackground>
+      </InnerBox>
+    </ItemInnerWrapper>
   );
 }
 
-function CommercialInfoItem({ item }) {
+function CommercialItem({ item }) {
   const { link, subTitle, text, title } = item;
 
   return (
-    <SlideItemBackground>
-      <CardInner>
+    <ItemInnerWrapper>
+      <InnerBox>
         <a href={link}>
           <TitleText>{title}</TitleText>
           <SubText>{subTitle}</SubText>
-          <YoutubeText>{text}</YoutubeText>
+          <DescText>{text}</DescText>
         </a>
-      </CardInner>
-    </SlideItemBackground>
+      </InnerBox>
+    </ItemInnerWrapper>
   );
 }
 
@@ -73,7 +72,7 @@ const ItemImg = styled.img`
   object-fit: cover;
 `;
 
-const SlideItemBackground = styled.div`
+const ItemInnerWrapper = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.2);
@@ -99,7 +98,7 @@ const YoutubeSubscription = styled.div`
   color: #ffffff;
 `;
 
-const YoutubeText = styled.div`
+const DescText = styled.div`
   width: 400px;
   font-weight: 400;
   font-size: 16px;
@@ -107,19 +106,19 @@ const YoutubeText = styled.div`
   color: #ffffff;
 `;
 
-const SlideCardTop = styled.div`
+const InnderBoxTop = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 `;
 
-const CardTopInfo = styled.div`
+const BoxTopInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 12px;
 `;
 
-const CardInner = styled.div`
+const InnerBox = styled.div`
   width: 450px;
   padding: 40px 60px;
 `;
