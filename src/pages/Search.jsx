@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { WidthAreaSpace } from "../styles/Layout/CommonLayout";
+import { WidthAreaSpace } from "../styles/Layout/Layout";
 import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
 import axios from "axios";
