@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import SliderSingleMain from "./SliderSingleMain";
-import youtubeData from "../data/youtubeData";
-import healthData from "../data/healthData";
-import commercialData from "../data/commercialData";
+import SliderSingleMain from "./Slider/SliderSingleMain";
+import youtubeData from "./data/youtubeData";
+import healthData from "./data/healthData";
+import commercialData from "./data/commercialData";
 
 const pointColor = {
   exercisepost: css`
@@ -33,13 +33,13 @@ const categoryData = {
   freepost: commercialData.data,
 };
 
-export default function CategorySlider({ category }) {
+export default function CategoryCommercial({ category }) {
   const backgroundStyle = pointColor[category];
   const backgroundText = categoryText[category];
 
   return (
-    <CategorySliderWapper>
-      <CategorySliderBg backgroundStyle={backgroundStyle}>
+    <CategoryCommercialWapper>
+      <CategoryCommercialBg backgroundStyle={backgroundStyle}>
         <SliderBgText>{backgroundText}</SliderBgText>
         <SliderContent>
           <SliderSingleMain
@@ -47,18 +47,18 @@ export default function CategorySlider({ category }) {
             categories={category}
           />
         </SliderContent>
-      </CategorySliderBg>
-    </CategorySliderWapper>
+      </CategoryCommercialBg>
+    </CategoryCommercialWapper>
   );
 }
 
-const CategorySliderWapper = styled.div`
+const CategoryCommercialWapper = styled.div`
   width: 1440px;
   height: 266px;
   padding: 22px 12px;
 `;
 
-const CategorySliderBg = styled.div`
+const CategoryCommercialBg = styled.div`
   ${(p) => p.backgroundStyle}
 
   position: relative;

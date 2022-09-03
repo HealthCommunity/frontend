@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function SliderItem({ item, style, categories }) {
+export default function SliderSingleItem({ item, style, categories }) {
   const slectSlide = {
     home: <HomeItem item={item} categories={categories} />,
     threepowerpost: <YoutubeItem item={item} />,
@@ -67,7 +67,9 @@ const SliderItemInner = styled.li`
 `;
 
 const ItemImg = styled.img`
-  width: 100vw;
+  /* width: 100vw; */
+  display: flex;
+  margin: 0 auto;
   height: 450px;
   object-fit: cover;
 `;
@@ -130,6 +132,7 @@ const TitleText = styled.div`
   color: #ffffff;
   margin-bottom: 20px;
 `;
+
 const SubText = styled.div`
   font-weight: 700;
   font-size: 18px;
