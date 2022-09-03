@@ -58,15 +58,20 @@ export const CommonTitleText = styled.div`
   font-family: "GangwonEduPower";
 `;
 
-/*(홈화면 제외)각 컴포넌트의 중앙 정렬 틀*/
-export const WidthAreaSpace = styled.section`
-  width: 1440px;
-  margin: 0 auto;
-  margin-top: 100px;
-`;
-
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaHome = styled.section`
   width: 1100px;
   margin: 0 auto;
+`;
+
+/*(홈화면 제외)각 컴포넌트의 중앙 정렬 틀*/
+export const WidthAreaSpace = styled.section`
+  width: 1400px;
+  margin: 0 auto;
+  margin-top: 100px;
+`;
+
+/*(홈화면 제외) 게시글 컴포넌트의 중앙 정렬 틀*/
+export const WidthAreaInner = styled.div`
+  margin: 32px 2px;
 `;

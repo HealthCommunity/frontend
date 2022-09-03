@@ -1,4 +1,4 @@
-import { WidthAreaSpace } from "../styles/Layout/Layout";
+import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
 import Nav from "../components/Navbar/index";
 import { Link } from "react-router-dom";
 import BoardFetchItems from "../components/Board/BoardFetchItems";
@@ -24,23 +24,25 @@ export default function Board({ props }) {
       <Nav />
       <WidthAreaSpace>
         <CategoryCommercial category={props} />
-        {userData ? (
-          <div style={{ width: "145px" }}>
-            <Link to={"write"}>
-              <ModalButton>
-                <img
-                  src={WriteIcon}
-                  style={{ marginRight: "5px" }}
-                  alt="writeicon"
-                />
-                글쓰기
-              </ModalButton>
-            </Link>
-          </div>
-        ) : null}
-        <GroupItem category={`${props}`}>
-          <BoardFetchItems category={`${props}`} />
-        </GroupItem>
+        <WidthAreaInner>
+          {userData ? (
+            <div style={{ width: "145px" }}>
+              <Link to={"write"}>
+                <ModalButton>
+                  <img
+                    src={WriteIcon}
+                    style={{ marginRight: "5px" }}
+                    alt="writeicon"
+                  />
+                  글쓰기
+                </ModalButton>
+              </Link>
+            </div>
+          ) : null}
+          <GroupItem category={`${props}`}>
+            <BoardFetchItems category={`${props}`} />
+          </GroupItem>
+        </WidthAreaInner>
       </WidthAreaSpace>
     </>
   );
@@ -53,7 +55,7 @@ function GroupItem({ children }) {
 export const ModalButton = styled.button`
   height: 48px;
   display: flex;
-  margin: 10px 0px;
+  margin: 20px 0px;
   justify-content: center;
   align-items: center;
   padding: 15px 30px;
