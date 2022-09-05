@@ -40,7 +40,13 @@ const CommentBox = styled.div`
   border-radius: 8px;
 `;
 
-export default function BoardComment() {
+const CommentHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export default function BoardComment({ boardname }) {
   const [comment, SetComment] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -49,13 +55,28 @@ export default function BoardComment() {
       SetComment(data.data.data);
     };
     result();
-  }, [comment, id]);
+  }, [id]);
+  const onDelete = (item) => {
+    if (window.confirm("삭제하시겠습니까?") === true) {
+      axios.post(`/api/comment/${item}/delete`).then((res) => {
+        res.status === 200 && window.location.replace(`/${boardname}/${id}`);
+      });
+    }
+  };
   return (
     <>
       <InfoExplanationTitle>{`댓글 ${comment.length}`}</InfoExplanationTitle>
       {comment.map((x) => (
-        <CommentBox>
-          <InfoNickname>{x.nickName}</InfoNickname>
+        <CommentBox key={x.id}>
+          <CommentHeader>
+            <InfoNickname>{x.nickName}</InfoNickname>
+            <div
+              style={{ margin: "20px", fontSize: "24px", color: "red" }}
+              onClick={() => onDelete(x.id)}
+            >
+              x
+            </div>
+          </CommentHeader>
           <CommentStyle key={x.id}>
             <Comment>{x.comment}</Comment>
             <CommentDate>{x.createdDate}</CommentDate>
