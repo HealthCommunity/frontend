@@ -18,15 +18,41 @@ export const CommonContainer = styled.div`
 export const CommonContentsHome = styled.div`
   display: flex; /*홈화면 2단 나누기*/
   margin: 0 auto;
+  @media screen and (max-width: 1500px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 /*홈화면 2단(왼쪽, 오른쪽 영역)*/
 export const CommonContentsLeft = styled.div`
   width: 75%;
+  @media screen and (max-width: 1900px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 65%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 55%;
+  }
 `;
 
 export const CommonContentsRight = styled.div`
   width: 25%;
+  @media screen and (max-width: 1900px) {
+    width: 65%;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 /*홈화면 메인 상단 슬라이드*/
@@ -60,8 +86,16 @@ export const CommonTitleText = styled.div`
 
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaHome = styled.section`
-  width: 1100px;
+  width: 75%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: 1900px) {
+    width: 95%;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 /*(홈화면 제외)각 컴포넌트의 중앙 정렬 틀*/

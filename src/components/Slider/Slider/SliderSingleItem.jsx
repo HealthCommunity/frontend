@@ -17,7 +17,7 @@ function HomeItem({ item }) {
   return (
     <>
       <a href="/">
-        <ItemImg src={item} alt=""></ItemImg>
+        <ItemImg src={item} alt="" />
       </a>
     </>
   );
@@ -67,12 +67,19 @@ const SliderItemInner = styled.li`
 `;
 
 const ItemImg = styled.img`
-  /* width: 100vw; */
   display: flex;
-
   margin: 0 auto;
   height: 450px;
-  object-fit: cover;
+  object-fit: scale-down;
+  @media screen and (max-width: 1900px) {
+    width: 1500px;
+  }
+  @media screen and (max-width: 1500px) {
+    width: 1000px;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 500px;
+  }
 `;
 
 const ItemInnerWrapper = styled.div`

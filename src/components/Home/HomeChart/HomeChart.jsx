@@ -175,6 +175,15 @@ const HomeChartBox = styled.div`
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+  @media screen and (max-width: 1500px) {
+    width: 900px;
+  }
+  @media screen and (max-width: 1150px) {
+    width: 700px;
+  }
+  @media screen and (max-width: 800px) {
+    width: 400px;
+  }
 `;
 
 const InnerInfo = styled.div`
