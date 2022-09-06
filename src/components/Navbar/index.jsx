@@ -90,17 +90,29 @@ export default function Nav() {
       </Link>
       <NavBoardDiv>
         <Link to="/threepowerpost">
-          <NavItem color={pathname.includes("threepowerpost") ? "#0066FF" : ""}>
+          <NavItem
+            color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
+            hover={pathname === "/" ? "white" : ""}
+            style={{ marginRight: "20px" }}
+          >
             3대력 게시판
           </NavItem>
         </Link>
         <Link to="/exercisepost">
-          <NavItem color={pathname.includes("exercisepost") ? "#0066FF" : ""}>
+          <NavItem
+            color={pathname.includes("exercisepost") ? "#0066FF" : ""}
+            hover={pathname === "/" ? "white" : ""}
+            style={{ marginRight: "20px" }}
+          >
             운동 게시판
           </NavItem>
         </Link>
         <Link to="/freepost">
-          <NavItem color={pathname.includes("freepost") ? "#0066FF" : ""}>
+          <NavItem
+            color={pathname.includes("freepost") ? "#0066FF" : ""}
+            hover={pathname === "/" ? "white" : ""}
+            style={{ marginRight: "20px" }}
+          >
             자유 게시판
           </NavItem>
         </Link>
@@ -163,6 +175,12 @@ const ToggleBtn = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease-in-out;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 const Circle = styled.div`
   background-color: white;

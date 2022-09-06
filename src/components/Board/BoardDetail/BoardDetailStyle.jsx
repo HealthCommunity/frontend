@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const InfoDiv = styled.div`
   display: flex;
   flex-direction: column;
