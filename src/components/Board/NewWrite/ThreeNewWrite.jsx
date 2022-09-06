@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router";
-import Tiptap from "../../../utils/Editor/Tiptap";
 import { useState } from "react";
-import VideoIcon from "../../../assets/images/board_write_video_24.svg";
+import { useNavigate } from "react-router";
+
 import axios from "axios";
+import Tiptap from "../../../utils/Editor/Tiptap";
+
 import {
   PostWrapper,
   PostTitleTitle,
@@ -12,32 +13,34 @@ import {
   FileBtn,
 } from "./BoardWriteStyle";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 
 export default function ThreeBoardPost() {
   let navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [bench, setBench] = useState("");
-  const [squat, setSquat] = useState("");
-  const [dead, setDead] = useState("");
 
-  /*썸네일 제작*/
+  /*video 파일 명*/
+  const [videoFileName, setVideoFailName] = useState({
+    bench: "",
+    squat: "",
+    dead: "",
+  });
+
+  /*썸네일 이미지 파일 저장*/
   const [thumbnail, setThumbnail] = useState({
     bench: "",
     squat: "",
     dead: "",
   });
 
-  const [VideoUrl, setVideoUrl] = useState({
+  /*썸네일 video 브라우저 URL 저장*/
+  const [videoUrl, setVideoUrl] = useState({
     bench: "",
     squat: "",
     dead: "",
   });
-
-  const [benchVideoUrl, setBenchVideoUrl] = useState("");
-  const [squatVideoUrl, setSquatVideoUrl] = useState("");
-  const [deadVideoUrl, setDeadVideoUrl] = useState("");
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -72,41 +75,27 @@ export default function ThreeBoardPost() {
     });
   };
 
-  console.log("썸네일 객체 출력", thumbnail);
+  //video 선택 실행
+  const changeVideo = (e) => {
+    const video = e.target;
+    const videoName = video.name;
+    const targetVideoUrl = video.files[0];
+    const FileName = video.files[0].name;
 
-  const changeBench = (e) => {
-    setBench(e.target.files[0].name);
+    //video 파일 네임 변경
+    setVideoFailName({
+      ...videoFileName,
+      [videoName]: FileName,
+    });
 
-    //썸네일 만들기 위해 동영상을 URL로 제작
-    setBenchVideoUrl(URL.createObjectURL(e.target.files[0]));
+    //video 파일 URL 변경
+    setVideoUrl({
+      ...videoUrl,
+      [videoName]: URL.createObjectURL(targetVideoUrl),
+    });
   };
 
-  const changeDead = (e) => {
-    setDead(e.target.files[0].name);
-
-    //썸네일 만들기 위해 동영상을 URL로 제작
-    setSquatVideoUrl(URL.createObjectURL(e.target.files[0]));
-  };
-
-  const changeSqaut = (e) => {
-    setSquat(e.target.files[0].name);
-
-    //썸네일 만들기 위해 동영상을 URL로 제작
-    setDeadVideoUrl(URL.createObjectURL(e.target.files[0]));
-  };
-
-  // const changeVideo = (e) => {
-  //   setSquat(e.target.files[0].name);
-
-  //   //썸네일 만들기 위해 동영상을 URL로 제작
-  //   setDeadVideoUrl(URL.createObjectURL(e.target.files[0]));
-
-  //   setThumbnail({
-  //     ...thumbnail,
-  //     [name]: URL.createObjectURL(e.target.files[0]),
-  //   });
-  // };
-
+  //서버에 게시글 정보, 삼대력 video 파일 전달
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = "/api/threepowerpost";
@@ -114,6 +103,7 @@ export default function ThreeBoardPost() {
     let deadFile = e.target.dead.files[0];
     let squatFile = e.target.squat.files[0];
     const formData = new FormData();
+
     formData.append("title", title);
     formData.append("content", description);
     formData.append("bench", benchFile);
@@ -125,6 +115,7 @@ export default function ThreeBoardPost() {
         "content-type": "multipart/form-data",
       },
     };
+
     setIsPending(true);
     axios
       .post(url, formData, config)
@@ -142,6 +133,7 @@ export default function ThreeBoardPost() {
         )
       );
   };
+
   return (
     <>
       {!isPending ? (
@@ -157,35 +149,39 @@ export default function ThreeBoardPost() {
             />
             <Tiptap setDescription={setDescription} />
 
-            {!!benchVideoUrl && (
-              <video
-                src={benchVideoUrl}
-                width={300}
-                height={200}
-                name="bench"
-                onLoadedData={handleLoadedData}
-              />
-            )}
+            <div style={{ display: "flex", marginBottom: "16px" }}>
+              {!!videoUrl.bench && (
+                <video
+                  src={videoUrl.bench}
+                  width={325}
+                  height={175}
+                  name="bench"
+                  onLoadedData={handleLoadedData}
+                  style={{ marginRight: "32px" }}
+                />
+              )}
 
-            {!!squatVideoUrl && (
-              <video
-                src={squatVideoUrl}
-                width={300}
-                height={200}
-                name="squat"
-                onLoadedData={handleLoadedData}
-              />
-            )}
+              {!!videoUrl.squat && (
+                <video
+                  src={videoUrl.squat}
+                  width={325}
+                  height={175}
+                  name="squat"
+                  onLoadedData={handleLoadedData}
+                  style={{ marginRight: "32px" }}
+                />
+              )}
 
-            {!!deadVideoUrl && (
-              <video
-                src={deadVideoUrl}
-                width={300}
-                height={200}
-                name="dead"
-                onLoadedData={handleLoadedData}
-              />
-            )}
+              {!!videoUrl.dead && (
+                <video
+                  src={videoUrl.dead}
+                  width={325}
+                  height={175}
+                  name="dead"
+                  onLoadedData={handleLoadedData}
+                />
+              )}
+            </div>
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               <FileList>
@@ -202,10 +198,12 @@ export default function ThreeBoardPost() {
                     name="bench"
                     accept="video/*"
                     required
-                    onChange={changeBench}
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{bench}</span>
+                <span style={{ margin: "0px 10px" }}>
+                  {videoFileName.bench}
+                </span>
               </FileList>
               <FileList>
                 <PostLabel>
@@ -217,14 +215,16 @@ export default function ThreeBoardPost() {
                   데드리프트 영상
                   <input
                     style={{ opacity: "0", width: "1px" }}
-                    onChange={changeDead}
                     type="file"
                     name="squat"
                     accept="video/*"
                     required
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{dead}</span>
+                <span style={{ margin: "0px 10px" }}>
+                  {videoFileName.squat}
+                </span>
               </FileList>
               <FileList>
                 <PostLabel>
@@ -235,15 +235,15 @@ export default function ThreeBoardPost() {
                   />
                   스쿼트 영상
                   <input
-                    onChange={changeSqaut}
                     style={{ opacity: "0", width: "1px" }}
                     type="file"
                     name="dead"
                     accept="video/*"
                     required
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{squat}</span>
+                <span style={{ margin: "0px 10px" }}>{videoFileName.dead}</span>
               </FileList>
             </div>
 
