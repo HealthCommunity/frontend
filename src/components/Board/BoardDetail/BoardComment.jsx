@@ -40,26 +40,103 @@ const CommentBox = styled.div`
   border-radius: 8px;
 `;
 
-export default function BoardComment() {
-  const [comment, SetComment] = useState([]);
+const CommentHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const CommentInput = styled.input`
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 10px;
+`;
+
+export default function BoardComment({ boardname }) {
+  const [comments, SetComments] = useState([]);
   const { id } = useParams();
+  const [editNum, setEditNum] = useState("");
+  const [comment, setComment] = useState("");
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+  };
   useEffect(() => {
     const result = async () => {
       const data = await axios(`/api/post/${id}/comments`);
-      SetComment(data.data.data);
+      SetComments(data.data.data);
     };
     result();
-  }, [comment, id]);
+  }, [id]);
+  const onDelete = (item) => {
+    if (window.confirm("삭제하시겠습니까?") === true) {
+      axios.post(`/api/comment/${item}/delete`).then((res) => {
+        res.status === 200 && window.location.replace(`/${boardname}/${id}`);
+      });
+    }
+  };
+  const onEdit = (item, itemcomment) => {
+    setComment(itemcomment);
+    setEditNum(item);
+  };
+
+  const onChangeEdit = (e) => {
+    e.preventDefault();
+    setComment(e.target.value);
+  };
+
+  const changeSubmit = (item) => {
+    const data = {
+      commentId: item,
+      comment,
+    };
+    console.log(data);
+    axios.post(`/api/comment/${item}/edit`, data, config);
+  };
   return (
     <>
-      <InfoExplanationTitle>{`댓글 ${comment.length}`}</InfoExplanationTitle>
-      {comment.map((x) => (
-        <CommentBox>
-          <InfoNickname>{x.nickName}</InfoNickname>
-          <CommentStyle key={x.id}>
-            <Comment>{x.comment}</Comment>
-            <CommentDate>{x.createdDate}</CommentDate>
-          </CommentStyle>
+      <InfoExplanationTitle>{`댓글 ${comments.length}`}</InfoExplanationTitle>
+      {comments.map((x) => (
+        <CommentBox key={x.id}>
+          <CommentHeader>
+            <InfoNickname>{x.nickName}</InfoNickname>
+            <div style={{ display: "flex" }}>
+              <div
+                style={{ margin: "10px", fontSize: "24px", color: "red" }}
+                onClick={() => onDelete(x.id, x.comment)}
+              >
+                x
+              </div>
+              <div
+                style={{ margin: "10px", fontSize: "24px", color: "red" }}
+                onClick={() => onEdit(x.id, x.comment)}
+              >
+                e
+              </div>
+            </div>
+          </CommentHeader>
+          {editNum === x.id ? (
+            <CommentStyle>
+              <form onSubmit={changeSubmit(x.id)}>
+                <CommentInput
+                  style={{ width: "90%" }}
+                  type="text"
+                  value={comment}
+                  onChange={onChangeEdit}
+                />
+                <CommentInput type="submit" value="수정하기" />
+              </form>
+            </CommentStyle>
+          ) : (
+            <CommentStyle>
+              <Comment>{x.comment}</Comment>
+              <CommentDate>{x.createdDate}</CommentDate>
+            </CommentStyle>
+          )}
         </CommentBox>
       ))}
     </>
