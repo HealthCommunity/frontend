@@ -69,6 +69,12 @@ const CategoryCommercialBg = styled.div`
     var(--bg-end-color)
   );
   border-radius: 8px;
+  @media screen and (max-width: 1400px) {
+    width: 700px;
+  }
+  @media screen and (max-width: 700px) {
+    width: 500px;
+  }
 `;
 
 const SliderBgText = styled.span`
@@ -81,6 +87,12 @@ const SliderBgText = styled.span`
   font-size: 36px;
   line-height: 44px;
   color: #ffffff;
+  @media screen and (max-width: 1400px) {
+    display: none;
+  }
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const SliderContent = styled.div`
@@ -90,4 +102,10 @@ const SliderContent = styled.div`
   width: 530px;
   height: 226px;
   border-radius: 8px;
+  @media screen and (max-width: 1400px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 700px) {
+    width: 400px;
+  }
 `;
