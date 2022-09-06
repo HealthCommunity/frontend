@@ -69,9 +69,21 @@ export const WidthAreaSpace = styled.section`
   width: 1400px;
   margin: 0 auto;
   margin-top: 100px;
+  @media screen and (max-width: 1400px) {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 700px) {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 /*(홈화면 제외) 게시글 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaInner = styled.div`
   margin: 32px 2px;
+  display: flex;
+  flex-wrap: wrap;
 `;
