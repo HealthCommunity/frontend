@@ -38,7 +38,13 @@ export default function BoardDetail() {
     },
   };
   const onSubmitValid = (data) => {
-    axios.post(`/api/post/${boardData.postId}/comments`, data, config);
+    axios
+      .post(`/api/post/${boardData.postId}/comments`, data, config)
+      .then(
+        (res) =>
+          res.data.status === "200" &&
+          window.location.replace(`/${boardname}/${boardData.postId}`)
+      );
     reset();
   };
   useEffect(() => {
@@ -119,7 +125,7 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
-          <BoardComment />
+          <BoardComment boardname={boardname} />
           <div
             style={{
               width: "100%",
