@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
 import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
@@ -12,7 +12,7 @@ import {
   MyInfoNickname,
   MyInfoIdGroup,
   UserModifyButton,
-} from "./ProfileLayout";
+} from "./ProfileStyle";
 
 export default function ProfileContnet() {
   const [selected, setSelected] = useState("profile");

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+
 import axios from "axios";
-import Modal from "../../Share/Modal";
+
+import Modal from "../../../share/Modal";
 
 export default function PostThreePower({ userId }) {
   const [modalState, setModalState] = useState(false);

@@ -1,12 +1,9 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../utils/Editor/Tiptap";
+import Tiptap from "../../utils/Editor/Tiptap";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Nav from "../components/Navbar";
-import {
-  PostWrapper,
-  PostTitleTitle,
-} from "../components/Board/NewWrite/BoardWriteStyle";
+import Nav from "../Navbar";
+import { PostWrapper, PostTitleTitle } from "../Board/NewWrite/BoardWriteStyle";
 import LoadingSpinner from "components/Loding/LoadingSpinner";
 
 export default function ThreeBoardEditPost() {

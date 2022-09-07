@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const PostWrapper = styled.div`
   max-width: 1040px;
   width: 1024px;
