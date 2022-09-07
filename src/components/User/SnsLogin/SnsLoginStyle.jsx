@@ -31,10 +31,21 @@ export const SnsLinkList = styled.ul`
 `;
 
 export const SnsLinkItem = styled.li`
-  img {
+  width: 100%;
+`;
+
+export const LinkItem = styled.div`
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* img {
     width: 100%;
     height: 70px;
-  }
+  } */
 `;
 
 export const RowGroup = styled.div`

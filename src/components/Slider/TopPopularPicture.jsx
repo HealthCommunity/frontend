@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SliderMultiMain from "./Slider/SliderMultiMain";
+import SliderMultiMain from "./SliderCore/SliderMultiMain";
 import { WidthAreaHome } from "../../styles/Layout/Layout";
 
 export default function TopPopularPicture() {

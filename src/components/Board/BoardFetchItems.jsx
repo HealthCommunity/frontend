@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import BoardItemBox from "./BoardStyle/ThreePowerForm";
+
 import axios from "axios";
+
+import BoardItemBox from "./BoardStyle/ThreePowerForm";
 import BoardForm from "./BoardStyle/BoardForm";
 import LoadingSpinner from "../Loding/LoadingSpinner";
 

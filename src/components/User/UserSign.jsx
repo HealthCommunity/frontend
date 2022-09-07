@@ -9,7 +9,7 @@ import {
   CheckInput,
   LinkGroup,
 } from "./LoginLayout";
-import Button from "../common/Button";
+import Button from "../../share/Button";
 import {
   checkValidityId,
   checkValidityPassword,

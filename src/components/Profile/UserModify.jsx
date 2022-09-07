@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
 import InputTextDesc from "../User/InputTextDesc";
 import {
   UserFormGroup,
   InputTextLabel,
   InputTextGroup,
 } from "../User/LoginLayout";
-import { ProfileMyinfo } from "./ProfileLayout";
-import axios from "axios";
-import Button from "../common/Button";
+import { ProfileMyinfo } from "./ProfileStyle";
+import Button from "../../share/Button";
 import userLogout from "../../utils/User/userLogout";
 import useUserData from "../../api/useUserData";
 import UserDropOut from "./UserDropOut";
@@ -18,6 +18,8 @@ import {
   checkDoublePassword,
   checkValidityNickname,
 } from "../../utils/User/userValidation";
+
+import axios from "axios";
 
 export default function ContentUserModify(loginId) {
   const [, reFetch] = useUserData();
