@@ -29,6 +29,7 @@ export const CommonContentsHome = styled.div`
 `;
 
 /*홈화면 2단(왼쪽, 오른쪽 영역)*/
+
 /* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   width: 75%;
