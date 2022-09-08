@@ -21,11 +21,11 @@ import NavSearch from "./NavSearch";
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
-  let navigate = useNavigate();
-  let { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [isSearchOpen] = useState(false);
 
-  let navdata =
+  const navdata =
     pathname.includes("freepost") ||
     pathname.includes("exercisepost") ||
     pathname.includes("threepowerpost")
@@ -34,10 +34,17 @@ export default function Nav() {
 
   //다크모드, 라이트모드
   const setDarkMode = useSetRecoilState(isDarkAtom);
-  const [darkToggle, setDarkToggle] = useState(false);
+  const [darkToggle, setDarkToggle] = useState(!!localStorage.getItem("dark"));
+
   const isModeChange = () => {
     setDarkMode((prev) => !prev);
     setDarkToggle((prev) => !prev);
+
+    if (!darkToggle) {
+      localStorage.setItem("dark", true); //로컬 스토리지에 id와 true 상태 저장
+    } else {
+      localStorage.removeItem("dark"); //로컬 스토리지에서 제거
+    }
   };
 
   //네비게이션 바를 이용한 로그아웃

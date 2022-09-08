@@ -1,6 +1,8 @@
 import { useEffect, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { retryLazy } from "utils/lazyUtil";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { isDarkAtom } from "./atom";
 // import Home from "./pages/Home";
 // import Login from "./pages/Login";
 // import Profile from "./pages/Profile";
@@ -32,6 +34,17 @@ const BoardWrite = retryLazy(() => import("./pages/BoardWrite"));
 const Introduce = retryLazy(() => import("./pages/Introduce"));
 
 function Router() {
+  const isDartk = localStorage.getItem("dark");
+  const setDarkMode = useSetRecoilState(isDarkAtom);
+
+  //다크 or 라이트모드
+  useEffect(() => {
+    if (isDartk) {
+      setDarkMode((prev) => !prev);
+    }
+  }, []);
+
+  //새로고침하여도 사용자 로그인 유지를 위해 사용자 정보 호출
   const [, reFetch] = useUserData();
   useEffect(() => {
     reFetch();
