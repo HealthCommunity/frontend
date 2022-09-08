@@ -70,15 +70,15 @@ const ItemImg = styled.img`
   display: flex;
   margin: 0 auto;
   height: 450px;
-  object-fit: scale-down;
-  @media screen and (max-width: 1900px) {
-    width: 1500px;
+  /* object-fit: scale-down; */
+  @media screen and (max-width: 1440px) {
+    width: 1440px;
   }
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1024px) {
     width: 1000px;
   }
-  @media screen and (max-width: 1000px) {
-    width: 500px;
+  @media screen and (max-width: 600px) {
+    width: 700px;
   }
 `;
 
