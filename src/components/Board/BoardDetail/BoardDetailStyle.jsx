@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const InfoDiv = styled.div`
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
 `;
 export const InfoTitleDiv = styled.div`

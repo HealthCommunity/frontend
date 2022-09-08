@@ -17,8 +17,6 @@ const InfoExplanationTitle = styled.div`
   font-size: 24px;
   font-weight: bold;
   margin: 40px 20px;
-  border-top: 1px solid rgb(238, 238, 238);
-  padding-top: 20px;
 `;
 
 const Comment = styled.div`
@@ -99,6 +97,14 @@ export default function BoardComment({ boardname }) {
   };
   return (
     <>
+      <div
+        style={{
+          width: "100%",
+          height: "1px",
+          backgroundColor: "#EEEEEE",
+          margin: "20px",
+        }}
+      />
       <InfoExplanationTitle>{`댓글 ${comments.length}`}</InfoExplanationTitle>
       {comments.map((x) => (
         <CommentBox key={x.id}>

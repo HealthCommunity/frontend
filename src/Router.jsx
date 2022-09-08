@@ -24,7 +24,7 @@ const Search = retryLazy(() => import("./pages/Search"));
 const NotFoundScene = retryLazy(() => import("./pages/NotFoundScene"));
 const BoardEditPost = retryLazy(() => import("./pages/BoardEditPost"));
 const ThreeBoardEditPost = retryLazy(() =>
-  import("./components/Slider/ThreeBoardEditPost")
+  import("./pages/ThreeBoardEditPost")
 );
 const Board = retryLazy(() => import("./pages/Board"));
 const BoardPost = retryLazy(() => import("./pages/BoardPost"));
