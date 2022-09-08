@@ -29,29 +29,39 @@ export const CommonContentsHome = styled.div`
 `;
 
 /*홈화면 2단(왼쪽, 오른쪽 영역)*/
+/* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   width: 75%;
+  order: 1;
   @media screen and (max-width: 1900px) {
     width: 70%;
+    order: 1;
   }
   @media screen and (max-width: 1024px) {
     width: 65%;
+    order: 1;
   }
   @media screen and (max-width: 600px) {
     width: 55%;
+    order: 2;
   }
 `;
 
+/* 홈화면 왼쪽 삼대력 Top10 목록 */
 export const CommonContentsRight = styled.div`
   width: 25%;
+  order: 2;
   @media screen and (max-width: 1900px) {
     width: 65%;
+    order: 2;
   }
   @media screen and (max-width: 1024px) {
     width: 80%;
+    order: 2;
   }
   @media screen and (max-width: 600px) {
     width: 90%;
+    order: 1;
   }
 `;
 
