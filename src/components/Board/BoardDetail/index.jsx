@@ -126,16 +126,13 @@ export default function BoardDetail() {
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
           <BoardComment boardname={boardname} />
-          <div
-            style={{
-              width: "100%",
-              height: "1px",
-              backgroundColor: "#EEEEEE",
-              margin: "20px 0px",
-            }}
-          />
+
           {!userData ? (
-            ""
+            <>
+              <Link to={`/${boardname}`}>
+                <ModalButton>글목록</ModalButton>
+              </Link>
+            </>
           ) : (
             <InfoExplanationDiv>
               <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
@@ -160,32 +157,36 @@ export default function BoardDetail() {
             <FileBtnDiv style={{ border: "none" }}>
               <FileBtn onClick={onDelete}>Delete</FileBtn>
               <FileBtn onClick={onEdit}>Edit</FileBtn>
+              {userData ? (
+                <div style={{ display: "flex" }}>
+                  <Link to={`/${boardname}/write`}>
+                    <ModalButton>
+                      <img
+                        src={WriteIcon}
+                        style={{ marginRight: "5px" }}
+                        alt="writeicon"
+                      />
+                      글쓰기
+                    </ModalButton>
+                  </Link>
+                  <Link to={`/${boardname}`}>
+                    <ModalButton>글목록</ModalButton>
+                  </Link>
+                </div>
+              ) : (
+                <Link to={`/${boardname}`}>
+                  <ModalButton>글목록</ModalButton>
+                </Link>
+              )}
             </FileBtnDiv>
           ) : (
-            ""
+            <>
+              <Link to={`/${boardname}`}>
+                <ModalButton>글목록</ModalButton>
+              </Link>
+            </>
           )}
         </InfoDiv>
-      )}
-      {userData ? (
-        <div style={{ display: "flex" }}>
-          <Link to={`/${boardname}/write`}>
-            <ModalButton>
-              <img
-                src={WriteIcon}
-                style={{ marginRight: "5px" }}
-                alt="writeicon"
-              />
-              글쓰기
-            </ModalButton>
-          </Link>
-          <Link to={`/${boardname}`}>
-            <ModalButton>글목록</ModalButton>
-          </Link>
-        </div>
-      ) : (
-        <Link to={`/${boardname}`}>
-          <ModalButton>글목록</ModalButton>
-        </Link>
       )}
     </>
   );
@@ -194,6 +195,7 @@ export default function BoardDetail() {
 const BoardSession = styled.section`
   flex-wrap: wrap;
   display: flex;
+  margin: 0 auto;
 `;
 
 const BoardVideo = styled.video`
