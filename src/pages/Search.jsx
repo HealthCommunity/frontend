@@ -96,5 +96,5 @@ const SearchResult = styled.p`
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
