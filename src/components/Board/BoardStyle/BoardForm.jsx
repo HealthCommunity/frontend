@@ -91,6 +91,7 @@ const BoardTitle = styled.div`
 const BoardImage = styled.img`
   width: 60px;
   height: 60px;
+  margin-right: 8px;
   border-radius: 8px;
 `;
 

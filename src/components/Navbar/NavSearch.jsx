@@ -66,10 +66,6 @@ const SelectForm = styled.select`
   position: absolute;
   margin: 0 20px 0 10px;
   margin-right: 5px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
   line-height: 24px;
   outline: 0 none;
   border: none;
@@ -87,9 +83,6 @@ const SearchInput = styled.input`
   border-right: none;
   background-color: transparent;
   color: ${(props) => props.color};
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
 
