@@ -259,12 +259,6 @@ export default function ThreeBoardPost() {
               </FileBtn>
             </FileBtnDiv>
           </form>
-
-          {!!thumbnail.bench && <img src={thumbnail.bench} alt="벤치동영상" />}
-          {!!thumbnail.squat && (
-            <img src={thumbnail.squat} alt="스쿼드동영상" />
-          )}
-          {!!thumbnail.dead && <img src={thumbnail.dead} alt="데드동영상" />}
         </PostWrapper>
       ) : (
         <LoadingSpinner text={"게시글을 등록하는 중입니다."} />
