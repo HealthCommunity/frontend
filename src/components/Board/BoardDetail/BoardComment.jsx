@@ -23,6 +23,7 @@ const Comment = styled.div`
   font-size: 18px;
   margin: 10px;
   font-weight: 600;
+  color: #222222;
 `;
 
 const CommentDate = styled.div`

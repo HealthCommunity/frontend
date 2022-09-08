@@ -12,10 +12,9 @@ export const InfoTitleDiv = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-  font-family: "Pretendard";
   font-weight: 700;
   font-size: 18px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 export const InfoTitleWrite = styled.div`

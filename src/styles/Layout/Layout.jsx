@@ -99,16 +99,24 @@ export const WidthAreaHome = styled.section`
 /*(홈화면 제외)각 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaSpace = styled.section`
   box-sizing: border-box;
-  width: 1396px;
+  width: 100%;
+  max-width: 1396px;
   margin: 0 auto;
   margin-top: 100px;
   @media screen and (max-width: 1440px) {
-    width: 700px;
+    width: 1039px; /*아이템 4개*/
     display: flex;
     flex-wrap: wrap;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 682px; /*아이템 3개*/
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   @media screen and (max-width: 600px) {
-    width: 500px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
   }

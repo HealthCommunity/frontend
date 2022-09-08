@@ -53,7 +53,7 @@ const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #222222;
+    color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
   }
@@ -62,7 +62,7 @@ const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #222222;
+    color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
   }

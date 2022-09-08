@@ -128,13 +128,11 @@ const InfoSumTitle = styled.p`
 `;
 
 const InfoSumValue = styled.p`
-  font-family: "Pretendard";
-  font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
   text-align: center;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 const InnderBottom = styled.div`

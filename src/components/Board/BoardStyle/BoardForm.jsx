@@ -72,10 +72,12 @@ export default function BoardForm({
 }
 
 const Board = styled.div`
+  box-sizing: border-box;
   width: 325px;
-  height: 150px;
-  background: #ffffff;
-  padding: 10px 0px;
+  height: 136px;
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+  padding: 12px 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
 `;
@@ -83,17 +85,18 @@ const Board = styled.div`
 const BoardTitle = styled.div`
   display: flex;
   align-items: center;
-  margin: 0px 10px 20px 10px;
+  margin-bottom: 21px;
 `;
 
 const BoardImage = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  margin-right: 8px;
+  border-radius: 8px;
 `;
 
 const BoardVideo = styled.video`
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
 `;

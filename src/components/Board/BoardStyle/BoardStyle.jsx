@@ -2,10 +2,13 @@ import styled from "styled-components";
 export const BoardDiv = styled.div`
   width: 325px;
   height: 346px;
-  background: #ffffff;
   padding: 10px 0px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+
   @media screen and (max-width: 600px) {
     display: flex;
     width: 100%;
@@ -66,7 +69,7 @@ export const BoardTextDiv = styled.div`
 export const BoardText = styled.span`
   font-weight: 700;
   font-size: 16px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
   line-height: 1.1;
   @media screen and (max-width: 600px) {
     margin: 10px 0px;
@@ -97,11 +100,8 @@ export const BoardDivIcon = styled.div`
 `;
 
 export const BoardDivWrite = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 export const SeparataDivLeft = styled.div`
@@ -136,7 +136,6 @@ export const SeparataItem = styled.div`
 
 export const SeparataSpan = styled.span`
   margin-left: 5px;
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
