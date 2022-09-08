@@ -15,11 +15,9 @@ export const CommonContainer = styled.div`
   position: relative;
 `;
 
-/*홈화면 2단 나누기*/
 export const CommonContentsHome = styled.div`
-  display: flex;
+  display: flex; /*홈화면 2단 나누기*/
   margin: 0 auto;
-
   @media screen and (max-width: 1500px) {
     flex-direction: column;
     align-items: center;
@@ -33,35 +31,27 @@ export const CommonContentsHome = styled.div`
 /*홈화면 2단(왼쪽, 오른쪽 영역)*/
 export const CommonContentsLeft = styled.div`
   width: 75%;
-  order: 1;
   @media screen and (max-width: 1900px) {
     width: 70%;
-    order: 1;
   }
   @media screen and (max-width: 1024px) {
     width: 65%;
-    order: 1;
   }
   @media screen and (max-width: 600px) {
     width: 55%;
-    order: 2;
   }
 `;
 
 export const CommonContentsRight = styled.div`
   width: 25%;
-  order: 2;
   @media screen and (max-width: 1900px) {
     width: 65%;
-    order: 2;
   }
   @media screen and (max-width: 1024px) {
     width: 80%;
-    order: 2;
   }
   @media screen and (max-width: 600px) {
     width: 90%;
-    order: 1;
   }
 `;
 
