@@ -169,19 +169,21 @@ export default function HomeChart() {
 
 const HomeChartBox = styled.div`
   position: relative;
-  width: 350px;
+  width: 100%;
+  min-width: 350px;
   height: 900px;
   margin: 20px auto;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
-  @media screen and (max-width: 1500px) {
+
+  @media screen and (max-width: 1440px) {
     width: 900px;
   }
-  @media screen and (max-width: 1150px) {
-    width: 700px;
+  @media screen and (max-width: 1024px) {
+    width: 556px;
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 600px) {
     width: 400px;
   }
 `;

@@ -36,10 +36,6 @@ export default function Home() {
           <SliderSingleMain data={data} categories={"home"} />
         </MainSlide>
         <CommonContentsHome>
-          {/* 홈화면 왼쪽 삼대력 Top10 목록 */}
-          <CommonContentsRight>
-            <HomeChart />
-          </CommonContentsRight>
           {/* 홈화면 오른쪽 인기사진, 게시판 목록 */}
           <CommonContentsLeft>
             <CommonTitleArea>
@@ -58,6 +54,11 @@ export default function Home() {
             <HomeBoardSummary selected={selected} />
             <HomeBoard selected={selected} />
           </CommonContentsLeft>
+
+          {/* 홈화면 왼쪽 삼대력 Top10 목록 */}
+          <CommonContentsRight>
+            <HomeChart />
+          </CommonContentsRight>
         </CommonContentsHome>
       </CommonContainer>
     </>

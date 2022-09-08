@@ -54,7 +54,7 @@ export default function BoardFetchItems({ category = "", center }) {
   return (
     <>
       {isLoading ? (
-        <BoardItemList style={center && { justifyContent: "center" }}>
+        <BoardItemList>
           {itemList.map(
             ({
               postId,
@@ -100,7 +100,7 @@ export default function BoardFetchItems({ category = "", center }) {
               </Link>
             )
           )}
-          <div ref={target} />
+          <div ref={target} style={{ width: "100%" }} />
         </BoardItemList>
       ) : (
         <LoadingSpinner />
@@ -109,6 +109,7 @@ export default function BoardFetchItems({ category = "", center }) {
   );
 }
 const BoardItemList = styled.ul`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   grid-column-gap: 32px;
