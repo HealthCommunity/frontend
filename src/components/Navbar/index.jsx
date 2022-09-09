@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 import { useSetRecoilState } from "recoil";
@@ -8,24 +8,27 @@ import { isDarkAtom } from "../../atom";
 
 import {
   NavBoardDiv,
-  NavDiv,
+  NavWrapper,
+  NavGroup,
   NavItem,
   NavItemSelect,
   NavLogoItem,
+  UserLogin,
 } from "./NavStyle";
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
 import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
+import MenuIcon from "../../assets/images/hamburgermenu.svg";
 
 import useUserData from "../../api/useUserData";
 import NavSearch from "./NavSearch";
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
-  let navigate = useNavigate();
-  let { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [isSearchOpen] = useState(false);
 
-  let navdata =
+  const navdata =
     pathname.includes("freepost") ||
     pathname.includes("exercisepost") ||
     pathname.includes("threepowerpost")
@@ -34,11 +37,35 @@ export default function Nav() {
 
   //다크모드, 라이트모드
   const setDarkMode = useSetRecoilState(isDarkAtom);
-  const [darkToggle, setDarkToggle] = useState(false);
+  const [darkToggle, setDarkToggle] = useState(!!localStorage.getItem("dark"));
+
   const isModeChange = () => {
     setDarkMode((prev) => !prev);
     setDarkToggle((prev) => !prev);
+
+    if (!darkToggle) {
+      localStorage.setItem("dark", true); //로컬 스토리지에 id와 true 상태 저장
+    } else {
+      localStorage.removeItem("dark"); //로컬 스토리지에서 제거
+    }
   };
+
+  //네비게이션 바 너비 측정
+  const [width, setWidth] = useState(0);
+  const ref = useRef();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(ref.current.clientWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  console.log("너비", width);
 
   //네비게이션 바를 이용한 로그아웃
   const isLoginChange = () => {
@@ -73,7 +100,7 @@ export default function Nav() {
   });
 
   return (
-    <NavDiv
+    <NavWrapper
       scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
       height={
         ScrollY <= 100
@@ -82,83 +109,91 @@ export default function Nav() {
           ? "100px "
           : `${70 + ScrollY / 100}px`
       }
+      ref={ref}
     >
-      <Link to="/">
-        <NavLogoItem scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
-          헬쓰리
-        </NavLogoItem>
-      </Link>
-      <NavBoardDiv>
-        <Link to="/threepowerpost">
-          <NavItem
-            color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
-            hover={pathname === "/" ? "white" : ""}
-            style={{ marginRight: "20px" }}
-          >
-            3대력 게시판
-          </NavItem>
+      <NavGroup>
+        <Link to="/">
+          <NavLogoItem scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
+            헬쓰리
+          </NavLogoItem>
         </Link>
-        <Link to="/exercisepost">
-          <NavItem
-            color={pathname.includes("exercisepost") ? "#0066FF" : ""}
-            hover={pathname === "/" ? "white" : ""}
-            style={{ marginRight: "20px" }}
-          >
-            운동 게시판
-          </NavItem>
-        </Link>
-        <Link to="/freepost">
-          <NavItem
-            color={pathname.includes("freepost") ? "#0066FF" : ""}
-            hover={pathname === "/" ? "white" : ""}
-            style={{ marginRight: "20px" }}
-          >
-            자유 게시판
-          </NavItem>
-        </Link>
-      </NavBoardDiv>
-      <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
-        <NavItem>
-          <NavSearch
-            isSearchOpen={isSearchOpen}
-            navdata={navdata}
-            ScrollY={ScrollY}
-          />
-        </NavItem>
-        <NavItem>
-          <Link to="/introduce">
-            <img
-              src={!navdata && ScrollY === 0 ? RocketColorImage : RocketImage}
-              alt="rocket"
-            />
+        <NavBoardDiv>
+          <Link to="/threepowerpost">
+            <NavItem
+              color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
+              hover={pathname === "/" ? "white" : ""}
+              style={{ marginRight: "20px" }}
+            >
+              3대력 게시판
+            </NavItem>
           </Link>
-        </NavItem>
-        <NavItem>
-          <ToggleBtn onClick={isModeChange} darkToggle={darkToggle}>
-            <Circle darkToggle={darkToggle} />
-          </ToggleBtn>
-        </NavItem>
-        {!userData ? (
-          <>
-            <Link to="/login">
-              <NavItem>로그인</NavItem>
-            </Link>
-            <Link to="/sign">
-              <NavItem>회원가입</NavItem>
-            </Link>
-          </>
-        ) : (
-          <>
-            <NavItem onClick={isLoginChange}>
-              <Link to="/login">로그아웃</Link>
+          <Link to="/exercisepost">
+            <NavItem
+              color={pathname.includes("exercisepost") ? "#0066FF" : ""}
+              hover={pathname === "/" ? "white" : ""}
+              style={{ marginRight: "20px" }}
+            >
+              운동 게시판
             </NavItem>
-            <NavItem>
-              <Link to="/profile">마이페이지</Link>
+          </Link>
+          <Link to="/freepost">
+            <NavItem
+              color={pathname.includes("freepost") ? "#0066FF" : ""}
+              hover={pathname === "/" ? "white" : ""}
+              style={{ marginRight: "20px" }}
+            >
+              자유 게시판
             </NavItem>
-          </>
-        )}
-      </NavItemSelect>
-    </NavDiv>
+          </Link>
+        </NavBoardDiv>
+        <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
+          <NavItem>
+            <NavSearch
+              isSearchOpen={isSearchOpen}
+              navdata={navdata}
+              ScrollY={ScrollY}
+            />
+          </NavItem>
+          <NavItem>
+            <Link to="/introduce">
+              <img
+                src={!navdata && ScrollY === 0 ? RocketColorImage : RocketImage}
+                alt="rocket"
+              />
+            </Link>
+          </NavItem>
+          <NavItem>
+            <ToggleBtn onClick={isModeChange} darkToggle={darkToggle}>
+              <Circle darkToggle={darkToggle} />
+            </ToggleBtn>
+          </NavItem>
+          {!userData ? (
+            <>
+              <Link to="/login">
+                <NavItem className="pullNav">로그인</NavItem>
+              </Link>
+              <Link to="/sign">
+                <NavItem className="pullNav">회원가입</NavItem>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <NavItem className="pullNav" onClick={isLoginChange}>
+                  로그아웃
+                </NavItem>
+              </Link>
+              <Link to="/profile">
+                <NavItem className="pullNav">마이페이지</NavItem>
+              </Link>
+            </>
+          )}
+          {/* <NavItem className="miniNav">
+            <img src={MenuIcon} alt=""></img>
+          </NavItem> */}
+        </NavItemSelect>
+      </NavGroup>
+    </NavWrapper>
   );
 }
 
