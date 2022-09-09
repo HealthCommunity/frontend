@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import DeleteIcon from "../../../assets/images/board_write__cancle_24.svg";
+import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import { InfoNickname } from ".";
 
 const CommentStyle = styled.div`
@@ -112,18 +114,18 @@ export default function BoardComment({ boardname }) {
           <CommentHeader>
             <InfoNickname>{x.nickName}</InfoNickname>
             <div style={{ display: "flex" }}>
-              <div
-                style={{ margin: "10px", fontSize: "24px", color: "red" }}
+              <img
+                src={DeleteIcon}
+                style={{ margin: "0px 10px" }}
+                alt="Deleteicon"
                 onClick={() => onDelete(x.id, x.comment)}
-              >
-                x
-              </div>
-              <div
-                style={{ margin: "10px", fontSize: "24px", color: "red" }}
+              />
+              <img
+                src={WriteIcon}
+                style={{ margin: "0px 10px" }}
+                alt="WriteIcon"
                 onClick={() => onEdit(x.id, x.comment)}
-              >
-                e
-              </div>
+              />
             </div>
           </CommentHeader>
           {editNum === x.id ? (

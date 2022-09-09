@@ -17,7 +17,7 @@ import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
 import useUserData from "../../../api/useUserData";
 import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
-import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
+import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import { useForm } from "react-hook-form";
 import BoardComment from "./BoardComment";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
@@ -128,11 +128,7 @@ export default function BoardDetail() {
           <BoardComment boardname={boardname} />
 
           {!userData ? (
-            <>
-              <Link to={`/${boardname}`}>
-                <ModalButton>글목록</ModalButton>
-              </Link>
-            </>
+            ""
           ) : (
             <InfoExplanationDiv>
               <InfoCommentForm onSubmit={handleSubmit(onSubmitValid)}>
@@ -155,36 +151,38 @@ export default function BoardDetail() {
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
-              <FileBtn onClick={onDelete}>Delete</FileBtn>
-              <FileBtn onClick={onEdit}>Edit</FileBtn>
+              <FileBtn onClick={onDelete}>게시글 삭제</FileBtn>
+              <FileBtn onClick={onEdit}>게시글 수정</FileBtn>
               {userData ? (
                 <div style={{ display: "flex" }}>
                   <Link to={`/${boardname}/write`}>
-                    <ModalButton>
+                    <FileBtn
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
                       <img
                         src={WriteIcon}
                         style={{ marginRight: "5px" }}
                         alt="writeicon"
                       />
                       글쓰기
-                    </ModalButton>
+                    </FileBtn>
                   </Link>
                   <Link to={`/${boardname}`}>
-                    <ModalButton>글목록</ModalButton>
+                    <FileBtn>글목록</FileBtn>
                   </Link>
                 </div>
               ) : (
-                <Link to={`/${boardname}`}>
-                  <ModalButton>글목록</ModalButton>
-                </Link>
+                ""
               )}
             </FileBtnDiv>
           ) : (
-            <>
-              <Link to={`/${boardname}`}>
-                <ModalButton>글목록</ModalButton>
-              </Link>
-            </>
+            <FileBtn style={{ margin: "20px auto" }}>
+              <Link to={`/${boardname}`}>글목록</Link>
+            </FileBtn>
           )}
         </InfoDiv>
       )}
