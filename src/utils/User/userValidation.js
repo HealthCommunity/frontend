@@ -57,6 +57,6 @@ const isRulePassword = (asValue) => {
 };
 
 const isRuleNick = (asValue) => {
-  const regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣 ]*$/;
+  const regExp = /^[a-zA-Zㄱ-힣][a-zA-Zㄱ-힣]*$/;
   return regExp.test(asValue);
 };
