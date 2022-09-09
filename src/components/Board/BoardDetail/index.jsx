@@ -193,6 +193,7 @@ export default function BoardDetail() {
 const BoardSession = styled.section`
   flex-wrap: wrap;
   display: flex;
+  justify-content: center;
   margin: 0 auto;
 `;
 
