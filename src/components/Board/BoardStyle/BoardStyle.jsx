@@ -113,7 +113,7 @@ export const BoardDivWrite = styled.span`
 
 export const SeparataDivLeft = styled.div`
   display: flex;
-  width: 30%;
+  width: 35%;
   align-items: center;
   @media screen and (max-width: 600px) {
     width: 100%;
@@ -122,7 +122,7 @@ export const SeparataDivLeft = styled.div`
 
 export const SeparataDiv = styled.div`
   display: flex;
-  width: 70%;
+  width: 65%;
   justify-content: flex-end;
   margin: 0px 10px;
   font-weight: 400;
@@ -136,6 +136,8 @@ export const SeparataDiv = styled.div`
 export const SeparataItem = styled.div`
   margin: 0px 5px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   @media screen and (max-width: 600px) {
     margin: 5px 0px;
   }
