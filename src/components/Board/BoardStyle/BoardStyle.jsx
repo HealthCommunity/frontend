@@ -5,7 +5,6 @@ export const BoardDiv = styled.div`
   padding: 10px 0px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
-
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
 
@@ -74,6 +73,14 @@ export const BoardText = styled.span`
   @media screen and (max-width: 600px) {
     margin: 10px 0px;
   }
+`;
+
+export const BoardDivBottomItem = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #aaaaaa;
+  margin: 0 auto;
 `;
 
 export const BoardDivBottom = styled.div`

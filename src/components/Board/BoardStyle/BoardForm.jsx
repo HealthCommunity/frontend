@@ -1,13 +1,13 @@
 import {
   BoardTextDiv,
   BoardText,
-  BoardDivBottom,
   SeparataDivLeft,
   BoardDivIcon,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
+  BoardDivBottomItem,
 } from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
@@ -54,7 +54,7 @@ export default function BoardForm({
           )}
         </BoardTextDiv>
       </BoardTitle>
-      <BoardDivBottom>
+      <BoardDivBottomItem>
         <SeparataDivLeft>
           <BoardDivIcon />
           <BoardDivWrite>{nickname}</BoardDivWrite>
@@ -66,7 +66,7 @@ export default function BoardForm({
           </SeparataItem>
           <SeparataItem>{createdDate}</SeparataItem>
         </SeparataDiv>
-      </BoardDivBottom>
+      </BoardDivBottomItem>
     </Board>
   );
 }
@@ -80,6 +80,10 @@ const Board = styled.div`
   padding: 12px 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    width: 500px;
+  }
 `;
 
 const BoardTitle = styled.div`
