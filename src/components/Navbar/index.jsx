@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 import { useSetRecoilState } from "recoil";
 import axios from "axios";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { isDarkAtom } from "../../atom";
 
 import {
@@ -13,11 +13,12 @@ import {
   NavItem,
   NavItemSelect,
   NavLogoItem,
-  UserLogin,
 } from "./NavStyle";
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
 import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
-import MenuIcon from "../../assets/images/hamburgermenu.svg";
+import MenuIconBK from "../../assets/images/hamburgermenu_bk.svg";
+import MenuIconWH from "../../assets/images/hamburgermenu_wh.svg";
+import CancleIcon from "../../assets/images/board_write__cancle_24.svg";
 
 import useUserData from "../../api/useUserData";
 import NavSearch from "./NavSearch";
@@ -50,23 +51,6 @@ export default function Nav() {
     }
   };
 
-  //네비게이션 바 너비 측정
-  const [width, setWidth] = useState(0);
-  const ref = useRef();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(ref.current.clientWidth);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  console.log("너비", width);
-
   //네비게이션 바를 이용한 로그아웃
   const isLoginChange = () => {
     axios
@@ -85,7 +69,7 @@ export default function Nav() {
   };
 
   //스크롤 이동시 네비게이션 색 변경
-  const [ScrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
+  const [scrollY, setScrollY] = useState(0); // 스크롤값을 저장하기 위한 상태
   const handleFollow = () => {
     setScrollY(window.pageYOffset); // window 스크롤 값을 ScrollY에 저장
   };
@@ -99,101 +83,167 @@ export default function Nav() {
     };
   });
 
+  //사이드버튼 토글
+  const [navToggle, setNavToggle] = useState(false);
+
+  useEffect(() => {
+    if (navToggle) {
+      document.body.style.overflow = "hidden"; //모달 배경 스크롤 방지
+    }
+
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [navToggle]);
+
+  const handleSideNav = () => {
+    setNavToggle((prev) => !prev);
+  };
+
   return (
-    <NavWrapper
-      scroll={!navdata && ScrollY === 0 ? "#222222" : "white"}
-      height={
-        ScrollY <= 100
-          ? "70px"
-          : ScrollY >= 3000
-          ? "100px "
-          : `${70 + ScrollY / 100}px`
-      }
-      ref={ref}
-    >
-      <NavGroup>
-        <Link to="/">
-          <NavLogoItem scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
-            헬쓰리
-          </NavLogoItem>
-        </Link>
-        <NavBoardDiv>
-          <Link to="/threepowerpost">
-            <NavItem
-              color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
-              hover={pathname === "/" ? "white" : ""}
-              style={{ marginRight: "20px" }}
-            >
-              3대력 게시판
-            </NavItem>
+    <>
+      <NavWrapper
+        scroll={!navdata && scrollY === 0 ? "#222222" : "white"}
+        height={
+          scrollY <= 100
+            ? "70px"
+            : scrollY >= 3000
+            ? "100px "
+            : `${70 + scrollY / 100}px`
+        }
+      >
+        <NavGroup>
+          <Link to="/">
+            <NavLogoItem scroll={!navdata && scrollY === 0 ? "white" : "black"}>
+              헬쓰리
+            </NavLogoItem>
           </Link>
-          <Link to="/exercisepost">
-            <NavItem
-              color={pathname.includes("exercisepost") ? "#0066FF" : ""}
-              hover={pathname === "/" ? "white" : ""}
-              style={{ marginRight: "20px" }}
-            >
-              운동 게시판
-            </NavItem>
-          </Link>
-          <Link to="/freepost">
-            <NavItem
-              color={pathname.includes("freepost") ? "#0066FF" : ""}
-              hover={pathname === "/" ? "white" : ""}
-              style={{ marginRight: "20px" }}
-            >
-              자유 게시판
-            </NavItem>
-          </Link>
-        </NavBoardDiv>
-        <NavItemSelect scroll={!navdata && ScrollY === 0 ? "white" : "black"}>
-          <NavItem>
-            <NavSearch
-              isSearchOpen={isSearchOpen}
-              navdata={navdata}
-              ScrollY={ScrollY}
-            />
-          </NavItem>
-          <NavItem>
-            <Link to="/introduce">
-              <img
-                src={!navdata && ScrollY === 0 ? RocketColorImage : RocketImage}
-                alt="rocket"
-              />
+          <NavBoardDiv>
+            <Link to="/threepowerpost">
+              <NavItem
+                color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
+                hover={pathname === "/" ? "white" : ""}
+                style={{ marginRight: "20px" }}
+              >
+                3대력 게시판
+              </NavItem>
             </Link>
-          </NavItem>
-          <NavItem>
-            <ToggleBtn onClick={isModeChange} darkToggle={darkToggle}>
-              <Circle darkToggle={darkToggle} />
-            </ToggleBtn>
-          </NavItem>
-          {!userData ? (
-            <>
-              <Link to="/login">
-                <NavItem className="pullNav">로그인</NavItem>
+            <Link to="/exercisepost">
+              <NavItem
+                color={pathname.includes("exercisepost") ? "#0066FF" : ""}
+                hover={pathname === "/" ? "white" : ""}
+                style={{ marginRight: "20px" }}
+              >
+                운동 게시판
+              </NavItem>
+            </Link>
+            <Link to="/freepost">
+              <NavItem
+                color={pathname.includes("freepost") ? "#0066FF" : ""}
+                hover={pathname === "/" ? "white" : ""}
+                style={{ marginRight: "20px" }}
+              >
+                자유 게시판
+              </NavItem>
+            </Link>
+          </NavBoardDiv>
+          <NavItemSelect scroll={!navdata && scrollY === 0 ? "white" : "black"}>
+            <NavItem>
+              <NavSearch
+                isSearchOpen={isSearchOpen}
+                navdata={navdata}
+                ScrollY={scrollY}
+              />
+            </NavItem>
+            <NavItem>
+              <Link to="/introduce">
+                <img
+                  src={
+                    !navdata && scrollY === 0 ? RocketColorImage : RocketImage
+                  }
+                  alt="rocket"
+                />
               </Link>
-              <Link to="/sign">
-                <NavItem className="pullNav">회원가입</NavItem>
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                <NavItem className="pullNav" onClick={isLoginChange}>
-                  로그아웃
-                </NavItem>
-              </Link>
-              <Link to="/profile">
-                <NavItem className="pullNav">마이페이지</NavItem>
-              </Link>
-            </>
-          )}
-          {/* <NavItem className="miniNav">
-            <img src={MenuIcon} alt=""></img>
-          </NavItem> */}
-        </NavItemSelect>
-      </NavGroup>
-    </NavWrapper>
+            </NavItem>
+            <NavItem>
+              <ToggleBtn onClick={isModeChange} darkToggle={darkToggle}>
+                <Circle darkToggle={darkToggle} />
+              </ToggleBtn>
+            </NavItem>
+
+            <NavItem className="miniNav" onClick={handleSideNav}>
+              <img
+                src={!navdata && scrollY === 0 ? MenuIconWH : MenuIconBK}
+                alt="모바일버전 네비게이션바"
+              ></img>
+            </NavItem>
+
+            {!userData ? (
+              <>
+                <Link to="/login">
+                  <NavItem className="pullNav">로그인</NavItem>
+                </Link>
+                <Link to="/sign">
+                  <NavItem className="pullNav">회원가입</NavItem>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <NavItem className="pullNav" onClick={isLoginChange}>
+                    로그아웃
+                  </NavItem>
+                </Link>
+                <Link to="/profile">
+                  <NavItem className="pullNav">마이페이지</NavItem>
+                </Link>
+              </>
+            )}
+          </NavItemSelect>
+        </NavGroup>
+      </NavWrapper>
+      <SideNav isToggle={navToggle} navCategory={navdata}>
+        <SideNavTop>
+          <img
+            src={CancleIcon}
+            onClick={handleSideNav}
+            alt="네비게이션 버튼 닫기"
+          ></img>
+        </SideNavTop>
+        <SideNavContent>
+          <div>
+            {!userData ? (
+              <>
+                <Link to="/login">
+                  <NavItem>로그인</NavItem>
+                </Link>
+                <Link to="/sign">
+                  <NavItem>회원가입</NavItem>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <NavItem>로그아웃</NavItem>
+                </Link>
+                <Link to="/profile">
+                  <NavItem>마이페이지</NavItem>
+                </Link>
+              </>
+            )}
+            <Link to="/threepowerpost">
+              <NavItem>3대력 게시판</NavItem>
+            </Link>
+            <Link to="/exercisepost">
+              <NavItem>운동 게시판</NavItem>
+            </Link>
+            <Link to="/freepost">
+              <NavItem>자유 게시판</NavItem>
+            </Link>
+          </div>
+        </SideNavContent>
+      </SideNav>
+    </>
   );
 }
 
@@ -231,4 +281,49 @@ const Circle = styled.div`
       transform: translate(30px, 0);
       transition: all 0.5s ease-in-out;
     `}
+`;
+
+const SideNav = styled.nav`
+  position: fixed;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+
+  background-color: ${(props) => props.theme.reverseColor};
+  z-index: 99;
+
+  ${(props) =>
+    props.isToggle
+      ? css`
+          transition: transform 0.5s;
+        `
+      : css`
+          transform: translate3d(300px, 0, 0);
+          transition: transform 0.5s;
+        `};
+`;
+
+const SideNavTop = styled.div`
+  display: flex;
+  justify-content: end;
+
+  width: 300px;
+  margin: 16px 0;
+  padding-right: 40px;
+
+  & img {
+    margin-right: 16px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+`;
+
+const SideNavContent = styled.div`
+  & div {
+    margin: 16px 0;
+
+    color: ${(props) => props.theme.backGroundColor};
+  }
 `;
