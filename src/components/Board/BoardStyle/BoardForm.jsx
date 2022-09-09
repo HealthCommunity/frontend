@@ -48,7 +48,9 @@ export default function BoardForm({
         )}
 
         <BoardTextDiv>
-          <BoardText>{title}</BoardText>
+          <BoardText>
+            {title.length > 15 ? `${title.slice(0, 15)}...` : title}
+          </BoardText>
           {nowday.includes(`${createdDate.slice(0, 10)}`) && (
             <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
