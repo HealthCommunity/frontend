@@ -74,19 +74,23 @@ export const NavItem = styled.div`
     color: ${(props) => props.hover};
   }
 
-  /* &.mobileMenu {
+  &.miniNav {
     display: none;
   }
 
   @media screen and (max-width: 1024px) {
-    &.mobileMenu {
+    &.miniNav {
       display: none;
     }
   }
 
   @media screen and (max-width: 600px) {
-    &.mobileMenu {
+    &.miniNav {
+      display: block;
+    }
+
+    &.pullNav {
       display: none;
     }
-  } */
+  }
 `;
