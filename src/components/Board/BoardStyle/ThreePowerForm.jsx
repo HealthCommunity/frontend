@@ -18,6 +18,7 @@ import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
 
 export default function ThreePowerForm({
   id,
@@ -60,7 +61,9 @@ export default function ThreePowerForm({
       </ReseponseDiv>
       <ReseponseDiv>
         <BoardTextDiv>
-          <BoardText>{title}</BoardText>
+          <BoardText>
+            {title.length > 15 ? `${title.slice(0, 15)}...` : title}
+          </BoardText>
           {nowday.includes(`${createdDate.slice(0, 10)}`) && (
             <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
@@ -68,7 +71,9 @@ export default function ThreePowerForm({
         <BoardDivBottom>
           <SeparataDivLeft>
             <BoardDivIcon />
-            <BoardDivWrite>{nickname}</BoardDivWrite>
+            <BoardDivWrite>
+              {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
+            </BoardDivWrite>
           </SeparataDivLeft>
           <SeparataDiv>
             <SeparataItem>
@@ -76,10 +81,12 @@ export default function ThreePowerForm({
               <SeparataSpan>{view}</SeparataSpan>
             </SeparataItem>
             <SeparataItem>
-              <SeparataSpan>{`작성일 : ${createdDate.slice(
-                0,
-                10
-              )}`}</SeparataSpan>
+              <img
+                src={TiemIcon}
+                alt="tiemicon"
+                style={{ widh: "18px", height: "18px" }}
+              />
+              <SeparataSpan>{createdDate.slice(0, 10)}</SeparataSpan>
             </SeparataItem>
           </SeparataDiv>
         </BoardDivBottom>

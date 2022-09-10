@@ -116,7 +116,7 @@ export const WidthAreaSpace = styled.section`
   }
 
   @media screen and (max-width: 600px) {
-    width: 600px;
+    width: 400px;
     display: flex;
     flex-wrap: wrap;
   }

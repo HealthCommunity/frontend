@@ -55,6 +55,7 @@ function GroupItem({ children }) {
 }
 
 export const ModalButton = styled.button`
+  width: 150px;
   height: 48px;
   display: flex;
   margin: 20px 0px;

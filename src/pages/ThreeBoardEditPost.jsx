@@ -12,6 +12,7 @@ import {
 import LoadingSpinner from "components/Loding/LoadingSpinner";
 import { FileList, PostLabel } from "components/Board/NewWrite/BoardWriteStyle";
 import VideoIcon from "../assets/images/board_write_video_24.svg";
+import { WidthAreaSpace } from "styles/Layout/Layout";
 
 export default function ThreeBoardEditPost() {
   let navigate = useNavigate();
@@ -130,132 +131,138 @@ export default function ThreeBoardEditPost() {
   return (
     <>
       <Nav />
-      {isPending ? (
-        <PostWrapper>
-          <form onSubmit={handleSubmit}>
-            <PostTitleTitle
-              id="input-title"
-              placeholder="글 제목을 입력해주세요!"
-              value={"" || title}
-              onChange={handleChange}
-              autoComplete="off"
-              required
-              style={{ marginTop: "100px" }}
-            />
-            <Tiptap setDescription={setDescription} description={description} />
-            <div style={{ display: "flex", marginBottom: "16px" }}>
-              {!!videoUrl.bench && (
-                <video
-                  src={videoUrl.bench}
-                  width={325}
-                  height={175}
-                  name="bench"
-                  onLoadedData={handleLoadedData}
-                  style={{ marginRight: "32px" }}
-                />
-              )}
-
-              {!!videoUrl.squat && (
-                <video
-                  src={videoUrl.squat}
-                  width={325}
-                  height={175}
-                  name="squat"
-                  onLoadedData={handleLoadedData}
-                  style={{ marginRight: "32px" }}
-                />
-              )}
-
-              {!!videoUrl.dead && (
-                <video
-                  src={videoUrl.dead}
-                  width={325}
-                  height={175}
-                  name="dead"
-                  onLoadedData={handleLoadedData}
-                />
-              )}
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <FileList>
-                <PostLabel>
-                  <img
-                    src={VideoIcon}
-                    style={{ marginRight: "5px" }}
-                    alt="videoicon"
-                  />
-                  벤치프레스 영상
-                  <input
-                    style={{ opacity: "0", width: "1px" }}
-                    type="file"
+      <WidthAreaSpace>
+        {isPending ? (
+          <PostWrapper>
+            <form onSubmit={handleSubmit}>
+              <PostTitleTitle
+                id="input-title"
+                placeholder="글 제목을 입력해주세요!"
+                value={"" || title}
+                onChange={handleChange}
+                autoComplete="off"
+                required
+              />
+              <Tiptap
+                setDescription={setDescription}
+                description={description}
+              />
+              <div style={{ display: "flex", marginBottom: "16px" }}>
+                {!!videoUrl.bench && (
+                  <video
+                    src={videoUrl.bench}
+                    width={325}
+                    height={175}
                     name="bench"
-                    accept="video/*"
-                    required
-                    onChange={changeVideo}
+                    onLoadedData={handleLoadedData}
+                    style={{ marginRight: "32px" }}
                   />
-                </PostLabel>
-                <span style={{ margin: "0px 10px" }}>
-                  {videoFileName.bench}
-                </span>
-              </FileList>
-              <FileList>
-                <PostLabel>
-                  <img
-                    src={VideoIcon}
-                    style={{ marginRight: "5px" }}
-                    alt="videoicon"
-                  />
-                  데드리프트 영상
-                  <input
-                    style={{ opacity: "0", width: "1px" }}
-                    type="file"
-                    name="squat"
-                    accept="video/*"
-                    required
-                    onChange={changeVideo}
-                  />
-                </PostLabel>
-                <span style={{ margin: "0px 10px" }}>
-                  {videoFileName.squat}
-                </span>
-              </FileList>
-              <FileList>
-                <PostLabel>
-                  <img
-                    src={VideoIcon}
-                    style={{ marginRight: "5px" }}
-                    alt="videoicon"
-                  />
-                  스쿼트 영상
-                  <input
-                    style={{ opacity: "0", width: "1px" }}
-                    type="file"
-                    name="dead"
-                    accept="video/*"
-                    required
-                    onChange={changeVideo}
-                  />
-                </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{videoFileName.dead}</span>
-              </FileList>
-            </div>
+                )}
 
-            <FileBtnDiv>
-              <FileBtn type="button" onClick={goList}>
-                취소
-              </FileBtn>
-              <FileBtn
-                type="submit"
-                style={{ color: "white", backgroundColor: "#0066FF" }}
-              >
-                제출하기
-              </FileBtn>
-            </FileBtnDiv>
-          </form>
-        </PostWrapper>
-      ) : (
-        <LoadingSpinner />
-      )}
+                {!!videoUrl.squat && (
+                  <video
+                    src={videoUrl.squat}
+                    width={325}
+                    height={175}
+                    name="squat"
+                    onLoadedData={handleLoadedData}
+                    style={{ marginRight: "32px" }}
+                  />
+                )}
+
+                {!!videoUrl.dead && (
+                  <video
+                    src={videoUrl.dead}
+                    width={325}
+                    height={175}
+                    name="dead"
+                    onLoadedData={handleLoadedData}
+                  />
+                )}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <FileList>
+                  <PostLabel>
+                    <img
+                      src={VideoIcon}
+                      style={{ marginRight: "5px" }}
+                      alt="videoicon"
+                    />
+                    벤치프레스 영상
+                    <input
+                      style={{ opacity: "0", width: "1px" }}
+                      type="file"
+                      name="bench"
+                      accept="video/*"
+                      required
+                      onChange={changeVideo}
+                    />
+                  </PostLabel>
+                  <span style={{ margin: "0px 10px" }}>
+                    {videoFileName.bench}
+                  </span>
+                </FileList>
+                <FileList>
+                  <PostLabel>
+                    <img
+                      src={VideoIcon}
+                      style={{ marginRight: "5px" }}
+                      alt="videoicon"
+                    />
+                    데드리프트 영상
+                    <input
+                      style={{ opacity: "0", width: "1px" }}
+                      type="file"
+                      name="squat"
+                      accept="video/*"
+                      required
+                      onChange={changeVideo}
+                    />
+                  </PostLabel>
+                  <span style={{ margin: "0px 10px" }}>
+                    {videoFileName.squat}
+                  </span>
+                </FileList>
+                <FileList>
+                  <PostLabel>
+                    <img
+                      src={VideoIcon}
+                      style={{ marginRight: "5px" }}
+                      alt="videoicon"
+                    />
+                    스쿼트 영상
+                    <input
+                      style={{ opacity: "0", width: "1px" }}
+                      type="file"
+                      name="dead"
+                      accept="video/*"
+                      required
+                      onChange={changeVideo}
+                    />
+                  </PostLabel>
+                  <span style={{ margin: "0px 10px" }}>
+                    {videoFileName.dead}
+                  </span>
+                </FileList>
+              </div>
+
+              <FileBtnDiv>
+                <FileBtn type="button" onClick={goList}>
+                  취소
+                </FileBtn>
+                <FileBtn
+                  type="submit"
+                  style={{ color: "white", backgroundColor: "#0066FF" }}
+                >
+                  제출하기
+                </FileBtn>
+              </FileBtnDiv>
+            </form>
+          </PostWrapper>
+        ) : (
+          <LoadingSpinner />
+        )}
+      </WidthAreaSpace>
     </>
   );
 }

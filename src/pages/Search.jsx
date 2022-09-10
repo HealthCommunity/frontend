@@ -37,36 +37,34 @@ export default function Search() {
   return (
     <>
       <Nav />
-      <WidthAreaSpace>
-        <SearchResultInfo>
-          <SearchSelector>{`${serchOption[state.select]} 검색`}</SearchSelector>
-          <SearchResult>{`'${state.keyword}' 검색 결과 ${itemList.length}건`}</SearchResult>
-        </SearchResultInfo>
-        <BoardItemList>
-          {itemList.map(
-            ({
-              postId,
-              title,
-              createdDate,
-              nickname,
-              view,
-              urls,
-              postCategory,
-            }) => (
-              <Link key={postId} to={`/${postCategory}/${postId}`}>
-                <BoardForm
-                  id={postId}
-                  title={title}
-                  createdDate={createdDate}
-                  nickname={nickname}
-                  view={view}
-                  urls={urls}
-                />
-              </Link>
-            )
-          )}
-        </BoardItemList>
-      </WidthAreaSpace>
+      <SearchResultInfo>
+        <SearchSelector>{`${serchOption[state.select]} 검색`}</SearchSelector>
+        <SearchResult>{`'${state.keyword}' 검색 결과 ${itemList.length}건`}</SearchResult>
+      </SearchResultInfo>
+      <BoardItemList>
+        {itemList.map(
+          ({
+            postId,
+            title,
+            createdDate,
+            nickname,
+            view,
+            urls,
+            postCategory,
+          }) => (
+            <Link key={postId} to={`/${postCategory}/${postId}`}>
+              <BoardForm
+                id={postId}
+                title={title}
+                createdDate={createdDate}
+                nickname={nickname}
+                view={view}
+                urls={urls}
+              />
+            </Link>
+          )
+        )}
+      </BoardItemList>
     </>
   );
 }
@@ -80,19 +78,20 @@ const BoardItemList = styled.ul`
 `;
 
 const SearchResultInfo = styled.div`
-  margin: 50px 0px 48px 0px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const SearchSelector = styled.p`
-  font-style: normal;
+const SearchSelector = styled.div`
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
   color: #888888;
 `;
 
-const SearchResult = styled.p`
-  font-style: normal;
+const SearchResult = styled.div`
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;

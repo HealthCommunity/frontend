@@ -1,18 +1,19 @@
 import {
   BoardTextDiv,
   BoardText,
-  BoardDivBottom,
   SeparataDivLeft,
   BoardDivIcon,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
+  BoardDivBottomItem,
 } from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
 
 export default function BoardForm({
   title,
@@ -48,25 +49,36 @@ export default function BoardForm({
         )}
 
         <BoardTextDiv>
-          <BoardText>{title}</BoardText>
+          <BoardText>
+            {title.length > 15 ? `${title.slice(0, 15)}...` : title}
+          </BoardText>
           {nowday.includes(`${createdDate.slice(0, 10)}`) && (
             <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
         </BoardTextDiv>
       </BoardTitle>
-      <BoardDivBottom>
+      <BoardDivBottomItem>
         <SeparataDivLeft>
           <BoardDivIcon />
-          <BoardDivWrite>{nickname}</BoardDivWrite>
+          <BoardDivWrite>
+            {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
+          </BoardDivWrite>
         </SeparataDivLeft>
         <SeparataDiv>
           <SeparataItem>
             <img src={EyeIcon} alt="eyeicon" />
             <SeparataSpan>{view}</SeparataSpan>
           </SeparataItem>
-          <SeparataItem>{createdDate}</SeparataItem>
+          <SeparataItem>
+            <img
+              src={TiemIcon}
+              alt="tiemicon"
+              style={{ widh: "18px", height: "18px" }}
+            />
+            <SeparataSpan>{createdDate.slice(0, 10)}</SeparataSpan>
+          </SeparataItem>
         </SeparataDiv>
-      </BoardDivBottom>
+      </BoardDivBottomItem>
     </Board>
   );
 }
@@ -80,6 +92,10 @@ const Board = styled.div`
   padding: 12px 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    width: 500px;
+  }
 `;
 
 const BoardTitle = styled.div`
