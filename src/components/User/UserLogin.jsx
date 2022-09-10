@@ -7,7 +7,7 @@ import {
   InputTextGroup,
   TextLabel,
   LinkGroup,
-} from "./LoginLayout";
+} from "./LoginStyle";
 import axios from "axios";
 import Button from "../../share/Button";
 import useUserData from "../../api/useUserData";

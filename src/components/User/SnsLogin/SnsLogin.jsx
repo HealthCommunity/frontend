@@ -1,6 +1,5 @@
 import React from "react";
-
-import { SnsLinkList, SnsLinkItem, LinkItem } from "./SnsLoginStyle";
+import styled from "styled-components";
 
 export function SnsLogin() {
   return (
@@ -23,3 +22,30 @@ export function SnsLogin() {
     </SnsLinkList>
   );
 }
+
+const SnsLinkList = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SnsLinkItem = styled.li`
+  width: 100%;
+`;
+
+const LinkItem = styled.div`
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.basicColrDark22};
+  /* img {
+    width: 100%;
+    height: 70px;
+  } */
+`;

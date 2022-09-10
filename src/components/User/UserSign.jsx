@@ -8,7 +8,7 @@ import {
   TextLabel,
   CheckInput,
   LinkGroup,
-} from "./LoginLayout";
+} from "./LoginStyle";
 import Button from "../../share/Button";
 import {
   checkValidityId,

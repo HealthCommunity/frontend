@@ -13,7 +13,7 @@ import {
   ContentBackgroud,
   ContentContainer,
   LoginContainerArea,
-} from "../components/User/LoginLayout";
+} from "../components/User/LoginStyle";
 
 function Sign() {
   const [selected, setSelected] = useState("emaillogin");

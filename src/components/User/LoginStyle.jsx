@@ -18,29 +18,29 @@ export const ContentContainer = styled.div`
 //타이틀, sns nav, form, 버튼 감싸는 영역
 export const LoginContainerArea = styled.div`
   display: block;
-  width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const UserFormGroup = styled.form`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
+  width: 100%;
   padding: 32px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
 `;
 
 export const InputTextLabel = styled.div`
-  font-weight: 700;
   width: 100%;
   font-size: 16px;
+  font-weight: 700;
   line-height: 24px;
 `;
 
@@ -50,10 +50,6 @@ export const InputTextGroup = styled.div`
 `;
 
 export const TextLabel = styled.label`
-  font-size: ${(props) => props.theme.fontSizeH5};
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #888888;
@@ -61,12 +57,13 @@ export const TextLabel = styled.label`
 `;
 
 export const CheckInput = styled.div`
-  margin: 12px 0 12px 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  input {
+  margin: 12px 0 12px 0;
+  display: flex;
+
+  & input {
     margin: 0 8px 0 0;
   }
 `;
