@@ -58,8 +58,6 @@ function BoardNewWrite() {
       },
     };
 
-    console.log(formData);
-
     setIsPending(true);
     axios
       .post(url, formData, config)
