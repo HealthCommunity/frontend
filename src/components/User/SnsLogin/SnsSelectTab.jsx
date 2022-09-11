@@ -1,6 +1,5 @@
 import React from "react";
-
-import { SelectTabBar, SelectTabItem } from "./SnsLoginStyle";
+import styled from "styled-components";
 
 export function SNSGroup({ children, selected }) {
   const elements = React.Children.toArray(children);
@@ -41,3 +40,25 @@ export function SnsSelectTab({ onChange, typeName, text }) {
     </SelectTabBar>
   );
 }
+
+const SelectTabBar = styled.div`
+  display: flex;
+  margin-top: 28px;
+  width: 100%;
+  margin-bottom: 28px;
+`;
+
+const SelectTabItem = styled.div`
+  flex: 1 1;
+  font-size: ${(props) => props.theme.fontSizeH4};
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: ${(props) => (props.isActive ? 700 : 400)};
+  color: ${(props) => (props.isActive ? "#0066FF" : "#888888")};
+  a {
+    display: block;
+  }
+`;

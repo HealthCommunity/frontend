@@ -7,7 +7,7 @@ import {
   UserFormGroup,
   InputTextLabel,
   InputTextGroup,
-} from "../User/LoginLayout";
+} from "../User/LoginStyle";
 import { ProfileMyinfo } from "./ProfileStyle";
 import Button from "../../share/Button";
 import userLogout from "../../utils/User/userLogout";

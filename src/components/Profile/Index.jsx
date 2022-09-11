@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useUserData from "../../api/useUserData";
 import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
-import BoardFetchItems from "../../components/Board/BoardFetchItems";
+import BoardFetchItems from "../Board/BoardFetchItems";
 import UserPowerChart from "./UserPowerChart";
 import {
   ProfileMyinfo,

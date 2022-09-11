@@ -8,7 +8,7 @@ import {
   TextLabel,
   CheckInput,
   LinkGroup,
-} from "./LoginLayout";
+} from "./LoginStyle";
 import Button from "../../share/Button";
 import {
   checkValidityId,
@@ -56,10 +56,11 @@ export default function UserSign() {
     }
 
     if (
-      checkValidityId(id)[0] &&
-      checkValidityPassword(password)[0] &&
-      checkDoublePassword(password, checkPassword)[0] &&
-      checkValidityNickname(nickname)[0]
+      true
+      // checkValidityId(id)[0] &&
+      // checkValidityPassword(password)[0] &&
+      // checkDoublePassword(password, checkPassword)[0] &&
+      // checkValidityNickname(nickname)[0]
     ) {
       const myData = {
         loginId: id,

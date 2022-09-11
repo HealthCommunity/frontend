@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import SliderSingleMain from "./SliderCore/SliderSingleMain";
-import youtubeData from "./data/youtubeData";
-import healthData from "./data/healthData";
-import commercialData from "./data/commercialData";
+import youtubeData from "../../data/commercial/youtubeData";
+import healthData from "../../data/commercial/healthData";
+import commercialData from "../../data/commercial/commercialData";
 
 const pointColor = {
   exercisepost: css`
