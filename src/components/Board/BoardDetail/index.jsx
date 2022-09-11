@@ -75,6 +75,7 @@ export default function BoardDetail() {
     }
     navigate("edit");
   };
+
   return (
     <>
       {isLoading ? (

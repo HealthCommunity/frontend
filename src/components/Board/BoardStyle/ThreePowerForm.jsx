@@ -1,23 +1,19 @@
+import { useEffect, useState } from "react";
+
+import styled from "styled-components";
 import {
-  BoardDiv,
-  BoardVideoOne,
-  BoardVideoDiv,
-  BoardVideoTwo,
-  BoardVideoThree,
   BoardTextDiv,
   BoardText,
-  BoardDivBottom,
   SeparataDivLeft,
-  BoardDivIcon,
+  BoardProfileImg,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
 } from "./BoardStyle";
+
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
 import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
 
 export default function ThreePowerForm({
@@ -27,6 +23,7 @@ export default function ThreePowerForm({
   nickname,
   view,
   urls,
+  thumbnailUrls,
 }) {
   const [nowday, setNowDay] = useState([]);
   function getToday() {
@@ -47,16 +44,10 @@ export default function ThreePowerForm({
   return (
     <BoardDiv>
       <ReseponseDiv>
-        <BoardVideoOne autoplay>
-          <source src={urls[0]} type="video/mp4" />
-        </BoardVideoOne>
+        <BoardVideoOne src={thumbnailUrls[0]} alt="벤치프레스 썸네일" />
         <BoardVideoDiv>
-          <BoardVideoTwo autoplay>
-            <source src={urls[1]} type="video/mp4" />
-          </BoardVideoTwo>
-          <BoardVideoThree autoplay>
-            <source src={urls[2]} type="video/mp4" />
-          </BoardVideoThree>
+          <BoardVideoTwo src={thumbnailUrls[1]} alt="스쿼트 썸네일" />
+          <BoardVideoThree src={thumbnailUrls[2]} alt="데드리프트 썸네일" />
         </BoardVideoDiv>
       </ReseponseDiv>
       <ReseponseDiv>
@@ -70,7 +61,7 @@ export default function ThreePowerForm({
         </BoardTextDiv>
         <BoardDivBottom>
           <SeparataDivLeft>
-            <BoardDivIcon />
+            <BoardProfileImg />
             <BoardDivWrite>
               {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
             </BoardDivWrite>
@@ -95,9 +86,75 @@ export default function ThreePowerForm({
   );
 }
 
+const BoardDiv = styled.div`
+  width: 325px;
+  height: 346px;
+  padding: 12px 0px;
+  box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+`;
+
 const ReseponseDiv = styled.div`
   @media screen and (max-width: 600px) {
     width: 45%;
     margin: 0 auto;
+  }
+`;
+
+const BoardVideoOne = styled.img`
+  height: 160px;
+  margin: 0px 10px;
+  width: 300px;
+  border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    height: 50%;
+  }
+`;
+
+const BoardVideoDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  margin: 8px 12px;
+  @media screen and (max-width: 600px) {
+    height: 40%;
+  }
+`;
+
+const BoardVideoTwo = styled.img`
+  width: 145px;
+  border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    width: 45%;
+  }
+`;
+
+const BoardVideoThree = styled.img`
+  width: 145px;
+  border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    width: 45%;
+  }
+`;
+
+const BoardDivBottom = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #aaaaaa;
+  margin: 0 auto;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;

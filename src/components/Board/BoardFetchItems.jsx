@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import styled from "styled-components";
-
 import axios from "axios";
+
+import styled from "styled-components";
 
 import BoardItemBox from "./BoardStyle/ThreePowerForm";
 import BoardForm from "./BoardStyle/BoardForm";
@@ -64,6 +64,7 @@ export default function BoardFetchItems({ category = "", center }) {
               view,
               urls,
               postCategory,
+              thumbnailUrls,
             }) => (
               <Link
                 key={`${categoryPath}${postId}`}
@@ -85,6 +86,7 @@ export default function BoardFetchItems({ category = "", center }) {
                       nickname={nickname}
                       view={view}
                       urls={urls}
+                      thumbnailUrls={thumbnailUrls}
                     />
                   ) : (
                     <BoardForm
@@ -108,6 +110,7 @@ export default function BoardFetchItems({ category = "", center }) {
     </>
   );
 }
+
 const BoardItemList = styled.ul`
   box-sizing: border-box;
   display: flex;
