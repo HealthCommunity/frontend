@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import BoardItemBox from "./BoardStyle/ThreePowerForm";
+
 import axios from "axios";
+
+import BoardItemBox from "./BoardStyle/ThreePowerForm";
 import BoardForm from "./BoardStyle/BoardForm";
 import LoadingSpinner from "../Loding/LoadingSpinner";
 
@@ -52,7 +54,7 @@ export default function BoardFetchItems({ category = "", center }) {
   return (
     <>
       {isLoading ? (
-        <BoardItemList style={center && { justifyContent: "center" }}>
+        <BoardItemList>
           {itemList.map(
             ({
               postId,
@@ -98,7 +100,7 @@ export default function BoardFetchItems({ category = "", center }) {
               </Link>
             )
           )}
-          <div ref={target} />
+          <div ref={target} style={{ width: "100%" }} />
         </BoardItemList>
       ) : (
         <LoadingSpinner />
@@ -107,8 +109,10 @@ export default function BoardFetchItems({ category = "", center }) {
   );
 }
 const BoardItemList = styled.ul`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   grid-column-gap: 32px;
   grid-row-gap: 28px;
+  justify-content: center;
 `;

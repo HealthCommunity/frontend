@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ApexCharts from "react-apexcharts";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import BestGoodIcon from "../../../assets/images/main_bset_bl_24.svg";
 
 function setChartOption(threeData) {
   const ChartOptions = {
@@ -27,7 +28,7 @@ function setChartOption(threeData) {
         },
       },
       title: {
-        text: "3대력 TOP 10",
+        text: "ㅤ",
         offsetY: 10,
         offsetX: 10,
         style: {
@@ -60,17 +61,6 @@ function setChartOption(threeData) {
       yaxis: {
         title: {
           text: undefined,
-        },
-        labels: {
-          style: {
-            fontFamily: "GangwonEduPower",
-            fontStyle: "normal",
-            fontWeight: "400",
-            fontSize: "18px",
-            lineHeight: "26px",
-            textAlign: "center",
-            color: "#222222",
-          },
         },
       },
       fill: {
@@ -150,6 +140,10 @@ export default function HomeChart() {
         height="100%"
         type="bar"
       />
+      <TopTitleGroup>
+        <img src={BestGoodIcon} alt="3대력 측정 Top 10"></img>
+        <TopTitleText>3대력 top 10</TopTitleText>
+      </TopTitleGroup>
       <InnerInfo>
         {threeData.map((item, rank) => (
           <InfoGroup key={rank}>
@@ -169,12 +163,23 @@ export default function HomeChart() {
 
 const HomeChartBox = styled.div`
   position: relative;
-  width: 350px;
+  width: 100%;
+  min-width: 350px;
   height: 900px;
   margin: 20px auto;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+
+  @media screen and (max-width: 1440px) {
+    width: 900px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 556px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 400px;
+  }
 `;
 
 const InnerInfo = styled.div`
@@ -193,32 +198,38 @@ const InfoGroup = styled.div`
 `;
 
 const TopRankLabel = styled.span`
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  color: ${(props) => props.theme.reverseFontColor};
+  margin-right: 8px;
+`;
+
+const TopNickLabel = styled.span`
+  font-size: 16px;
+  line-height: 24px;
+  color: ${(props) => props.theme.reverseFontColor};
+  margin-right: 8px;
+`;
+
+const TopPowerLabel = styled.span`
+  font-size: 14px;
+  line-height: 22px;
+  color: #ff7a00;
+  margin-right: 8px;
+`;
+
+const TopTitleGroup = styled.span`
+  position: absolute;
+  left: 28px;
+  top: -4px;
+`;
+const TopTitleText = styled.span`
   font-family: "GangwonEduPower";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  text-align: center;
-  color: #222222;
-  margin-right: 8px;
-`;
-
-const TopNickLabel = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #222222;
-  margin-right: 8px;
-`;
-
-const TopPowerLabel = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-  color: #ff7a00;
-  margin-right: 8px;
+  margin-left: 8px;
+  color: ${(props) => props.theme.reverseFontColor};
 `;

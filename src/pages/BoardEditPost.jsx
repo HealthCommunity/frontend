@@ -24,7 +24,6 @@ export default function BoardEditPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [, setEditData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [isPending, setIsPending] = useState(false);
   const [file, setFile] = useState([]);
   const handleChange = (e) => {
@@ -44,12 +43,11 @@ export default function BoardEditPost() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       const result = await axios(url);
       setEditData(result.data.data);
       setTitle(result.data.data.title);
       setDescription(result.data.data.content);
-      setIsLoading(false);
+      setIsPending(true);
     };
     fetchData();
   }, [url]);
@@ -83,7 +81,7 @@ export default function BoardEditPost() {
     <>
       <Nav />
       <WidthAreaSpace>
-        {isLoading | isPending ? (
+        {isPending ? (
           <PostWrapper>
             <form onSubmit={handleSubmit}>
               <PostTitleTitle
@@ -148,8 +146,6 @@ export default function BoardEditPost() {
               </FileBtnDiv>
             </form>
           </PostWrapper>
-        ) : isPending ? (
-          <LoadingSpinner text={"게시글 업로드중입니다"} />
         ) : (
           <LoadingSpinner />
         )}

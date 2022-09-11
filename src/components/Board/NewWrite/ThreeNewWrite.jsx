@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router";
-import Tiptap from "../../../utils/Editor/Tiptap";
 import { useState } from "react";
-import VideoIcon from "../../../assets/images/board_write_video_24.svg";
+import { useNavigate } from "react-router";
+
 import axios from "axios";
+import Tiptap from "../../../utils/Editor/Tiptap";
+
 import {
   PostWrapper,
   PostTitleTitle,
@@ -12,47 +13,128 @@ import {
   FileBtn,
 } from "./BoardWriteStyle";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 
 export default function ThreeBoardPost() {
   let navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [bench, setBench] = useState("");
-  const [squat, setSquat] = useState("");
-  const [dead, setDead] = useState("");
+
+  /*video 파일 명*/
+  const [videoFileName, setVideoFailName] = useState({
+    bench: "",
+    squat: "",
+    dead: "",
+  });
+
+  /*썸네일 이미지 파일 저장*/
+  const [thumbnail, setThumbnail] = useState({
+    bench: "",
+    squat: "",
+    dead: "",
+  });
+
+  /*썸네일 video 브라우저 URL 저장*/
+  const [videoUrl, setVideoUrl] = useState({
+    bench: "",
+    squat: "",
+    dead: "",
+  });
+
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
+
   const goList = () => {
     navigate("/threepowerpost");
   };
-  const changeBench = (e) => {
-    setBench(e.target.files[0].name);
+
+  //
+  const dataURLtoFile = (dataurl, fileName) => {
+    var arr = dataurl.split(","),
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], fileName, { type: mime });
   };
-  const changeDead = (e) => {
-    setDead(e.target.files[0].name);
+
+  //썸네일 제작을 위한 canvas 변환 함수
+  const handleLoadedData = (e) => {
+    const video = e.target;
+    const videoName = video.getAttribute("name");
+    const canvas = document.createElement("canvas");
+    const emptyCanvas = document.createElement("canvas");
+
+    canvas.getContext("2d").drawImage(video, 0, 0, 300, 200);
+    emptyCanvas
+      .getContext("2d")
+      .drawImage(document.createElement("video"), 0, 0, 300, 200);
+
+    setTimeout(() => {
+      //비디오가 비어있는 경우 다시 handleLoadedData() 호출
+      if (canvas.toDataURL() === emptyCanvas.toDataURL()) {
+        return handleLoadedData(e);
+      }
+
+      setThumbnail({
+        ...thumbnail,
+        [videoName]: dataURLtoFile(canvas.toDataURL(), videoName + "Thum.png"),
+      });
+    });
   };
-  const changeSqaut = (e) => {
-    setSquat(e.target.files[0].name);
+
+  //video 선택 실행
+  const changeVideo = (e) => {
+    const video = e.target;
+    const videoName = video.name;
+    const targetVideoUrl = video.files[0];
+    const FileName = video.files[0].name;
+
+    //video 파일 네임 변경
+    setVideoFailName({
+      ...videoFileName,
+      [videoName]: FileName,
+    });
+
+    //video 파일 URL 변경
+    setVideoUrl({
+      ...videoUrl,
+      [videoName]: URL.createObjectURL(targetVideoUrl),
+    });
   };
+
+  //서버에 게시글 정보, 삼대력 video 파일 전달
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = "/api/threepowerpost";
     let benchFile = e.target.bench.files[0];
     let deadFile = e.target.dead.files[0];
     let squatFile = e.target.squat.files[0];
+
     const formData = new FormData();
+
     formData.append("title", title);
     formData.append("content", description);
     formData.append("bench", benchFile);
     formData.append("squat", squatFile);
     formData.append("dead", deadFile);
+    formData.append("thumbnails", thumbnail.bench);
+    formData.append("thumbnails", thumbnail.squat);
+    formData.append("thumbnails", thumbnail.dead);
+
     const config = {
       headers: {
         "content-type": "multipart/form-data",
       },
     };
+
     setIsPending(true);
     axios
       .post(url, formData, config)
@@ -60,8 +142,10 @@ export default function ThreeBoardPost() {
         if (response.data.status === "0452") {
           setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
+          console.log(formData);
           return;
         }
+        navigate("/threepowerpost");
       })
       .catch((error) =>
         alert(
@@ -84,6 +168,41 @@ export default function ThreeBoardPost() {
               required
             />
             <Tiptap setDescription={setDescription} />
+
+            <div style={{ display: "flex", marginBottom: "16px" }}>
+              {!!videoUrl.bench && (
+                <video
+                  src={videoUrl.bench}
+                  width={325}
+                  height={175}
+                  name="bench"
+                  onLoadedData={handleLoadedData}
+                  style={{ marginRight: "32px" }}
+                />
+              )}
+
+              {!!videoUrl.squat && (
+                <video
+                  src={videoUrl.squat}
+                  width={325}
+                  height={175}
+                  name="squat"
+                  onLoadedData={handleLoadedData}
+                  style={{ marginRight: "32px" }}
+                />
+              )}
+
+              {!!videoUrl.dead && (
+                <video
+                  src={videoUrl.dead}
+                  width={325}
+                  height={175}
+                  name="dead"
+                  onLoadedData={handleLoadedData}
+                />
+              )}
+            </div>
+
             <div style={{ display: "flex", flexDirection: "column" }}>
               <FileList>
                 <PostLabel>
@@ -99,10 +218,12 @@ export default function ThreeBoardPost() {
                     name="bench"
                     accept="video/*"
                     required
-                    onChange={changeBench}
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{bench}</span>
+                <span style={{ margin: "0px 10px" }}>
+                  {videoFileName.bench}
+                </span>
               </FileList>
               <FileList>
                 <PostLabel>
@@ -114,14 +235,16 @@ export default function ThreeBoardPost() {
                   데드리프트 영상
                   <input
                     style={{ opacity: "0", width: "1px" }}
-                    onChange={changeDead}
                     type="file"
                     name="squat"
                     accept="video/*"
                     required
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{dead}</span>
+                <span style={{ margin: "0px 10px" }}>
+                  {videoFileName.squat}
+                </span>
               </FileList>
               <FileList>
                 <PostLabel>
@@ -132,15 +255,15 @@ export default function ThreeBoardPost() {
                   />
                   스쿼트 영상
                   <input
-                    onChange={changeSqaut}
                     style={{ opacity: "0", width: "1px" }}
                     type="file"
                     name="dead"
                     accept="video/*"
                     required
+                    onChange={changeVideo}
                   />
                 </PostLabel>
-                <span style={{ margin: "0px 10px" }}>{squat}</span>
+                <span style={{ margin: "0px 10px" }}>{videoFileName.dead}</span>
               </FileList>
             </div>
 
@@ -156,6 +279,11 @@ export default function ThreeBoardPost() {
               </FileBtn>
             </FileBtnDiv>
           </form>
+          {/* {!!thumbnail.bench && <img src={thumbnail.bench} alt="벤치동영상" />}
+          {!!thumbnail.squat && (
+            <img src={thumbnail.squat} alt="스쿼드동영상" />
+          )}
+          {!!thumbnail.dead && <img src={thumbnail.dead} alt="데드동영상" />} */}
         </PostWrapper>
       ) : (
         <LoadingSpinner text={"게시글을 등록하는 중입니다."} />

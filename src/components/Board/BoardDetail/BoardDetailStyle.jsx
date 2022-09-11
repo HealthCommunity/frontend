@@ -1,6 +1,8 @@
 import styled from "styled-components";
+
 export const InfoDiv = styled.div`
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
 `;
 export const InfoTitleDiv = styled.div`
@@ -10,10 +12,9 @@ export const InfoTitleDiv = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-  font-family: "Pretendard";
   font-weight: 700;
   font-size: 18px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 export const InfoTitleWrite = styled.div`
@@ -43,16 +44,6 @@ export const InfoCommentInputText = styled.input`
   height: 100px;
   font-size: ${(props) => props.theme.fontSizeH2};
   margin: 20px 0px;
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 60vw;
-    height: 25px;
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 60vw;
-    height: 25px;
-  }
 `;
 export const InfoCommentInputSubmit = styled.input`
   display: flex;
@@ -71,18 +62,6 @@ export const InfoCommentInputSubmit = styled.input`
     transform: scale(1.05);
     background-color: ${(props) => props.theme.underLineColor};
     color: ${(props) => props.theme.boxFontHoverColor};
-  }
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 150px;
-    height: 40px;
-    margin: 15px 0px;
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    width: 150px;
-    height: 40px;
-    margin: 15px 0px;
   }
 `;
 
@@ -103,12 +82,4 @@ export const BoardSummary = styled.div`
 export const CommentListitem = styled.div`
   font-size: ${(props) => props.theme.fontSizeH2};
   margin: 20px 0px;
-  @media all and (min-width: 480px) and (max-width: 767px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    margin: 15px 0px;
-  }
-  @media all and (max-width: 479px) {
-    font-size: ${(props) => props.theme.fontSizeH4};
-    margin: 15px 0px;
-  }
 `;

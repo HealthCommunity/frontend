@@ -17,7 +17,7 @@ import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
 import useUserData from "../../../api/useUserData";
 import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
-import WriteIcon from "../../../assets/images/board_write_bl_24.svg";
+import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import { useForm } from "react-hook-form";
 import BoardComment from "./BoardComment";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
@@ -38,7 +38,13 @@ export default function BoardDetail() {
     },
   };
   const onSubmitValid = (data) => {
-    axios.post(`/api/post/${boardData.postId}/comments`, data, config);
+    axios
+      .post(`/api/post/${boardData.postId}/comments`, data, config)
+      .then(
+        (res) =>
+          res.data.status === "200" &&
+          window.location.replace(`/${boardname}/${boardData.postId}`)
+      );
     reset();
   };
   useEffect(() => {
@@ -119,15 +125,8 @@ export default function BoardDetail() {
               )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
-          <BoardComment />
-          <div
-            style={{
-              width: "100%",
-              height: "1px",
-              backgroundColor: "#EEEEEE",
-              margin: "20px 0px",
-            }}
-          />
+          <BoardComment boardname={boardname} />
+
           {!userData ? (
             ""
           ) : (
@@ -152,34 +151,40 @@ export default function BoardDetail() {
           {boardData?.sessionUserResponse?.userId ===
           boardData?.userPostResponse?.userId ? (
             <FileBtnDiv style={{ border: "none" }}>
-              <FileBtn onClick={onDelete}>Delete</FileBtn>
-              <FileBtn onClick={onEdit}>Edit</FileBtn>
+              <FileBtn onClick={onDelete}>게시글 삭제</FileBtn>
+              <FileBtn onClick={onEdit}>게시글 수정</FileBtn>
+              {userData ? (
+                <div style={{ display: "flex" }}>
+                  <Link to={`/${boardname}/write`}>
+                    <FileBtn
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <img
+                        src={WriteIcon}
+                        style={{ marginRight: "5px" }}
+                        alt="writeicon"
+                      />
+                      글쓰기
+                    </FileBtn>
+                  </Link>
+                  <Link to={`/${boardname}`}>
+                    <FileBtn>글목록</FileBtn>
+                  </Link>
+                </div>
+              ) : (
+                ""
+              )}
             </FileBtnDiv>
           ) : (
-            ""
+            <FileBtn style={{ margin: "20px auto" }}>
+              <Link to={`/${boardname}`}>글목록</Link>
+            </FileBtn>
           )}
         </InfoDiv>
-      )}
-      {userData ? (
-        <div style={{ display: "flex" }}>
-          <Link to={`/${boardname}/write`}>
-            <ModalButton>
-              <img
-                src={WriteIcon}
-                style={{ marginRight: "5px" }}
-                alt="writeicon"
-              />
-              글쓰기
-            </ModalButton>
-          </Link>
-          <Link to={`/${boardname}`}>
-            <ModalButton>글목록</ModalButton>
-          </Link>
-        </div>
-      ) : (
-        <Link to={`/${boardname}`}>
-          <ModalButton>글목록</ModalButton>
-        </Link>
       )}
     </>
   );
@@ -188,6 +193,8 @@ export default function BoardDetail() {
 const BoardSession = styled.section`
   flex-wrap: wrap;
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
 `;
 
 const BoardVideo = styled.video`

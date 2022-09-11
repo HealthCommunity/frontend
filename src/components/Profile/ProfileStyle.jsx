@@ -30,7 +30,7 @@ export const MyInfoId = styled.span`
   font-size: 28px;
   line-height: 36px;
   text-align: center;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 export const MyInfoNickname = styled.span`

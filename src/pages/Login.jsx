@@ -13,7 +13,7 @@ import {
   ContentBackgroud,
   ContentContainer,
   LoginContainerArea,
-} from "../components/User/LoginLayout";
+} from "../components/User/LoginStyle";
 
 import { SnsLogin } from "../components/User/SnsLogin/SnsLogin";
 

@@ -1,18 +1,19 @@
 import {
   BoardTextDiv,
   BoardText,
-  BoardDivBottom,
   SeparataDivLeft,
   BoardDivIcon,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
+  BoardDivBottomItem,
 } from "./BoardStyle";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
 
 export default function BoardForm({
   title,
@@ -21,7 +22,7 @@ export default function BoardForm({
   view,
   urls,
 }) {
-  const [day, setDay] = useState([]);
+  const [nowday, setNowDay] = useState([]);
   function getToday() {
     var date = new Date();
     var year = date.getFullYear();
@@ -29,9 +30,11 @@ export default function BoardForm({
     var day = ("0" + date.getDate()).slice(-2);
     const dayList = [];
     for (let i = 0; i < 3; i++) {
-      dayList.push(year + "-" + month + "-" + (day - i));
+      dayList.push(
+        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
+      );
     }
-    setDay(dayList);
+    setNowDay(dayList);
   }
   useEffect(getToday, []);
   return (
@@ -46,52 +49,70 @@ export default function BoardForm({
         )}
 
         <BoardTextDiv>
-          <BoardText>{title}</BoardText>
-          {day.includes(`${createdDate.slice(0, 10)}`) && (
+          <BoardText>
+            {title.length > 15 ? `${title.slice(0, 15)}...` : title}
+          </BoardText>
+          {nowday.includes(`${createdDate.slice(0, 10)}`) && (
             <img src={NewIcon} style={{ margin: "0px 5px" }} alt="newicon" />
           )}
         </BoardTextDiv>
       </BoardTitle>
-      <BoardDivBottom>
+      <BoardDivBottomItem>
         <SeparataDivLeft>
           <BoardDivIcon />
-          <BoardDivWrite>{nickname}</BoardDivWrite>
+          <BoardDivWrite>
+            {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
+          </BoardDivWrite>
         </SeparataDivLeft>
         <SeparataDiv>
           <SeparataItem>
             <img src={EyeIcon} alt="eyeicon" />
             <SeparataSpan>{view}</SeparataSpan>
           </SeparataItem>
-          <SeparataItem>{createdDate}</SeparataItem>
+          <SeparataItem>
+            <img
+              src={TiemIcon}
+              alt="tiemicon"
+              style={{ widh: "18px", height: "18px" }}
+            />
+            <SeparataSpan>{createdDate.slice(0, 10)}</SeparataSpan>
+          </SeparataItem>
         </SeparataDiv>
-      </BoardDivBottom>
+      </BoardDivBottomItem>
     </Board>
   );
 }
 
 const Board = styled.div`
+  box-sizing: border-box;
   width: 325px;
-  height: 150px;
-  background: #ffffff;
-  padding: 10px 0px;
+  height: 136px;
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+  padding: 12px 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+  @media screen and (max-width: 600px) {
+    height: 100%;
+    width: 500px;
+  }
 `;
 
 const BoardTitle = styled.div`
   display: flex;
   align-items: center;
-  margin: 0px 10px 20px 10px;
+  margin-bottom: 21px;
 `;
 
 const BoardImage = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  margin-right: 8px;
+  border-radius: 8px;
 `;
 
 const BoardVideo = styled.video`
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
 `;

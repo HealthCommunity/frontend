@@ -32,5 +32,5 @@ const ItemImg = styled.img`
 const ItemText = styled.div`
   font-size: 14px;
   line-height: 22px;
-  color: #222222;
+  color: ${(props) => props.theme.reverseFontColor};
 `;

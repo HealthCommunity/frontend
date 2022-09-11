@@ -1,40 +1,9 @@
 import React, { useState } from "react";
-import Title from "../utils/Title/Title";
-import Nav from "../components/Navbar/index";
+
 import styled from "styled-components";
 
-const TitleSession = styled.section`
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: 300px;
-`;
-
-const TitleDiv = styled.div`
-  position: fixed;
-  margin: 0 auto;
-  text-align: center;
-  height: auto;
-  width: 100%;
-  font-size: 700px;
-`;
-
-const BoxDiv = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  height: 600px;
-  margin: 0 auto;
-  margin-bottom: 200px;
-  position: relative;
-`;
-
-const BoxItem = styled.div`
-  font-size: 200px;
-  cursor: pointer;
-`;
+import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
 
 export default function Introduce() {
   const [turn, Setturn] = useState(0);
@@ -86,3 +55,36 @@ export default function Introduce() {
     </>
   );
 }
+
+const TitleSession = styled.section`
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 300px;
+`;
+
+const TitleDiv = styled.div`
+  position: fixed;
+  margin: 0 auto;
+  text-align: center;
+  height: auto;
+  width: 100%;
+  font-size: 700px;
+`;
+
+const BoxDiv = styled.div`
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 600px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  position: relative;
+`;
+
+const BoxItem = styled.div`
+  font-size: 200px;
+  cursor: pointer;
+`;

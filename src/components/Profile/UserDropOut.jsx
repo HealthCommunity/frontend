@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Modal from "../Share/Modal";
 
 import axios from "axios";
+
 import userLogout from "../../utils/User/userLogout";
 import useUserData from "../../api/useUserData";
+import Modal from "../../share/Modal";
 
 export default function UserDropOut() {
   const [modalState, setModalState] = useState(false);

@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import SliderSingleMain from "./Slider/SliderSingleMain";
-import youtubeData from "./data/youtubeData";
-import healthData from "./data/healthData";
-import commercialData from "./data/commercialData";
+import SliderSingleMain from "./SliderCore/SliderSingleMain";
+import youtubeData from "../../data/commercial/youtubeData";
+import healthData from "../../data/commercial/healthData";
+import commercialData from "../../data/commercial/commercialData";
 
 const pointColor = {
   exercisepost: css`
@@ -63,6 +63,7 @@ const CategoryCommercialBg = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  min-width: 600px;
   background: linear-gradient(
     to left,
     var(--bg-start-color),
@@ -81,13 +82,20 @@ const SliderBgText = styled.span`
   font-size: 36px;
   line-height: 44px;
   color: #ffffff;
+  @media screen and (max-width: 1440px) {
+    display: none;
+  }
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const SliderContent = styled.div`
   position: absolute;
   top: 20px;
   right: 54px;
-  width: 530px;
+  min-width: 530px;
   height: 226px;
   border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
 `;

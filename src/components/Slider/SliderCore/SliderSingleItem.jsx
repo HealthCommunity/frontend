@@ -17,7 +17,7 @@ function HomeItem({ item }) {
   return (
     <>
       <a href="/">
-        <ItemImg src={item} alt=""></ItemImg>
+        <ItemImg src={item} alt="" />
       </a>
     </>
   );
@@ -67,19 +67,24 @@ const SliderItemInner = styled.li`
 `;
 
 const ItemImg = styled.img`
-  /* width: 100vw; */
   display: flex;
-
   margin: 0 auto;
   height: 450px;
-  object-fit: cover;
+  /* object-fit: scale-down; */
+  @media screen and (max-width: 1440px) {
+    width: 1440px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 1000px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 700px;
+  }
 `;
 
 const ItemInnerWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
 `;
 
 const ThumbnailImg = styled.img`

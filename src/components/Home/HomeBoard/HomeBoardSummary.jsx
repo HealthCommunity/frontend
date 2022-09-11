@@ -28,6 +28,9 @@ const BoardStyle = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   width: 93%;
+  @media screen and (max-width: 1400px) {
+    display: none;
+  }
 `;
 
 const BoardStyleSpan = styled.span`

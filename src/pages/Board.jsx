@@ -1,26 +1,28 @@
-import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
-import Nav from "../components/Navbar/index";
 import { Link } from "react-router-dom";
-import BoardFetchItems from "../components/Board/BoardFetchItems";
-import useUserData from "../api/useUserData";
-import WriteIcon from "../assets/images/board_write_bl_24.svg";
 import styled from "styled-components";
+
+import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
+
 import Title from "../utils/Title/Title";
+import Nav from "../components/Navbar/index";
+import BoardFetchItems from "../components/Board/BoardFetchItems";
 import CategoryCommercial from "../components/Slider/CategoryCommercial";
+import useUserData from "../api/useUserData";
+
+import WriteIcon from "../assets/images/board_write_bl_24.svg";
 
 export default function Board({ props }) {
   const [userData] = useUserData();
+
+  const categoryName = {
+    exercisepost: "3대력게시판",
+    threepowerpost: "운동게시판",
+    freepost: "자유게시판",
+  };
+
   return (
     <>
-      <Title
-        name={
-          props === "threepowerpost"
-            ? "3대력게시판"
-            : props === "exercisepost"
-            ? "운동게시판"
-            : "자유게시판"
-        }
-      />
+      <Title name={categoryName[props]} />
       <Nav />
       <WidthAreaSpace>
         <CategoryCommercial category={props} />
@@ -53,6 +55,7 @@ function GroupItem({ children }) {
 }
 
 export const ModalButton = styled.button`
+  width: 150px;
   height: 48px;
   display: flex;
   margin: 20px 0px;

@@ -57,6 +57,7 @@ function BoardNewWrite() {
         "content-type": "multipart/form-data",
       },
     };
+
     setIsPending(true);
     axios
       .post(url, formData, config)

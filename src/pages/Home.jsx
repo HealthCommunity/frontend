@@ -13,7 +13,7 @@ import {
 } from "../styles/Layout/Layout";
 
 import FavoriteImage from "../assets/images/board_like_bk_32.svg";
-import SliderSingleMain from "../components/Slider/Slider/SliderSingleMain";
+import SliderSingleMain from "../components/Slider/SliderCore/SliderSingleMain";
 import TopPopularPicture from "../components/Slider/TopPopularPicture";
 import slide1 from "../assets/images/main-slide-img01.png";
 import slide2 from "../assets/images/main-slide-img02.png";

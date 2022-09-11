@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const PostWrapper = styled.div`
   max-width: 1040px;
   width: 1024px;
@@ -62,8 +63,4 @@ export const FileBtn = styled.button`
   background-color: transparent;
   text-align: center;
   font-family: "Pretendard";
-  :hover {
-    background-color: #0066ff;
-    cursor: pointer;
-  }
 `;
