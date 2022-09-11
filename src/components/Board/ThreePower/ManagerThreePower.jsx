@@ -103,6 +103,7 @@ const ModalButton = styled.button`
   background-color: transparent;
   text-align: center;
   font-family: "Pretendard";
+  cursor: pointer;
 `;
 
 const ModalForm = styled.form`
