@@ -118,11 +118,6 @@ export default function ThreeBoardPost() {
     let deadFile = e.target.dead.files[0];
     let squatFile = e.target.squat.files[0];
 
-    // let thumbnailFiles = [];
-    // thumbnailFiles.append(thumbnail.bench);
-    // thumbnailFiles.append(thumbnail.squat);
-    // thumbnailFiles.append(thumbnail.dead);
-
     const formData = new FormData();
 
     formData.append("title", title);
@@ -133,10 +128,6 @@ export default function ThreeBoardPost() {
     formData.append("thumbnails", thumbnail.bench);
     formData.append("thumbnails", thumbnail.squat);
     formData.append("thumbnails", thumbnail.dead);
-
-    // console.log("비디오파일비교 벤치", benchFile);
-    // console.log("이미지파일비교 벤치", thumbnail.bench);
-    // console.log(formData);
 
     const config = {
       headers: {
