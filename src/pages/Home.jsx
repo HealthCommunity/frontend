@@ -32,9 +32,11 @@ export default function Home() {
       <Title name="Home" />
       <Nav />
       <CommonContainer>
-        <MainSlide>
-          <SliderSingleMain data={data} categories={"home"} />
-        </MainSlide>
+        <div style={{ backgroundColor: "#222222" }}>
+          <MainSlide>
+            <SliderSingleMain data={data} categories={"home"} />
+          </MainSlide>
+        </div>
         <CommonContentsHome>
           {/* 홈화면 오른쪽 인기사진, 게시판 목록 */}
           <CommonContentsLeft>

@@ -93,10 +93,19 @@ const TabItem = styled.div`
     font-size: 18px;
     margin-right: 20px;
   }
+  @media screen and (max-width: 420px) {
+    font-size: 14px;
+    margin-right: 5px;
+  }
 `;
 
 export const TabItemImage = styled.img`
   width: 30px;
   height: 30px;
   margin-right: 12px;
+  @media screen and (max-width: 420px) {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+  }
 `;

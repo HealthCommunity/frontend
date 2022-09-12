@@ -46,13 +46,15 @@ const SelectTabBar = styled.div`
   margin-top: 28px;
   width: 100%;
   margin-bottom: 28px;
+  @media screen and (max-width: 420px) {
+    margin: 0px 0px 5px 0px;
+  }
 `;
 
 const SelectTabItem = styled.div`
   flex: 1 1;
   font-size: ${(props) => props.theme.fontSizeH4};
   font-weight: 400;
-  font-size: 18px;
   line-height: 26px;
   text-align: center;
   cursor: pointer;

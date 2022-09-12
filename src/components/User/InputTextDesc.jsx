@@ -48,7 +48,10 @@ const Input = styled.input`
   border: 1px solid #eeeeee;
   border-radius: 60px;
   padding-right: 155px;
-
+  @media screen and (max-width: 420px) {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
   :active {
     font-weight: 400;
     font-size: 16px;
@@ -56,6 +59,9 @@ const Input = styled.input`
     color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    @media screen and (max-width: 420px) {
+      font-size: 12px;
+    }
   }
 
   :focus {
@@ -65,6 +71,9 @@ const Input = styled.input`
     color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    @media screen and (max-width: 420px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -76,4 +85,7 @@ const Span = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  @media screen and (max-width: 420px) {
+    font-size: 10px;
+  }
 `;

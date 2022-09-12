@@ -27,6 +27,10 @@ export const NavLogoItem = styled.p`
   width: 150px;
   font-size: 40px;
   white-space: nowrap;
+  @media screen and (max-width: 420px) {
+    font-size: 24px;
+    width: 100px;
+  }
 `;
 
 export const NavBoardDiv = styled.div`
@@ -80,5 +84,8 @@ export const NavItem = styled.div`
     &.pullNav {
       display: none;
     }
+  }
+  @media screen and (max-width: 420px) {
+    padding: 5px;
   }
 `;

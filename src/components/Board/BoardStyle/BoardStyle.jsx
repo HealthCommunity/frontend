@@ -20,6 +20,7 @@ export const BoardText = styled.span`
   line-height: 1.1;
   @media screen and (max-width: 600px) {
     margin: 10px 0px;
+    font-size: 12px;
   }
 `;
 
@@ -44,7 +45,7 @@ export const SeparataDivLeft = styled.div`
   width: 35%;
   align-items: center;
   @media screen and (max-width: 600px) {
-    width: 100%;
+    width: 35%;
   }
 `;
 
@@ -55,7 +56,7 @@ export const SeparataDiv = styled.div`
   margin: 0px 10px;
   font-size: 14px;
   @media screen and (max-width: 600px) {
-    flex-direction: column;
+    width: 60%;
     margin: 20px 0px;
   }
 `;
@@ -66,6 +67,7 @@ export const SeparataItem = styled.div`
   margin: 0px 5px;
   align-items: center;
   @media screen and (max-width: 600px) {
+    width: 100%;
     margin: 5px 0px;
   }
 `;
@@ -74,4 +76,5 @@ export const SeparataSpan = styled.span`
   margin-left: 5px;
   font-style: normal;
   font-size: 14px;
+  width: 100%;
 `;

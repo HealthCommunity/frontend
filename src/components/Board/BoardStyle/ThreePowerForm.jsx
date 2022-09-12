@@ -14,7 +14,7 @@ import {
 
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
+import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
 
 export default function ThreePowerForm({
   id,
@@ -60,26 +60,26 @@ export default function ThreePowerForm({
           )}
         </BoardTextDiv>
         <BoardDivBottom>
-          <SeparataDivLeft>
+          <ThreeSeparateLeftDiv>
             <BoardProfileImg />
             <BoardDivWrite>
               {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
             </BoardDivWrite>
-          </SeparataDivLeft>
-          <SeparataDiv>
-            <SeparataItem>
+          </ThreeSeparateLeftDiv>
+          <ThreeSeparateDiv>
+            <ThreeSeparateView>
               <img src={EyeIcon} alt="eyeicon" />
               <SeparataSpan>{view}</SeparataSpan>
-            </SeparataItem>
-            <SeparataItem>
+            </ThreeSeparateView>
+            <ThreeSeparateCal>
               <img
                 src={TiemIcon}
                 alt="tiemicon"
-                style={{ widh: "18px", height: "18px" }}
+                style={{ width: "18px", height: "18px" }}
               />
               <SeparataSpan>{createdDate.slice(0, 10)}</SeparataSpan>
-            </SeparataItem>
-          </SeparataDiv>
+            </ThreeSeparateCal>
+          </ThreeSeparateDiv>
         </BoardDivBottom>
       </ReseponseDiv>
     </BoardDiv>
@@ -156,5 +156,48 @@ const BoardDivBottom = styled.div`
   @media screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+`;
+
+const ThreeSeparateDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
+  margin: 0px 10px;
+  font-size: 14px;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 20px 0px;
+  }
+`;
+
+const ThreeSeparateLeftDiv = styled.div`
+  display: flex;
+  width: 35%;
+  align-items: center;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+export const ThreeSeparateView = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0px 5px;
+  align-items: center;
+  @media screen and (max-width: 600px) {
+    width: 30%;
+    margin: 5px 0px;
+  }
+`;
+
+export const ThreeSeparateCal = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0px 5px;
+  align-items: center;
+  @media screen and (max-width: 600px) {
+    width: 70%;
+    margin: 5px 0px;
   }
 `;

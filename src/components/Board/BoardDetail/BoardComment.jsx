@@ -19,6 +19,9 @@ const InfoExplanationTitle = styled.div`
   font-size: 24px;
   font-weight: bold;
   margin: 40px 20px;
+  @media screen and (max-width: 420px) {
+    margin: 40px 0px;
+  }
 `;
 
 const Comment = styled.div`
@@ -39,6 +42,13 @@ const CommentBox = styled.div`
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   margin: 0px 20px 20px 20px;
   border-radius: 8px;
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 420px) {
+    width: 95%;
+    margin: 20px 0px;
+  }
 `;
 
 const CommentHeader = styled.div`
@@ -102,7 +112,7 @@ export default function BoardComment({ boardname }) {
     <>
       <div
         style={{
-          width: "100%",
+          width: "90%",
           height: "1px",
           backgroundColor: "#EEEEEE",
           margin: "20px",
