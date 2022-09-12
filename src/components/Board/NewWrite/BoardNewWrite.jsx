@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+
+import axios from "axios";
 import Tiptap from "../../../utils/Editor/Tiptap";
 import "../../../utils/Editor/TiptapStyle.css";
+
 import {
   PostWrapper,
   PostTitleTitle,
@@ -10,22 +13,24 @@ import {
   FileBtnDiv,
   FileBtn,
 } from "./BoardWriteStyle";
-import axios from "axios";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+
 import FileAdd from "../../../assets/images/board_write_picture_24.svg";
 
-function BoardNewWrite() {
-  let navigate = useNavigate();
-  const [ispending, setIsPending] = useState(false);
+export default function BoardNewWrite() {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
+
   const [title, setTitle] = useState("");
   const [file, setFile] = useState([]);
   const [description, setDescription] = useState("");
+  const [ispending, setIsPending] = useState(false);
 
   const goList = () => {
     navigate(`/${boardname}`);
   };
+
   const changeInputFile = (e) => {
     const fileArr = e.target.files;
     const filelist = [];
@@ -35,13 +40,15 @@ function BoardNewWrite() {
     }
     setFile(filelist);
   };
+
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = `/api/${boardname}`;
-    let files = e.target.inputfile.files;
+    const files = e.target.inputfile.files;
     const formData = new FormData();
     formData.append("title", title);
     for (let i = 0; i < files.length; i++) {
@@ -75,6 +82,7 @@ function BoardNewWrite() {
         )
       );
   };
+
   return (
     <>
       {!ispending ? (
@@ -143,5 +151,3 @@ function BoardNewWrite() {
     </>
   );
 }
-
-export default BoardNewWrite;

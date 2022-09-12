@@ -1,18 +1,19 @@
+import { useEffect, useState } from "react";
+
+import styled from "styled-components";
 import {
   BoardTextDiv,
   BoardText,
   SeparataDivLeft,
-  BoardDivIcon,
+  BoardProfileImg,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
-  BoardDivBottomItem,
 } from "./BoardStyle";
+
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
 import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
 
 export default function BoardForm({
@@ -59,7 +60,7 @@ export default function BoardForm({
       </BoardTitle>
       <BoardDivBottomItem>
         <SeparataDivLeft>
-          <BoardDivIcon />
+          <BoardProfileImg />
           <BoardDivWrite>
             {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
           </BoardDivWrite>
@@ -115,4 +116,12 @@ const BoardVideo = styled.video`
   width: 60px;
   height: 60px;
   border-radius: 8px;
+`;
+
+const BoardDivBottomItem = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #aaaaaa;
+  margin: 0 auto;
 `;

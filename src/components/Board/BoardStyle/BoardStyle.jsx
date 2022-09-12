@@ -1,64 +1,12 @@
 import styled from "styled-components";
-export const BoardDiv = styled.div`
-  width: 325px;
-  height: 346px;
-  padding: 10px 0px;
-  box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
-  background-color: ${(props) => props.theme.backGroundColor};
-  color: ${(props) => props.theme.reverseFontColor};
 
-  @media screen and (max-width: 600px) {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-  }
-`;
-
-export const BoardVideoOne = styled.video`
-  height: 160px;
-  margin: 0px 10px;
-  width: 301px;
-  border-radius: 8px;
-  @media screen and (max-width: 600px) {
-    width: 90%;
-    height: 50%;
-  }
-`;
-export const BoardVideoDiv = styled.div`
-  display: flex;
-  height: 100px;
-  margin: 10px 0px;
-  @media screen and (max-width: 600px) {
-    height: 40%;
-  }
-`;
-
-export const BoardVideoTwo = styled.video`
-  width: 146px;
-  margin: 0 auto;
-  border-radius: 8px;
-  @media screen and (max-width: 600px) {
-    width: 45%;
-  }
-`;
-export const BoardVideoThree = styled.video`
-  width: 146px;
-  margin: 0 auto;
-
-  border-radius: 8px;
-  @media screen and (max-width: 600px) {
-    width: 45%;
-  }
-`;
-
+/*삼대력게시글, 운동 다자유 게시글 공통 스타일*/
 export const BoardTextDiv = styled.div`
-  width: 301px;
-  height: 24px;
   display: flex;
   align-items: center;
-  margin: 5px 10px;
+  width: 300px;
+  height: 24px;
+  margin: 5px 12px;
   @media screen and (max-width: 600px) {
     width: 90%;
     margin: 20px 0px;
@@ -75,32 +23,12 @@ export const BoardText = styled.span`
   }
 `;
 
-export const BoardDivBottomItem = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color: #aaaaaa;
-  margin: 0 auto;
-`;
-
-export const BoardDivBottom = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color: #aaaaaa;
-  margin: 0 auto;
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-export const BoardDivIcon = styled.div`
+export const BoardProfileImg = styled.div`
   width: 24px;
   height: 24px;
+  margin: 0px 10px;
   background: #d9d9d9;
   border-radius: 50%;
-  margin: 0px 10px;
   @media screen and (max-width: 600px) {
     margin: 0px 10px 0px 0px;
   }
@@ -122,10 +50,9 @@ export const SeparataDivLeft = styled.div`
 
 export const SeparataDiv = styled.div`
   display: flex;
-  width: 65%;
   justify-content: flex-end;
+  width: 65%;
   margin: 0px 10px;
-  font-weight: 400;
   font-size: 14px;
   @media screen and (max-width: 600px) {
     flex-direction: column;
@@ -134,9 +61,9 @@ export const SeparataDiv = styled.div`
 `;
 
 export const SeparataItem = styled.div`
-  margin: 0px 5px;
   display: flex;
   justify-content: center;
+  margin: 0px 5px;
   align-items: center;
   @media screen and (max-width: 600px) {
     margin: 5px 0px;
@@ -146,6 +73,5 @@ export const SeparataItem = styled.div`
 export const SeparataSpan = styled.span`
   margin-left: 5px;
   font-style: normal;
-  font-weight: 400;
   font-size: 14px;
 `;
