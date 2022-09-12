@@ -266,6 +266,7 @@ const ToggleBtn = styled.button`
   @media screen and (max-width: 600px) {
     display: none;
   }
+  cursor: pointer;
 `;
 const Circle = styled.div`
   background-color: white;

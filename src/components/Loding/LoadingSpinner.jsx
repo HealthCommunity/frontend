@@ -1,10 +1,13 @@
-import styled from "styled-components";
-import Spinner from "../../assets/images/spinner.gif";
+import styled, { keyframes } from "styled-components";
+import Spinner from "../../assets/images/symbol_bl_120.svg";
 
-function LoadingSpinner({ text }) {
+export default function LoadingSpinner({ text }) {
   return (
     <Background>
-      <img src={Spinner} alt="로딩중" width="10%" />
+      <LodingImg>
+        <img src={Spinner} alt="로딩중" />
+      </LodingImg>
+
       <LoadingText>
         {text === undefined ? "잠시만 기다려 주세요." : text}
       </LoadingText>
@@ -12,7 +15,17 @@ function LoadingSpinner({ text }) {
   );
 }
 
-export default LoadingSpinner;
+const animation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(16deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
 
 const Background = styled.div`
   position: absolute;
@@ -28,6 +41,21 @@ const Background = styled.div`
   justify-content: center;
 `;
 
+const LodingImg = styled.div`
+  & img {
+    width: 300px;
+    height: 300px;
+    animation: ${animation} 1.5s linear infinite;
+  }
+`;
+
 const LoadingText = styled.div`
+  margin-top: 16px;
   text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  font-family: "GangwonEduPower";
+  color: #0066ff;
 `;
