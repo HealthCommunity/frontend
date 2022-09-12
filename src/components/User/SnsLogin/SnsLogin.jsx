@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import GoogleIcon from "../../../assets/images/google_logo.svg";
+import NaverIcon from "../../../assets/images/naver_logo.svg";
 
 export function SnsLogin() {
   return (
@@ -7,6 +9,11 @@ export function SnsLogin() {
       <SnsLinkItem>
         <a href="http://health-community.site:8080/oauth2/authorization/naver">
           <LinkItem style={{ backgroundColor: "#63C33D" }}>
+            <img
+              src={NaverIcon}
+              alt="네이버 로그인"
+              style={{ width: "24px", height: "24px", fill: "#ffffff" }}
+            />
             네이버로 시작하기
           </LinkItem>
         </a>
@@ -14,7 +21,14 @@ export function SnsLogin() {
 
       <SnsLinkItem>
         <a href="http://health-community.site:8080/oauth2/authorization/google">
-          <LinkItem style={{ backgroundColor: "#ffffff" }}>
+          <LinkItem
+            style={{ backgroundColor: "#ffffff", border: "1px solid #CCCCCC" }}
+          >
+            <img
+              src={GoogleIcon}
+              alt="구글 로그인"
+              style={{ width: "24px", height: "24px" }}
+            />
             구글로 시작하기
           </LinkItem>
         </a>
@@ -36,16 +50,16 @@ const SnsLinkItem = styled.li`
 `;
 
 const LinkItem = styled.div`
+  position: relative;
   height: 60px;
   margin-bottom: 20px;
   border-radius: 12px;
-  border: 1px solid #cccccc;
   display: flex;
   justify-content: center;
   align-items: center;
   color: ${(props) => props.theme.basicColrDark22};
-  /* img {
-    width: 100%;
-    height: 70px;
-  } */
+  img {
+    position: absolute;
+    left: 20px;
+  }
 `;

@@ -2,9 +2,9 @@ import Title from "../utils/Title/Title";
 import Nav from "../components/Navbar/index";
 import BoardDetail from "../components/Board/BoardDetail";
 import { useLocation, useParams } from "react-router-dom";
-import { WidthAreaSpace } from "../styles/Layout/Layout";
+import styled from "styled-components";
 
-function BoardPost() {
+export default function BoardPost() {
   const { id } = useParams();
   const { pathname } = useLocation();
   const path = pathname.split("/")[1];
@@ -20,11 +20,39 @@ function BoardPost() {
         }
       />
       <Nav />
-      <WidthAreaSpace>
+      <BoardDetailDiv>
         <BoardDetail />
-      </WidthAreaSpace>
+      </BoardDetailDiv>
     </>
   );
 }
 
-export default BoardPost;
+const BoardDetailDiv = styled.section`
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1396px;
+  margin: 0 auto;
+  margin-top: 100px;
+  @media screen and (max-width: 1440px) {
+    width: 1039px; /*아이템 4개*/
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 800px; /*아이템 3개*/
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 420px) {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;

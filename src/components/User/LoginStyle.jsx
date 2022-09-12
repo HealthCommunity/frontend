@@ -13,6 +13,12 @@ export const ContentContainer = styled.div`
   height: 100%;
   margin: 0 auto;
   padding-top: 92px;
+  @media screen and (max-width: 420px) {
+    width: 300px;
+    padding-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 //타이틀, sns nav, form, 버튼 감싸는 영역
@@ -47,6 +53,9 @@ export const InputTextLabel = styled.div`
 export const InputTextGroup = styled.div`
   width: 100%;
   margin-bottom: 14px;
+  @media screen and (max-width: 420px) {
+    margin-bottom: 5px;
+  }
 `;
 
 export const TextLabel = styled.label`
@@ -54,6 +63,9 @@ export const TextLabel = styled.label`
   line-height: 24px;
   color: #888888;
   cursor: pointer;
+  @media screen and (max-width: 420px) {
+    font-size: 12px;
+  }
 `;
 
 export const CheckInput = styled.div`
@@ -70,4 +82,7 @@ export const CheckInput = styled.div`
 
 export const LinkGroup = styled.div`
   margin-top: 24px;
+  @media screen and (max-width: 420px) {
+    margin-top: 10px;
+  }
 `;

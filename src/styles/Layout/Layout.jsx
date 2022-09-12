@@ -62,8 +62,8 @@ export const CommonContentsRight = styled.div`
 /*홈화면 메인 상단 슬라이드*/
 export const MainSlide = styled.div`
   box-sizing: border-box;
-  margin-top: 70px;
-  width: 100%;
+  width: 96%;
+  margin: 70px auto;
   height: 450px;
   background: #222222;
 `;
@@ -73,11 +73,20 @@ export const MainSlide = styled.div`
 export const CommonTitleArea = styled.div`
   /* max-width: 1100px; */
   margin: 30px auto;
+  @media screen and (max-width: 1024px) {
+    margin: 30px 20px;
+  }
+  @media screen and (max-width: 600px) {
+    margin: 30px 20px;
+  }
 `;
 
 export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 420px) {
+    margin: 5px;
+  }
 `;
 
 export const CommonTitleText = styled.div`
@@ -91,7 +100,7 @@ export const CommonTitleText = styled.div`
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaHome = styled.section`
   box-sizing: border-box;
-  width: 100%;
+  width: 90%;
   max-width: 1039px;
   margin: 0 auto;
 `;
@@ -117,6 +126,13 @@ export const WidthAreaSpace = styled.section`
 
   @media screen and (max-width: 600px) {
     width: 400px;
+    display: flex;
+    margin: 0 10px;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 420px) {
+    width: 350px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
   }

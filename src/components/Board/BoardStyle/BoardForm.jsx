@@ -1,19 +1,21 @@
+import { useEffect, useState } from "react";
+
+import styled from "styled-components";
 import {
   BoardTextDiv,
   BoardText,
   SeparataDivLeft,
-  BoardDivIcon,
+  BoardProfileImg,
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
   SeparataItem,
-  BoardDivBottomItem,
 } from "./BoardStyle";
+
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
-import TiemIcon from "../../../assets/icons/free-icon-calendar-2838779.png";
+import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
 
 export default function BoardForm({
   title,
@@ -59,24 +61,24 @@ export default function BoardForm({
       </BoardTitle>
       <BoardDivBottomItem>
         <SeparataDivLeft>
-          <BoardDivIcon />
+          <BoardProfileImg />
           <BoardDivWrite>
             {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
           </BoardDivWrite>
         </SeparataDivLeft>
         <SeparataDiv>
-          <SeparataItem>
+          <ThreeSeparateView>
             <img src={EyeIcon} alt="eyeicon" />
             <SeparataSpan>{view}</SeparataSpan>
-          </SeparataItem>
-          <SeparataItem>
+          </ThreeSeparateView>
+          <ThreeSeparateCal>
             <img
               src={TiemIcon}
               alt="tiemicon"
               style={{ widh: "18px", height: "18px" }}
             />
             <SeparataSpan>{createdDate.slice(0, 10)}</SeparataSpan>
-          </SeparataItem>
+          </ThreeSeparateCal>
         </SeparataDiv>
       </BoardDivBottomItem>
     </Board>
@@ -84,8 +86,7 @@ export default function BoardForm({
 }
 
 const Board = styled.div`
-  box-sizing: border-box;
-  width: 325px;
+  width: 300px;
   height: 136px;
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
@@ -93,8 +94,14 @@ const Board = styled.div`
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
   @media screen and (max-width: 600px) {
-    height: 100%;
-    width: 500px;
+    width: 450px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 420px) {
+    width: 300px;
+    height: 120px;
+    margin: 0 auto;
   }
 `;
 
@@ -102,6 +109,10 @@ const BoardTitle = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 21px;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 `;
 
 const BoardImage = styled.img`
@@ -115,4 +126,12 @@ const BoardVideo = styled.video`
   width: 60px;
   height: 60px;
   border-radius: 8px;
+`;
+
+const BoardDivBottomItem = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #aaaaaa;
+  margin: 0 auto;
 `;

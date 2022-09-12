@@ -74,6 +74,9 @@ const SelectForm = styled.select`
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
+  @media screen and (max-width: 420px) {
+    margin: 0 10px 0 5px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -85,7 +88,6 @@ const SearchInput = styled.input`
   color: ${(props) => props.color};
   font-size: 16px;
   line-height: 24px;
-
   height: 40px;
   border-bottom: 1px solid #eeeeee;
   padding: 0 40px 0 90px;
@@ -93,6 +95,11 @@ const SearchInput = styled.input`
   &:focus {
     outline: none;
     background-color: transparent;
+  }
+  @media screen and (max-width: 420px) {
+    font-size: 12px;
+    width: 60px;
+    padding: 0 50px;
   }
 `;
 

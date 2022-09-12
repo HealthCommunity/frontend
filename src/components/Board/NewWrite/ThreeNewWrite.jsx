@@ -50,7 +50,7 @@ export default function ThreeBoardPost() {
     navigate("/threepowerpost");
   };
 
-  //
+  //base64 인코딩 URL로 된 정보 file 객체로 변경 함수
   const dataURLtoFile = (dataurl, fileName) => {
     var arr = dataurl.split(","),
       mime = arr[0].match(/:(.*?);/)[1],

@@ -101,6 +101,7 @@ export default function UserPowerChart({ PowerData }) {
 
 const ChartsBox = styled.div`
   position: relative;
+  z-index: 1;
 `;
 
 const InnerInfo = styled.div`

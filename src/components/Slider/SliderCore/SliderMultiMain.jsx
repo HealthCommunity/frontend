@@ -89,9 +89,15 @@ const SliderArea = styled.div`
   display: block;
   overflow: hidden;
   width: 100%;
-
+  margin: 0 auto;
   height: 150px;
   z-index: 1;
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 80%;
+  }
 `;
 
 const Slider = styled.div`

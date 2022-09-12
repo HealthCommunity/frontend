@@ -1,26 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const ModalShow = keyframes`
-    from {
-    opacity: 0;
-    margin-top: -50px;
-    }
-    to {
-        opacity: 1;
-        margin-top: 0;
-    }
-`;
-
-const ModalBgShow = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-`;
-
 export default function Modal({
   open,
   close,
@@ -48,6 +28,26 @@ export default function Modal({
     </>
   );
 }
+
+const ModalShow = keyframes`
+    from {
+    opacity: 0;
+    margin-top: -50px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+`;
+
+const ModalBgShow = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`;
 
 const ModalGroup = styled.div`
   box-sizing: border-box;

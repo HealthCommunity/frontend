@@ -54,16 +54,15 @@ export default function CategoryCommercial({ category }) {
 
 const CategoryCommercialWapper = styled.div`
   width: 100%;
+  margin: 0 auto;
   height: 266px;
 `;
 
 const CategoryCommercialBg = styled.div`
   ${(p) => p.backgroundStyle}
-
   position: relative;
   width: 100%;
   height: 100%;
-  min-width: 600px;
   background: linear-gradient(
     to left,
     var(--bg-start-color),
@@ -74,7 +73,7 @@ const CategoryCommercialBg = styled.div`
 
 const SliderBgText = styled.span`
   position: absolute;
-  width: 370px;
+  width: 30%;
   height: 88px;
   left: 36px;
   top: 138px;
@@ -94,8 +93,14 @@ const SliderContent = styled.div`
   position: absolute;
   top: 20px;
   right: 54px;
-  min-width: 530px;
+  width: 60%;
   height: 226px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.2);
+  @media screen and (max-width: 1440px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 85%;
+  }
 `;
