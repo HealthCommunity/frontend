@@ -49,6 +49,9 @@ const ProfileDiv = styled.div`
   width: 100%;
   padding-top: 92px;
   padding-bottom: 20px;
+  @media screen and (max-width: 420px) {
+    padding: 0 auto;
+  }
 `;
 
 const ProfileItem = styled.div`

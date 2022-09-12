@@ -5,7 +5,6 @@ export const NavWrapper = styled.div`
   height: ${(props) => props.height};
   display: flex;
   align-items: center;
-
   top: 0;
   left: 0;
   right: 0;
@@ -28,6 +27,10 @@ export const NavLogoItem = styled.p`
   width: 150px;
   font-size: 40px;
   white-space: nowrap;
+  @media screen and (max-width: 420px) {
+    font-size: 24px;
+    width: 100px;
+  }
 `;
 
 export const NavBoardDiv = styled.div`
@@ -40,9 +43,6 @@ export const NavBoardDiv = styled.div`
   white-space: nowrap;
   font-family: "GangwonEduPower";
   @media screen and (max-width: 1024px) {
-    width: 50%;
-  }
-  @media screen and (max-width: 600px) {
     display: none;
   }
 `;
@@ -54,9 +54,6 @@ export const NavItemSelect = styled.div`
   align-items: center;
   color: ${(props) => props.scroll};
   @media screen and (max-width: 1024px) {
-    width: 45%;
-  }
-  @media screen and (max-width: 600px) {
     width: 100%;
     margin: 0px;
   }
@@ -79,12 +76,7 @@ export const NavItem = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    &.miniNav {
-      display: none;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
+    font-size: ${(props) => props.theme.fontSizeH6};
     &.miniNav {
       display: block;
     }
@@ -92,5 +84,8 @@ export const NavItem = styled.div`
     &.pullNav {
       display: none;
     }
+  }
+  @media screen and (max-width: 420px) {
+    padding: 5px;
   }
 `;

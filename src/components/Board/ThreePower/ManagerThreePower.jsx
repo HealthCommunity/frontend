@@ -98,6 +98,7 @@ export default function PostThreePower({ userId }) {
 const ModalButton = styled.button`
   width: 150px;
   height: 50px;
+  margin: 0 auto;
   border-radius: 40px;
   border: 1px solid #eeeeee;
   background-color: transparent;

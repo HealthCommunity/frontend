@@ -15,7 +15,6 @@ import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
 import useUserData from "../../../api/useUserData";
-import { ModalButton } from "../../../pages/Board";
 import { Link } from "react-router-dom";
 import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import { useForm } from "react-hook-form";
@@ -75,7 +74,6 @@ export default function BoardDetail() {
     }
     navigate("edit");
   };
-
   return (
     <>
       {isLoading ? (
@@ -91,7 +89,7 @@ export default function BoardDetail() {
           </InfoTitleDiv>
           <div
             style={{
-              width: "100%",
+              width: "95%",
               height: "1px",
               backgroundColor: "#EEEEEE",
               margin: "20px",
@@ -110,20 +108,34 @@ export default function BoardDetail() {
             <></>
           )}
           <BoardSession>
-            {boardData.urls &&
-              boardData.urls.map((x) =>
-                x.split("/")[3] === "VIDEO" ? (
-                  <div key={Math.random()}>
-                    <BoardVideo controls>
-                      <source src={x} type="video/mp4" />
-                    </BoardVideo>
-                  </div>
-                ) : (
-                  <div key={Math.random()}>
-                    <BoardImg src={x} />
-                  </div>
+            {boardData.urls && boardname === "threepowerpost"
+              ? boardData.urls.splice(3).map((x) =>
+                  x.split("/")[3] === "VIDEO" ? (
+                    <div key={Math.random()}>
+                      <BoardVideo controls>
+                        <source src={x} type="video/mp4" />
+                      </BoardVideo>
+                    </div>
+                  ) : (
+                    <div key={Math.random()}>
+                      <BoardImg src={x} />
+                    </div>
+                  )
                 )
-              )}
+              : boardData.urls &&
+                boardData.urls.map((x) =>
+                  x.split("/")[3] === "VIDEO" ? (
+                    <div key={Math.random()}>
+                      <BoardVideo controls>
+                        <source src={x} type="video/mp4" />
+                      </BoardVideo>
+                    </div>
+                  ) : (
+                    <div key={Math.random()}>
+                      <BoardImg src={x} />
+                    </div>
+                  )
+                )}
           </BoardSession>
           <BoardSummary>{parser(String(boardData?.content))}</BoardSummary>
           <BoardComment boardname={boardname} />
@@ -203,6 +215,9 @@ const BoardVideo = styled.video`
   height: 250px;
   margin-right: 30px;
   margin-top: 30px;
+  @media screen and (max-width: 420px) {
+    width: 300px;
+  }
 `;
 
 const BoardImg = styled.img`
@@ -210,11 +225,22 @@ const BoardImg = styled.img`
   height: 560px;
   margin-right: 30px;
   margin-top: 30px;
+  @media screen and (max-width: 420px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 const InfoExplanationDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 15px;
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 420px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 `;
 
 export const InfoNickname = styled.div`
@@ -227,7 +253,7 @@ const InfoCommentForm = styled.form`
   flex-wrap: wrap;
   border-radius: 10px;
   margin-bottom: 30px;
-  border: 1px solid rgb(238, 238, 238); ;
+  border: 1px solid rgb(238, 238, 238);
 `;
 const InfoCommentInputText = styled.input`
   margin: 15px;

@@ -78,7 +78,7 @@ const ItemImg = styled.img`
     width: 1000px;
   }
   @media screen and (max-width: 600px) {
-    width: 700px;
+    width: 600px;
   }
 `;
 
@@ -127,7 +127,6 @@ const BoxTopInfo = styled.div`
 `;
 
 const InnerBox = styled.div`
-  width: 450px;
   padding: 40px 60px;
 `;
 

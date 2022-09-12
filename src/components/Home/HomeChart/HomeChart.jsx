@@ -175,10 +175,13 @@ const HomeChartBox = styled.div`
     width: 900px;
   }
   @media screen and (max-width: 1024px) {
-    width: 556px;
+    width: 500px;
   }
   @media screen and (max-width: 600px) {
     width: 400px;
+  }
+  @media screen and (max-width: 420px) {
+    width: 300px;
   }
 `;
 
