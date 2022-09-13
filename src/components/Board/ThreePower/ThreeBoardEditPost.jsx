@@ -1,19 +1,31 @@
-import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../../../utils/Editor/Tiptap";
+// react hook , react
 import { useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+import { useLocation, useNavigate } from "react-router";
 import axios from "axios";
-import Nav from "../../Navbar";
+
+// styled-components , Style Files
 import {
   PostWrapper,
   PostTitleTitle,
   FileBtnDiv,
   FileBtn,
 } from "../NewWrite/BoardWriteStyle";
-import LoadingSpinner from "components/Loding/LoadingSpinner";
 import { FileList, PostLabel } from "components/Board/NewWrite/BoardWriteStyle";
+import { WidthAreaSpace } from "styles/Layout/Layout";
+
+// Components
+import Nav from "../../Navbar";
+import LoadingSpinner from "components/Loding/LoadingSpinner";
+
+// Icons , Images
 import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 
-import { WidthAreaSpace } from "styles/Layout/Layout";
+// Share , Utils
+import Tiptap from "../../../utils/Editor/Tiptap";
 
 export default function ThreeBoardEditPost() {
   const navigate = useNavigate();

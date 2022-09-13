@@ -1,20 +1,28 @@
+// react hook , react
 import { useEffect, useState } from "react";
 
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
 import {
   BoardTextDiv,
   BoardText,
-  SeparataDivLeft,
   BoardProfileImg,
   BoardDivWrite,
   SeparataSpan,
-  SeparataDiv,
-  SeparataItem,
 } from "./BoardStyle";
 
+// Components
+
+// Icons , Images
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+
+// Share , Utils
 
 export default function ThreePowerForm({
   id,

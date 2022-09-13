@@ -1,9 +1,20 @@
+// react hook , react
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useForm } from "react-hook-form";
 
+// recoil ( 상태관리 )
+
+// react library
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 import Modal from "../../../share/Modal";
 
 export default function PostThreePower({ userId }) {

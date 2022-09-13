@@ -1,9 +1,13 @@
+// react hook , react
 import { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { useNavigate } from "react-router";
-
 import axios from "axios";
-import Tiptap from "../../../utils/Editor/Tiptap";
 
+// styled-components , Style Files
 import {
   PostWrapper,
   PostTitleTitle,
@@ -12,8 +16,15 @@ import {
   FileBtnDiv,
   FileBtn,
 } from "./BoardWriteStyle";
+
+// Components
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+
+// Icons , Images
 import VideoIcon from "../../../assets/images/board_write_video_24.svg";
+
+// Share , Utils
+import Tiptap from "../../../utils/Editor/Tiptap";
 
 export default function ThreeBoardPost() {
   let navigate = useNavigate();

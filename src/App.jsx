@@ -1,9 +1,21 @@
-import { useRecoilValue } from "recoil";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { isDarkAtom } from "./atom";
-import Router from "./Router";
-import { darkTheme, lightTheme } from "./theme";
+// react hook , react
 import React from "react";
+// recoil ( 상태관리 )
+
+// react library
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./atom";
+
+// styled-components , Style Files
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "./theme";
+
+// Components
+import Router from "./Router";
+
+// Icons , Images
+
+// Share , Utils
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,

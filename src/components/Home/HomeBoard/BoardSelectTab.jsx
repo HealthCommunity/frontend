@@ -1,11 +1,24 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import ThreeImage from "../../../assets/images/dark_arm.svg";
 import ThreeColorImage from "../../../assets/images/color_arm.svg";
 import ExerciseImage from "../../../assets/images/dark_dumbbell.svg";
 import ExerciseColorImage from "../../../assets/images/color_dumbbell.svg";
 import FreeImage from "../../../assets/images/dark_free.svg";
 import FreeColorImage from "../../../assets/images/color_free.svg";
+
+// Share , Utils
 
 export function BoardSelectTab({ onChange, typeName }) {
   return (

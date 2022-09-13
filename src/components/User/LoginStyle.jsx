@@ -1,3 +1,4 @@
+// styled-components , Style Files
 import styled from "styled-components";
 
 //콘텐츠 가로100, 세로 100, 전체 영역

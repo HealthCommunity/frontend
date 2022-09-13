@@ -1,6 +1,18 @@
+// react hook , react
 import React from "react";
-import BoardFetchItems from "../../Board/BoardFetchItems";
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import { WidthAreaHome } from "../../../styles/Layout/Layout";
+
+// Components
+import BoardFetchItems from "../../Board/BoardFetchItems";
+
+// Icons , Images
+
+// Share , Utils
 
 export default function HomeBoard({ selected }) {
   return (

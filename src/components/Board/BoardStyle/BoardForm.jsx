@@ -1,5 +1,11 @@
+// react hook , react
 import { useEffect, useState } from "react";
 
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
 import {
   BoardTextDiv,
@@ -9,13 +15,17 @@ import {
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
-  SeparataItem,
 } from "./BoardStyle";
+import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
 
+// Components
+
+// Icons , Images
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
-import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
+
+// Share , Utils
 
 export default function BoardForm({
   title,

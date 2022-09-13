@@ -1,22 +1,23 @@
+// react hook , react
 import { useEffect, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { retryLazy } from "utils/lazyUtil";
-import { useRecoilState, useSetRecoilState } from "recoil";
+
+// recoil ( 상태관리 )
+import { useSetRecoilState } from "recoil";
 import { isDarkAtom } from "./atom";
-// import Home from "./pages/Home";
-// import Login from "./pages/Login";
-// import Profile from "./pages/Profile";
-// import Sign from "./pages/Sign";
-// import SearchPage from "./pages/Search";
-// import NotFoundScene from "./pages/NotFoundScene";
-// import BoardEditPost from "./pages/BoardEditPost";
-// import ThreeBoardEditPost from "./pages/ThreeBoardEditPost";
-// import Board from "./pages/Board";
-// import BoardPost from "./pages/BoardPost";
-// import BoardWrite from "./pages/BoardWrite";
-// import Introduce from "./pages/Introduce";
 import useUserData from "./api/useUserData";
+
+// react library
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// styled-components , Style Files
+
+// Components
 import LoadingSpinner from "./components/Loding/LoadingSpinner";
+
+// Icons , Images
+
+// Share , Utils
+import { retryLazy } from "utils/lazyUtil";
 
 const Home = retryLazy(() => import("./pages/Home"));
 const Login = retryLazy(() => import("./pages/Login"));
@@ -42,7 +43,7 @@ export default function Router() {
     if (isDartk) {
       setDarkMode((prev) => !prev);
     }
-  }, []);
+  }, [isDartk]);
 
   //새로고침하여도 사용자 로그인 유지를 위해 사용자 정보 호출
   const [, reFetch] = useUserData();

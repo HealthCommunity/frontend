@@ -1,9 +1,12 @@
+// react hook , react
 import React, { useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
 import useUserData from "../../api/useUserData";
-import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
-import UserModify from "./UserModify";
-import BoardFetchItems from "../Board/BoardFetchItems";
-import UserPowerChart from "./UserPowerChart";
+
+// react library
+
+// styled-components , Style Files
 import {
   ProfileMyinfo,
   ProfileTopWapper,
@@ -13,6 +16,16 @@ import {
   MyInfoIdGroup,
   UserModifyButton,
 } from "./ProfileStyle";
+
+// Components
+import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
+import UserModify from "./UserModify";
+import BoardFetchItems from "../Board/BoardFetchItems";
+import UserPowerChart from "./UserPowerChart";
+
+// Icons , Images
+
+// Share , Utils
 
 export default function ProfileContnet() {
   const [selected, setSelected] = useState("profile");
