@@ -3,7 +3,7 @@ import Nav from "../components/Navbar/index";
 import ProfileContnet from "../components/Profile/Index";
 import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
 
-function Profile() {
+export default function Profile() {
   return (
     <>
       <Title name="Profile" />
@@ -16,5 +16,3 @@ function Profile() {
     </>
   );
 }
-
-export default Profile;

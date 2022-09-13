@@ -60,7 +60,7 @@ a {
 }
 `;
 
-function App() {
+export default function App() {
   const isDark = useRecoilValue(isDarkAtom);
 
   return (
@@ -70,4 +70,3 @@ function App() {
     </ThemeProvider>
   );
 }
-export default App;

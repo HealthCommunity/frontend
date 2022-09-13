@@ -15,7 +15,7 @@ import {
   LoginContainerArea,
 } from "../components/User/LoginStyle";
 
-function Sign() {
+export default function Sign() {
   const [selected, setSelected] = useState("emaillogin");
   return (
     <>
@@ -47,5 +47,3 @@ function Sign() {
     </>
   );
 }
-
-export default Sign;

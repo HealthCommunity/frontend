@@ -33,7 +33,7 @@ const BoardPost = retryLazy(() => import("./pages/BoardPost"));
 const BoardWrite = retryLazy(() => import("./pages/BoardWrite"));
 const Introduce = retryLazy(() => import("./pages/Introduce"));
 
-function Router() {
+export default function Router() {
   const isDartk = localStorage.getItem("dark");
   const setDarkMode = useSetRecoilState(isDarkAtom);
 
@@ -96,4 +96,3 @@ function Router() {
     </BrowserRouter>
   );
 }
-export default Router;

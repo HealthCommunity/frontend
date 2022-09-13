@@ -17,7 +17,7 @@ import {
 
 import { SnsLogin } from "../components/User/SnsLogin/SnsLogin";
 
-function Login() {
+export default function Login() {
   const [selected, setSelected] = useState("emaillogin");
   return (
     <>
@@ -49,5 +49,3 @@ function Login() {
     </>
   );
 }
-
-export default Login;
