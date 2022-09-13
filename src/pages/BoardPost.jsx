@@ -1,8 +1,21 @@
-import Title from "../utils/Title/Title";
+// react hook , react
+import { useLocation, useParams } from "react-router-dom";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
 import Nav from "../components/Navbar/index";
 import BoardDetail from "../components/Board/BoardDetail";
-import { useLocation, useParams } from "react-router-dom";
-import styled from "styled-components";
+
+// Icons , Images
+
+// Share , Utils
+import Title from "../utils/Title/Title";
 
 export default function BoardPost() {
   const { id } = useParams();

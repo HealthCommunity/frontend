@@ -1,8 +1,16 @@
+// react hook , react
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../utils/Editor/Tiptap";
-import "../utils/Editor/TiptapStyle.css";
 import { useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import axios from "axios";
+
+// styled-components , Style Files
+import { WidthAreaSpace } from "../styles/Layout/Layout";
+
+// Components
 import Nav from "../components/Navbar/index";
 import {
   FileBtn,
@@ -12,9 +20,14 @@ import {
   PostWrapper,
   PostTitleTitle,
 } from "../components/Board/NewWrite/BoardWriteStyle";
-import FileAdd from "../assets/images/board_write_picture_24.svg";
 import LoadingSpinner from "components/Loding/LoadingSpinner";
-import { WidthAreaSpace } from "../styles/Layout/Layout";
+
+// Icons , Images
+import FileAdd from "../assets/images/board_write_picture_24.svg";
+
+// Share , Utils
+import Tiptap from "../utils/Editor/Tiptap";
+import "../utils/Editor/TiptapStyle.css";
 
 export default function BoardEditPost() {
   const navigate = useNavigate();

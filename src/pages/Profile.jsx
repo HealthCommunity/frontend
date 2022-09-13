@@ -1,7 +1,20 @@
-import Title from "../utils/Title/Title";
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
+import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
+
+// Components
 import Nav from "../components/Navbar/index";
 import ProfileContnet from "../components/Profile/Index";
-import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
+
+// Icons , Images
+
+// Share , Utils
+import Title from "../utils/Title/Title";
 
 export default function Profile() {
   return (
