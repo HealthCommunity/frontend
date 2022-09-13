@@ -17,7 +17,7 @@ import LoadingSpinner from "components/Loding/LoadingSpinner";
 import { WidthAreaSpace } from "../styles/Layout/Layout";
 
 export default function BoardEditPost() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const boardname = pathname.split("/")[1];
   const url = `/api${pathname}`;
@@ -53,8 +53,8 @@ export default function BoardEditPost() {
   }, [url]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData();
-    let files = e.target.inputfile.files;
+    const formData = new FormData();
+    const files = e.target.inputfile.files;
     formData.append("title", title);
     formData.append("content", description);
     for (let i = 0; i < files.length; i++) {

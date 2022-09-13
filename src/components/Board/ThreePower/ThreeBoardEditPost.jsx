@@ -1,21 +1,22 @@
 import { useLocation, useNavigate } from "react-router";
-import Tiptap from "../utils/Editor/Tiptap";
+import Tiptap from "../../../utils/Editor/Tiptap";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Nav from "../components/Navbar";
+import Nav from "../../Navbar";
 import {
   PostWrapper,
   PostTitleTitle,
   FileBtnDiv,
   FileBtn,
-} from "../components/Board/NewWrite/BoardWriteStyle";
+} from "../NewWrite/BoardWriteStyle";
 import LoadingSpinner from "components/Loding/LoadingSpinner";
 import { FileList, PostLabel } from "components/Board/NewWrite/BoardWriteStyle";
-import VideoIcon from "../assets/images/board_write_video_24.svg";
+import VideoIcon from "../../../assets/images/board_write_video_24.svg";
+
 import { WidthAreaSpace } from "styles/Layout/Layout";
 
 export default function ThreeBoardEditPost() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const url = `/api${pathname}`;
   const [title, setTitle] = useState("");
@@ -53,9 +54,9 @@ export default function ThreeBoardEditPost() {
   }, [url]);
   const handleSubmit = (e) => {
     e.preventDefault();
-    let benchFile = e.target.bench.files[0];
-    let deadFile = e.target.dead.files[0];
-    let squatFile = e.target.squat.files[0];
+    const benchFile = e.target.bench.files[0];
+    const deadFile = e.target.dead.files[0];
+    const squatFile = e.target.squat.files[0];
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", description);
@@ -245,7 +246,6 @@ export default function ThreeBoardEditPost() {
                   </span>
                 </FileList>
               </div>
-
               <FileBtnDiv>
                 <FileBtn type="button" onClick={goList}>
                   취소
