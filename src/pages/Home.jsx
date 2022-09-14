@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 // react library
 
 // styled-components , Style Files
+import styled from "styled-components";
 import {
   CommonContainer,
   CommonContentsHome,
@@ -15,6 +16,7 @@ import {
   CommonTitleArea,
   CommonTitleTGroup,
   CommonTitleText,
+  PeriodText,
 } from "../styles/Layout/Layout";
 
 // Components
@@ -81,9 +83,12 @@ export default function Home() {
                   alt="favorite"
                   style={{ marginRight: "12px" }}
                 />
-                <CommonTitleText>
-                  {`${resultDate} ~ ${nowday} 인기사진리스트`}
-                </CommonTitleText>
+                <FavoriteDiv>
+                  <PeriodText style={{ marginRight: "10px" }}>
+                    {`${resultDate} ~ ${nowday}`}
+                  </PeriodText>
+                  <CommonTitleText>인기사진리스트</CommonTitleText>
+                </FavoriteDiv>
               </CommonTitleTGroup>
             </CommonTitleArea>
             <TopPopularPicture />
@@ -102,3 +107,7 @@ export default function Home() {
     </>
   );
 }
+
+const FavoriteDiv = styled.div`
+  display: flex;
+`;

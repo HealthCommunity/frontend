@@ -19,7 +19,7 @@ export const CommonContainer = styled.div`
 /*홈화면 2단 나누기*/
 export const CommonContentsHome = styled.div`
   width: 100%;
-  max-width: 1900px;
+  max-width: 1440px;
   display: flex;
   margin: 0 auto;
   box-sizing: border-box;
@@ -38,7 +38,7 @@ export const CommonContentsHome = styled.div`
 /* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   box-sizing: border-box;
-  width: 70%;
+  width: 80%;
   order: 1;
   @media screen and (max-width: 1440px) {
     order: 2;
@@ -53,7 +53,7 @@ export const CommonContentsLeft = styled.div`
 export const CommonContentsRight = styled.div`
   box-sizing: border-box;
   order: 2;
-  width: 30%;
+  width: 20%;
   margin: 0 auto;
   @media screen and (max-width: 1440px) {
     order: 1;
@@ -90,7 +90,15 @@ export const CommonTitleArea = styled.div`
 export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  @media screen and (max-width: 1440px) {
+    padding: 0px 100px;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0px 60px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 0px 5px;
+  }
   @media screen and (max-width: 420px) {
     margin: 5px;
   }
@@ -102,6 +110,16 @@ export const CommonTitleText = styled.div`
   letter-spacing: 1px;
   white-space: nowrap;
   font-family: "GangwonEduPower";
+  @media screen and (max-width: 600px) {
+    font-weight: 600;
+    font-size: 16px;
+  }
+`;
+
+export const PeriodText = styled(CommonTitleText)`
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
 `;
 
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/
