@@ -40,7 +40,7 @@ const BoardStyle = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   @media screen and (max-width: 1400px) {
     display: none;
   }
