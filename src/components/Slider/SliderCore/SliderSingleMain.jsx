@@ -1,8 +1,20 @@
+// react hook , react
+import React, { useRef, useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { css } from "styled-components";
+
+// Components
 import SliderSingleItem from "./SliderSingleItem";
 import SliderButton from "./SliderButton";
 
-import React, { useRef, useEffect, useState } from "react";
+// Icons , Images
+
+// Share , Utils
 
 export default function SliderSingleMain({ data, categories }) {
   const [width, setWidth] = useState(0);

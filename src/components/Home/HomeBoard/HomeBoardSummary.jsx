@@ -1,6 +1,19 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+import { Link } from "react-router-dom";
+
+// styled-components , Style Files
 import { CommonTitleArea } from "../../../styles/Layout/Layout";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",

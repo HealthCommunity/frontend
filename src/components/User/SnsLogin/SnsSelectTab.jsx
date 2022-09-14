@@ -1,5 +1,18 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 export function SNSGroup({ children, selected }) {
   const elements = React.Children.toArray(children);

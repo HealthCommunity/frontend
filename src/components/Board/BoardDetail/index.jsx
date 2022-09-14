@@ -1,3 +1,18 @@
+// react hook , react
+import { useEffect } from "react";
+import { useState } from "react";
+
+// recoil ( 상태관리 )
+import useUserData from "../../../api/useUserData";
+
+// react library
+import { useLocation, useNavigate, useParams } from "react-router";
+import parser from "html-react-parser";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+// styled-components , Style Files
 import {
   InfoDiv,
   InfoTitle,
@@ -5,21 +20,19 @@ import {
   InfoTitleWrite,
   BoardSummary,
 } from "./BoardDetailStyle";
-import { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
-import { useEffect } from "react";
-import axios from "axios";
-import parser from "html-react-parser";
-import PostThreePower from "../ThreePower/ManagerThreePower";
-import EyeIcon from "../../../assets/images/common_view_16.svg";
 import styled from "styled-components";
 import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
-import useUserData from "../../../api/useUserData";
-import { Link } from "react-router-dom";
-import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
-import { useForm } from "react-hook-form";
+
+// Components
 import BoardComment from "./BoardComment";
+import PostThreePower from "../ThreePower/ManagerThreePower";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+
+// Icons , Images
+import EyeIcon from "../../../assets/images/common_view_16.svg";
+import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
+
+// Share , Utils
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -272,15 +285,4 @@ const InfoCommentInputSubmit = styled.input`
   margin: 0 10px;
   cursor: pointer;
   background-color: transparent;
-`;
-
-const CommentList = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 100px;
-`;
-
-const CommentListitem = styled.div`
-  font-size: ${(props) => props.theme.fontSizeH2};
-  margin: 20px 0px;
 `;

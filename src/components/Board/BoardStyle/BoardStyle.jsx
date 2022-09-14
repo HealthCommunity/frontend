@@ -1,3 +1,4 @@
+// styled-components , Style Files
 import styled from "styled-components";
 
 /*삼대력게시글, 운동 다자유 게시글 공통 스타일*/

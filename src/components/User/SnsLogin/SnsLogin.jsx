@@ -1,7 +1,20 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import GoogleIcon from "../../../assets/images/google_logo.svg";
 import NaverIcon from "../../../assets/images/naver_logo.svg";
+
+// Share , Utils
 
 export function SnsLogin() {
   return (

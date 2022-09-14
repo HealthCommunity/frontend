@@ -1,5 +1,18 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { css } from "styled-components";
 import ArrowIcon from "../../../assets/images/board_prev.svg";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 export default function SliderButton({ direction, onClick, categories }) {
   return (

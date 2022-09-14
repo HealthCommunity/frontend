@@ -1,10 +1,22 @@
+// react hook , react
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+// recoil ( 상태관리 )
+
+// react library
+import axios from "axios";
+
+// styled-components , Style Files
 import styled from "styled-components";
-import { WidthAreaSpace } from "../styles/Layout/Layout";
+
+// Components
 import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
-import axios from "axios";
+
+// Icons , Images
+
+// Share , Utils
 
 export default function Search() {
   const { state } = useLocation();

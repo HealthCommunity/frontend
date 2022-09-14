@@ -1,5 +1,18 @@
-import styled from "styled-components";
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
 import ApexCharts from "react-apexcharts";
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 function setChartOption() {
   const ChartOptions = {

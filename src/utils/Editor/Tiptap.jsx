@@ -1,3 +1,8 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -8,11 +13,17 @@ import {
   FaListOl,
   FaListUl,
   FaQuoteLeft,
-  FaRedo,
   FaStrikethrough,
   FaUnderline,
-  FaUndo,
 } from "react-icons/fa";
+
+// styled-components , Style Files
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 const MenuBar = ({ editor }) => {
   if (!editor) {

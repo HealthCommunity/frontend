@@ -1,8 +1,20 @@
+// react hook , react
+import React, { useRef, useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
 import SliderMultiItem from "./SliderMultiItem";
 import SliderButton from "./SliderButton";
 
-import React, { useRef, useState } from "react";
+// Icons , Images
+
+// Share , Utils
 
 export default function SliderSingleMain({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장

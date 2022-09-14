@@ -1,10 +1,13 @@
+// react hook , react
 import { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { useLocation, useNavigate } from "react-router";
-
 import axios from "axios";
-import Tiptap from "../../../utils/Editor/Tiptap";
-import "../../../utils/Editor/TiptapStyle.css";
 
+// styled-components , Style Files
 import {
   PostWrapper,
   PostTitleTitle,
@@ -13,9 +16,16 @@ import {
   FileBtnDiv,
   FileBtn,
 } from "./BoardWriteStyle";
+
+// Components
 import LoadingSpinner from "../../Loding/LoadingSpinner";
 
+// Icons , Images
 import FileAdd from "../../../assets/images/board_write_picture_24.svg";
+
+// Share , Utils
+import Tiptap from "../../../utils/Editor/Tiptap";
+import "../../../utils/Editor/TiptapStyle.css";
 
 export default function BoardNewWrite() {
   const navigate = useNavigate();
