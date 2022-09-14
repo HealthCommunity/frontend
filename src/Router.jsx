@@ -43,7 +43,7 @@ export default function Router() {
     if (isDartk) {
       setDarkMode((prev) => !prev);
     }
-  }, [isDartk]);
+  }, [isDartk, setDarkMode]);
 
   //새로고침하여도 사용자 로그인 유지를 위해 사용자 정보 호출
   const [, reFetch] = useUserData();

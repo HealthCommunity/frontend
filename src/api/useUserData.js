@@ -31,7 +31,7 @@ export default function useUserData() {
       .catch((error) => {
         setUserData(null);
       });
-  }, []);
+  }, [setUserData]);
 
   return [userData, reFetch];
 }
