@@ -63,7 +63,7 @@ export default function ThreeBoardPost() {
 
   //base64 인코딩 URL로 된 정보 file 객체로 변경 함수
   const dataURLtoFile = (dataurl, fileName) => {
-    var arr = dataurl.split(","),
+    let arr = dataurl.split(","),
       mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]),
       n = bstr.length,

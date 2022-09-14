@@ -1,5 +1,5 @@
 // react hook , react
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // recoil ( 상태관리 )
 
@@ -38,7 +38,29 @@ import Title from "../utils/Title/Title";
 export default function Home() {
   const data = [slide1, slide2, slide3];
   const [selected, setSelected] = useState("threepowerpost");
+  const [nowday, setNowDay] = useState("");
 
+  function getToday() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = ("0" + (1 + date.getMonth())).slice(-2);
+    let day = ("0" + date.getDate()).slice(-2);
+    setNowDay(`${year}-${month}-${day}`);
+  }
+  let nowDate = new Date();
+  let weekDate = nowDate.getTime() - 7 * 24 * 60 * 60 * 1000;
+  nowDate.setTime(weekDate);
+  let weekYear = nowDate.getFullYear();
+  let weekMonth = nowDate.getMonth() + 1;
+  let weekDay = nowDate.getDate();
+  if (weekMonth < 10) {
+    weekMonth = "0" + weekMonth;
+  }
+  if (weekDay < 10) {
+    weekDay = "0" + weekDay;
+  }
+  let resultDate = weekYear + "-" + weekMonth + "-" + weekDay;
+  useEffect(getToday, []);
   return (
     <>
       <Title name="Home" />
@@ -59,7 +81,9 @@ export default function Home() {
                   alt="favorite"
                   style={{ marginRight: "12px" }}
                 />
-                <CommonTitleText>이번주 인기사진</CommonTitleText>
+                <CommonTitleText>
+                  {`${resultDate} ~ ${nowday} 인기사진리스트`}
+                </CommonTitleText>
               </CommonTitleTGroup>
             </CommonTitleArea>
             <TopPopularPicture />

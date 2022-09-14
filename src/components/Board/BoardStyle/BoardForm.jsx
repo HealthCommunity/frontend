@@ -36,10 +36,10 @@ export default function BoardForm({
 }) {
   const [nowday, setNowDay] = useState([]);
   function getToday() {
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = ("0" + (1 + date.getMonth())).slice(-2);
-    var day = ("0" + date.getDate()).slice(-2);
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = ("0" + (1 + date.getMonth())).slice(-2);
+    let day = ("0" + date.getDate()).slice(-2);
     const dayList = [];
     for (let i = 0; i < 3; i++) {
       dayList.push(
