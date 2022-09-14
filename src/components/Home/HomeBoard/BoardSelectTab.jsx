@@ -91,6 +91,7 @@ export function BoardSelectTab({ onChange, typeName }) {
 
 const TabList = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
 `;
 

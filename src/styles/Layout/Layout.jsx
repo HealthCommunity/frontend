@@ -19,7 +19,7 @@ export const CommonContainer = styled.div`
 /*홈화면 2단 나누기*/
 export const CommonContentsHome = styled.div`
   width: 100%;
-  max-width: 1440px;
+  max-width: 1900px;
   display: flex;
   margin: 0 auto;
   box-sizing: border-box;
@@ -38,9 +38,11 @@ export const CommonContentsHome = styled.div`
 /* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   box-sizing: border-box;
+  width: 70%;
   order: 1;
   @media screen and (max-width: 1440px) {
     order: 2;
+    width: 100%;
   }
   @media screen and (max-width: 600px) {
     order: 2;
@@ -51,9 +53,11 @@ export const CommonContentsLeft = styled.div`
 export const CommonContentsRight = styled.div`
   box-sizing: border-box;
   order: 2;
+  width: 30%;
   margin: 0 auto;
   @media screen and (max-width: 1440px) {
     order: 1;
+    width: 100%;
   }
   @media screen and (max-width: 600px) {
     order: 1;
@@ -74,6 +78,7 @@ export const MainSlide = styled.div`
 export const CommonTitleArea = styled.div`
   /* max-width: 1100px; */
   margin: 30px auto;
+
   @media screen and (max-width: 1024px) {
     margin: 30px 20px;
   }
@@ -85,6 +90,7 @@ export const CommonTitleArea = styled.div`
 export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   @media screen and (max-width: 420px) {
     margin: 5px;
   }
