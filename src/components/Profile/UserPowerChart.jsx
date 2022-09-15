@@ -84,8 +84,8 @@ export default function UserPowerChart({ PowerData }) {
       />
       <InnerInfo>
         <InnerTop>
-          <InfoSumTitle>3대력</InfoSumTitle>
-          <InfoSumValue>{PowerData[3]}</InfoSumValue>
+          <p>3대력</p>
+          <span>{PowerData[3]}</span>
         </InnerTop>
         <InnderBottom>
           <div>
@@ -119,56 +119,50 @@ const ChartsBox = styled.div`
 
 const InnerInfo = styled.div`
   position: absolute;
-  top: 60px;
-  left: 46px;
-  width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  top: 60px;
+  left: 46px;
+  width: 200px;
 `;
 
 const InnerTop = styled.div`
   margin-bottom: 30px;
-`;
 
-const InfoSumTitle = styled.p`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-  text-align: center;
-  color: #888888;
-`;
+  & p {
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #888888;
+  }
 
-const InfoSumValue = styled.p`
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
-  text-align: center;
-  color: ${(props) => props.theme.reverseFontColor};
+  & span {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: ${(props) => props.theme.reverseFontColor};
+  }
 `;
 
 const InnderBottom = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   z-index: 10;
 `;
 
 const InfoPowerTitle = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   text-align: center;
   color: #888888;
 `;
 
-const InfoPowerValue = styled.div`
-  font-family: "Pretendard";
+const InfoPowerValue = styled.p`
   font-style: normal;
   font-weight: 700;
   font-size: 18px;

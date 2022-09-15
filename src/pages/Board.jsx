@@ -7,8 +7,8 @@ import useUserData from "../api/useUserData";
 // react library
 
 // styled-components , Style Files
-import styled from "styled-components";
 import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
+import Button from "../share/Button";
 
 // Components
 import Nav from "../components/Navbar/index";
@@ -20,6 +20,10 @@ import WriteIcon from "../assets/images/board_write_bl_24.svg";
 
 // Share , Utils
 import Title from "../utils/Title/Title";
+
+function GroupItem({ children }) {
+  return <>{children}</>;
+}
 
 export default function Board({ props }) {
   const [userData] = useUserData();
@@ -38,16 +42,16 @@ export default function Board({ props }) {
         <CategoryCommercial category={props} />
         <WidthAreaInner>
           {userData ? (
-            <div style={{ width: "145px" }}>
+            <div style={{ width: "145px", marginBottom: "16px" }}>
               <Link to={"write"}>
-                <ModalButton>
+                <Button size="sm" variant="blueline">
                   <img
                     src={WriteIcon}
                     style={{ marginRight: "5px" }}
                     alt="writeicon"
                   />
                   글쓰기
-                </ModalButton>
+                </Button>
               </Link>
             </div>
           ) : null}
@@ -59,23 +63,3 @@ export default function Board({ props }) {
     </>
   );
 }
-
-function GroupItem({ children }) {
-  return <>{children}</>;
-}
-
-export const ModalButton = styled.button`
-  width: 150px;
-  height: 48px;
-  display: flex;
-  margin: 20px 0px;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 30px;
-  background: #ffffff;
-  margin-right: 10px;
-  color: #0066ff;
-  border: 1px solid #0066ff;
-  border-radius: 48px;
-  cursor: pointer;
-`;

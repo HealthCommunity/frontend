@@ -88,15 +88,15 @@ const ProfileTopWapper = styled.div`
 `;
 
 const ProfileMyinfo = styled.div`
-  box-sizing: border-box;
   width: 470px;
   height: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
 `;
 
 const ProfileMyInfoGroup = styled.div`
-  width: 100%;
   display: flex;
+  width: 100%;
   padding-top: 16px;
 `;
 
@@ -115,13 +115,13 @@ const MyInfoId = styled.span`
 const MyInfoNickname = styled.span`
   font-size: 16px;
   line-height: 24px;
-  color: #888888;
   margin-left: 12px;
+  color: #888888;
 `;
 
 const UserModifyButton = styled.div`
+  margin-top: 10px;
   font-size: 16px;
   line-height: 24px;
-  margin-top: 10px;
   color: #0066ff;
 `;
