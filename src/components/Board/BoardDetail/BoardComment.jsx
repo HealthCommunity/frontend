@@ -124,6 +124,7 @@ const CommentStyle = styled.div`
   border-radius: 6px;
   margin: 10px 20px;
 `;
+
 const InfoExplanationTitle = styled.div`
   font-size: 24px;
   font-weight: bold;
