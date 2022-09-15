@@ -86,6 +86,7 @@ const SelectForm = styled.select`
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
+
   @media screen and (max-width: 420px) {
     margin: 0 10px 0 5px;
   }
@@ -93,21 +94,22 @@ const SelectForm = styled.select`
 
 const SearchInput = styled.input`
   width: 100px;
+  height: 40px;
   border-top: none;
   border-left: none;
   border-right: none;
-  background-color: transparent;
-  color: ${(props) => props.color};
   font-size: 16px;
   line-height: 24px;
-  height: 40px;
   border-bottom: 1px solid #eeeeee;
   padding: 0 40px 0 90px;
+  color: ${(props) => props.color};
+  background-color: transparent;
 
   &:focus {
     outline: none;
     background-color: transparent;
   }
+
   @media screen and (max-width: 420px) {
     font-size: 12px;
     width: 60px;
@@ -119,6 +121,6 @@ const SearchButton = styled.button`
   position: absolute;
   right: 10px;
   border: none;
-  cursor: pointer;
   background-color: transparent;
+  cursor: pointer;
 `;

@@ -176,12 +176,12 @@ export default function HomeChart() {
 const HomeChartBox = styled.div`
   position: relative;
   width: 100%;
-  min-width: 350px;
   height: 900px;
+  min-width: 350px;
   margin: 20px auto;
+  border-radius: 8px;
   font-size: ${(props) => props.theme.fontSizeH1};
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
-  border-radius: 8px;
 
   @media screen and (max-width: 1440px) {
     width: 900px;
@@ -199,11 +199,11 @@ const HomeChartBox = styled.div`
 
 const InnerInfo = styled.div`
   position: absolute;
-  width: 250px;
-  top: 47px; //숫자가 클수록 바에 붙음, 라벨 위치 조정(차트 높이 변경시 마진으로 텍스트 info 위치 조정)
-  left: 37px;
   display: flex;
   flex-direction: column;
+  top: 47px; //숫자가 클수록 바에 붙음, 라벨 위치 조정(차트 높이 변경시 마진으로 텍스트 info 위치 조정)
+  left: 37px;
+  width: 250px;
 `;
 
 const InfoGroup = styled.div`
@@ -221,17 +221,17 @@ const TopRankLabel = styled.span`
 `;
 
 const TopNickLabel = styled.span`
-  font-size: 16px;
-  line-height: 24px;
-  color: ${(props) => props.theme.reverseFontColor};
   margin-right: 8px;
+  line-height: 24px;
+  font-size: 16px;
+  color: ${(props) => props.theme.reverseFontColor};
 `;
 
 const TopPowerLabel = styled.span`
-  font-size: 14px;
-  line-height: 22px;
-  color: #ff7a00;
   margin-right: 8px;
+  line-height: 22px;
+  font-size: 14px;
+  color: #ff7a00;
 `;
 
 const TopTitleGroup = styled.span`

@@ -39,17 +39,15 @@ export default function HomeBoardSummary({ selected }) {
 const BoardStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   width: 90%;
+  margin: 0 auto;
+
   @media screen and (max-width: 1400px) {
     display: none;
   }
 `;
 
 const BoardStyleSpan = styled.span`
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #888888;

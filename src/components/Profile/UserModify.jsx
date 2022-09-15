@@ -15,7 +15,6 @@ import {
   InputTextLabel,
   InputTextGroup,
 } from "../User/LoginStyle";
-import { ProfileMyinfo } from "./ProfileStyle";
 
 // Components
 import InputTextDesc from "../User/InputTextDesc";
@@ -144,4 +143,11 @@ const UserModifyFrom = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const ProfileMyinfo = styled.div`
+  box-sizing: border-box;
+  width: 470px;
+  height: 100%;
+  margin: 0 auto;
 `;
