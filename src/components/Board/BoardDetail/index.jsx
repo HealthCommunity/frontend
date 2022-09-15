@@ -13,13 +13,6 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 // styled-components , Style Files
-import {
-  InfoDiv,
-  InfoTitle,
-  InfoTitleDiv,
-  InfoTitleWrite,
-  BoardSummary,
-} from "./BoardDetailStyle";
 import styled from "styled-components";
 import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
 
@@ -290,4 +283,32 @@ const InfoCommentInputSubmit = styled.input`
   margin: 0 10px;
   background-color: transparent;
   cursor: pointer;
+`;
+
+const InfoDiv = styled.div`
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+`;
+
+const InfoTitleDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+`;
+
+const InfoTitle = styled.div`
+  font-weight: 700;
+  font-size: 18px;
+  color: ${(props) => props.theme.reverseFontColor};
+`;
+
+const InfoTitleWrite = styled.div`
+  color: #9c9c9e;
+  display: flex;
+`;
+
+const BoardSummary = styled.div`
+  width: 90%;
+  margin: 50px 20px;
 `;

@@ -121,6 +121,7 @@ const ModalButton = styled.button`
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;
+
   input {
     box-sizing: border-box;
     text-align: center;
@@ -136,6 +137,7 @@ const ModalForm = styled.form`
     font-size: 16px;
     line-height: 24px;
     margin: 10px 0px;
+
     :focus {
       outline: none;
     }

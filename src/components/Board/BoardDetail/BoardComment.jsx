@@ -126,24 +126,25 @@ const CommentStyle = styled.div`
 `;
 
 const InfoExplanationTitle = styled.div`
+  margin: 40px 20px;
   font-size: 24px;
   font-weight: bold;
-  margin: 40px 20px;
+
   @media screen and (max-width: 420px) {
     margin: 40px 0px;
   }
 `;
 
 const Comment = styled.div`
-  font-size: 18px;
   margin: 10px;
+  font-size: 18px;
   font-weight: 600;
   color: #222222;
 `;
 
 const CommentDate = styled.div`
-  font-size: 14px;
   margin: 10px;
+  font-size: 14px;
   font-weight: 400;
   color: #888888;
 `;
@@ -152,6 +153,7 @@ const CommentBox = styled.div`
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   margin: 0px 20px 20px 20px;
   border-radius: 8px;
+
   @media screen and (max-width: 1024px) {
     width: 90%;
   }
@@ -168,10 +170,10 @@ const CommentHeader = styled.div`
 `;
 
 const CommentInput = styled.input`
+  margin-left: 10px;
   border: none;
   outline: none;
-  background-color: white;
   font-size: 18px;
   font-weight: 700;
-  margin-left: 10px;
+  background-color: white;
 `;
