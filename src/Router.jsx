@@ -61,7 +61,10 @@ export default function Router() {
           <Route path="/sign" element={<Sign />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/introduce" element={<Introduce />} />
-          <Route path="/freepost" element={<Board props={"freepost"} />} />
+          <Route
+            path="/freepost"
+            element={<Board key="freepost" props={"freepost"} />}
+          />
           <Route path="/freepost/:id" element={<BoardPost />} />
           <Route
             path="/freepost/write"
@@ -70,7 +73,7 @@ export default function Router() {
           <Route path="/freepost/:id/edit" element={<BoardEditPost />} />
           <Route
             path="/threepowerpost"
-            element={<Board props={"threepowerpost"} />}
+            element={<Board key="threepowerpost" props={"threepowerpost"} />}
           />
           <Route path="/threepowerpost/:id" element={<BoardPost />} />
           <Route
@@ -83,7 +86,7 @@ export default function Router() {
           />
           <Route
             path="/exercisepost"
-            element={<Board props={"exercisepost"} />}
+            element={<Board key="exercisepost" props={"exercisepost"} />}
           />
           <Route path="/exercisepost/:id" element={<BoardPost />} />
           <Route path="/exercisepost/:id/edit" element={<BoardEditPost />} />
