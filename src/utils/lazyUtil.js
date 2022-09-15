@@ -1,3 +1,4 @@
+// react hook , react
 import { lazy } from "react";
 
 export const retryLazy = (componentImport) =>

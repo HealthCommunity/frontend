@@ -1,5 +1,18 @@
+// react hook , react
 import React, { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 export default function InputDescText({
   defaultValue = "",

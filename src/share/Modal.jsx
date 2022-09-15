@@ -1,4 +1,7 @@
+// react hook , react
 import React from "react";
+
+// styled-components , Style Files
 import styled, { keyframes } from "styled-components";
 
 export default function Modal({

@@ -1,8 +1,20 @@
-import styled from "styled-components";
-import ApexCharts from "react-apexcharts";
+// react hook , react
 import { useState, useEffect } from "react";
+// recoil ( 상태관리 )
+
+// react library
+import ApexCharts from "react-apexcharts";
 import axios from "axios";
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import BestGoodIcon from "../../../assets/images/main_bset_bl_24.svg";
+
+// Share , Utils
 
 function setChartOption(threeData) {
   const ChartOptions = {

@@ -1,3 +1,4 @@
+// styled-components , Style Files
 import styled from "styled-components";
 
 /*네비게이션*/
@@ -37,9 +38,11 @@ export const CommonContentsHome = styled.div`
 /* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   box-sizing: border-box;
+  width: 80%;
   order: 1;
   @media screen and (max-width: 1440px) {
     order: 2;
+    width: 100%;
   }
   @media screen and (max-width: 600px) {
     order: 2;
@@ -50,9 +53,11 @@ export const CommonContentsLeft = styled.div`
 export const CommonContentsRight = styled.div`
   box-sizing: border-box;
   order: 2;
+  width: 20%;
   margin: 0 auto;
   @media screen and (max-width: 1440px) {
     order: 1;
+    width: 100%;
   }
   @media screen and (max-width: 600px) {
     order: 1;
@@ -73,6 +78,7 @@ export const MainSlide = styled.div`
 export const CommonTitleArea = styled.div`
   /* max-width: 1100px; */
   margin: 30px auto;
+
   @media screen and (max-width: 1024px) {
     margin: 30px 20px;
   }
@@ -84,6 +90,15 @@ export const CommonTitleArea = styled.div`
 export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 1440px) {
+    padding: 0px 100px;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0px 60px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 0px 5px;
+  }
   @media screen and (max-width: 420px) {
     margin: 5px;
   }
@@ -95,6 +110,16 @@ export const CommonTitleText = styled.div`
   letter-spacing: 1px;
   white-space: nowrap;
   font-family: "GangwonEduPower";
+  @media screen and (max-width: 600px) {
+    font-weight: 600;
+    font-size: 16px;
+  }
+`;
+
+export const PeriodText = styled(CommonTitleText)`
+  @media screen and (max-width: 750px) {
+    display: none;
+  }
 `;
 
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/

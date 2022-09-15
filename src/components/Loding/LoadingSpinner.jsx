@@ -1,5 +1,18 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { keyframes } from "styled-components";
+
+// Components
+
+// Icons , Images
 import Spinner from "../../assets/images/symbol_bl_120.svg";
+
+// Share , Utils
 
 export default function LoadingSpinner({ text }) {
   return (

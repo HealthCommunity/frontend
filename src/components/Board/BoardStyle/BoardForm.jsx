@@ -1,5 +1,11 @@
+// react hook , react
 import { useEffect, useState } from "react";
 
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
 import {
   BoardTextDiv,
@@ -9,13 +15,17 @@ import {
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
-  SeparataItem,
 } from "./BoardStyle";
+import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
 
+// Components
+
+// Icons , Images
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
-import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
+
+// Share , Utils
 
 export default function BoardForm({
   title,
@@ -26,10 +36,10 @@ export default function BoardForm({
 }) {
   const [nowday, setNowDay] = useState([]);
   function getToday() {
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = ("0" + (1 + date.getMonth())).slice(-2);
-    var day = ("0" + date.getDate()).slice(-2);
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = ("0" + (1 + date.getMonth())).slice(-2);
+    let day = ("0" + date.getDate()).slice(-2);
     const dayList = [];
     for (let i = 0; i < 3; i++) {
       dayList.push(

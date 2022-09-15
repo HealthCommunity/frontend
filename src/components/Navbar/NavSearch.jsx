@@ -1,9 +1,21 @@
+// react hook , react
 import { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import SearchImage from "../../assets/images/common_search_bk_24.svg";
+// Share , Utils
 
 export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
   let navigate = useNavigate();
