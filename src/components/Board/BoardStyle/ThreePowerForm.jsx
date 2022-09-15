@@ -119,8 +119,8 @@ const ReseponseDiv = styled.div`
 `;
 
 const BoardVideoOne = styled.img`
-  height: 160px;
   width: 300px;
+  height: 160px;
   margin: 0px 10px;
   border-radius: 8px;
 

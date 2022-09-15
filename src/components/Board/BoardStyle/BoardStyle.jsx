@@ -18,8 +18,8 @@ export const BoardTextDiv = styled.div`
 export const BoardText = styled.span`
   font-weight: 700;
   font-size: 16px;
-  color: ${(props) => props.theme.reverseFontColor};
   line-height: 1.1;
+  color: ${(props) => props.theme.reverseFontColor};
 
   @media screen and (max-width: 600px) {
     margin: 10px 0px;

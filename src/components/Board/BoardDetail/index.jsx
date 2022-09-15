@@ -243,6 +243,7 @@ const InfoExplanationDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 15px;
+
   @media screen and (max-width: 1024px) {
     width: 90%;
   }
