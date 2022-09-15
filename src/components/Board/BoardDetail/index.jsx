@@ -217,9 +217,9 @@ export default function BoardDetail() {
 }
 
 const BoardSession = styled.section`
-  flex-wrap: wrap;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
 `;
 
@@ -228,6 +228,7 @@ const BoardVideo = styled.video`
   height: 250px;
   margin-right: 30px;
   margin-top: 30px;
+
   @media screen and (max-width: 420px) {
     width: 300px;
   }
@@ -238,11 +239,13 @@ const BoardImg = styled.img`
   height: 560px;
   margin-right: 30px;
   margin-top: 30px;
+
   @media screen and (max-width: 420px) {
     width: 300px;
     height: 300px;
   }
 `;
+
 const InfoExplanationDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -268,21 +271,23 @@ const InfoCommentForm = styled.form`
   margin-bottom: 30px;
   border: 1px solid rgb(238, 238, 238);
 `;
+
 const InfoCommentInputText = styled.input`
-  margin: 15px;
   width: 90%;
-  background-color: #f8f8f8;
+  height: 50px;
+  margin: 15px;
   border-radius: 3px;
   padding: 0px 10px;
-  height: 50px;
   border: none;
   outline: none;
   font-size: 16px;
+  background-color: #f8f8f8;
 `;
+
 const InfoCommentInputSubmit = styled.input`
   border: none;
   outline: none;
   margin: 0 10px;
-  cursor: pointer;
   background-color: transparent;
+  cursor: pointer;
 `;

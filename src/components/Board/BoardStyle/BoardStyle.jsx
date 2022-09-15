@@ -8,6 +8,7 @@ export const BoardTextDiv = styled.div`
   width: 300px;
   height: 24px;
   margin: 5px 12px;
+
   @media screen and (max-width: 600px) {
     width: 90%;
     margin: 20px 0px;
@@ -19,6 +20,7 @@ export const BoardText = styled.span`
   font-size: 16px;
   color: ${(props) => props.theme.reverseFontColor};
   line-height: 1.1;
+
   @media screen and (max-width: 600px) {
     margin: 10px 0px;
     font-size: 12px;
@@ -29,8 +31,9 @@ export const BoardProfileImg = styled.div`
   width: 24px;
   height: 24px;
   margin: 0px 10px;
-  background: #d9d9d9;
   border-radius: 50%;
+  background: #d9d9d9;
+
   @media screen and (max-width: 600px) {
     margin: 0px 10px 0px 0px;
   }
@@ -43,8 +46,9 @@ export const BoardDivWrite = styled.span`
 
 export const SeparataDivLeft = styled.div`
   display: flex;
-  width: 35%;
   align-items: center;
+  width: 35%;
+
   @media screen and (max-width: 600px) {
     width: 35%;
   }
@@ -56,6 +60,7 @@ export const SeparataDiv = styled.div`
   width: 65%;
   margin: 0px 10px;
   font-size: 14px;
+
   @media screen and (max-width: 600px) {
     width: 60%;
     margin: 20px 0px;
@@ -65,8 +70,9 @@ export const SeparataDiv = styled.div`
 export const SeparataItem = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0px 5px;
   align-items: center;
+  margin: 0px 5px;
+
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 5px 0px;
@@ -74,8 +80,8 @@ export const SeparataItem = styled.div`
 `;
 
 export const SeparataSpan = styled.span`
+  width: 100%;
   margin-left: 5px;
   font-style: normal;
   font-size: 14px;
-  width: 100%;
 `;

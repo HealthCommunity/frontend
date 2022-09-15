@@ -25,7 +25,7 @@ import {
 
 // Share , Utils
 
-const MenuBar = ({ editor }) => {
+function MenuBar({ editor }) {
   if (!editor) {
     return null;
   }
@@ -107,9 +107,9 @@ const MenuBar = ({ editor }) => {
       </div>
     </div>
   );
-};
+}
 
-const Tiptap = ({ setDescription, description }) => {
+export default function Tiptap({ setDescription, description }) {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     content: description || "",
@@ -125,6 +125,4 @@ const Tiptap = ({ setDescription, description }) => {
       <EditorContent editor={editor} />
     </div>
   );
-};
-
-export default Tiptap;
+}

@@ -31,34 +31,36 @@ export const InfoExplanationDiv = styled.div`
 
 export const InfoCommentForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
   margin-bottom: 30px;
 `;
 
 export const InfoCommentInputText = styled.input`
-  border-radius: 20px;
-  padding: 20px;
   width: 50vw;
   height: 100px;
-  font-size: ${(props) => props.theme.fontSizeH2};
+  border-radius: 20px;
+  padding: 20px;
   margin: 20px 0px;
+  font-size: ${(props) => props.theme.fontSizeH2};
 `;
+
 export const InfoCommentInputSubmit = styled.input`
   display: flex;
   justify-content: center;
-  font-size: ${(props) => props.theme.fontSizeH2};
-  padding: 1px 6px;
-  margin: 25px 0px 15px 0px;
   align-items: center;
   width: 150px;
   height: 70px;
+  padding: 1px 6px;
+  margin: 25px 0px 15px 0px;
+  font-size: ${(props) => props.theme.fontSizeH2};
   border: 1px solid #dcdde1;
   border-radius: 10px;
-  cursor: pointer;
   background-color: ${(props) => props.theme.bgColor};
+  cursor: pointer;
+
   :hover {
     transform: scale(1.05);
     background-color: ${(props) => props.theme.underLineColor};
@@ -67,11 +69,11 @@ export const InfoCommentInputSubmit = styled.input`
 `;
 
 export const CommentList = styled.div`
-  width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 1000px;
   margin-bottom: 100px;
 `;
 
