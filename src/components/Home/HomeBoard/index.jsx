@@ -14,6 +14,15 @@ import BoardFetchItems from "../../Board/BoardFetchItems";
 
 // Share , Utils
 
+function Group({ children, selected }) {
+  const elements = React.Children.toArray(children);
+  return <>{elements.find(({ props }) => selected === props.category)}</>;
+}
+
+function GroupItem({ children }) {
+  return <>{children}</>;
+}
+
 export default function HomeBoard({ selected }) {
   return (
     <WidthAreaHome>
@@ -30,13 +39,4 @@ export default function HomeBoard({ selected }) {
       </Group>
     </WidthAreaHome>
   );
-}
-
-function Group({ children, selected }) {
-  const elements = React.Children.toArray(children);
-  return <>{elements.find(({ props }) => selected === props.category)}</>;
-}
-
-function GroupItem({ children }) {
-  return <>{children}</>;
 }

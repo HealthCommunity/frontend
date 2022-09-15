@@ -56,9 +56,10 @@ export function SnsSelectTab({ onChange, typeName, text }) {
 
 const SelectTabBar = styled.div`
   display: flex;
-  margin-top: 28px;
   width: 100%;
+  margin-top: 28px;
   margin-bottom: 28px;
+
   @media screen and (max-width: 420px) {
     margin: 0px 0px 5px 0px;
   }
@@ -66,13 +67,14 @@ const SelectTabBar = styled.div`
 
 const SelectTabItem = styled.div`
   flex: 1 1;
-  font-size: ${(props) => props.theme.fontSizeH4};
   font-weight: 400;
   line-height: 26px;
   text-align: center;
-  cursor: pointer;
+  font-size: ${(props) => props.theme.fontSizeH4};
   font-weight: ${(props) => (props.isActive ? 700 : 400)};
+  cursor: pointer;
   color: ${(props) => (props.isActive ? "#0066FF" : "#888888")};
+
   a {
     display: block;
   }

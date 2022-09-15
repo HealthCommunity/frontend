@@ -1,7 +1,7 @@
 // react library
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-function Title({ name }) {
+export default function Title({ name }) {
   return (
     <HelmetProvider>
       <Helmet>
@@ -10,5 +10,3 @@ function Title({ name }) {
     </HelmetProvider>
   );
 }
-
-export default Title;

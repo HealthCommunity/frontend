@@ -51,11 +51,11 @@ export function SnsLogin() {
 }
 
 const SnsLinkList = styled.ul`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const SnsLinkItem = styled.li`
@@ -64,13 +64,14 @@ const SnsLinkItem = styled.li`
 
 const LinkItem = styled.div`
   position: relative;
-  height: 60px;
-  margin-bottom: 20px;
-  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 12px;
   color: ${(props) => props.theme.basicColrDark22};
+
   img {
     position: absolute;
     left: 20px;

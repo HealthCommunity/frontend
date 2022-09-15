@@ -18,7 +18,7 @@ import { FileBtn } from "../components/Board/NewWrite/BoardWriteStyle";
 // Share , Utils
 import Title from "../utils/Title/Title";
 
-function NotFoundScene() {
+export default function NotFoundScene() {
   const { pathname } = useLocation();
   return (
     <>
@@ -42,5 +42,3 @@ const WrongDiv = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export default NotFoundScene;

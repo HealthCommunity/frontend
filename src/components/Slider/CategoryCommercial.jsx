@@ -53,7 +53,7 @@ export default function CategoryCommercial({ category }) {
   return (
     <CategoryCommercialWapper>
       <CategoryCommercialBg backgroundStyle={backgroundStyle}>
-        <SliderBgText>{backgroundText}</SliderBgText>
+        <p>{backgroundText}</p>
         <SliderContent>
           <SliderSingleMain
             data={categoryData[category]}
@@ -82,23 +82,23 @@ const CategoryCommercialBg = styled.div`
     var(--bg-end-color)
   );
   border-radius: 8px;
-`;
 
-const SliderBgText = styled.span`
-  position: absolute;
-  width: 30%;
-  height: 88px;
-  left: 36px;
-  top: 138px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
-  color: #ffffff;
-  @media screen and (max-width: 1440px) {
-    display: none;
-  }
-  @media screen and (max-width: 600px) {
-    display: none;
+  & p {
+    position: absolute;
+    width: 30%;
+    height: 88px;
+    left: 36px;
+    top: 138px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #ffffff;
+    @media screen and (max-width: 1440px) {
+      display: none;
+    }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 

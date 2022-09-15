@@ -90,14 +90,11 @@ const DropOut = styled.div`
 `;
 
 const DropOutButton = styled.p`
-  background-color: transparent;
   border: none;
-  cursor: pointer;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: center;
   color: #888888;
+  background-color: transparent;
+  cursor: pointer;
 `;

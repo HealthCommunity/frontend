@@ -2,12 +2,12 @@
 import styled from "styled-components";
 
 export const PostWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 1040px;
   width: 1024px;
-  color: #333;
-  display: flex;
   margin: 0 auto;
-  flex-direction: column;
+  color: #333;
 `;
 
 export const PostTitleTitle = styled.input`
@@ -17,27 +17,27 @@ export const PostTitleTitle = styled.input`
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: #333;
-  border-bottom: 1px solid #eeeeee;
   margin-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+  color: #333;
   :focus {
     outline: none;
   }
 `;
 
 export const PostLabel = styled.label`
-  border: 1px solid #0066ff;
-  border-radius: 60px;
-  color: #0066ff;
-  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 20px;
+  border: 1px solid #0066ff;
+  border-radius: 60px;
   padding: 15px 30px;
-  font-size: 16px;
   margin-bottom: 5px;
+  font-size: 16px;
   font-weight: bold;
   font-family: "Pretendard";
+  color: #0066ff;
 `;
 
 export const FileList = styled.div`
@@ -58,11 +58,11 @@ export const FileBtnDiv = styled.div`
 export const FileBtn = styled.button`
   width: 100px;
   height: 50px;
-  border-radius: 40px;
   margin: 0px 10px;
+  border-radius: 40px;
   border: 1px solid #eeeeee;
-  background-color: transparent;
   text-align: center;
   font-family: "Pretendard";
+  background-color: transparent;
   cursor: pointer;
 `;

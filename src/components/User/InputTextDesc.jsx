@@ -50,28 +50,30 @@ const Input = styled.input`
   box-sizing: border-box;
   width: 100%;
   height: 50px;
-  color: ${(props) => props.theme.fontColor};
-  padding: 12px 20px;
-  background-color: ${(props) => props.theme.bgColorSub};
   margin-bottom: 2px;
+  border: 1px solid #eeeeee;
+  border-radius: 60px;
+  padding: 12px 20px;
+  padding-right: 155px;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #888888;
-  border: 1px solid #eeeeee;
-  border-radius: 60px;
-  padding-right: 155px;
+  background-color: ${(props) => props.theme.bgColorSub};
+  color: ${(props) => props.theme.fontColor};
+
   @media screen and (max-width: 420px) {
     font-size: 12px;
     padding: 12px 10px;
   }
+
   :active {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    color: ${(props) => props.theme.reverseFontColor};
+
     @media screen and (max-width: 420px) {
       font-size: 12px;
     }
@@ -81,9 +83,10 @@ const Input = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${(props) => props.theme.reverseFontColor};
     outline: none;
     border: 1px solid ${(props) => props.theme.colorPointBlue200};
+    color: ${(props) => props.theme.reverseFontColor};
+
     @media screen and (max-width: 420px) {
       font-size: 12px;
     }
@@ -94,10 +97,11 @@ const Span = styled.span`
   position: absolute;
   right: 20px;
   top: 14px;
-  color: ${(props) => (props.isSuccess ? "#0066FF;" : "#DA0808")};
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  color: ${(props) => (props.isSuccess ? "#0066FF;" : "#DA0808")};
+
   @media screen and (max-width: 420px) {
     font-size: 10px;
   }

@@ -111,9 +111,10 @@ const TabItem = styled.div`
   font-size: 24px;
   margin-right: 50px;
   letter-spacing: 1px;
-  cursor: pointer;
   white-space: nowrap;
   font-family: "GangwonEduPower";
+  cursor: pointer;
+
   @media screen and (max-width: 750px) {
     font-size: 18px;
     margin-right: 20px;
@@ -128,6 +129,7 @@ export const TabItemImage = styled.img`
   width: 30px;
   height: 30px;
   margin-right: 12px;
+
   @media screen and (max-width: 420px) {
     width: 24px;
     height: 24px;

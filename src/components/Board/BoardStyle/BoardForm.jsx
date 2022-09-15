@@ -98,16 +98,18 @@ export default function BoardForm({
 const Board = styled.div`
   width: 300px;
   height: 136px;
-  background-color: ${(props) => props.theme.backGroundColor};
-  color: ${(props) => props.theme.reverseFontColor};
   padding: 12px 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+
   @media screen and (max-width: 600px) {
     width: 450px;
     height: 120px;
     margin: 0 auto;
   }
+
   @media screen and (max-width: 420px) {
     width: 300px;
     height: 120px;
@@ -119,6 +121,7 @@ const BoardTitle = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 21px;
+
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 0 auto;
@@ -142,6 +145,6 @@ const BoardDivBottomItem = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  color: #aaaaaa;
   margin: 0 auto;
+  color: #aaaaaa;
 `;

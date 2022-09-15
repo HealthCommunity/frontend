@@ -62,22 +62,21 @@ const ProfileDiv = styled.div`
   width: 100%;
   padding-top: 92px;
   padding-bottom: 20px;
+
   @media screen and (max-width: 420px) {
     padding: 0 auto;
   }
 `;
 
 const ProfileItem = styled.div`
-  cursor: pointer;
-  font-family: "Pretendard";
-  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   text-align: center;
-  color: #0066ff;
   color: ${(props) =>
     props.isActive ? "#0066FF" : props.theme.colorFontGrey100};
+  cursor: pointer;
+
   a {
     display: block;
   }
