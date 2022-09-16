@@ -266,7 +266,7 @@ export default function ThreeBoardEditPost() {
                   type="submit"
                   style={{ color: "white", backgroundColor: "#0066FF" }}
                 >
-                  제출하기
+                  수정하기
                 </FileBtn>
               </FileBtnDiv>
             </form>

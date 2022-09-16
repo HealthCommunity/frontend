@@ -150,7 +150,7 @@ export default function BoardNewWrite() {
                 type="submit"
                 style={{ color: "white", backgroundColor: "#0066FF" }}
               >
-                제출하기
+                등록하기
               </FileBtn>
             </FileBtnDiv>
           </form>
