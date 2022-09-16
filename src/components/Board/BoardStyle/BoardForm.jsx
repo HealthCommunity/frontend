@@ -26,6 +26,7 @@ import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
 
 // Share , Utils
+import getToday from "utils/getToday";
 
 export default function BoardForm({
   title,
@@ -35,20 +36,9 @@ export default function BoardForm({
   urls,
 }) {
   const [nowday, setNowDay] = useState([]);
-  function getToday() {
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = ("0" + (1 + date.getMonth())).slice(-2);
-    let day = ("0" + date.getDate()).slice(-2);
-    const dayList = [];
-    for (let i = 0; i < 3; i++) {
-      dayList.push(
-        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
-      );
-    }
-    setNowDay(dayList);
-  }
-  useEffect(getToday, []);
+  useEffect(() => {
+    setNowDay(getToday());
+  }, []);
   return (
     <Board>
       <BoardTitle>
