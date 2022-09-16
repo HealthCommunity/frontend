@@ -52,14 +52,7 @@ export default function BoardForm({
   return (
     <Board>
       <BoardTitle>
-        {urls[0].split("/")[3] === "IMAGE" ? (
-          <BoardImage src={urls[0]} />
-        ) : (
-          <BoardVideo autoplay>
-            <source src={urls[0]} type="video/mp4" />
-          </BoardVideo>
-        )}
-
+        <BoardImage src={urls[0]} />
         <BoardTextDiv>
           <BoardText>
             {title.length > 15 ? `${title.slice(0, 15)}...` : title}
@@ -103,7 +96,16 @@ const Board = styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
-
+  @media screen and (max-width: 1178px) {
+    width: 450px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 550px;
+    height: 200px;
+    margin: 0 auto;
+  }
   @media screen and (max-width: 600px) {
     width: 450px;
     height: 120px;
@@ -121,7 +123,6 @@ const BoardTitle = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 21px;
-
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 0 auto;
@@ -133,6 +134,16 @@ const BoardImage = styled.img`
   height: 60px;
   margin-right: 8px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 250px;
+    height: 150px;
+    margin: 0 auto;
+  }
 `;
 
 const BoardVideo = styled.video`
