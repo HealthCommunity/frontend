@@ -22,6 +22,7 @@ import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 // Icons , Images
 import VideoIcon from "../../../assets/images/board_write_video_24.svg";
+import VideoWhiteIcon from "../../../assets/images/board_write_video_wh_24.png";
 
 // Share , Utils
 import Tiptap from "../../../utils/Editor/Tiptap";
@@ -153,7 +154,6 @@ export default function ThreeBoardPost() {
         if (response.data.status === "0452") {
           setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
-          console.log(formData);
           return;
         }
         navigate("/threepowerpost");
