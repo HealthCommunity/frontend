@@ -22,7 +22,6 @@ import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 // Icons , Images
 import VideoIcon from "../../../assets/images/board_write_video_24.svg";
-import VideoWhiteIcon from "../../../assets/images/board_write_video_wh_24.png";
 
 // Share , Utils
 import Tiptap from "../../../utils/Editor/Tiptap";

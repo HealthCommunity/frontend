@@ -145,13 +145,6 @@ const BoardImage = styled.img`
     margin: 0 auto;
   }
 `;
-
-const BoardVideo = styled.video`
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-`;
-
 const BoardDivBottomItem = styled.div`
   display: flex;
   align-items: center;

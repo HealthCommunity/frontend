@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 
 // styled-components , Style Files
 import styled from "styled-components";
-import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
+import { FileBtn } from "../NewWrite/BoardWriteStyle";
 
 // Components
 import BoardComment from "./BoardComment";
@@ -23,7 +23,6 @@ import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 // Icons , Images
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import WriteColorIcon from "../../../assets/images/board_write_bl_24.svg";
 
 // Share , Utils

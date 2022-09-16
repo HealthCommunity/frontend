@@ -6,7 +6,6 @@ import React, { useState } from "react";
 // react library
 
 // styled-components , Style Files
-import styled from "styled-components";
 import {
   CommonContainer,
   CommonContentsHome,
@@ -16,7 +15,6 @@ import {
   CommonTitleArea,
   CommonTitleTGroup,
   CommonTitleText,
-  PeriodText,
 } from "../styles/Layout/Layout";
 
 // Components
