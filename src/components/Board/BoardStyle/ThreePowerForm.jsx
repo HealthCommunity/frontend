@@ -21,6 +21,7 @@ import {
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+import Profile from "../../../assets/images/common_mypage_gr.svg";
 
 // Share , Utils
 
@@ -69,7 +70,13 @@ export default function ThreePowerForm({
         </BoardTextDiv>
         <BoardDivBottom>
           <ThreeSeparateLeftDiv>
-            <BoardProfileImg />
+            <BoardProfileImg>
+              <img
+                src={Profile}
+                alt="profile"
+                style={{ widh: "18px", height: "18px" }}
+              />
+            </BoardProfileImg>
             <BoardDivWrite>
               {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
             </BoardDivWrite>
@@ -189,7 +196,7 @@ const ThreeSeparateLeftDiv = styled.div`
   display: flex;
   align-items: center;
   width: 35%;
-
+  margin-left: 12px;
   @media screen and (max-width: 600px) {
     width: 100%;
   }
