@@ -69,6 +69,11 @@ const CategoryCommercialWapper = styled.div`
   width: 100%;
   margin: 0 auto;
   height: 266px;
+
+  //600px이하인 경우 광고 제거
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const CategoryCommercialBg = styled.div`
@@ -93,6 +98,8 @@ const CategoryCommercialBg = styled.div`
     font-size: 36px;
     line-height: 44px;
     color: #ffffff;
+    background-color: tomato;
+
     @media screen and (max-width: 1440px) {
       display: none;
     }
@@ -115,5 +122,8 @@ const SliderContent = styled.div`
   }
   @media screen and (max-width: 600px) {
     width: 85%;
+  }
+  @media screen and (max-width: 420px) {
+    display: none;
   }
 `;
