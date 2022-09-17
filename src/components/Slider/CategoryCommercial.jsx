@@ -37,7 +37,7 @@ const pointColor = {
 const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
-  freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
+  freepost: "다른 사람과 자유 이야기를 나눠보세요",
 };
 
 const categoryData = {
@@ -90,7 +90,7 @@ const CategoryCommercialBg = styled.div`
 
   & p {
     position: absolute;
-    width: 30%;
+    width: 28%;
     height: 88px;
     left: 36px;
     top: 138px;
@@ -98,7 +98,6 @@ const CategoryCommercialBg = styled.div`
     font-size: 36px;
     line-height: 44px;
     color: #ffffff;
-    background-color: tomato;
 
     @media screen and (max-width: 1440px) {
       display: none;
