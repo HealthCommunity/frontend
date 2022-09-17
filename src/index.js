@@ -9,7 +9,6 @@ import { RecoilRoot } from "recoil";
 import ReactDOM from "react-dom/client";
 
 // styled-components , Style Files
-import GlobalStyle from "./GlobalStyle";
 
 // Components
 
