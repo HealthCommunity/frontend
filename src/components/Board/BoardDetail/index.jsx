@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 
 // styled-components , Style Files
 import styled from "styled-components";
-import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
+import { FileBtn } from "../NewWrite/BoardWriteStyle";
 
 // Components
 import BoardComment from "./BoardComment";
@@ -23,7 +23,7 @@ import LoadingSpinner from "../../Loding/LoadingSpinner";
 
 // Icons , Images
 import EyeIcon from "../../../assets/images/common_view_16.svg";
-import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
+import WriteColorIcon from "../../../assets/images/board_write_bl_24.svg";
 
 // Share , Utils
 
@@ -105,7 +105,36 @@ export default function BoardDetail() {
             <InfoTitleWrite>
               {boardData?.userPostResponse?.nickName}
             </InfoTitleWrite>
-            <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
+            <div style={{ display: "flex" }}>
+              {boardData?.sessionUserResponse?.userId ===
+              boardData?.userPostResponse?.userId ? (
+                <div style={{ display: "flex", marginRight: "10px" }}>
+                  <div
+                    style={{
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      color: "#9c9c9e",
+                    }}
+                    onClick={onDelete}
+                  >
+                    삭제
+                  </div>
+                  <div
+                    style={{
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      color: "#9c9c9e",
+                    }}
+                    onClick={onEdit}
+                  >
+                    수정
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              <InfoTitleWrite>{`${boardData?.createdDate} `}</InfoTitleWrite>
+            </div>
           </InfoTitleDiv>
           {(boardname === "threepowerpost") &
           (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
@@ -167,39 +196,32 @@ export default function BoardDetail() {
               </InfoCommentForm>
             </InfoExplanationDiv>
           )}
-          {boardData?.sessionUserResponse?.userId ===
-          boardData?.userPostResponse?.userId ? (
-            <FileBtnDiv style={{ border: "none" }}>
-              <FileBtn onClick={onDelete}>게시글 삭제</FileBtn>
-              <FileBtn onClick={onEdit}>게시글 수정</FileBtn>
-              {userData ? (
-                <div style={{ display: "flex" }}>
-                  <Link to={`/${boardname}/write`}>
-                    <FileBtn
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <img
-                        src={WriteIcon}
-                        style={{ marginRight: "5px" }}
-                        alt="writeicon"
-                      />
-                      글쓰기
-                    </FileBtn>
-                  </Link>
-                  <Link to={`/${boardname}`}>
-                    <FileBtn>글목록</FileBtn>
-                  </Link>
-                </div>
-              ) : (
-                ""
-              )}
-            </FileBtnDiv>
+          {userData ? (
+            <div style={{ display: "flex", marginBottom: "40px" }}>
+              <Link to={`/${boardname}/write`}>
+                <FileBtn
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    border: "1px solid #0066FF",
+                    color: "#0066FF",
+                  }}
+                >
+                  <img
+                    src={WriteColorIcon}
+                    style={{ marginRight: "5px" }}
+                    alt="WriteColorIcon"
+                  />
+                  글쓰기
+                </FileBtn>
+              </Link>
+              <Link to={`/${boardname}`}>
+                <FileBtn>글목록</FileBtn>
+              </Link>
+            </div>
           ) : (
-            <FileBtn style={{ margin: "20px auto" }}>
+            <FileBtn style={{ marginBottom: "40px" }}>
               <Link to={`/${boardname}`}>글목록</Link>
             </FileBtn>
           )}
@@ -295,7 +317,9 @@ const InfoDiv = styled.div`
 const InfoTitleDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  align-items: center;
+  height: 20px;
+  margin: 0px 20px;
 `;
 
 const InfoTitle = styled.div`

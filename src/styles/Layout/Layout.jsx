@@ -112,7 +112,7 @@ export const CommonTitleText = styled.div`
   font-family: "GangwonEduPower";
   @media screen and (max-width: 600px) {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 

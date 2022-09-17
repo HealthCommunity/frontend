@@ -38,6 +38,14 @@ export const PostLabel = styled.label`
   font-weight: bold;
   font-family: "Pretendard";
   color: #0066ff;
+  cursor: pointer;
+  :hover {
+    background-color: #0066ff;
+    color: white;
+    img {
+      background-color: white;
+    }
+  }
 `;
 
 export const FileList = styled.div`

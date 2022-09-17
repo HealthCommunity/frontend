@@ -24,6 +24,7 @@ import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
 import Profile from "../../../assets/images/common_mypage_gr.svg";
 
 // Share , Utils
+import getToday from "utils/getToday";
 
 export default function ThreePowerForm({
   id,
@@ -35,20 +36,9 @@ export default function ThreePowerForm({
   thumbnailUrls,
 }) {
   const [nowday, setNowDay] = useState([]);
-  function getToday() {
-    const date = new Date();
-    let year = date.getFullYear();
-    let month = ("0" + (1 + date.getMonth())).slice(-2);
-    let day = ("0" + date.getDate()).slice(-2);
-    const dayList = [];
-    for (let i = 0; i < 3; i++) {
-      dayList.push(
-        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
-      );
-    }
-    setNowDay(dayList);
-  }
-  useEffect(getToday, []);
+  useEffect(() => {
+    setNowDay(getToday());
+  }, []);
 
   return (
     <BoardDiv>
@@ -109,7 +99,16 @@ const BoardDiv = styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
-
+  @media screen and (max-width: 1178px) {
+    width: 450px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 550px;
+    height: 450px;
+    margin: 0 auto;
+  }
   @media screen and (max-width: 600px) {
     display: flex;
     width: 100%;
@@ -130,7 +129,14 @@ const BoardVideoOne = styled.img`
   height: 160px;
   margin: 0px 10px;
   border-radius: 8px;
-
+  @media screen and (max-width: 1178px) {
+    width: 95%;
+    height: 200px;
+  }
+  @media screen and (max-width: 930px) {
+    width: 95%;
+    height: 200px;
+  }
   @media screen and (max-width: 600px) {
     width: 90%;
     height: 50%;
@@ -142,7 +148,12 @@ const BoardVideoDiv = styled.div`
   justify-content: space-between;
   height: 100px;
   margin: 8px 12px;
-
+  @media screen and (max-width: 1178px) {
+    height: 120px;
+  }
+  @media screen and (max-width: 930px) {
+    height: 120px;
+  }
   @media screen and (max-width: 600px) {
     height: 40%;
   }
@@ -151,7 +162,12 @@ const BoardVideoDiv = styled.div`
 const BoardVideoTwo = styled.img`
   width: 145px;
   border-radius: 8px;
-
+  @media screen and (max-width: 1178px) {
+    width: 48%;
+  }
+  @media screen and (max-width: 930px) {
+    width: 48%;
+  }
   @media screen and (max-width: 600px) {
     width: 45%;
   }
@@ -160,7 +176,12 @@ const BoardVideoTwo = styled.img`
 const BoardVideoThree = styled.img`
   width: 145px;
   border-radius: 8px;
-
+  @media screen and (max-width: 1178px) {
+    width: 48%;
+  }
+  @media screen and (max-width: 930px) {
+    width: 48%;
+  }
   @media screen and (max-width: 600px) {
     width: 45%;
   }
@@ -172,7 +193,6 @@ const BoardDivBottom = styled.div`
   width: 100%;
   margin: 0 auto;
   color: #aaaaaa;
-
   @media screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
@@ -185,7 +205,6 @@ const ThreeSeparateDiv = styled.div`
   width: 65%;
   margin: 0px 10px;
   font-size: 14px;
-
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 20px 0px;
@@ -196,7 +215,6 @@ const ThreeSeparateLeftDiv = styled.div`
   display: flex;
   align-items: center;
   width: 35%;
-  margin-left: 12px;
   @media screen and (max-width: 600px) {
     width: 100%;
   }
@@ -207,7 +225,6 @@ export const ThreeSeparateView = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-
   @media screen and (max-width: 600px) {
     width: 30%;
     margin: 5px 0px;
@@ -219,7 +236,6 @@ export const ThreeSeparateCal = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-
   @media screen and (max-width: 600px) {
     width: 70%;
     margin: 5px 0px;
