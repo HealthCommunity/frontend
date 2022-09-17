@@ -153,7 +153,6 @@ export default function ThreeBoardPost() {
         if (response.data.status === "0452") {
           setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
-          console.log(formData);
           return;
         }
         navigate("/threepowerpost");
@@ -286,7 +285,7 @@ export default function ThreeBoardPost() {
                 type="submit"
                 style={{ color: "white", backgroundColor: "#0066FF" }}
               >
-                제출하기
+                등록하기
               </FileBtn>
             </FileBtnDiv>
           </form>

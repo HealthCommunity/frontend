@@ -26,6 +26,7 @@ import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
 
 // Share , Utils
+import getToday from "utils/getToday";
 
 export default function BoardForm({
   title,
@@ -35,31 +36,13 @@ export default function BoardForm({
   urls,
 }) {
   const [nowday, setNowDay] = useState([]);
-  function getToday() {
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = ("0" + (1 + date.getMonth())).slice(-2);
-    let day = ("0" + date.getDate()).slice(-2);
-    const dayList = [];
-    for (let i = 0; i < 3; i++) {
-      dayList.push(
-        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
-      );
-    }
-    setNowDay(dayList);
-  }
-  useEffect(getToday, []);
+  useEffect(() => {
+    setNowDay(getToday());
+  }, []);
   return (
     <Board>
       <BoardTitle>
-        {urls[0].split("/")[3] === "IMAGE" ? (
-          <BoardImage src={urls[0]} />
-        ) : (
-          <BoardVideo autoplay>
-            <source src={urls[0]} type="video/mp4" />
-          </BoardVideo>
-        )}
-
+        <BoardImage src={urls[0]} />
         <BoardTextDiv>
           <BoardText>
             {title.length > 15 ? `${title.slice(0, 15)}...` : title}
@@ -103,7 +86,16 @@ const Board = styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
-
+  @media screen and (max-width: 1178px) {
+    width: 450px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 550px;
+    height: 200px;
+    margin: 0 auto;
+  }
   @media screen and (max-width: 600px) {
     width: 450px;
     height: 120px;
@@ -121,7 +113,6 @@ const BoardTitle = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 21px;
-
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 0 auto;
@@ -133,14 +124,17 @@ const BoardImage = styled.img`
   height: 60px;
   margin-right: 8px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 250px;
+    height: 150px;
+    margin: 0 auto;
+  }
 `;
-
-const BoardVideo = styled.video`
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-`;
-
 const BoardDivBottomItem = styled.div`
   display: flex;
   align-items: center;
