@@ -43,13 +43,13 @@ export default function Home() {
   const [nowday, setNowDay] = useState("");
 
   function getToday() {
-    let date = new Date();
+    const date = new Date();
     let year = date.getFullYear();
     let month = ("0" + (1 + date.getMonth())).slice(-2);
     let day = ("0" + date.getDate()).slice(-2);
     setNowDay(`${year}-${month}-${day}`);
   }
-  let nowDate = new Date();
+  const nowDate = new Date();
   let weekDate = nowDate.getTime() - 7 * 24 * 60 * 60 * 1000;
   nowDate.setTime(weekDate);
   let weekYear = nowDate.getFullYear();

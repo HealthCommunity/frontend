@@ -29,7 +29,7 @@ export default function UserInputForm() {
   const [, refetch] = useUserData();
 
   axios.defaults.withCredentials = true;
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [usrInputs, setUsrInputs] = useState({
     id: "",

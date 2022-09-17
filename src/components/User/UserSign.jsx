@@ -32,7 +32,7 @@ import {
 import Button from "../../share/Button";
 
 export default function UserSign() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [usrInputs, setUsrInputs] = useState({
     id: "",
     password: "",
