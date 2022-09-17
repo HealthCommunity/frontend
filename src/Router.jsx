@@ -63,7 +63,7 @@ export default function Router() {
           <Route path="/introduce" element={<Introduce />} />
           <Route
             path="/freepost"
-            element={<Board key="freepost" props={"freepost"} />}
+            element={<Board key="freepost" category={"freepost"} />}
           />
           <Route path="/freepost/:id" element={<BoardPost />} />
           <Route
@@ -73,7 +73,7 @@ export default function Router() {
           <Route path="/freepost/:id/edit" element={<BoardEditPost />} />
           <Route
             path="/threepowerpost"
-            element={<Board key="threepowerpost" props={"threepowerpost"} />}
+            element={<Board key="threepowerpost" category={"threepowerpost"} />}
           />
           <Route path="/threepowerpost/:id" element={<BoardPost />} />
           <Route
@@ -86,7 +86,7 @@ export default function Router() {
           />
           <Route
             path="/exercisepost"
-            element={<Board key="exercisepost" props={"exercisepost"} />}
+            element={<Board key="exercisepost" category={"exercisepost"} />}
           />
           <Route path="/exercisepost/:id" element={<BoardPost />} />
           <Route path="/exercisepost/:id/edit" element={<BoardEditPost />} />
