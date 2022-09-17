@@ -61,12 +61,14 @@ export default function UserInputForm() {
         credentials: "include",
       })
       .then((response) => {
-        if (response.data.status === "0402") {
-          alert(response.data.message);
-        } else {
+        if (response.data.status === "200") {
           refetch();
           navigate("/");
           alert("로그인에 성공하였습니다.");
+        } else if (response.data.status === "0402") {
+          alert(response.data.message);
+        } else {
+          alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
         }
       })
       .catch((error) => {
