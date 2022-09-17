@@ -97,8 +97,9 @@ export default function BoardForm({
 
 const Board = styled.div`
   width: 300px;
-  height: 136px;
-  padding: 12px 12px;
+  height: 124px;
+  padding: 0px 12px;
+  padding-top: 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
