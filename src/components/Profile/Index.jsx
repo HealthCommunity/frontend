@@ -84,7 +84,11 @@ export default function ProfileContnet() {
 
 const ProfileTopWapper = styled.div`
   width: 100%;
-  height: 440px;
+  height: 320px;
+  @media screen and (max-width: 420px) {
+    padding: 0 auto;
+    height: 400px;
+  }
 `;
 
 const ProfileMyinfo = styled.div`

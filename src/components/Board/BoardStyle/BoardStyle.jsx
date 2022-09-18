@@ -30,9 +30,8 @@ export const BoardText = styled.span`
 export const BoardProfileImg = styled.div`
   width: 24px;
   height: 24px;
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
   border-radius: 50%;
-  background: #d9d9d9;
 
   @media screen and (max-width: 600px) {
     margin: 0px 10px 0px 0px;

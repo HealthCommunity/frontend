@@ -37,7 +37,7 @@ const pointColor = {
 const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
-  freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
+  freepost: "다른 사람과 자유 이야기를 나눠보세요",
 };
 
 const categoryData = {
@@ -69,6 +69,11 @@ const CategoryCommercialWapper = styled.div`
   width: 100%;
   margin: 0 auto;
   height: 266px;
+
+  //600px이하인 경우 광고 제거
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const CategoryCommercialBg = styled.div`
@@ -85,7 +90,7 @@ const CategoryCommercialBg = styled.div`
 
   & p {
     position: absolute;
-    width: 30%;
+    width: 28%;
     height: 88px;
     left: 36px;
     top: 138px;
@@ -93,6 +98,7 @@ const CategoryCommercialBg = styled.div`
     font-size: 36px;
     line-height: 44px;
     color: #ffffff;
+
     @media screen and (max-width: 1440px) {
       display: none;
     }
@@ -115,5 +121,8 @@ const SliderContent = styled.div`
   }
   @media screen and (max-width: 600px) {
     width: 85%;
+  }
+  @media screen and (max-width: 420px) {
+    display: none;
   }
 `;

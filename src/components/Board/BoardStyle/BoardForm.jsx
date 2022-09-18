@@ -24,6 +24,7 @@ import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+import Profile from "../../../assets/images/common_mypage_gr.svg";
 
 // Share , Utils
 import getToday from "utils/getToday";
@@ -54,7 +55,13 @@ export default function BoardForm({
       </BoardTitle>
       <BoardDivBottomItem>
         <SeparataDivLeft>
-          <BoardProfileImg />
+          <BoardProfileImg>
+            <img
+              src={Profile}
+              alt="profile"
+              style={{ widh: "18px", height: "18px" }}
+            />
+          </BoardProfileImg>
           <BoardDivWrite>
             {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
           </BoardDivWrite>
@@ -101,7 +108,6 @@ const Board = styled.div`
     height: 120px;
     margin: 0 auto;
   }
-
   @media screen and (max-width: 420px) {
     width: 300px;
     height: 120px;

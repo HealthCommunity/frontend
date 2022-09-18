@@ -21,6 +21,7 @@ import {
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+import Profile from "../../../assets/images/common_mypage_gr.svg";
 
 // Share , Utils
 import getToday from "utils/getToday";
@@ -59,7 +60,13 @@ export default function ThreePowerForm({
         </BoardTextDiv>
         <BoardDivBottom>
           <ThreeSeparateLeftDiv>
-            <BoardProfileImg />
+            <BoardProfileImg>
+              <img
+                src={Profile}
+                alt="profile"
+                style={{ widh: "18px", height: "18px" }}
+              />
+            </BoardProfileImg>
             <BoardDivWrite>
               {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
             </BoardDivWrite>
@@ -161,7 +168,6 @@ const BoardVideoTwo = styled.img`
   @media screen and (max-width: 930px) {
     width: 48%;
   }
-
   @media screen and (max-width: 600px) {
     width: 45%;
   }
@@ -187,7 +193,6 @@ const BoardDivBottom = styled.div`
   width: 100%;
   margin: 0 auto;
   color: #aaaaaa;
-
   @media screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
@@ -200,7 +205,6 @@ const ThreeSeparateDiv = styled.div`
   width: 65%;
   margin: 0px 10px;
   font-size: 14px;
-
   @media screen and (max-width: 600px) {
     width: 100%;
     margin: 20px 0px;
@@ -211,7 +215,6 @@ const ThreeSeparateLeftDiv = styled.div`
   display: flex;
   align-items: center;
   width: 35%;
-
   @media screen and (max-width: 600px) {
     width: 100%;
   }
@@ -222,7 +225,6 @@ export const ThreeSeparateView = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-
   @media screen and (max-width: 600px) {
     width: 30%;
     margin: 5px 0px;
@@ -234,7 +236,6 @@ export const ThreeSeparateCal = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
-
   @media screen and (max-width: 600px) {
     width: 70%;
     margin: 5px 0px;

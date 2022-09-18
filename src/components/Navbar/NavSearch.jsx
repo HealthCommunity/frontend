@@ -18,7 +18,7 @@ import SearchImage from "../../assets/images/common_search_bk_24.svg";
 // Share , Utils
 
 export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(isSearchOpen);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {

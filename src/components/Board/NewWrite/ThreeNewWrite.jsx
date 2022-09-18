@@ -27,7 +27,7 @@ import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 import Tiptap from "../../../utils/Editor/Tiptap";
 
 export default function ThreeBoardPost() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

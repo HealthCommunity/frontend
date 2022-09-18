@@ -25,7 +25,7 @@ function GroupItem({ children }) {
   return <>{children}</>;
 }
 
-export default function Board({ props }) {
+export default function Board({ category }) {
   const [userData] = useUserData();
 
   const categoryName = {
@@ -36,10 +36,10 @@ export default function Board({ props }) {
 
   return (
     <>
-      <Title name={categoryName[props]} />
+      <Title name={categoryName[category]} />
       <Nav />
       <WidthAreaSpace>
-        <CategoryCommercial category={props} />
+        <CategoryCommercial category={category} />
         <WidthAreaInner>
           {userData ? (
             <div style={{ width: "145px", marginBottom: "16px" }}>
@@ -55,8 +55,8 @@ export default function Board({ props }) {
               </Link>
             </div>
           ) : null}
-          <GroupItem category={`${props}`}>
-            <BoardFetchItems category={`${props}`} />
+          <GroupItem category={`${category}`}>
+            <BoardFetchItems category={`${category}`} />
           </GroupItem>
         </WidthAreaInner>
       </WidthAreaSpace>

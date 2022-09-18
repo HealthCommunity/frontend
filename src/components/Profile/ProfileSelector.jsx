@@ -60,11 +60,20 @@ const ProfileDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-top: 92px;
+  padding-top: 70px;
   padding-bottom: 20px;
 
+  @media screen and (max-width: 1024px) {
+    padding: 0 auto;
+    padding-top: 20px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 0 auto;
+    padding-top: 10px;
+  }
   @media screen and (max-width: 420px) {
     padding: 0 auto;
+    padding-top: 0px;
   }
 `;
 

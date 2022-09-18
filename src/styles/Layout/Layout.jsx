@@ -137,29 +137,30 @@ export const WidthAreaSpace = styled.section`
   max-width: 1396px;
   margin: 0 auto;
   margin-top: 100px;
+
   @media screen and (max-width: 1440px) {
-    width: 1039px; /*아이템 4개*/
     display: flex;
     flex-wrap: wrap;
+    width: 1039px; /*아이템 4개*/
   }
 
   @media screen and (max-width: 1024px) {
-    width: 682px; /*아이템 3개*/
     display: flex;
     flex-wrap: wrap;
+    width: 682px; /*아이템 3개*/
   }
 
   @media screen and (max-width: 600px) {
-    width: 400px;
     display: flex;
-    margin: 0 10px;
     flex-wrap: wrap;
+    width: 400px;
+    margin: 80px 10px;
   }
   @media screen and (max-width: 420px) {
-    width: 350px;
-    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
+    width: 350px;
+    margin-top: 80px;
   }
 `;
 

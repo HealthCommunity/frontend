@@ -18,7 +18,7 @@ import styled from "styled-components";
 const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
-  freepost: "다른 사람들과 자유롭게 이야기를 나눠보세요",
+  freepost: "다른 사람과 자유 이야기를 나눠보세요",
 };
 
 export default function HomeBoardSummary({ selected }) {
