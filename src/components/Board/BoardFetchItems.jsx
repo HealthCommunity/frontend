@@ -106,6 +106,7 @@ export default function BoardFetchItems({ category = "", center }) {
                       createdDate={createdDate}
                       nickname={nickname}
                       view={view}
+                      thumbnailUrls={thumbnailUrls}
                       urls={urls}
                     />
                   )}

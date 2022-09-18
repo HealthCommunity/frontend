@@ -35,15 +35,22 @@ export default function BoardForm({
   nickname,
   view,
   urls,
+  thumbnailUrls,
 }) {
   const [nowday, setNowDay] = useState([]);
   useEffect(() => {
     setNowDay(getToday());
   }, []);
+
   return (
     <Board>
       <BoardTitle>
-        <BoardImage src={urls[0]} />
+        {thumbnailUrls.length === 0 ? (
+          <BoardImage src={urls[0]} />
+        ) : (
+          <BoardImage src={thumbnailUrls[0]} />
+        )}
+
         <BoardTextDiv>
           <BoardText>
             {title.length > 15 ? `${title.slice(0, 15)}...` : title}
