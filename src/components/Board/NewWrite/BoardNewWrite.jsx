@@ -63,12 +63,13 @@ export default function BoardNewWrite() {
     formData.append("title", title);
     for (let i = 0; i < files.length; i++) {
       if (files.length >= 5) {
-        alert("파일은 최대 5개까지만 업로드 할 수 있습니다");
+        alert("파일은 최대 5개까지 이미지만 업로드 할 수 있습니다.");
         return;
       }
       formData.append("files", files[i]);
     }
     formData.append("content", description);
+    formData.append("thumbnails", files[0]);
     const config = {
       headers: {
         "content-type": "multipart/form-data",

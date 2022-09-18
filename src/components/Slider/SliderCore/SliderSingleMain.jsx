@@ -201,6 +201,7 @@ const SliderPageButton = styled.button`
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin: 0 0 0 12px;
+  cursor: pointer;
 
   ${(props) =>
     props.isActive &&

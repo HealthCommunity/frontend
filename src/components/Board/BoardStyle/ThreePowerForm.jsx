@@ -215,6 +215,7 @@ const ThreeSeparateLeftDiv = styled.div`
   display: flex;
   align-items: center;
   width: 35%;
+  margin-left: 12px;
   @media screen and (max-width: 600px) {
     width: 100%;
   }
