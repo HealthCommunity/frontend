@@ -62,6 +62,7 @@ export default function BoardFetchItems({ category = "", center }) {
       observer.disconnect();
     };
   }, [page, category]);
+
   return (
     <>
       {isLoading ? (

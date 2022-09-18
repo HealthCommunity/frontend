@@ -81,8 +81,6 @@ export default function BoardDetail() {
     navigate("edit");
   };
 
-  console.log(boardData);
-
   return (
     <>
       {isLoading ? (
