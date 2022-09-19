@@ -145,7 +145,7 @@ export default function BoardDetail() {
           )}
           <BoardSession>
             {boardData.urls && boardname === "threepowerpost"
-              ? boardData.urls.splice(3).map((x) =>
+              ? boardData.urls.map((x) =>
                   x.split("/")[3] === "VIDEO" ? (
                     <div key={Math.random()}>
                       <BoardVideo controls>
