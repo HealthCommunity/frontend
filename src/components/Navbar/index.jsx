@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // recoil ( 상태관리 )
-import { useSetRecoilState, useRecoilValue } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../../atom";
 import useUserData from "../../api/useUserData";
 
@@ -40,7 +40,6 @@ export default function Nav() {
 
   //다크모드, 라이트모드
   const setDarkMode = useSetRecoilState(isDarkAtom);
-  const DarkMode = useRecoilValue(isDarkAtom);
   const [darkToggle, setDarkToggle] = useState(!!localStorage.getItem("dark"));
 
   const isModeChange = () => {
