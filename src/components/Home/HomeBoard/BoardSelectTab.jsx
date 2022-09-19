@@ -93,10 +93,10 @@ const TabList = styled.div`
   display: flex;
   width: 100%;
   @media screen and (max-width: 1440px) {
-    padding: 0px 100px;
+    padding: 0px 10px;
   }
   @media screen and (max-width: 1024px) {
-    padding: 0px 60px;
+    padding: 0px 10px;
   }
   @media screen and (max-width: 600px) {
     padding: 0px 5px;
@@ -114,14 +114,17 @@ const TabItem = styled.div`
   white-space: nowrap;
   font-family: "GangwonEduPower";
   cursor: pointer;
-
-  @media screen and (max-width: 750px) {
-    font-size: 18px;
-    margin-right: 20px;
+  @media screen and (max-width: 1024px) {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+    margin-right: 5px;
   }
   @media screen and (max-width: 420px) {
-    font-size: 14px;
-    margin-right: 5px;
+    font-size: 12px;
+    margin-right: 1px;
   }
 `;
 

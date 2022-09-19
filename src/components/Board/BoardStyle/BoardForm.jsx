@@ -95,8 +95,7 @@ export default function BoardForm({
 const Board = styled.div`
   width: 300px;
   height: 124px;
-  padding: 0px 12px;
-  padding-top: 12px;
+  padding: 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
@@ -112,12 +111,12 @@ const Board = styled.div`
     margin: 0 auto;
   }
   @media screen and (max-width: 600px) {
-    width: 450px;
+    width: 350px;
     height: 120px;
     margin: 0 auto;
   }
   @media screen and (max-width: 420px) {
-    width: 300px;
+    width: 280px;
     height: 120px;
     margin: 0 auto;
   }
@@ -158,6 +157,7 @@ const BoardImage = styled.img`
 const BoardDivBottomItem = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   margin: 0 auto;
   color: #aaaaaa;
