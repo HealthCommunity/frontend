@@ -58,7 +58,7 @@ export default function BoardComment({ boardname }) {
       commentId: item,
       comment,
     };
-    console.log(data);
+
     axios.post(`/api/comment/${item}/edit`, data, config);
   };
   return (
