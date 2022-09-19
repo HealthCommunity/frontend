@@ -127,7 +127,7 @@ const BoardItemList = styled.ul`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  grid-column-gap: 30px;
-  grid-row-gap: 28px;
+  grid-column-gap: 15px;
+  grid-row-gap: 14px;
   justify-content: center;
 `;

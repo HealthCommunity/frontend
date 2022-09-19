@@ -38,14 +38,19 @@ export const CommonContentsHome = styled.div`
 /* 홈화면 오른쪽 인기사진, 게시판 목록 */
 export const CommonContentsLeft = styled.div`
   box-sizing: border-box;
-  width: 80%;
+  width: 70%;
   order: 1;
   @media screen and (max-width: 1440px) {
     order: 2;
-    width: 100%;
+    width: 90%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 850px) {
     order: 2;
+    width: 90%;
+  }
+  @media screen and (max-width: 650px) {
+    order: 2;
+    width: 90%;
   }
 `;
 
@@ -61,14 +66,15 @@ export const CommonContentsRight = styled.div`
   }
   @media screen and (max-width: 600px) {
     order: 1;
+    width: 100%;
   }
 `;
 
 /*홈화면 메인 상단 슬라이드*/
 export const MainSlide = styled.div`
   box-sizing: border-box;
-  width: 96%;
-  margin: 70px auto;
+  width: 100%;
+  margin: 70px 0px;
   height: 450px;
   background: #222222;
 `;
@@ -77,13 +83,16 @@ export const MainSlide = styled.div`
 /*홈화면, 카테고리 컨텐츠 타이틀*/
 export const CommonTitleArea = styled.div`
   /* max-width: 1100px; */
-  margin: 30px auto;
+  margin: 30px 0px;
 
   @media screen and (max-width: 1024px) {
-    margin: 30px 20px;
+    margin: 30px 0px;
   }
   @media screen and (max-width: 600px) {
-    margin: 30px 20px;
+    margin: 30px 0px;
+  }
+  @media screen and (max-width: 420px) {
+    margin: 15px 0px;
   }
 `;
 
@@ -91,10 +100,10 @@ export const CommonTitleTGroup = styled.div`
   display: flex;
   align-items: center;
   @media screen and (max-width: 1440px) {
-    padding: 0px 100px;
+    padding: 0px 10px;
   }
   @media screen and (max-width: 1024px) {
-    padding: 0px 60px;
+    padding: 0px 10px;
   }
   @media screen and (max-width: 600px) {
     padding: 0px 5px;
@@ -125,7 +134,7 @@ export const PeriodText = styled(CommonTitleText)`
 /*홈화면 개별 컴포넌트의 중앙 정렬 틀*/
 export const WidthAreaHome = styled.section`
   box-sizing: border-box;
-  width: 90%;
+  width: 100%;
   max-width: 1039px;
   margin: 0 auto;
 `;
