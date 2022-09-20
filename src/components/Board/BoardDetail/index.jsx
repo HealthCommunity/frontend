@@ -1,25 +1,31 @@
-import {
-  InfoDiv,
-  InfoTitle,
-  InfoTitleDiv,
-  InfoTitleWrite,
-  BoardSummary,
-} from "./BoardDetailStyle";
-import { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+// react hook , react
 import { useEffect } from "react";
-import axios from "axios";
-import parser from "html-react-parser";
-import PostThreePower from "../ThreePower/ManagerThreePower";
-import EyeIcon from "../../../assets/images/common_view_16.svg";
-import styled from "styled-components";
-import { FileBtn, FileBtnDiv } from "../NewWrite/BoardWriteStyle";
+import { useState } from "react";
+
+// recoil ( 상태관리 )
 import useUserData from "../../../api/useUserData";
+
+// react library
+import { useLocation, useNavigate, useParams } from "react-router";
+import parser from "html-react-parser";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import WriteIcon from "../../../assets/images/board_write_gr_20.svg";
 import { useForm } from "react-hook-form";
+
+// styled-components , Style Files
+import styled from "styled-components";
+import { FileBtn } from "../NewWrite/BoardWriteStyle";
+
+// Components
 import BoardComment from "./BoardComment";
+import PostThreePower from "../ThreePower/ManagerThreePower";
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+
+// Icons , Images
+import EyeIcon from "../../../assets/images/common_view_16.svg";
+import WriteColorIcon from "../../../assets/images/board_write_bl_24.svg";
+
+// Share , Utils
 
 export default function BoardDetail() {
   const { id } = useParams();
@@ -74,6 +80,7 @@ export default function BoardDetail() {
     }
     navigate("edit");
   };
+
   return (
     <>
       {isLoading ? (
@@ -99,7 +106,36 @@ export default function BoardDetail() {
             <InfoTitleWrite>
               {boardData?.userPostResponse?.nickName}
             </InfoTitleWrite>
-            <InfoTitleWrite>{`작성일 : ${boardData?.createdDate} `}</InfoTitleWrite>
+            <div style={{ display: "flex" }}>
+              {boardData?.sessionUserResponse?.userId ===
+              boardData?.userPostResponse?.userId ? (
+                <div style={{ display: "flex", marginRight: "10px" }}>
+                  <div
+                    style={{
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      color: "#9c9c9e",
+                    }}
+                    onClick={onDelete}
+                  >
+                    삭제
+                  </div>
+                  <div
+                    style={{
+                      marginRight: "20px",
+                      cursor: "pointer",
+                      color: "#9c9c9e",
+                    }}
+                    onClick={onEdit}
+                  >
+                    수정
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+              <InfoTitleWrite>{`${boardData?.createdDate} `}</InfoTitleWrite>
+            </div>
           </InfoTitleDiv>
           {(boardname === "threepowerpost") &
           (boardData?.sessionUserResponse?.role === "ROLE_MASTER") ? (
@@ -109,7 +145,7 @@ export default function BoardDetail() {
           )}
           <BoardSession>
             {boardData.urls && boardname === "threepowerpost"
-              ? boardData.urls.splice(3).map((x) =>
+              ? boardData.urls.map((x) =>
                   x.split("/")[3] === "VIDEO" ? (
                     <div key={Math.random()}>
                       <BoardVideo controls>
@@ -161,39 +197,32 @@ export default function BoardDetail() {
               </InfoCommentForm>
             </InfoExplanationDiv>
           )}
-          {boardData?.sessionUserResponse?.userId ===
-          boardData?.userPostResponse?.userId ? (
-            <FileBtnDiv style={{ border: "none" }}>
-              <FileBtn onClick={onDelete}>게시글 삭제</FileBtn>
-              <FileBtn onClick={onEdit}>게시글 수정</FileBtn>
-              {userData ? (
-                <div style={{ display: "flex" }}>
-                  <Link to={`/${boardname}/write`}>
-                    <FileBtn
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <img
-                        src={WriteIcon}
-                        style={{ marginRight: "5px" }}
-                        alt="writeicon"
-                      />
-                      글쓰기
-                    </FileBtn>
-                  </Link>
-                  <Link to={`/${boardname}`}>
-                    <FileBtn>글목록</FileBtn>
-                  </Link>
-                </div>
-              ) : (
-                ""
-              )}
-            </FileBtnDiv>
+          {userData ? (
+            <div style={{ display: "flex", marginBottom: "40px" }}>
+              <Link to={`/${boardname}/write`}>
+                <FileBtn
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    border: "1px solid #0066FF",
+                    color: "#0066FF",
+                  }}
+                >
+                  <img
+                    src={WriteColorIcon}
+                    style={{ marginRight: "5px" }}
+                    alt="WriteColorIcon"
+                  />
+                  글쓰기
+                </FileBtn>
+              </Link>
+              <Link to={`/${boardname}`}>
+                <FileBtn>글목록</FileBtn>
+              </Link>
+            </div>
           ) : (
-            <FileBtn style={{ margin: "20px auto" }}>
+            <FileBtn style={{ marginBottom: "40px" }}>
               <Link to={`/${boardname}`}>글목록</Link>
             </FileBtn>
           )}
@@ -204,9 +233,9 @@ export default function BoardDetail() {
 }
 
 const BoardSession = styled.section`
-  flex-wrap: wrap;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
 `;
 
@@ -215,6 +244,7 @@ const BoardVideo = styled.video`
   height: 250px;
   margin-right: 30px;
   margin-top: 30px;
+
   @media screen and (max-width: 420px) {
     width: 300px;
   }
@@ -225,15 +255,18 @@ const BoardImg = styled.img`
   height: 560px;
   margin-right: 30px;
   margin-top: 30px;
+
   @media screen and (max-width: 420px) {
     width: 300px;
     height: 300px;
   }
 `;
+
 const InfoExplanationDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px 15px;
+
   @media screen and (max-width: 1024px) {
     width: 90%;
   }
@@ -255,32 +288,53 @@ const InfoCommentForm = styled.form`
   margin-bottom: 30px;
   border: 1px solid rgb(238, 238, 238);
 `;
+
 const InfoCommentInputText = styled.input`
-  margin: 15px;
   width: 90%;
-  background-color: #f8f8f8;
+  height: 50px;
+  margin: 15px;
   border-radius: 3px;
   padding: 0px 10px;
-  height: 50px;
   border: none;
   outline: none;
   font-size: 16px;
+  background-color: #f8f8f8;
 `;
+
 const InfoCommentInputSubmit = styled.input`
   border: none;
   outline: none;
   margin: 0 10px;
-  cursor: pointer;
   background-color: transparent;
+  cursor: pointer;
 `;
 
-const CommentList = styled.div`
+const InfoDiv = styled.div`
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
-  margin-bottom: 100px;
 `;
 
-const CommentListitem = styled.div`
-  font-size: ${(props) => props.theme.fontSizeH2};
-  margin: 20px 0px;
+const InfoTitleDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  margin: 0px 20px;
+`;
+
+const InfoTitle = styled.div`
+  font-weight: 700;
+  font-size: 18px;
+  color: ${(props) => props.theme.reverseFontColor};
+`;
+
+const InfoTitleWrite = styled.div`
+  color: #9c9c9e;
+  display: flex;
+`;
+
+const BoardSummary = styled.div`
+  width: 90%;
+  margin: 50px 20px;
 `;

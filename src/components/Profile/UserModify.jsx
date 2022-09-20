@@ -1,25 +1,35 @@
+// react hook , react
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
-import InputTextDesc from "../User/InputTextDesc";
+// recoil ( 상태관리 )
+import useUserData from "../../api/useUserData";
+
+// react library
+import axios from "axios";
+
+// styled-components , Style Files
+import styled from "styled-components";
 import {
   UserFormGroup,
   InputTextLabel,
   InputTextGroup,
 } from "../User/LoginStyle";
-import { ProfileMyinfo } from "./ProfileStyle";
-import Button from "../../share/Button";
-import userLogout from "../../utils/User/userLogout";
-import useUserData from "../../api/useUserData";
+
+// Components
+import InputTextDesc from "../User/InputTextDesc";
 import UserDropOut from "./UserDropOut";
+
+// Icons , Images
+
+// Share , Utils
 import {
   checkValidityPassword,
   checkDoublePassword,
   checkValidityNickname,
 } from "../../utils/User/userValidation";
-
-import axios from "axios";
+import userLogout from "../../utils/User/userLogout";
+import Button from "../../share/Button";
 
 export default function ContentUserModify(loginId) {
   const [, reFetch] = useUserData();
@@ -133,4 +143,11 @@ const UserModifyFrom = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const ProfileMyinfo = styled.div`
+  box-sizing: border-box;
+  width: 470px;
+  height: 100%;
+  margin: 0 auto;
 `;

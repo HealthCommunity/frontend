@@ -1,22 +1,23 @@
+// react hook , react
 import { useEffect, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { retryLazy } from "utils/lazyUtil";
-import { useRecoilState, useSetRecoilState } from "recoil";
+
+// recoil ( 상태관리 )
+import { useSetRecoilState } from "recoil";
 import { isDarkAtom } from "./atom";
-// import Home from "./pages/Home";
-// import Login from "./pages/Login";
-// import Profile from "./pages/Profile";
-// import Sign from "./pages/Sign";
-// import SearchPage from "./pages/Search";
-// import NotFoundScene from "./pages/NotFoundScene";
-// import BoardEditPost from "./pages/BoardEditPost";
-// import ThreeBoardEditPost from "./pages/ThreeBoardEditPost";
-// import Board from "./pages/Board";
-// import BoardPost from "./pages/BoardPost";
-// import BoardWrite from "./pages/BoardWrite";
-// import Introduce from "./pages/Introduce";
 import useUserData from "./api/useUserData";
+
+// react library
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// styled-components , Style Files
+
+// Components
 import LoadingSpinner from "./components/Loding/LoadingSpinner";
+
+// Icons , Images
+
+// Share , Utils
+import { retryLazy } from "utils/lazyUtil";
 
 const Home = retryLazy(() => import("./pages/Home"));
 const Login = retryLazy(() => import("./pages/Login"));
@@ -26,14 +27,14 @@ const Search = retryLazy(() => import("./pages/Search"));
 const NotFoundScene = retryLazy(() => import("./pages/NotFoundScene"));
 const BoardEditPost = retryLazy(() => import("./pages/BoardEditPost"));
 const ThreeBoardEditPost = retryLazy(() =>
-  import("./pages/ThreeBoardEditPost")
+  import("./components/Board/ThreePower/ThreeBoardEditPost")
 );
 const Board = retryLazy(() => import("./pages/Board"));
 const BoardPost = retryLazy(() => import("./pages/BoardPost"));
 const BoardWrite = retryLazy(() => import("./pages/BoardWrite"));
 const Introduce = retryLazy(() => import("./pages/Introduce"));
 
-function Router() {
+export default function Router() {
   const isDartk = localStorage.getItem("dark");
   const setDarkMode = useSetRecoilState(isDarkAtom);
 
@@ -62,12 +63,7 @@ function Router() {
           <Route path="/introduce" element={<Introduce />} />
           <Route
             path="/freepost"
-            element={
-              <Board
-                key={new Date().getTime() + Math.random()}
-                props={"freepost"}
-              />
-            }
+            element={<Board key="freepost" category={"freepost"} />}
           />
           <Route path="/freepost/:id" element={<BoardPost />} />
           <Route
@@ -77,12 +73,7 @@ function Router() {
           <Route path="/freepost/:id/edit" element={<BoardEditPost />} />
           <Route
             path="/threepowerpost"
-            element={
-              <Board
-                key={new Date().getTime() + Math.random()}
-                props={"threepowerpost"}
-              />
-            }
+            element={<Board key="threepowerpost" category={"threepowerpost"} />}
           />
           <Route path="/threepowerpost/:id" element={<BoardPost />} />
           <Route
@@ -95,12 +86,7 @@ function Router() {
           />
           <Route
             path="/exercisepost"
-            element={
-              <Board
-                key={new Date().getTime() + Math.random()}
-                props={"exercisepost"}
-              />
-            }
+            element={<Board key="exercisepost" category={"exercisepost"} />}
           />
           <Route path="/exercisepost/:id" element={<BoardPost />} />
           <Route path="/exercisepost/:id/edit" element={<BoardEditPost />} />
@@ -114,4 +100,3 @@ function Router() {
     </BrowserRouter>
   );
 }
-export default Router;

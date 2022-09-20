@@ -1,27 +1,29 @@
+// react hook , react
 import { useEffect, useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
 
+// recoil ( 상태관리 )
 import { useSetRecoilState } from "recoil";
-import axios from "axios";
-import styled, { css } from "styled-components";
 import { isDarkAtom } from "../../atom";
+import useUserData from "../../api/useUserData";
 
-import {
-  NavBoardDiv,
-  NavWrapper,
-  NavGroup,
-  NavItem,
-  NavItemSelect,
-  NavLogoItem,
-} from "./NavStyle";
+// react library
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import axios from "axios";
+
+// styled-components , Style Files
+import styled, { css } from "styled-components";
+
+// Components
+import NavSearch from "./NavSearch";
+
+// Icons , Images
 import RocketColorImage from "../../assets/images/common_aboutus_wh_24.svg";
 import RocketImage from "../../assets/images/common_aboutus_bk_24.svg";
 import MenuIconBK from "../../assets/images/hamburgermenu_bk.svg";
 import MenuIconWH from "../../assets/images/hamburgermenu_wh.svg";
 import CancleIcon from "../../assets/images/board_write__cancle_24.svg";
 
-import useUserData from "../../api/useUserData";
-import NavSearch from "./NavSearch";
+// Share , Utils
 
 export default function Nav() {
   const [userData, refetch] = useUserData(); //로그인 상태 유저 데이터 가져옴
@@ -122,7 +124,7 @@ export default function Nav() {
             <Link to="/threepowerpost">
               <NavItem
                 color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 3대력 게시판
@@ -131,7 +133,7 @@ export default function Nav() {
             <Link to="/exercisepost">
               <NavItem
                 color={pathname.includes("exercisepost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 운동 게시판
@@ -140,7 +142,7 @@ export default function Nav() {
             <Link to="/freepost">
               <NavItem
                 color={pathname.includes("freepost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 자유 게시판
@@ -248,33 +250,34 @@ export default function Nav() {
 }
 
 const ToggleBtn = styled.button`
-  width: 60px;
-  height: 30px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  background-color: ${(props) =>
-    !props.darkToggle ? "none" : props.theme.emphasisColorOrange};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  border: none;
+  background-color: ${(props) =>
+    !props.darkToggle ? "none" : props.theme.emphasisColorOrange};
+  cursor: pointer;
   transition: all 0.5s ease-in-out;
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
   @media screen and (max-width: 600px) {
     display: none;
   }
-  cursor: pointer;
 `;
+
 const Circle = styled.div`
-  background-color: white;
+  position: absolute;
+  left: 5%;
   width: 20px;
   height: 20px;
   border-radius: 50px;
-  position: absolute;
-  left: 5%;
+  background-color: white;
   transition: all 0.5s ease-in-out;
   ${(props) =>
     props.darkToggle &&
@@ -286,11 +289,10 @@ const Circle = styled.div`
 
 const SideNav = styled.nav`
   position: fixed;
-  height: 100%;
   right: 0px;
   top: 0px;
+  height: 100%;
   width: 300px;
-
   background-color: ${(props) => props.theme.reverseColor};
   z-index: 99;
 
@@ -308,7 +310,6 @@ const SideNav = styled.nav`
 const SideNavTop = styled.div`
   display: flex;
   justify-content: end;
-
   width: 300px;
   margin: 16px 0;
   padding-right: 40px;
@@ -324,7 +325,102 @@ const SideNavTop = styled.div`
 const SideNavContent = styled.div`
   & div {
     margin: 16px 0;
-
     color: ${(props) => props.theme.backGroundColor};
+  }
+`;
+
+const NavWrapper = styled.div`
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: ${(props) => props.height};
+  align-items: center;
+  background-color: ${(props) => props.scroll};
+  z-index: 2;
+`;
+
+const NavGroup = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+`;
+
+const NavLogoItem = styled.p`
+  width: 150px;
+  font-family: "GangwonEduPower";
+  font-size: 40px;
+  text-align: center;
+  white-space: nowrap;
+  color: ${(props) => props.scroll};
+
+  @media screen and (max-width: 420px) {
+    font-size: 24px;
+    width: 100px;
+  }
+`;
+
+const NavBoardDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 45%;
+  font-weight: 400;
+  font-size: 18px;
+  color: #cccccc;
+  white-space: nowrap;
+  font-family: "GangwonEduPower";
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+const NavItemSelect = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 66%;
+  color: ${(props) => props.scroll};
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 0px;
+  }
+`;
+
+const NavItem = styled.div`
+  padding: 10px;
+  text-align: center;
+  font-size: ${(props) => props.theme.fontSizeH4};
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  color: ${(props) => props.color};
+
+  :hover {
+    color: ${(props) => props.hover};
+  }
+
+  &.miniNav {
+    display: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: ${(props) => props.theme.fontSizeH6};
+
+    &.miniNav {
+      display: block;
+    }
+
+    &.pullNav {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    padding: 5px;
   }
 `;

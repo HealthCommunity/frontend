@@ -1,9 +1,16 @@
+// styled-components , Style Files
 import styled, { css } from "styled-components";
 
 const SIZES = {
-  sm: css`
+  min: css`
+    --button-font-size: 14px;
     --button-width-size: auto;
     --button-padding: 12px 16px;
+  `,
+  sm: css`
+    --button-font-size: 14px;
+    --button-width-size: auto;
+    --button-padding: 12px 32px;
   `,
   lg: css`
     --button-width-size: 100%;
@@ -19,19 +26,34 @@ const VARIANTS = {
     --button-border-color: #0066ff;
   `,
   grayline: css`
-    --button-color: #888888;
+    --button-color: #222222;
     --button-bg-color: #ffffff;
     --button-hover-bg-color: none;
     --button-border-color: #cccccc;
   `,
 };
 
-function Button({ size, variant, children }) {
+const MARGIN = {
+  no: css`
+    --button-margin: 0px;
+  `,
+  basic: css`
+    --button-margin: 8px;
+  `,
+};
+
+export default function Button({ size, variant, space, children, onClick }) {
   const sizeStyle = SIZES[size];
   const variantStyle = VARIANTS[variant];
+  const marginStyle = MARGIN[space];
 
   return (
-    <StyledButton sizeStyle={sizeStyle} variantStyle={variantStyle}>
+    <StyledButton
+      sizeStyle={sizeStyle}
+      variantStyle={variantStyle}
+      marginStyle={marginStyle}
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   );
@@ -40,22 +62,26 @@ function Button({ size, variant, children }) {
 const StyledButton = styled.button`
   ${(p) => p.sizeStyle}
   ${(p) => p.variantStyle}
+  ${(p) => p.marginStyle}
 
-    width: var(--button-width-size, auto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--button-width-size, auto);
   margin: 0;
   border-radius: 60px;
-  cursor: pointer;
-  font-family: "Noto Sans KR", sans-serif;
+  text-align: center;
+  font-family: "Pretendard";
   font-size: var(--button-font-size, 1rem);
   padding: var(--button-padding, 16px 28px);
+  margin: var(--button-margin, 0px);
+  border: 1px solid var(--button-border-color, none);
   color: var(--button-color, #ffffff);
   background: var(--button-bg-color, #0066ff);
-  border: 1px solid var(--button-border-color, none);
+  cursor: pointer;
   &:active,
   &:hover,
   &:focus {
     background: var(--button-hover-bg-color, #025ce2);
   }
 `;
-
-export default Button;

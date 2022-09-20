@@ -1,5 +1,11 @@
+// react hook , react
 import { useEffect, useState } from "react";
 
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
 import {
   BoardTextDiv,
@@ -9,13 +15,19 @@ import {
   BoardDivWrite,
   SeparataSpan,
   SeparataDiv,
-  SeparataItem,
 } from "./BoardStyle";
+import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
 
+// Components
+
+// Icons , Images
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
-import { ThreeSeparateCal, ThreeSeparateView } from "./ThreePowerForm";
+import Profile from "../../../assets/images/common_mypage_gr.svg";
+
+// Share , Utils
+import getToday from "utils/getToday";
 
 export default function BoardForm({
   title,
@@ -23,31 +35,20 @@ export default function BoardForm({
   nickname,
   view,
   urls,
+  thumbnailUrls,
 }) {
   const [nowday, setNowDay] = useState([]);
-  function getToday() {
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = ("0" + (1 + date.getMonth())).slice(-2);
-    var day = ("0" + date.getDate()).slice(-2);
-    const dayList = [];
-    for (let i = 0; i < 3; i++) {
-      dayList.push(
-        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
-      );
-    }
-    setNowDay(dayList);
-  }
-  useEffect(getToday, []);
+  useEffect(() => {
+    setNowDay(getToday());
+  }, []);
+
   return (
     <Board>
       <BoardTitle>
-        {urls[0].split("/")[3] === "IMAGE" ? (
+        {thumbnailUrls.length === 0 ? (
           <BoardImage src={urls[0]} />
         ) : (
-          <BoardVideo autoplay>
-            <source src={urls[0]} type="video/mp4" />
-          </BoardVideo>
+          <BoardImage src={thumbnailUrls[0]} />
         )}
 
         <BoardTextDiv>
@@ -61,7 +62,13 @@ export default function BoardForm({
       </BoardTitle>
       <BoardDivBottomItem>
         <SeparataDivLeft>
-          <BoardProfileImg />
+          <BoardProfileImg>
+            <img
+              src={Profile}
+              alt="profile"
+              style={{ widh: "18px", height: "18px" }}
+            />
+          </BoardProfileImg>
           <BoardDivWrite>
             {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
           </BoardDivWrite>
@@ -87,19 +94,29 @@ export default function BoardForm({
 
 const Board = styled.div`
   width: 300px;
-  height: 136px;
-  background-color: ${(props) => props.theme.backGroundColor};
-  color: ${(props) => props.theme.reverseFontColor};
-  padding: 12px 12px;
+  height: 124px;
+  padding: 12px;
   box-shadow: 1px 2px 16px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
-  @media screen and (max-width: 600px) {
+  background-color: ${(props) => props.theme.backGroundColor};
+  color: ${(props) => props.theme.reverseFontColor};
+  @media screen and (max-width: 1178px) {
     width: 450px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 550px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 600px) {
+    width: 350px;
     height: 120px;
     margin: 0 auto;
   }
   @media screen and (max-width: 420px) {
-    width: 300px;
+    width: 280px;
     height: 120px;
     margin: 0 auto;
   }
@@ -120,18 +137,28 @@ const BoardImage = styled.img`
   height: 60px;
   margin-right: 8px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 250px;
+    height: 150px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 600px) {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    margin-right: 12px;
+  }
 `;
-
-const BoardVideo = styled.video`
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-`;
-
 const BoardDivBottomItem = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  color: #aaaaaa;
   margin: 0 auto;
+  color: #aaaaaa;
 `;

@@ -1,12 +1,23 @@
+// react hook , react
 import { useState, useEffect, useRef } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
+// styled-components , Style Files
 import styled from "styled-components";
-
 import BoardItemBox from "./BoardStyle/ThreePowerForm";
 import BoardForm from "./BoardStyle/BoardForm";
+
+// Components
 import LoadingSpinner from "../Loding/LoadingSpinner";
+
+// Icons , Images
+
+// Share , Utils
 
 export default function BoardFetchItems({ category = "", center }) {
   const { pathname } = useLocation();
@@ -51,6 +62,7 @@ export default function BoardFetchItems({ category = "", center }) {
       observer.disconnect();
     };
   }, [page, category]);
+
   return (
     <>
       {isLoading ? (
@@ -95,6 +107,7 @@ export default function BoardFetchItems({ category = "", center }) {
                       createdDate={createdDate}
                       nickname={nickname}
                       view={view}
+                      thumbnailUrls={thumbnailUrls}
                       urls={urls}
                     />
                   )}
@@ -115,7 +128,7 @@ const BoardItemList = styled.ul`
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  grid-column-gap: 32px;
-  grid-row-gap: 28px;
+  grid-column-gap: 15px;
+  grid-row-gap: 14px;
   justify-content: center;
 `;

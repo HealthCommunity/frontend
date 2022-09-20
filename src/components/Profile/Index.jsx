@@ -1,18 +1,23 @@
+// react hook , react
 import React, { useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
 import useUserData from "../../api/useUserData";
+
+// react library
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
 import { ProfileSelector, SelectGroup, SlectItem } from "./ProfileSelector";
 import UserModify from "./UserModify";
 import BoardFetchItems from "../Board/BoardFetchItems";
 import UserPowerChart from "./UserPowerChart";
-import {
-  ProfileMyinfo,
-  ProfileTopWapper,
-  ProfileMyInfoGroup,
-  MyInfoId,
-  MyInfoNickname,
-  MyInfoIdGroup,
-  UserModifyButton,
-} from "./ProfileStyle";
+
+// Icons , Images
+
+// Share , Utils
 
 export default function ProfileContnet() {
   const [selected, setSelected] = useState("profile");
@@ -76,3 +81,51 @@ export default function ProfileContnet() {
     </>
   );
 }
+
+const ProfileTopWapper = styled.div`
+  width: 100%;
+  height: 320px;
+  @media screen and (max-width: 420px) {
+    padding: 0 auto;
+    height: 400px;
+  }
+`;
+
+const ProfileMyinfo = styled.div`
+  width: 470px;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+`;
+
+const ProfileMyInfoGroup = styled.div`
+  display: flex;
+  width: 100%;
+  padding-top: 16px;
+`;
+
+const MyInfoIdGroup = styled.div`
+  margin: auto 0;
+  margin-left: 10px;
+`;
+
+const MyInfoId = styled.span`
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  color: ${(props) => props.theme.reverseFontColor};
+`;
+
+const MyInfoNickname = styled.span`
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 12px;
+  color: #888888;
+`;
+
+const UserModifyButton = styled.div`
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0066ff;
+`;

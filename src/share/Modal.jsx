@@ -1,4 +1,7 @@
+// react hook , react
 import React from "react";
+
+// styled-components , Style Files
 import styled, { keyframes } from "styled-components";
 
 export default function Modal({
@@ -105,24 +108,20 @@ const MainContent = styled.div`
 `;
 
 const ModalFooter = styled.div`
-  padding: 40px 0 32px 0;
-  text-align: right;
   display: flex;
   justify-content: space-between;
+  padding: 40px 0 32px 0;
+  text-align: right;
 `;
 
 const Button = styled.button`
   outline: none;
-  cursor: pointer;
   border: 0;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
   font-size: 18px;
   line-height: 26px;
   color: #222222;
   background: #ffffff;
-  border: 0;
+  cursor: pointer;
 `;
 
 const CancelButton = styled(Button)`

@@ -1,6 +1,11 @@
+// react hook , react
 import React, { useState } from "react";
-import Nav from "../components/Navbar/index";
-import Title from "../utils/Title/Title";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import {
   CommonContainer,
   CommonContentsHome,
@@ -12,21 +17,27 @@ import {
   CommonTitleText,
 } from "../styles/Layout/Layout";
 
-import FavoriteImage from "../assets/images/board_like_bk_32.svg";
+// Components
+import Nav from "../components/Navbar/index";
 import SliderSingleMain from "../components/Slider/SliderCore/SliderSingleMain";
 import TopPopularPicture from "../components/Slider/TopPopularPicture";
-import slide1 from "../assets/images/main-slide-img01.png";
-import slide2 from "../assets/images/main-slide-img02.png";
-import slide3 from "../assets/images/main-slide-img03.png";
 import HomeBoardSelect from "../components/Home/HomeBoard/HomeBoardSelect";
 import HomeBoardSummary from "../components/Home/HomeBoard/HomeBoardSummary";
 import HomeBoard from "../components/Home/HomeBoard";
 import HomeChart from "../components/Home/HomeChart/HomeChart";
 
+// Icons , Images
+import slide1 from "../assets/images/main-slide-img01.png";
+import slide2 from "../assets/images/main-slide-img02.png";
+import slide3 from "../assets/images/main-slide-img03.png";
+import FavoriteImage from "../assets/images/board_like_bk_32.svg";
+
+// Share , Utils
+import Title from "../utils/Title/Title";
+
 export default function Home() {
   const data = [slide1, slide2, slide3];
   const [selected, setSelected] = useState("threepowerpost");
-
   return (
     <>
       <Title name="Home" />
@@ -47,7 +58,7 @@ export default function Home() {
                   alt="favorite"
                   style={{ marginRight: "12px" }}
                 />
-                <CommonTitleText>이번주 인기사진</CommonTitleText>
+                <CommonTitleText>이번 주 인기사진리스트</CommonTitleText>
               </CommonTitleTGroup>
             </CommonTitleArea>
             <TopPopularPicture />

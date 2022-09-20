@@ -1,9 +1,20 @@
+// react hook , react
 import { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useForm } from "react-hook-form";
 
+// recoil ( 상태관리 )
+
+// react library
+import { useForm } from "react-hook-form";
 import axios from "axios";
 
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 import Modal from "../../../share/Modal";
 
 export default function PostThreePower({ userId }) {
@@ -110,6 +121,7 @@ const ModalButton = styled.button`
 const ModalForm = styled.form`
   display: flex;
   flex-direction: column;
+
   input {
     box-sizing: border-box;
     text-align: center;
@@ -125,6 +137,7 @@ const ModalForm = styled.form`
     font-size: 16px;
     line-height: 24px;
     margin: 10px 0px;
+
     :focus {
       outline: none;
     }

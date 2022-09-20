@@ -1,11 +1,24 @@
+// react hook , react
 import { useLocation, Link } from "react-router-dom";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
-import Title from "../utils/Title/Title";
-import Nav from "../components/Navbar/index";
 import { WidthAreaSpace } from "../styles/Layout/Layout";
+
+// Components
+import Nav from "../components/Navbar/index";
 import { FileBtn } from "../components/Board/NewWrite/BoardWriteStyle";
 
-function NotFoundScene() {
+// Icons , Images
+
+// Share , Utils
+import Title from "../utils/Title/Title";
+
+export default function NotFoundScene() {
   const { pathname } = useLocation();
   return (
     <>
@@ -29,5 +42,3 @@ const WrongDiv = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export default NotFoundScene;

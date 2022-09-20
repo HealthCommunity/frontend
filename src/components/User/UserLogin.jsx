@@ -1,6 +1,14 @@
+// react hook , react
 import React, { useState } from "react";
-import InputTextDesc from "./InputTextDesc";
+
+// recoil ( 상태관리 )
+import useUserData from "../../api/useUserData";
+
+// react library
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+
+// styled-components , Style Files
 import {
   UserFormGroup,
   InputTextLabel,
@@ -8,15 +16,20 @@ import {
   TextLabel,
   LinkGroup,
 } from "./LoginStyle";
-import axios from "axios";
+
+// Components
+import InputTextDesc from "./InputTextDesc";
+
+// Icons , Images
+
+// Share , Utils
 import Button from "../../share/Button";
-import useUserData from "../../api/useUserData";
 
 export default function UserInputForm() {
   const [, refetch] = useUserData();
 
   axios.defaults.withCredentials = true;
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [usrInputs, setUsrInputs] = useState({
     id: "",
@@ -48,12 +61,14 @@ export default function UserInputForm() {
         credentials: "include",
       })
       .then((response) => {
-        if (response.data.status === "0402") {
-          alert(response.data.message);
-        } else {
+        if (response.data.status === "200") {
           refetch();
           navigate("/");
           alert("로그인에 성공하였습니다.");
+        } else if (response.data.status === "0402") {
+          alert(response.data.message);
+        } else {
+          alert("아이디 또는 비밀번호를 잘못 입력했습니다.");
         }
       })
       .catch((error) => {

@@ -1,6 +1,27 @@
+// react hook , react
 import React from "react";
-import BoardFetchItems from "../../Board/BoardFetchItems";
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import { WidthAreaHome } from "../../../styles/Layout/Layout";
+
+// Components
+import BoardFetchItems from "../../Board/BoardFetchItems";
+
+// Icons , Images
+
+// Share , Utils
+
+function Group({ children, selected }) {
+  const elements = React.Children.toArray(children);
+  return <>{elements.find(({ props }) => selected === props.category)}</>;
+}
+
+function GroupItem({ children }) {
+  return <>{children}</>;
+}
 
 export default function HomeBoard({ selected }) {
   return (
@@ -18,13 +39,4 @@ export default function HomeBoard({ selected }) {
       </Group>
     </WidthAreaHome>
   );
-}
-
-function Group({ children, selected }) {
-  const elements = React.Children.toArray(children);
-  return <>{elements.find(({ props }) => selected === props.category)}</>;
-}
-
-function GroupItem({ children }) {
-  return <>{children}</>;
 }

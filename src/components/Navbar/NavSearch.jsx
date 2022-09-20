@@ -1,12 +1,24 @@
+// react hook , react
 import { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
+
+// styled-components , Style Files
+import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import SearchColorImage from "../../assets/images/common_search_wh_24.svg";
 import SearchImage from "../../assets/images/common_search_bk_24.svg";
+// Share , Utils
 
 export default function NavSearch({ isSearchOpen, navdata, ScrollY }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(isSearchOpen);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -74,6 +86,7 @@ const SelectForm = styled.select`
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
+
   @media screen and (max-width: 420px) {
     margin: 0 10px 0 5px;
   }
@@ -81,21 +94,22 @@ const SelectForm = styled.select`
 
 const SearchInput = styled.input`
   width: 100px;
+  height: 40px;
   border-top: none;
   border-left: none;
   border-right: none;
-  background-color: transparent;
-  color: ${(props) => props.color};
   font-size: 16px;
   line-height: 24px;
-  height: 40px;
   border-bottom: 1px solid #eeeeee;
   padding: 0 40px 0 90px;
+  color: ${(props) => props.color};
+  background-color: transparent;
 
   &:focus {
     outline: none;
     background-color: transparent;
   }
+
   @media screen and (max-width: 420px) {
     font-size: 12px;
     width: 60px;
@@ -107,6 +121,6 @@ const SearchButton = styled.button`
   position: absolute;
   right: 10px;
   border: none;
-  cursor: pointer;
   background-color: transparent;
+  cursor: pointer;
 `;

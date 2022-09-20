@@ -1,7 +1,20 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import GoogleIcon from "../../../assets/images/google_logo.svg";
 import NaverIcon from "../../../assets/images/naver_logo.svg";
+
+// Share , Utils
 
 export function SnsLogin() {
   return (
@@ -38,11 +51,11 @@ export function SnsLogin() {
 }
 
 const SnsLinkList = styled.ul`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const SnsLinkItem = styled.li`
@@ -51,13 +64,14 @@ const SnsLinkItem = styled.li`
 
 const LinkItem = styled.div`
   position: relative;
-  height: 60px;
-  margin-bottom: 20px;
-  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 12px;
   color: ${(props) => props.theme.basicColrDark22};
+
   img {
     position: absolute;
     left: 20px;

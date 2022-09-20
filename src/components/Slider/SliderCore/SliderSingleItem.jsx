@@ -1,3 +1,4 @@
+// styled-components , Style Files
 import styled from "styled-components";
 
 export default function SliderSingleItem({ item, style, categories }) {
@@ -29,7 +30,7 @@ function YoutubeItem({ item }) {
   return (
     <ItemInnerWrapper>
       <InnerBox>
-        <a href={link}>
+        <a href={link} target="_blank">
           <InnderBoxTop>
             <ThumbnailImg src={thumbnail} alt="유튜브 이미지 썸네일" />
             <BoxTopInfo>
@@ -50,7 +51,7 @@ function CommercialItem({ item }) {
   return (
     <ItemInnerWrapper>
       <InnerBox>
-        <a href={link}>
+        <a href={link} target="_blank">
           <TitleText>{title}</TitleText>
           <SubText>{subTitle}</SubText>
           <DescText>{text}</DescText>

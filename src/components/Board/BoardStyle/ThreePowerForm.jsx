@@ -1,20 +1,30 @@
+// react hook , react
 import { useEffect, useState } from "react";
 
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
 import {
   BoardTextDiv,
   BoardText,
-  SeparataDivLeft,
   BoardProfileImg,
   BoardDivWrite,
   SeparataSpan,
-  SeparataDiv,
-  SeparataItem,
 } from "./BoardStyle";
 
+// Components
+
+// Icons , Images
 import NewIcon from "../../../assets/images/badge_new.svg";
 import EyeIcon from "../../../assets/images/common_view_16.svg";
 import TiemIcon from "../../../assets/images/board_write_gr_20.svg";
+import Profile from "../../../assets/images/common_mypage_gr.svg";
+
+// Share , Utils
+import getToday from "utils/getToday";
 
 export default function ThreePowerForm({
   id,
@@ -26,20 +36,9 @@ export default function ThreePowerForm({
   thumbnailUrls,
 }) {
   const [nowday, setNowDay] = useState([]);
-  function getToday() {
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = ("0" + (1 + date.getMonth())).slice(-2);
-    var day = ("0" + date.getDate()).slice(-2);
-    const dayList = [];
-    for (let i = 0; i < 3; i++) {
-      dayList.push(
-        `${year}-${month}-${day - i < 10 ? "0" + (day - i) : day - i}`
-      );
-    }
-    setNowDay(dayList);
-  }
-  useEffect(getToday, []);
+  useEffect(() => {
+    setNowDay(getToday());
+  }, []);
 
   return (
     <BoardDiv>
@@ -61,7 +60,13 @@ export default function ThreePowerForm({
         </BoardTextDiv>
         <BoardDivBottom>
           <ThreeSeparateLeftDiv>
-            <BoardProfileImg />
+            <BoardProfileImg>
+              <img
+                src={Profile}
+                alt="profile"
+                style={{ widh: "18px", height: "18px" }}
+              />
+            </BoardProfileImg>
             <BoardDivWrite>
               {nickname.length > 5 ? `${nickname.slice(0, 5)}...` : nickname}
             </BoardDivWrite>
@@ -94,7 +99,16 @@ const BoardDiv = styled.div`
   border-radius: 8px;
   background-color: ${(props) => props.theme.backGroundColor};
   color: ${(props) => props.theme.reverseFontColor};
-
+  @media screen and (max-width: 1178px) {
+    width: 450px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 930px) {
+    width: 550px;
+    height: 450px;
+    margin: 0 auto;
+  }
   @media screen and (max-width: 600px) {
     display: flex;
     width: 100%;
@@ -111,10 +125,18 @@ const ReseponseDiv = styled.div`
 `;
 
 const BoardVideoOne = styled.img`
+  width: 300px;
   height: 160px;
   margin: 0px 10px;
-  width: 300px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 95%;
+    height: 200px;
+  }
+  @media screen and (max-width: 930px) {
+    width: 95%;
+    height: 200px;
+  }
   @media screen and (max-width: 600px) {
     width: 90%;
     height: 50%;
@@ -126,6 +148,12 @@ const BoardVideoDiv = styled.div`
   justify-content: space-between;
   height: 100px;
   margin: 8px 12px;
+  @media screen and (max-width: 1178px) {
+    height: 120px;
+  }
+  @media screen and (max-width: 930px) {
+    height: 120px;
+  }
   @media screen and (max-width: 600px) {
     height: 40%;
   }
@@ -134,6 +162,12 @@ const BoardVideoDiv = styled.div`
 const BoardVideoTwo = styled.img`
   width: 145px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 48%;
+  }
+  @media screen and (max-width: 930px) {
+    width: 48%;
+  }
   @media screen and (max-width: 600px) {
     width: 45%;
   }
@@ -142,6 +176,12 @@ const BoardVideoTwo = styled.img`
 const BoardVideoThree = styled.img`
   width: 145px;
   border-radius: 8px;
+  @media screen and (max-width: 1178px) {
+    width: 48%;
+  }
+  @media screen and (max-width: 930px) {
+    width: 48%;
+  }
   @media screen and (max-width: 600px) {
     width: 45%;
   }
@@ -151,8 +191,8 @@ const BoardDivBottom = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  color: #aaaaaa;
   margin: 0 auto;
+  color: #aaaaaa;
   @media screen and (max-width: 600px) {
     flex-direction: column;
     align-items: flex-start;
@@ -173,8 +213,9 @@ const ThreeSeparateDiv = styled.div`
 
 const ThreeSeparateLeftDiv = styled.div`
   display: flex;
-  width: 35%;
   align-items: center;
+  width: 35%;
+  margin-left: 12px;
   @media screen and (max-width: 600px) {
     width: 100%;
   }
@@ -183,8 +224,8 @@ const ThreeSeparateLeftDiv = styled.div`
 export const ThreeSeparateView = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0px 5px;
   align-items: center;
+  margin: 0px 5px;
   @media screen and (max-width: 600px) {
     width: 30%;
     margin: 5px 0px;
@@ -194,8 +235,8 @@ export const ThreeSeparateView = styled.div`
 export const ThreeSeparateCal = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0px 5px;
   align-items: center;
+  margin: 0px 5px;
   @media screen and (max-width: 600px) {
     width: 70%;
     margin: 5px 0px;

@@ -1,5 +1,18 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { css } from "styled-components";
+
+// Components
 import SliderSingleMain from "./SliderCore/SliderSingleMain";
+
+// Icons , Images
+
+// Share , Utils
 import youtubeData from "../../data/commercial/youtubeData";
 import healthData from "../../data/commercial/healthData";
 import commercialData from "../../data/commercial/commercialData";
@@ -24,7 +37,7 @@ const pointColor = {
 const categoryText = {
   exercisepost: "다른 사람들의 3대 능력을 확인해보세요",
   threepowerpost: "다른 사람들의 운동 루틴을 확인해보세요",
-  freepost: "다른 사람들과 자유롭게ㅤ이야기를 나눠보세요",
+  freepost: "다른 사람과 자유 이야기를 나눠보세요",
 };
 
 const categoryData = {
@@ -40,7 +53,7 @@ export default function CategoryCommercial({ category }) {
   return (
     <CategoryCommercialWapper>
       <CategoryCommercialBg backgroundStyle={backgroundStyle}>
-        <SliderBgText>{backgroundText}</SliderBgText>
+        <p>{backgroundText}</p>
         <SliderContent>
           <SliderSingleMain
             data={categoryData[category]}
@@ -56,6 +69,11 @@ const CategoryCommercialWapper = styled.div`
   width: 100%;
   margin: 0 auto;
   height: 266px;
+
+  //600px이하인 경우 광고 제거
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const CategoryCommercialBg = styled.div`
@@ -69,23 +87,24 @@ const CategoryCommercialBg = styled.div`
     var(--bg-end-color)
   );
   border-radius: 8px;
-`;
 
-const SliderBgText = styled.span`
-  position: absolute;
-  width: 30%;
-  height: 88px;
-  left: 36px;
-  top: 138px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 44px;
-  color: #ffffff;
-  @media screen and (max-width: 1440px) {
-    display: none;
-  }
-  @media screen and (max-width: 600px) {
-    display: none;
+  & p {
+    position: absolute;
+    width: 28%;
+    height: 88px;
+    left: 36px;
+    top: 138px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #ffffff;
+
+    @media screen and (max-width: 1440px) {
+      display: none;
+    }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 
@@ -102,5 +121,8 @@ const SliderContent = styled.div`
   }
   @media screen and (max-width: 600px) {
     width: 85%;
+  }
+  @media screen and (max-width: 420px) {
+    display: none;
   }
 `;

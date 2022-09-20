@@ -1,8 +1,20 @@
+// react hook , react
+import React, { useRef, useEffect, useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { css } from "styled-components";
+
+// Components
 import SliderSingleItem from "./SliderSingleItem";
 import SliderButton from "./SliderButton";
 
-import React, { useRef, useEffect, useState } from "react";
+// Icons , Images
+
+// Share , Utils
 
 export default function SliderSingleMain({ data, categories }) {
   const [width, setWidth] = useState(0);
@@ -189,6 +201,7 @@ const SliderPageButton = styled.button`
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin: 0 0 0 12px;
+  cursor: pointer;
 
   ${(props) =>
     props.isActive &&

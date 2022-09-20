@@ -1,9 +1,13 @@
+// react hook , react
 import { useState } from "react";
+
+// recoil ( 상태관리 )
+
+// react library
 import { useNavigate } from "react-router";
-
 import axios from "axios";
-import Tiptap from "../../../utils/Editor/Tiptap";
 
+// styled-components , Style Files
 import {
   PostWrapper,
   PostTitleTitle,
@@ -12,11 +16,18 @@ import {
   FileBtnDiv,
   FileBtn,
 } from "./BoardWriteStyle";
+
+// Components
 import LoadingSpinner from "../../Loding/LoadingSpinner";
+
+// Icons , Images
 import VideoIcon from "../../../assets/images/board_write_video_24.svg";
 
+// Share , Utils
+import Tiptap from "../../../utils/Editor/Tiptap";
+
 export default function ThreeBoardPost() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [isPending, setIsPending] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -52,7 +63,7 @@ export default function ThreeBoardPost() {
 
   //base64 인코딩 URL로 된 정보 file 객체로 변경 함수
   const dataURLtoFile = (dataurl, fileName) => {
-    var arr = dataurl.split(","),
+    let arr = dataurl.split(","),
       mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]),
       n = bstr.length,
@@ -142,7 +153,6 @@ export default function ThreeBoardPost() {
         if (response.data.status === "0452") {
           setIsPending(false);
           alert("본문에 내용을 넣어주세요!");
-          console.log(formData);
           return;
         }
         navigate("/threepowerpost");
@@ -275,7 +285,7 @@ export default function ThreeBoardPost() {
                 type="submit"
                 style={{ color: "white", backgroundColor: "#0066FF" }}
               >
-                제출하기
+                등록하기
               </FileBtn>
             </FileBtnDiv>
           </form>

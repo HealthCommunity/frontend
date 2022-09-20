@@ -1,11 +1,24 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
 import ThreeImage from "../../../assets/images/dark_arm.svg";
 import ThreeColorImage from "../../../assets/images/color_arm.svg";
 import ExerciseImage from "../../../assets/images/dark_dumbbell.svg";
 import ExerciseColorImage from "../../../assets/images/color_dumbbell.svg";
 import FreeImage from "../../../assets/images/dark_free.svg";
 import FreeColorImage from "../../../assets/images/color_free.svg";
+
+// Share , Utils
 
 export function BoardSelectTab({ onChange, typeName }) {
   return (
@@ -79,6 +92,18 @@ export function BoardSelectTab({ onChange, typeName }) {
 const TabList = styled.div`
   display: flex;
   width: 100%;
+  @media screen and (max-width: 1440px) {
+    padding: 0px 10px;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 0px 10px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 0px 5px;
+  }
+  @media screen and (max-width: 420px) {
+    margin: 5px;
+  }
 `;
 
 const TabItem = styled.div`
@@ -86,16 +111,20 @@ const TabItem = styled.div`
   font-size: 24px;
   margin-right: 50px;
   letter-spacing: 1px;
-  cursor: pointer;
   white-space: nowrap;
   font-family: "GangwonEduPower";
-  @media screen and (max-width: 750px) {
-    font-size: 18px;
-    margin-right: 20px;
+  cursor: pointer;
+  @media screen and (max-width: 1024px) {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+    margin-right: 5px;
   }
   @media screen and (max-width: 420px) {
-    font-size: 14px;
-    margin-right: 5px;
+    font-size: 12px;
+    margin-right: 1px;
   }
 `;
 
@@ -103,6 +132,7 @@ export const TabItemImage = styled.img`
   width: 30px;
   height: 30px;
   margin-right: 12px;
+
   @media screen and (max-width: 420px) {
     width: 24px;
     height: 24px;

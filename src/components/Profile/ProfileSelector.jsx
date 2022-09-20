@@ -1,5 +1,18 @@
+// react hook , react
 import React from "react";
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled from "styled-components";
+
+// Components
+
+// Icons , Images
+
+// Share , Utils
 
 function selectorNav(typeName, navSelect) {
   switch (typeName) {
@@ -47,24 +60,32 @@ const ProfileDiv = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-top: 92px;
+  padding-top: 70px;
   padding-bottom: 20px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 auto;
+    padding-top: 20px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 0 auto;
+    padding-top: 10px;
+  }
   @media screen and (max-width: 420px) {
     padding: 0 auto;
+    padding-top: 0px;
   }
 `;
 
 const ProfileItem = styled.div`
-  cursor: pointer;
-  font-family: "Pretendard";
-  font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   text-align: center;
-  color: #0066ff;
   color: ${(props) =>
     props.isActive ? "#0066FF" : props.theme.colorFontGrey100};
+  cursor: pointer;
+
   a {
     display: block;
   }

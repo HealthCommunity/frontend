@@ -1,5 +1,18 @@
+// react hook , react
+
+// recoil ( 상태관리 )
+
+// react library
+
+// styled-components , Style Files
 import styled, { keyframes } from "styled-components";
+
+// Components
+
+// Icons , Images
 import Spinner from "../../assets/images/symbol_bl_120.svg";
+
+// Share , Utils
 
 export default function LoadingSpinner({ text }) {
   return (
@@ -29,16 +42,16 @@ const animation = keyframes`
 
 const Background = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  background: #fcfcfcb7;
   z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: #fcfcfcb7;
 `;
 
 const LodingImg = styled.div`
