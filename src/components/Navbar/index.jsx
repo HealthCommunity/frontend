@@ -124,7 +124,7 @@ export default function Nav() {
             <Link to="/threepowerpost">
               <NavItem
                 color={pathname.includes("threepowerpost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 3대력 게시판
@@ -133,7 +133,7 @@ export default function Nav() {
             <Link to="/exercisepost">
               <NavItem
                 color={pathname.includes("exercisepost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 운동 게시판
@@ -142,7 +142,7 @@ export default function Nav() {
             <Link to="/freepost">
               <NavItem
                 color={pathname.includes("freepost") ? "#0066FF" : ""}
-                hover={pathname === "/" ? "white" : ""}
+                hover={pathname === "/" ? "#0066FF" : ""}
                 style={{ marginRight: "20px" }}
               >
                 자유 게시판
