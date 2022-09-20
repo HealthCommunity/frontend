@@ -13,6 +13,7 @@ import styled from "styled-components";
 // Components
 import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
+import BoardFetchItems from "../components/Board/BoardFetchItems";
 
 // Icons , Images
 
@@ -63,6 +64,7 @@ export default function Search() {
             view,
             urls,
             postCategory,
+            thumbnailUrls,
           }) => (
             <Link key={postId} to={`/${postCategory}/${postId}`}>
               <BoardForm
@@ -71,6 +73,7 @@ export default function Search() {
                 createdDate={createdDate}
                 nickname={nickname}
                 view={view}
+                thumbnailUrls={thumbnailUrls}
                 urls={urls}
               />
             </Link>
