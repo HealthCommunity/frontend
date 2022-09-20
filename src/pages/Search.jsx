@@ -9,11 +9,11 @@ import axios from "axios";
 
 // styled-components , Style Files
 import styled from "styled-components";
+import { WidthAreaSpace, WidthAreaInner } from "../styles/Layout/Layout";
 
 // Components
 import Nav from "../components/Navbar/index";
 import BoardForm from "../components/Board/BoardStyle/BoardForm";
-import BoardFetchItems from "../components/Board/BoardFetchItems";
 
 // Icons , Images
 
@@ -54,32 +54,36 @@ export default function Search() {
         <SearchSelector>{`${serchOption[state.select]} 검색`}</SearchSelector>
         <SearchResult>{`'${state.keyword}' 검색 결과 ${itemList.length}건`}</SearchResult>
       </SearchResultInfo>
-      <BoardItemList>
-        {itemList.map(
-          ({
-            postId,
-            title,
-            createdDate,
-            nickname,
-            view,
-            urls,
-            postCategory,
-            thumbnailUrls,
-          }) => (
-            <Link key={postId} to={`/${postCategory}/${postId}`}>
-              <BoardForm
-                id={postId}
-                title={title}
-                createdDate={createdDate}
-                nickname={nickname}
-                view={view}
-                thumbnailUrls={thumbnailUrls}
-                urls={urls}
-              />
-            </Link>
-          )
-        )}
-      </BoardItemList>
+      <WidthAreaSpace>
+        <WidthAreaInner>
+          <BoardItemList>
+            {itemList.map(
+              ({
+                postId,
+                title,
+                createdDate,
+                nickname,
+                view,
+                urls,
+                postCategory,
+                thumbnailUrls,
+              }) => (
+                <Link key={postId} to={`/${postCategory}/${postId}`}>
+                  <BoardForm
+                    id={postId}
+                    title={title}
+                    createdDate={createdDate}
+                    nickname={nickname}
+                    view={view}
+                    thumbnailUrls={thumbnailUrls}
+                    urls={urls}
+                  />
+                </Link>
+              )
+            )}
+          </BoardItemList>
+        </WidthAreaInner>
+      </WidthAreaSpace>
     </>
   );
 }
