@@ -83,9 +83,6 @@ export default function SliderSingleMain({ data, categories }) {
     })
     .map((num) => data[isOver(num)]);
 
-  console.log("currentOrder >", currentOrder);
-  console.log("nowIdx >", nowIdx);
-
   return (
     <SliderArea ref={ref}>
       <Slider className="slider">
