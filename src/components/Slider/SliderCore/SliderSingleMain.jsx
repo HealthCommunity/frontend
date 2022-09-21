@@ -18,42 +18,51 @@ import SliderButton from "./SliderButton";
 
 export default function SliderSingleMain({ data, categories }) {
   const [width, setWidth] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
+  const [currentOrder, setCurrentOrder] = useState(0); //현재 슬라이드의 index를 저장(0에서부터 슬라이드 움직이는 개수만큼 +1싹 무한정으로 커짐)
 
+  //왼쪽, 오른쪽 버튼 클릭 이벤트
   const handleSwipe = (direction) => {
-    setCurrentIndex((prev) => prev + direction);
+    setCurrentOrder((prev) => prev + direction); //인덱스와 왼쪽 오른쪽 방향 조정 direction(양수인 경우 오른쪽, 음수인경우 왼쪽) 이동
   };
 
   useEffect(() => {
+    //브라우저 사이즈에 맞게 너비 갱신 함수
     const handleResize = () => {
       setWidth(ref.current.clientWidth);
     };
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); //브라우저 리사이즈 이벤트 발생시 width 상태값 갱신
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize); //resize 함수 resize 이벤트가 계속 누적 방지
     };
   }, []);
 
+  //idx가 0보다 작은 경우(왼쪽 끝 범위 초과) 0반환
+  //idx가 데이터 길이보다 큰 경우(오른쪽 끝 범위 초과), 오른쪽 끝 처리
+  //아닌 경우 현제 인덱스 유지
   const isOver = (idx) =>
-    idx < 0 ? 0 : idx >= data.length ? data.length - 1 : idx;
+    idx < 0 ? 0 : idx >= data.length ? data.length - 1 : idx; //0보다 작은 경우
 
   useEffect(() => {
-    // setInterval 삽입하여 2초마다 setCurrentIndex 실행
+    // setInterval 삽입하여 2초마다 setCurrentOrder 실행
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => prev + 1);
+      setCurrentOrder((prev) => prev + 1);
     }, 2000);
 
     return () => {
       clearInterval(timer);
     };
-  }, [currentIndex]);
+  }, [currentOrder]);
 
   const ref = useRef();
-  const idx = Math.floor(currentIndex % data.length);
+  const nowIdx = Math.floor(currentOrder % data.length); //현재 인덱스 아이템의 개수로 나머지로 현재 보여줄 컨텐츠 조정
+
+  //현재 보여주는 슬라이드 컨텐츠보다 앞에 있는 아이템
   const startSlides = [3, 2, 1] //보여줘야할 currrentIndex보다 얼마나 멀리 떨어져 있는 지 나타냄
     .map((num) => {
-      const nextIdx = idx >= 0 ? idx - num : data.length + idx - num;
+      const nextIdx = nowIdx >= 0 ? nowIdx - num : data.length + nowIdx - num;
+
+      //현재 인덱스가 맨 왼쪽인 경우(0보다 작은 경우) 다음 인덱스는 맨 뒤로 이동
       if (nextIdx < 0) {
         return data.length - Math.abs(nextIdx);
       }
@@ -61,9 +70,12 @@ export default function SliderSingleMain({ data, categories }) {
     })
     .map((num) => data[isOver(num)]);
 
-  const endSlides = [1, 2, 3]
+  //현재 보여주는 슬라이드 컨텐츠보다 뒤에 있는 아이템
+  const endSlides = [1, 2, 3] //보여줘야할 currrentIndex보다 얼마나 멀리 떨어져 있는 지 나타냄
     .map((num) => {
-      const nextIdx = idx >= 0 ? idx + num : data.length + idx + num;
+      const nextIdx = nowIdx >= 0 ? nowIdx + num : data.length + nowIdx + num;
+
+      //현재 인덱스가 맨 오른쪽인 경우(길이보다 큰 경우) 다음 인덱스는 맨 앞으로 이동
       if (nextIdx < data.length) {
         return nextIdx < 0 ? 0 : nextIdx;
       }
@@ -71,69 +83,75 @@ export default function SliderSingleMain({ data, categories }) {
     })
     .map((num) => data[isOver(num)]);
 
+  console.log("currentOrder >", currentOrder);
+  console.log("nowIdx >", nowIdx);
+
   return (
     <SliderArea ref={ref}>
       <Slider className="slider">
         <SliderButton
           direction={true}
-          onClick={() => handleSwipe(-1)}
+          onClick={() => handleSwipe(-1)} //왼쪽 <- 이동
           categories={categories}
         />
         <SliderButton
           direction={false}
-          onClick={() => handleSwipe(1)}
+          onClick={() => handleSwipe(1)} //오른쪽 -> 이동
           categories={categories}
         />
         <SliderLists
           categories={categories}
           className="slider-list"
           style={{
-            transform: `translate3d(${-currentIndex * width}px, 0px, 0px)`,
+            transform: `translate3d(${-currentOrder * width}px, 0px, 0px)`,
             transition: "all ease 0.4s",
           }}
         >
+          {/* 현재 슬라이드보다 왼쪽에 있는 컨텐츠 */}
           {startSlides.map((item, idx) => (
             <SliderSingleItem
-              key={currentIndex - 3 + idx}
+              key={currentOrder - 3 + idx}
               item={item}
               style={{
                 width,
-                left: (currentIndex - 3 + idx) * width,
+                left: (currentOrder - 3 + idx) * width, //슬라이드 순서에서 아이템 개수만큼 떨어져있는 숫자를 빼주고, i만큼
               }}
               categories={categories}
-            ></SliderSingleItem>
+            />
           ))}
+          {/* 현재 슬라이트 컨텐츠 */}
           <SliderSingleItem
-            key={currentIndex}
-            item={data[idx >= 0 ? idx : data.length + idx]}
+            key={currentOrder}
+            item={data[nowIdx >= 0 ? nowIdx : data.length + nowIdx]}
             style={{
               width,
-              left: currentIndex * width,
+              left: currentOrder * width,
             }}
             categories={categories}
-          ></SliderSingleItem>
+          />
+          {/* 현재 슬라이드보다 오른쪽에 있는 컨텐츠 */}
           {endSlides.map((item, idx) => (
             <SliderSingleItem
-              key={currentIndex + idx + 1}
+              key={currentOrder + idx + 1}
               item={item}
               style={{
                 width,
-                left: (currentIndex + idx + 1) * width,
+                left: (currentOrder + idx + 1) * width, //현재 인덱스 +
               }}
               categories={categories}
-            ></SliderSingleItem>
+            />
           ))}
         </SliderLists>
 
         <SliderPagenation>
           <SliderPagenationList>
             {data.map((item, num) => {
-              const target = idx >= 0 ? idx : data.length + idx; //음수일 때는, 데이터 랭스에서 더함-> 음순니까 빼기된다.
+              const target = nowIdx >= 0 ? nowIdx : data.length + nowIdx; //음수일 때는, 데이터 랭스에서 더함-> 음순니까 빼기된다.
               return (
                 <SliderPageButton
                   key={num}
                   onClick={() => {
-                    setCurrentIndex(currentIndex - (target - num));
+                    setCurrentOrder(currentOrder - (target - num));
                   }}
                   className={num === target ? "active" : ""}
                   isActive={num === target}
