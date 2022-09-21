@@ -17,22 +17,23 @@ import SliderButton from "./SliderButton";
 // Share , Utils
 
 export default function SliderSingleMain({ data }) {
-  const [currentIndex, setCurrentIndex] = useState(0); //현재 슬라이드의 index를 저장
+  const [currentOrder, setCurrentOrder] = useState(0); //현재 슬라이드의 index를 저장
   const width = 150;
   const makeCount = 8;
 
   const handleSwipe = (direction) => {
-    setCurrentIndex((prev) => prev + direction);
+    setCurrentOrder((prev) => prev + direction);
   };
 
   const isOver = (idx) =>
     idx < 0 ? 0 : idx >= data.length ? data.length - 1 : idx;
 
   const ref = useRef();
-  const idx = Math.floor(currentIndex % data.length);
+  const nowIdx = Math.floor(currentOrder % data.length);
+
   const startSlides = [8, 7, 6, 5, 4, 3, 2, 1] //보여줘야할 currrentIndex보다 얼마나 멀리 떨어져 있는 지 나타냄
     .map((num) => {
-      const nextIdx = idx >= 0 ? idx - num : data.length + idx - num;
+      const nextIdx = nowIdx >= 0 ? nowIdx - num : data.length + nowIdx - num;
       if (nextIdx < 0) {
         return data.length - Math.abs(nextIdx);
       }
@@ -42,7 +43,7 @@ export default function SliderSingleMain({ data }) {
 
   const endSlides = [1, 2, 3, 4, 5, 6, 7, 8]
     .map((num) => {
-      const nextIdx = idx >= 0 ? idx + num : data.length + idx + num;
+      const nextIdx = nowIdx >= 0 ? nowIdx + num : data.length + nowIdx + num;
       if (nextIdx < data.length) {
         return nextIdx < 0 ? 0 : nextIdx;
       }
@@ -58,37 +59,37 @@ export default function SliderSingleMain({ data }) {
         <SliderLists
           className="slider-list"
           style={{
-            transform: `translate3d(${-currentIndex * width}px, 0px, 0px)`,
+            transform: `translate3d(${-currentOrder * width}px, 0px, 0px)`,
             transition: "all ease 0.4s",
           }}
         >
           {startSlides.map((item, idx) => (
             <SliderMultiItem
-              key={currentIndex - makeCount + idx}
+              key={currentOrder - makeCount + idx}
               item={item}
               style={{
                 width,
-                left: (currentIndex - makeCount + idx) * width,
+                left: (currentOrder - makeCount + idx) * width,
               }}
-            ></SliderMultiItem>
+            />
           ))}
           <SliderMultiItem
-            key={currentIndex}
-            item={data[idx >= 0 ? idx : data.length + idx]}
+            key={currentOrder}
+            item={data[nowIdx >= 0 ? nowIdx : data.length + nowIdx]}
             style={{
               width,
-              left: currentIndex * width,
+              left: currentOrder * width,
             }}
-          ></SliderMultiItem>
+          />
           {endSlides.map((item, idx) => (
             <SliderMultiItem
-              key={currentIndex + idx + 1}
+              key={currentOrder + idx + 1}
               item={item}
               style={{
                 width,
-                left: (currentIndex + idx + 1) * width,
+                left: (currentOrder + idx + 1) * width,
               }}
-            ></SliderMultiItem>
+            />
           ))}
         </SliderLists>
       </Slider>
