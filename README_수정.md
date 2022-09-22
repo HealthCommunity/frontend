@@ -125,7 +125,7 @@
 
 |                                   아키텍처(Architecture)                                   |
 | :----------------------------------------------------------------------------------------: |
-| <img src="./readme_assets/architecture.PNG" alt="아키텍처(Architecture)" width="1000px" /> |
+| <img src="./readme_assets/architecture.png" alt="아키텍처(Architecture)" width="1000px" /> |
 
 |                              개체-관계 모델(ERD)                               |
 | :----------------------------------------------------------------------------: |
