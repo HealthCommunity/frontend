@@ -150,28 +150,20 @@
 
 <br />
 
-### Headings Map
-
-|                                             홈 페이지                                              |                                                팀 공고 페이지                                                |                                                팀 상세 정보 페이지                                                |
-| :------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
-| <img src="./readme_assets/home-page-headingsmap.png" alt="홈 페이지 Headings Map" width="300px" /> | <img src="./readme_assets/team-list-page-headingsmap.png" alt="팀 공고 페이지 Headings Map" width="300px" /> | <img src="./readme_assets/team-info-page-headingsmap.png" alt="팀 상세 정보 페이지 Headings Map" width="300px" /> |
-
-<br />
-
 <div id="9"></div>
 
 ## 👪 개발 팀 소개
 
 <table>
   <tr>
-    <td align="center" width="150px">
-      <a href="https://github.com/pasong0511" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/86876414?v=4" alt="박송희 프로필" />
+     <td align="center" width="150px">
+      <a href="https://github.com/jiji-hoon96" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/94469974?v=4" alt="이지훈 프로필" />
       </a>
     </td>
     <td align="center" width="150px">
-      <a href="https://github.com/jiji-hoon96" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/94469974?v=4" alt="이지훈 프로필" />
+      <a href="https://github.com/pasong0511" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/86876414?v=4" alt="박송희 프로필" />
       </a>
     </td>
     <td align="center" width="150px">
@@ -191,14 +183,14 @@
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <a href="https://github.com/pasong0511" target="_blank">
-        박송희<br />(Front-end & 팀장)
+  <td align="center">
+      <a href="https://github.com/jiji-hoon96" target="_blank">
+        이지훈<br />(Front-end & 팀장)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/jiji-hoon96" target="_blank">
-        이지훈<br />(Front-end & 부팀장)
+      <a href="https://github.com/pasong0511" target="_blank">
+        박송희<br />(Front-end)
       </a>
     </td>
     <td align="center">
