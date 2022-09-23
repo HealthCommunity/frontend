@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-  <img src="./readme_assets/HealTreeLogo.png" alt="SSAFY MATE"/>
+  <img src="./readme_assets/HealTreeLogo.png" alt="HealThree"/>
   <br />
   <h1>헬쓰리(HealThree)</h1>
   <div>
@@ -51,7 +51,7 @@
 <br />
 
 
-[**🔗 배포된 웹 서비스로 바로가기 Click !**](http://health-community.site//) 👈
+[**🔗 배포된 웹 서비스로 바로가기 Click !**](http://health-community.site) 👈
 
 [**🔗 서비스 소개 영상 바로가기 Click !**](https://#) 👈
 
@@ -73,15 +73,15 @@
 
 ### **Front-end**
 
-| <img src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" width="50px" height="50px" /> |  |
-| :----------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
-|                                                             HTML5                                                              |                                                             CSS3                                                             |                                                                                                                      |
+| <img src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="CSS3" width="50px" height="50px" /> |  |
+| :----------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
+|                                                               HTML5                                                   |                                                         CSS3                                                    |                                                   Javascript                                              |                                                                                                                                         |
 
-| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://recoiljs.org/ko/img/logo.svg" alt="Recoil" width="50px" height="50px" /> | <img src="https://styled-components.com/logo.png" alt="Redux-Saga" width="50px" height="50px" /> |  |
-| :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                               React                                                               |                                                         Recoil                                                         |                                                   Styled-Components                                                   |                                                                                                                                                         |
+| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://velog.velcdn.com/images/real-bird/post/db9add5d-bba1-43c2-899b-42d3ab972f6b/image.png" alt="Recoil" width="50px" height="50px" /> | <img src="https://styled-components.com/logo.png" alt="Redux-Saga" width="50px" height="50px" /> |  |
+| :----------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
+|                                                               React                                                          |                                                         Recoil                                                         |                                                   Styled-Components                                              |                                                                                                                                         |
 
-| <img src="https://apexcharts.com/wp-content/themes/apexcharts/img/apexcharts-logo-white-trimmed.svg" alt="Socket.io" width="50px" height="50px" /> | <img src="https://img.setka.io/clients/D3SuW9_Vtk6NhYeFXfduUy55A4Dromkt/post_images/screenshot-2022-01-31-at-15.41.00-2022013112411228.png" alt="Tiptap editor" width="80px" height="50px" /> | 
+| <img src="https://apexcharts.com/wp-content/themes/apexcharts/img/apexcharts-logo-white-trimmed.svg" alt="Socket.io" width="50px" height="50px" /> | <img src="https://img.setka.io/clients/D3SuW9_Vtk6NhYeFXfduUy55A4Dromkt/post_images/screenshot-2022-01-31-at-15.41.00-2022013112411228.png" alt="Tiptap editor" width="90px" height="50px" /> | 
 | :----------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | 
 |                                                  Apexcharts                                                   |                                                           Tiptap editor                                                            |                                        
 
@@ -111,11 +111,12 @@
 
 | 기능                      | 내용                                                                                                                                |
 | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
-| 삼대력 측정                   | 팀들의 정보를 비교하고 검색 폼을 통해 내가 원하는 프로젝트 트랙, 직무, 기술 스택 등을 검색하여 내게 꼭 맞는 팀 정보를 제공해줍니다. |
-| 운동정보 공유               | 교육생들의 정보를 한눈에 확인하고 검색 폼을 통해 나의 팀에 필요한 직무, 기술 역량 등을 갖춘 교육생을 찾아볼 수 있습니다.            |
-| 자유일상 공유 | 내가 원하는 팀 또는 교육생을 찾았다면 팀 지원 및 팀 합류 요청 기능을 통해 팀에 합류하거나 팀을 구성할 수 있습니다.                  |
-| 삼대력 비교   | 팀장 또는 교육생에게 좀 더 구체적인 개발 계획이나 정보가 궁금하다면 실시간 1대1 채팅을 통해 이야기를 나눌 수 있습니다.              |
-| 반응형 웹 제공            | PC, 테블릿, 모바일 등 어떤 기기에서든 최적화된 싸피 메이트 서비스를 이용하실 수 있습니다.                                           |
+| 삼대력 측정 & 삼대력 게시판                   | 나의 삼대력은 얼마나 될까? 에 대한 궁금중을 해소하기 위해서 만들어진 기능입니다. <br> 벤치프레스, 스쿼트, 데드리프트의 동영상을 올리면 관리자가 판단해서 3대력을 부여합니다. <br> 해당 3대력의 기록은 홈페이지 메인화면에 순위로 기록되어 다른사람과 기록을 공유할 수 있습니다. <br> 또한 삼대력 게시판의 게시글로 인해 다른사람의 3대력 측정과정의 모든 것을 볼 수 있습니다.|
+| 운동 게시판              | 운동게시판은 회원가입이 완료된 사용자가 운동에 대한 정보를 게시글로 남깁니다 <br> 해당 운동게시판은 아래 4가지 큰 틀로 작성됩니다. <br> 1. 식단, 음식 에 대한 정보 <br> 2. 운동기구의 할인정보 <br>3. 헬스장에 대한 정보공유 <br> 4. 운동에 대한 모든 정보 <br><strong>(운동과 관련된 모든 게시글은 운동게시판에 해당됩니다)| 
+| 자유 게시판 | 헬쓰리는 커뮤니티입니다. <br> 자유게시판은 그런 회원님들을 위한 틀이 없는 자유로운 공간입니다. <br> 서로 많은 소통을 통해 운동에 대한 사고의 폭을 넓히는 공간이 되면 좋겠습니다.               |
+| 검색 기능   | 검색기능은 전체, 게시글작성자, 내용, 제목으로 분류되며 해당내용을 검색해 쉽게 찾을 수 있습니다. <br> 찾고싶은 것이 있으면 바로 사용해보세요!              |
+| 반응형 웹 제공            | PC, 테블릿, 모바일 등 어떤 기기에서든 최적화된 헬쓰리를 이용하실 수 있습니다.                                           |
+| 슬라이드             | 각 게시판에 있는 슬라이드를 통해 운동하는데 필요한 정보를 얻을 수 있습니다.                           |
 
 <br />
 
@@ -125,11 +126,11 @@
 
 |                                   아키텍처(Architecture)                                   |
 | :----------------------------------------------------------------------------------------: |
-| <img src="./readme_assets/architecture.png" alt="아키텍처(Architecture)" width="1000px" /> |
+| <img src="./readme_assets/architecture.png" alt="아키텍처(Architecture)" width="800px" height="800px" /> |
 
 |                              개체-관계 모델(ERD)                               |
 | :----------------------------------------------------------------------------: |
-| <img src="./readme_assets/erd.png" alt="개체-관계 모델(ERD)" width="1000px" /> |
+| <img src="./readme_assets/erd.png" alt="개체-관계 모델(ERD)"  width="800px" height="800px"/> |
 
 <br />
 
@@ -189,29 +190,28 @@
   </tr>
   <tr>
     <td align="center">
-      <a href="https://github.com/dudqo225" target="_blank">
+      <a href="https://github.com/pasong0511" target="_blank">
         박송희<br />(Front-end & 팀장)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/person003333" target="_blank">
-        이지훈<br />(Front-end)
+      <a href="https://github.com/jiji-hoon96" target="_blank">
+        이지훈<br />(Front-end & 부팀장)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/JeongHwan-dev" target="_blank">
+      <a href="https://github.com/qkrgnsgml" target="_blank">
         박훈희<br />(Back-end)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/sojjeong" target="_blank">
+      <a href="https://github.com/changjun6518" target="_blank">
         최창준<br />(Back-end)
       </a>
     </td>
         <td align="center">
-      <a href="https://github.com/sojjeong" target="_blank">
         박지민<br />(Desiigner)
-      </a>
+      </td>
     </td>
   </tr>
 </table>
@@ -222,13 +222,11 @@
 
 |  이름  |        역할        | <div align="center">개발 내용</div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | :----: | :----------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 박훈희 | Back-end<br /> | - DB 설계<br />- Spring Data JPA 세팅<br />&nbsp;&nbsp;&nbsp;&nbsp;- 채팅 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 도메인 개발<br />- TypeScript, Nest.js와 Socket.io를 이용한 실시간 채팅 서버 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- 웹소켓 연결<br />&nbsp;&nbsp;&nbsp;&nbsp;- 1대1 실시간 채팅 구현<br />- JWT를 이용한 토큰 생성 구현<br />- 채팅 서버 EC2 배포<br />- crontab 이용한 Linux mysql DB 백업 스케줄러 작동<br />- 'ssafymate.site' 도메인 적용                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| 최창준 |      Back-end      | - DB 설계<br />- Spring Boot로 RESTful API 작성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 아이디 찾기 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 비밀번호 재설정 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원 정보 조회 및 수정 도메인 개발<br />- SMTP Server, Redis를 이용한 이메일 인증 기능 구현<br />- 스프링 시큐리티, JWT를 이용한 인증 구현<br />- EC2 인프라 환경 세팅<br />- 프론트엔드, 백엔드 EC2 배포<br />- Github Action, Jenkins, Docker를 활용한 CI/CD<br />- Letsencrypt, Certbot을 이용한 서비스 SSL 보안 적용<br />- Nginx 웹서버 적용(Load Balancing, Reverse Proxy, Service Redirect 설정)                                                                                                                                                                                                                                                                                                                                                                           |
-| 이정훈 |      Back-end      | - DB 설계<br />&nbsp;&nbsp;&nbsp;&nbsp;- 기술 스택 데이터 전처리<br />&nbsp;&nbsp;&nbsp;&nbsp;- 교육생 인증 데이터 전처리<br />- 서버에 기술 스택 이미지 업로드<br />- Spring Boot로 RESTful API 작성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 기술 스택 조회 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 생성/수정/삭제 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 상세보기 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 탈퇴 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 리스트 검색 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 합류/지원 요청 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 합류/지원 메세지 조회 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 팀 합류/지원 요청 응답 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 교육생 상세보기 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 교육생 리스트 검색 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 교육생 프로젝트 트랙 선택 서비스 도메인 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 참여 중인 팀 조회 서비스 도메인 개발                                       |
-| 박정환 |     Front-end      | - '싸피 메이트' 서비스 기획<br />- 서비스 메인 홈 페이지 개발<br />- 팀 공고, 교육생 공고 정보 제공 및 검색 서비스 개발<br />- 팀 생성 · 수정 · 삭제 · 탈퇴 서비스 개발<br />- 팀 합류 요청 및 팀 지원 요청 서비스 개발<br />- 404 Not Found 페이지 개발<br />- 팀, 교육생 공고 목록 페이지, 상세 정보 페이지의 Skeleton UI 구현<br />- 'Redux', 'React-Query'를 이용한 상태관리<br />- 'Emotion'을 이용한 CSS-in-JS 방식으로 스타일링 구현 <br />- 'Media Query'와 'React-Responsive'를 이용한 반응형 웹 구현<br />- 검색 엔진 최적화(SEO) 작업<br />&nbsp;&nbsp;&nbsp;&nbsp;- Meta Data들을 설정하고 체계화된 Heading 처리 및 시멘틱 마크업 사용,<br />&nbsp;&nbsp;&nbsp;&nbsp;- SEO Score 100점 달성<br />- 웹 성능 최적화 작업<br />&nbsp;&nbsp;&nbsp;&nbsp;- 'Lazy Loading' 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 이미지 파일 최적화 등을 통해 웹 성능 최적화 진행<br />&nbsp;&nbsp;&nbsp;&nbsp;- Performance Score 62점 → 88점으로 개선<br />&nbsp;&nbsp;&nbsp;&nbsp;- Speed Index 속도 3.5초 → 1.3초로 개선<br />- 'Mock Service Worker'를 이용해 목업 API 구현하여 API 테스트 진행 |
-| 소정은 |     Front-end      | - Emotion을 이용한 CSS-in-JS 방식으로 스타일링 작업<br />- Media Query를 이용한 반응형 UI 설계<br />&nbsp;&nbsp;&nbsp;&nbsp;- MUI를 이용해 모바일, 태블릿 등의 뷰포트에 따른 채팅 목록 Drawer 적용<br />- Custom hook을 이용한 채팅 입력 상태 관리<br />- Socket.io를 이용한 WebRTC 채팅 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- 1:1 실시간 채팅 구현, 메시지 주고 받기<br />&nbsp;&nbsp;&nbsp;&nbsp;- Socket의 namespace를 나누어 사용자가 타인의 채팅방에 접속하는 것 제한<br />&nbsp;&nbsp;&nbsp;&nbsp;- Socket으로 로그인, 로그아웃 상태를 전달해 접속 중인 사용자의 온라인 상태 동기화<br />- SWR을 이용한 채팅 목록, 채팅 내역 상태 관리 및 비동기 API 처리<br />&nbsp;&nbsp;&nbsp;&nbsp;- 채팅 내역 스크롤 이동에 따른 데이터 페이징 API 처리, 무한 스크롤링 구현<br />- Mock Service Worker를 이용해 목업 API 구현하여 백엔드 API 설계 이전 API 테스팅 진행                                                                                                                                                                                                                          |
-| 이여진 |     Front-end      | - 회원가입 서비스 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- React-hook-form 을 이용한 회원가입 form 관리<br />&nbsp;&nbsp;&nbsp;&nbsp;- 이메일 인증을 통한 회원가입 구현<br />- 로그인<br />&nbsp;&nbsp;&nbsp;&nbsp;- Redux, Redux Saga를 통한 회원 정보 상태 관리<br />- 회원 정보 수정 서비스 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- React custom hook 사용<br />&nbsp;&nbsp;&nbsp;&nbsp;- Redux, Redux-Saga를 통한 회원 정보 상태 관리<br />- Redux를 통한 전역 Alert 서비스 개발<br />- 아이디찾기, 비밀번호 재설정 서비스 개발<br />- 입력값에 대한 유효성 검사를 통해 불필요한 통신 최소화<br />- Emotion을 이용한 CSS-in-JS 방식으로 스타일링 작업<br />- 미디어 쿼리를 이용한 반응형 구현<br />- Mock Service Worker를 이용해 목업 API 구현하여 백엔드 API 설계 이전 API 테스팅 진행                                                                                                                                                                                                                                                                                                      |
-
+| 박훈희 | Back-end<br /> | - '삼대몇' 서비스 기획<br />- DB 설계<br />- Spring Data JPA 세팅<br />- Spring Boot로 RESTful API 작성<br />- 게시판 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 삼대력 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 운동 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 자유 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />- 사용자 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원 정보 조회 및 수정 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원 탈퇴 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 사용자 내 게시글 조회 API 개발- 댓글 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 댓글 읽기 · 쓰기 ·  수정 · 삭제 API 개발<br />- 기타 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 검색 결과 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 3대력 부여 API 개발<br />- EC2, S3 인프라 환경 세팅<br />- 프론트엔드, 백엔드 EC2 배포<br />- Jenkins 활용한 CI/CD<br />- Nginx 웹서버 적용<br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 최창준 |      Back-end      | - DB 설계<br />- Spring Boot로 RESTful API 작성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 게시글 썸네일 API 생성<br />- oauth2 구글, 네이버 소셜 로그인 연동<br />- 스프링 시큐리티, 쿠키를 이용한 인증 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입 사용자 인증<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 사용자 인증<br />                                                                                                                                                                                                                                                                                                                                                                       |
+| 박송희 |      Front-end & 팀장     | - 회원가입 페이지 서비스 구현<br />- 로그인, 로그아웃 서비스 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Recoil을 통한 로그인 상태 전역관리를 통해 로그인 상태 유지<br />- 마이페이지, 회원정보 수정, 탈퇴 구현<br />- 무한 스크롤이 적용된 게시글 목록 컴포넌트를 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Intersection Observer를 적용하여 게시글 목록 데이터 호출<br />&nbsp;&nbsp;&nbsp;&nbsp;- 삼대력 동영상 파일 이미지 파일로 변환하여 썸네일 구현<br />- 자체 무한 슬라이드 컴포넌트 기능 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 싱글 컨텐츠 슬라이드 메인 슬라이드 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 멀티 컨텐츠 슬라이드 게시판 광고 슬라이드 적용<br />- apexcharts 라이브러리를 커스텀<br />&nbsp;&nbsp;&nbsp;&nbsp;- 홈화면 삼대력 Top 10 사용자 차트 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 마이페이지 개인 사용자 삼대력 정보 차트 적용<br />- 다크모드 / 라이트모드 기능 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Recoil을 통한 상태 적용 및 로컬스토리지 상태 저장<br />- Nginx(Reverse Proxy) 웹서버 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- docker와 nginx를 이용하여 로컬 작업 환경 Docker Nginx Proxy 서버 설정 <br />&nbsp;&nbsp;&nbsp;&nbsp;- 배포서버 Nginx를 Proxy 서버 설정<br />|
+| 이지훈 |     Front-end      | - 삼대력 게시글 생성 · 수정 · 삭제 · 컴포넌트 개발 <br> &nbsp;&nbsp;&nbsp;&nbsp; - Tiptap Editor 커스텀하여 에디터 적용  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Multi-Part-Form을 이용한 게시판 데이터 패칭 기능 구현  <br> - 운동 자유게시판 생성, 수정, 삭제, 컴포넌트 개발  <br>&nbsp;&nbsp;&nbsp;&nbsp; - 댓글 생성 · 수정 · 삭제 컴포넌트 개발  <br> - 삼대력 부여 컴포넌트 및 렌더링 컴포넌트 구현  <br> - 'Media Query'를 이용한 반응형 웹 구현  <br>  - Deskop, tablet , mobile 일때 각각의 Style Form 생성  <br>  - Multi-Part-Form을 이용한 게시판 데이터 패칭 기능 구현  <br> - 네비게이션 / 사이드 네비게이션 개발 <br>     - Media Query 를 이용해 반응형 네비바 구현 <br> - 팀원 소개 페이지 개발 (진행중) <br> - 404 Not Found 페이지 개발  <br> - 게시글 제목, 내용, 작성자 기준으로 검색 기능 구현  <br> - 게시글 관련 에러처리 및 중복코드 함수화  <br> - src 폴더 분류화 |
+| 박지민 |     Desiigner      | - '헬스리' 디자인 컨셉 기획<br />- Figma를 활용 반응형 UI / UX <br />&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입, 로그인 페이지 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 3대력게시판, 읽기, 쓰기, 댓글 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 운동게시판, 읽기, 쓰기, 댓글 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 네비게이션, 검색 결과 페이지<br />||                                                                                                                       
 <br />
 
 <div id="10"></div>
@@ -248,25 +246,25 @@
 1. **원격 저장소 복제**
 
 ```bash
-$ git clone https://github.com/ssafy-mate/ssafy-mate_front-end.git
+$ git clone https://github.com/HealthCommunity/frontend.git
 ```
 
 2. **프로젝트 폴더로 이동**
 
 ```bash
-$ cd ssafy-mate_front-end
+$ cd frontend
 ```
 
 3. **필요한 node_modules 설치**
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 4. **개발 서버 실행**
 
 ```bash
-$ yarn start
+$ npm run start
 ```
 
 <br />
@@ -276,7 +274,7 @@ $ yarn start
 1. **원격 저장소 복제**
 
 ```bash
-$ git clone https://github.com/ssafy-mate/ssafy-mate_back-end.git
+$ git clone https://github.com/HealthCommunity/backend.git
 ```
 
 2. **프로젝터 폴더 > src > main > resources 이동**
