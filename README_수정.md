@@ -5,7 +5,9 @@
   <h1>헬쓰리(HealThree)</h1>
   <div>
     <img src="https://img.shields.io/badge/NGINX-Active-2ea04?&logo=nginx&logoColor=white" alt="NGINX" />
-    <img src="https://img.shields.io/github/v/release/ssafy-mate/ssafy-mate_front-end?color=%23068fc6" alt="GitHub release (latest by date)" />
+    <a href="https://github.com/HealthCommunity/react_build" target="blank">
+    <img src="https://img.shields.io/badge/Version-1.1.4-green" alt="GitHub release (latest by date)" />
+    </a>
   </div>
   <br />
 </div>
