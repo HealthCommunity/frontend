@@ -1,13 +1,11 @@
 <div align="center">
   <br />
-  <img src="./readme_assets/HealTreeLogo.png" alt="HealThree"/>
+  <img src="./readme_assets/HealTreeLogo.png" alt="SSAFY MATE"/>
   <br />
   <h1>헬쓰리(HealThree)</h1>
   <div>
     <img src="https://img.shields.io/badge/NGINX-Active-2ea04?&logo=nginx&logoColor=white" alt="NGINX" />
-    <a href="https://github.com/HealthCommunity/react_build" target="blank">
-    <img src="https://img.shields.io/badge/Version-1.1.4-green" alt="GitHub release (latest by date)" />
-    </a>
+    <img src="https://img.shields.io/github/v/release/ssafy-mate/ssafy-mate_front-end?color=%23068fc6" alt="GitHub release (latest by date)" />
   </div>
   <br />
 </div>
@@ -79,7 +77,7 @@
 | :----------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
 |                                                               HTML5                                                   |                                                         CSS3                                                    |                                                   Javascript                                              |                                                                                                                                         |
 
-| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://velog.velcdn.com/images/real-bird/post/db9add5d-bba1-43c2-899b-42d3ab972f6b/image.png" alt="Recoil" width="50px" height="50px" /> | <img src="./readme_assets/StyledComponents.png" alt="Redux-Saga" width="50px" height="50px" /> |  |
+| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://recoiljs.org/ko/img/logo.svg" alt="Recoil" width="50px" height="50px" /> | <img src="https://styled-components.com/logo.png" alt="Redux-Saga" width="50px" height="50px" /> |  |
 | :----------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
 |                                                               React                                                          |                                                         Recoil                                                         |                                                   Styled-Components                                              |                                                                                                                                         |
 
@@ -113,12 +111,11 @@
 
 | 기능                      | 내용                                                                                                                                |
 | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
-| 삼대력 측정 & 삼대력 게시판                   | 나의 삼대력은 얼마나 될까? 에 대한 궁금중을 해소하기 위해서 만들어진 기능입니다. <br> 벤치프레스, 스쿼트, 데드리프트의 동영상을 올리면 관리자가 판단해서 3대력을 부여합니다. <br> 해당 3대력의 기록은 홈페이지 메인화면에 순위로 기록되어 다른사람과 기록을 공유할 수 있습니다. <br> 또한 삼대력 게시판의 게시글로 인해 다른사람의 3대력 측정과정의 모든 것을 볼 수 있습니다.|
-| 운동 게시판              | 운동게시판은 회원가입이 완료된 사용자가 운동에 대한 정보를 게시글로 남깁니다 <br> 해당 운동게시판은 아래 4가지 큰 틀로 작성됩니다. <br> 1. 식단, 음식 에 대한 정보 <br> 2. 운동기구의 할인정보 <br>3. 헬스장에 대한 정보공유 <br> 4. 운동에 대한 모든 정보 <br><strong>(운동과 관련된 모든 게시글은 운동게시판에 해당됩니다)| 
-| 자유 게시판 | 헬쓰리는 커뮤니티입니다. <br> 자유게시판은 그런 회원님들을 위한 틀이 없는 자유로운 공간입니다. <br> 서로 많은 소통을 통해 운동에 대한 사고의 폭을 넓히는 공간이 되면 좋겠습니다.               |
-| 검색 기능   | 검색기능은 전체, 게시글작성자, 내용, 제목으로 분류되며 해당내용을 검색해 쉽게 찾을 수 있습니다. <br> 찾고싶은 것이 있으면 바로 사용해보세요!              |
-| 반응형 웹 제공            | PC, 테블릿, 모바일 등 어떤 기기에서든 최적화된 헬쓰리를 이용하실 수 있습니다.                                           |
-| 슬라이드             | 각 게시판에 있는 슬라이드를 통해 운동하는데 필요한 정보를 얻을 수 있습니다.                           |
+| 삼대력 측정                   | 팀들의 정보를 비교하고 검색 폼을 통해 내가 원하는 프로젝트 트랙, 직무, 기술 스택 등을 검색하여 내게 꼭 맞는 팀 정보를 제공해줍니다. |
+| 운동정보 공유               | 교육생들의 정보를 한눈에 확인하고 검색 폼을 통해 나의 팀에 필요한 직무, 기술 역량 등을 갖춘 교육생을 찾아볼 수 있습니다.            |
+| 자유일상 공유 | 내가 원하는 팀 또는 교육생을 찾았다면 팀 지원 및 팀 합류 요청 기능을 통해 팀에 합류하거나 팀을 구성할 수 있습니다.                  |
+| 삼대력 비교   | 팀장 또는 교육생에게 좀 더 구체적인 개발 계획이나 정보가 궁금하다면 실시간 1대1 채팅을 통해 이야기를 나눌 수 있습니다.              |
+| 반응형 웹 제공            | PC, 테블릿, 모바일 등 어떤 기기에서든 최적화된 싸피 메이트 서비스를 이용하실 수 있습니다.                                           |
 
 <br />
 
@@ -128,11 +125,11 @@
 
 |                                   아키텍처(Architecture)                                   |
 | :----------------------------------------------------------------------------------------: |
-| <img src="./readme_assets/architecture.png" alt="아키텍처(Architecture)" width="800px" height="800px" /> |
+| <img src="./readme_assets/architecture.png" alt="아키텍처(Architecture)" width="1000px" /> |
 
 |                              개체-관계 모델(ERD)                               |
 | :----------------------------------------------------------------------------: |
-| <img src="./readme_assets/erd.png" alt="개체-관계 모델(ERD)"  width="800px" height="800px"/> |
+| <img src="./readme_assets/erd.png" alt="개체-관계 모델(ERD)" width="1000px" /> |
 
 <br />
 
@@ -192,28 +189,29 @@
   </tr>
   <tr>
     <td align="center">
-      <a href="https://github.com/pasong0511" target="_blank">
+      <a href="https://github.com/dudqo225" target="_blank">
         박송희<br />(Front-end & 팀장)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/jiji-hoon96" target="_blank">
-        이지훈<br />(Front-end & 부팀장)
+      <a href="https://github.com/person003333" target="_blank">
+        이지훈<br />(Front-end)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/qkrgnsgml" target="_blank">
+      <a href="https://github.com/JeongHwan-dev" target="_blank">
         박훈희<br />(Back-end)
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/changjun6518" target="_blank">
+      <a href="https://github.com/sojjeong" target="_blank">
         최창준<br />(Back-end)
       </a>
     </td>
         <td align="center">
+      <a href="https://github.com/sojjeong" target="_blank">
         박지민<br />(Desiigner)
-      </td>
+      </a>
     </td>
   </tr>
 </table>
@@ -227,7 +225,7 @@
 | 박훈희 | Back-end<br /> | - '삼대몇' 서비스 기획<br />- DB 설계<br />- Spring Data JPA 세팅<br />- Spring Boot로 RESTful API 작성<br />- 게시판 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 삼대력 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 운동 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 자유 게시글 읽기 · 쓰기 · 수정 · 삭제 API 개발<br />- 사용자 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원 정보 조회 및 수정 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원 탈퇴 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 사용자 내 게시글 조회 API 개발- 댓글 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 댓글 읽기 · 쓰기 ·  수정 · 삭제 API 개발<br />- 기타 API 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 검색 결과 API 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 3대력 부여 API 개발<br />- EC2, S3 인프라 환경 세팅<br />- 프론트엔드, 백엔드 EC2 배포<br />- Jenkins 활용한 CI/CD<br />- Nginx 웹서버 적용<br />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 최창준 |      Back-end      | - DB 설계<br />- Spring Boot로 RESTful API 작성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 게시글 썸네일 API 생성<br />- oauth2 구글, 네이버 소셜 로그인 연동<br />- 스프링 시큐리티, 쿠키를 이용한 인증 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입 사용자 인증<br />&nbsp;&nbsp;&nbsp;&nbsp;- 로그인 사용자 인증<br />                                                                                                                                                                                                                                                                                                                                                                       |
 | 박송희 |      Front-end & 팀장     | - 회원가입 페이지 서비스 구현<br />- 로그인, 로그아웃 서비스 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Recoil을 통한 로그인 상태 전역관리를 통해 로그인 상태 유지<br />- 마이페이지, 회원정보 수정, 탈퇴 구현<br />- 무한 스크롤이 적용된 게시글 목록 컴포넌트를 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Intersection Observer를 적용하여 게시글 목록 데이터 호출<br />&nbsp;&nbsp;&nbsp;&nbsp;- 삼대력 동영상 파일 이미지 파일로 변환하여 썸네일 구현<br />- 자체 무한 슬라이드 컴포넌트 기능 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- 싱글 컨텐츠 슬라이드 메인 슬라이드 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 멀티 컨텐츠 슬라이드 게시판 광고 슬라이드 적용<br />- apexcharts 라이브러리를 커스텀<br />&nbsp;&nbsp;&nbsp;&nbsp;- 홈화면 삼대력 Top 10 사용자 차트 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 마이페이지 개인 사용자 삼대력 정보 차트 적용<br />- 다크모드 / 라이트모드 기능 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Recoil을 통한 상태 적용 및 로컬스토리지 상태 저장<br />- Nginx(Reverse Proxy) 웹서버 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- docker와 nginx를 이용하여 로컬 작업 환경 Docker Nginx Proxy 서버 설정 <br />&nbsp;&nbsp;&nbsp;&nbsp;- 배포서버 Nginx를 Proxy 서버 설정<br />|
-| 이지훈 |     Front-end      | - 삼대력 게시글 생성 · 수정 · 삭제 · 컴포넌트 개발 <br> &nbsp;&nbsp;&nbsp;&nbsp; - Tiptap Editor 커스텀하여 에디터 적용  <br> &nbsp;&nbsp;&nbsp;&nbsp;- Multi-Part-Form을 이용한 게시판 데이터 패칭 기능 구현  <br> - 운동 자유게시판 생성, 수정, 삭제, 컴포넌트 개발  <br>&nbsp;&nbsp;&nbsp;&nbsp; - 댓글 생성 · 수정 · 삭제 컴포넌트 개발  <br> - 삼대력 부여 컴포넌트 및 렌더링 컴포넌트 구현  <br> - 'Media Query'를 이용한 반응형 웹 구현  <br>  - Deskop, tablet , mobile 일때 각각의 Style Form 생성  <br>  - Multi-Part-Form을 이용한 게시판 데이터 패칭 기능 구현  <br> - 네비게이션 / 사이드 네비게이션 개발 <br>     - Media Query 를 이용해 반응형 네비바 구현 <br> - 팀원 소개 페이지 개발 (진행중) <br> - 404 Not Found 페이지 개발  <br> - 게시글 제목, 내용, 작성자 기준으로 검색 기능 구현  <br> - 게시글 관련 에러처리 및 중복코드 함수화  <br> - src 폴더 분류화 |
+| 이지훈 |     Front-end      | - 삼대력, 운동, 자유 게시판 생성 · 수정 · 삭제 · 컴포넌트 개발<br />&nbsp;&nbsp;&nbsp;&nbsp;- Tiptap Editor 커스텀하여 에디터 적용<br />&nbsp;&nbsp;&nbsp;&nbsp;- 게시글 관련 에러처리 및 중복코드 함수화<br />- 삼대력 Multi-Part-Form을 이용한 게시판 데이터 패칭 기능 구현<br />- 댓글 생성 · 수정 · 삭제 컴포넌트 개발<br />- 삼대력 부여 컴포넌트 및 렌더링 컴포넌트 구현<br />- 'Media Query'를 이용한 반응형 웹 구현<br />&nbsp;&nbsp;&nbsp;&nbsp;- Deskop, tablet , mobile 일때 각각의 Style Form 생성<br />&nbsp;&nbsp;&nbsp;&nbsp;- 반응형 네비게이션 / 사이드 네비게이션 컴포넌트 구현<br />- 게시글 제목, 내용, 작성자 기준으로 검색 기능 구현<br />- 404 Not Found 페이지 개발<br />- 팀원 소개 페이지 개발 (진행 중)<br /> |
 | 박지민 |     Desiigner      | - '헬스리' 디자인 컨셉 기획<br />- Figma를 활용 반응형 UI / UX <br />&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 회원가입, 로그인 페이지 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 3대력게시판, 읽기, 쓰기, 댓글 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 운동게시판, 읽기, 쓰기, 댓글 페이지<br />&nbsp;&nbsp;&nbsp;&nbsp;- 네비게이션, 검색 결과 페이지<br />||                                                                                                                       
 <br />
 
